@@ -30,6 +30,7 @@ namespace MyDatabase
         public DbSet<Beer> Beers { get; set; }
         public DbSet<Wine> Wines { get; set; }
         public DbSet<Whiskey> Whiskeys { get; set; }
+        public DbSet<Spirit> Spirits { get; set; }
 
     }
 
