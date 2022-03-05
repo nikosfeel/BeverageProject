@@ -12,6 +12,5 @@ namespace PersistenceLayerGeneric
         T Get(int id);
         void Add(T entity);
         void Remove(int id);
-
     }
 }

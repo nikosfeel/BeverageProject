@@ -1,5 +1,32 @@
 ﻿<div class="paira-container">
 
+    <!--=================== Login Dialog ===================-->
+    <div class="modal fade paira-login-popup" id="paira-login" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="margin-bottom-30 text-capitalize">Customer Login</h3>
+                            <form class="popup-login-form">
+                                <input type="email" class="form-control" name="EMAIL" value="" placeholder="Email" />
+                                <input type="password" class="form-control paira-margin-top-1" name="password" value="" placeholder="Password" />
+                                <div class="forget-password text-right">
+                                    <a href="@Url.Action("ForgotPassword", "Account")" class="text-capitalize position-rela btn-border">Forget Password?</a>
+                                    <button class="btn btn-success color-scheme-2 btn-lg text-uppercase paira-margin-top-1">Login</button>
+                                </div>
+                            </form>
+                            <div class="new-customer text-right overflow">
+                                <h3 class="text-capitalize display-inline-b position-rela margin-top-40">New Customer</h3>
+                                <a href="@Url.Action("Register", "Account")" class="btn btn-default pull-right btn-lg forget-password text-uppercase margin-top-40">Register</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--=================== Header Container ===================-->
     <header>
         <!--=================== Header Top Section ===================-->
@@ -84,7 +111,7 @@
                                             <!--=================== Single Menu ===================-->
                                             <li class="width-li"><a href="@Url.Action("About", "Home")">About us</a></li>
                                             <!--=================== Single Menu ===================-->
-                                            <li class="width-li"><a href="@Url.Action("Login", "Account")">login</a></li>
+                                            <li class="width-li"><a href="#" class="login-popup">login</a></li>
                                             <!--=================== Single Menu ===================-->
                                             <li class="width-li"><a href="@Url.Action("Register", "Account")">register</a></li>
                                         </ul>
