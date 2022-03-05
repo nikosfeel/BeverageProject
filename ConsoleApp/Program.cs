@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PersistenceLayerGeneric.Repositories;
 
 namespace ConsoleApp
 {
@@ -12,7 +13,9 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            var beers = db.Beers.ToList();
+            BeerService service = new BeerService(db);
+
+            var beers = service.GetAll();
             foreach (var beer in beers)
             {
                 Console.WriteLine(beer.Name);

@@ -75,6 +75,10 @@
       <Project>{67B94614-3F11-4664-8D8C-F258A6FF3DAF}</Project>
       <Name>MyDatabase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PersistenceLayerGeneric\PersistenceLayerGeneric.csproj">
+      <Project>{1af5d36a-be89-423e-8652-25f17b312e76}</Project>
+      <Name>PersistenceLayerGeneric</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

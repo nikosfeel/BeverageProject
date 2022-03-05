@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entities.Products;
+using MyDatabase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace PersistenceLayerGeneric.Repositories
 {
-    internal class WineRepository
+    public class WineRepository : GenericRepository<Wine>
     {
+        public WineRepository(ApplicationDbContext context) : base(context)
+        {
+        }
     }
 }
