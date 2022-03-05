@@ -19,7 +19,6 @@ namespace Entities
 
         public string OriginCountry { get; set; }
 
-
         //Navigation properties
         public ICollection<Supplier> Suppliers { get; set; }
     }
