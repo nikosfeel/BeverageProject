@@ -1,0 +1,78 @@
+﻿@{
+    //ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1 class="text-center">E-Beverage</h1>
+    <a href="#" class="display-inline-b"><img src="~/Content/images/pngfind.com-website-under-construction-png-6238982.jpg" /></a>
+</div>
+
+
+
+
+<!--=================== Welcome Newsletter Dialog ===================-->
+<div class="modal fade welcome-newsletter-content" id="paira-welcome-newsletter" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static" data-keyboard="false" style="display: none">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="bottom-im">
+                    <div class="welcome-newsletter text-center">
+                        <h1 class="paira-margin-bottom-3"><span><em>E-Beverage</em></span></h1>
+                        <h4 class="margin-clear padding-clear">As a retailer of beverages, spirits and beer, we require all shoppers to be at least 18 years of age.</h4>
+                        <h2 class="paira-margin-bottom-1 padding-clear paira-margin-top-3"><b>ARE YOU 18+?</b></h2>
+                        <div class="paira-margin-bottom-1">
+                            <a href="#" class="color-scheme-1" data-toggle="modal" data-target="#paira-common-message">No</a>
+                            <a href="#" class="color-scheme-2 margin-left-25" data-dismiss="modal" aria-label="Close">Yes</a>
+                        </div>
+                        <h4 class="paira-margin-top-3 cont-p">You must be of legal drinking age to enter, use this site.</h4>
+                        <h4><b>&copy; @DateTime.Now.Year | E-Beverage</b></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--=================== Error Dialog Box ===================-->
+<div class="modal fade common-message in" id="paira-common-message" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static" data-keyboard="false" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success margin-bottom-20 margin-top-20 text-center font-size-14" role="alert">
+                            <strong class="paira-common-message-details"><i class="fa fa-info-circle font-size-16"></i> Sorry, your are not able to access this site. We have age restriction!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--=================== Ajax Success Message ===================-->
+<div class="modal fade ajax-success-message" id="paira-ajax-success-message" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="row">
+                    <div class="col-md-4 paira-success-message-img"><img src="images/product/product-3.png" alt="" class="img-responsive"></div>
+                    <div class="col-md-8">
+                        <h4 class="margin-top-15 paira-success-message-title text-capitalize">Deko lorem Ipsum product lorem product</h4>
+                        <a href="#" class="btn btn-success btn-lg text-uppercase btn-block margin-top-20">Continue Shopping</a>
+                        <a href="#" class="btn btn-default btn-lg text-uppercase btn-block margin-top-15 paira-success-message-link">Go To Cart</a>
+                    </div>
+                </div>
+                <div class="row paira-margin-top-5">
+                    <div class="col-md-12">
+                        <div class="alert alert-success margin-bottom-0 margin-top-15 padding-top-5 padding-bottom-5 text-center" role="alert"><strong class="paira-success-message-details letter-spacing-2"><i class="fa fa-check"></i> Added To Your Shopping Cart.</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
