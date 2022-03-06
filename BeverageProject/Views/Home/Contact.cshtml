@@ -2,6 +2,14 @@
     ViewBag.Title = "Contact";
 }
 
+
+
+
+
+
+
+<title>@ViewBag.Title</title>
+
 <section class="contact-content paira-padding-bottom-1">
     <div class="container">
         <div class="row">
@@ -11,8 +19,32 @@
             </div>
             <div class="col-md-12 paira-margin-top-1">
                 <!--=================== Google MAP Section ===================-->
-                <div id="googleMap" class="margin-top-5 full-width paira-margin-bottom-3" style="height: 450px;"></div>
+                @*<div id="googleMap" class="margin-top-5 full-width paira-margin-bottom-3" style="height: 400px;"></div>*@
+                <fieldset>
+
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+                    <div id="googleMap" style="height:400px;width:100%;"></div>
+                    <script>
+                        function myMap() {
+                            var myCenter = new google.maps.LatLng(37.975545089045404, 23.734711521862778);
+                            var mapProp = { center: myCenter, zoom: 17, scrollwheel: true, draggable: true, mapTypeId: google.maps.MapTypeId.ROADMAP };
+                            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                            var marker = new google.maps.Marker({ position: myCenter });
+                            marker.setMap(map);
+                        }
+                    </script>
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcU3hNOjVnpXxmptiq8xlIl-RjAc97maM&callback=myMap"></script>
+                </fieldset>
+                <br />
+                <br />
+                <br />
             </div>
+            
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="text-justify contact-desc paira-padding-bottom-2">
                     <h3 class="text-uppercase raleway-sbold">Get in touch</h3>
