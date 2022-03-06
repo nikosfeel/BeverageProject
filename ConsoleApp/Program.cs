@@ -2,9 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
 using PersistenceLayerGeneric.Repositories;
+using Entities.Products;
+using Entities;
 
 namespace ConsoleApp
 {
@@ -13,13 +16,12 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            BeerService service = new BeerService(db);
+            var beers = db.Beers.Where(b=>b.Category.Kind == "Bock").ToList();
 
-            var beers = service.GetAll();
             foreach (var beer in beers)
             {
                 Console.WriteLine(beer.Name);
-            }
+            }            
         }
     }
 }

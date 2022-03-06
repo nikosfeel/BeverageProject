@@ -57,6 +57,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categories\BeerCategory.cs" />
+    <Compile Include="Categories\ICategory.cs" />
+    <Compile Include="Categories\SpiritCategory.cs" />
+    <Compile Include="Categories\WhiskeyCategory.cs" />
+    <Compile Include="Categories\WineCategory.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="IdentityUsers\ApplicationUser.cs" />
     <Compile Include="IProduct.cs" />
