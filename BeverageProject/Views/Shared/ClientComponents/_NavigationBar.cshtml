@@ -69,54 +69,40 @@
                                                     <li>
                                                         <div class="container">
                                                             <div class="row">
-                                                                
-                                                                        <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                            <h4 class="margin-bottom-0">Beer</h4>
-                                                                            <ul class="list-unstyled mega-submenu-fix">
-                                                                                <li><a href="#">Ale</a></li>
-                                                                                <li><a href="#">Belgian</a></li>
-                                                                                <li><a href="#">Bock</a></li>
-                                                                                <li><a href="#">Lager</a></li>
-                                                                                <li><a href="#">Pilsner</a></li>
-                                                                                <li><a href="#">Porter</a></li>
-                                                                                <li><a href="#">Stout</a></li>
-                                                                                <li><a href="#">Wheat</a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                   
-
                                                                 <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0">Spirits</h4>
+                                                                    <h4 class="margin-bottom-0">@Model.BeerCategories.FirstOrDefault().Title</h4>
                                                                     <ul class="list-unstyled mega-submenu-fix">
-                                                                        <li><a href="#">Brandy</a></li>
-                                                                        <li><a href="#">Gin</a></li>
-                                                                        <li><a href="#">Rum</a></li>
-                                                                        <li><a href="#">Vodka</a></li>
+                                                                        @foreach (var cat in Model.BeerCategories)
+                                                                        {
+                                                                            <li><a href="#">@cat.Kind</a></li>
+                                                                        }
                                                                     </ul>
                                                                 </div>
                                                                 <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0">Wine</h4>
+                                                                    <h4 class="margin-bottom-0">@Model.SpiritCategories.FirstOrDefault().Title</h4>
                                                                     <ul class="list-unstyled mega-submenu-fix">
-                                                                        <li><a href="#">Dessert</a></li>
-                                                                        <li><a href="#">Red</a></li>
-                                                                        <li><a href="#">Rose</a></li>
-                                                                        <li><a href="#">Sparkling</a></li>
-                                                                        <li><a href="#">Sweet</a></li>
-                                                                        <li><a href="#">White</a></li>
+                                                                        @foreach (var cat in Model.SpiritCategories)
+                                                                        {
+                                                                            <li><a href="#">@cat.Kind</a></li>
+                                                                        }
                                                                     </ul>
                                                                 </div>
                                                                 <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0">Whiskey</h4>
+                                                                    <h4 class="margin-bottom-0">@Model.WineCategories.FirstOrDefault().Title</h4>
                                                                     <ul class="list-unstyled mega-submenu-fix">
-                                                                        <li><a href="#">Blended</a></li>
-                                                                        <li><a href="#">Bourbon</a></li>
-                                                                        <li><a href="#">Canadian</a></li>
-                                                                        <li><a href="#">Japanese</a></li>
-                                                                        <li><a href="#">Irish</a></li>
-                                                                        <li><a href="#">Rye</a></li>
-                                                                        <li><a href="#">Scotch</a></li>
-                                                                        <li><a href="#">Single Malt</a></li>
-                                                                        <li><a href="#">Tennessee</a></li>
+                                                                        @foreach (var cat in Model.WineCategories)
+                                                                        {
+                                                                            <li><a href="#">@cat.Kind</a></li>
+                                                                        }
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
+                                                                    <h4 class="margin-bottom-0">@Model.WhiskeyCategories.FirstOrDefault().Title</h4>
+                                                                    <ul class="list-unstyled mega-submenu-fix">
+                                                                        @foreach (var cat in Model.WhiskeyCategories)
+                                                                        {
+                                                                            <li><a href="#">@cat.Kind</a></li>
+                                                                        }
                                                                     </ul>
                                                                 </div>
                                                             </div>
