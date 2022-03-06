@@ -43,7 +43,10 @@
 
 </head>
 <body>
-    @Html.Partial("~/Views/Shared/ClientComponents/_NavigationBar.cshtml")
+    @{Html.RenderAction("NavBarCategories", "NavigationBar");}
+    @*@Html.Partial("~/Views/Shared/ClientComponents/_NavigationBar.cshtml")*@
+
+
 
     <div class="container body-content">
         @RenderBody()
