@@ -11,7 +11,7 @@ namespace BeverageProject.Models.ViewModels
     public class NavBarViewModel
     {
 
-        
+        public List<ICategory> BeverageCategories { get; set; }
         public List<BeerCategory> BeerCategories { get; set; }
         public List<WineCategory> WineCategories { get; set; }
         public List<WhiskeyCategory> WhiskeyCategories { get; set; }
