@@ -54,6 +54,10 @@
                                         <ul class="nav navbar-nav">
                                             <!--=================== Single Menu ===================-->
                                             <li class="width-li"><a href="#" class="search-popup">Search</a></li>
+                                            <li class="width-li"><a href="#" class="search-popup">TEST</a></li>
+                                            <li class="width-li"><a href="#" class="search-popup">TEST</a></li>
+                                            <li class="width-li"><a href="#" class="search-popup">TEST</a></li>
+                                            <li class="width-li"><a href="#" class="search-popup">TEST</a></li>
                                             <!--=================== Grid Mega Menu ===================-->
                                             <li class="dropdown paira-dropdown mega-menu-fw width-li">
                                                 <a href="#">shop <i class="paira-angle-down angle-down fa fa-angle-down margin-left-5"></i></a>
@@ -75,7 +79,7 @@
                                                                     <ul class="list-unstyled mega-submenu-fix">
                                                                         @foreach (var cat in Model.SpiritCategories)
                                                                         {
-                                                                            <li><a href="#">@cat.Kind</a></li>
+                                                                            <li><a href="@Url.Action("Index", "Spirit")?category=@cat.Kind">@cat.Kind</a></li>
                                                                         }
                                                                     </ul>
                                                                 </div>
@@ -84,7 +88,7 @@
                                                                     <ul class="list-unstyled mega-submenu-fix">
                                                                         @foreach (var cat in Model.WineCategories)
                                                                         {
-                                                                            <li><a href="#">@cat.Kind</a></li>
+                                                                        <li><a href="@Url.Action("Index", "Wine")?category=@cat.Kind">@cat.Kind</a></li>
                                                                         }
                                                                     </ul>
                                                                 </div>
