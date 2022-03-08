@@ -195,6 +195,7 @@
     <Compile Include="Controllers\NavigationBarController.cs" />
     <Compile Include="Controllers\SpiritController.cs" />
     <Compile Include="Controllers\WineController.cs" />
+    <Compile Include="Controllers\WhiskeyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -598,6 +599,11 @@
     <Content Include="Views\Spirit\Details.cshtml" />
     <Content Include="Views\Spirit\Edit.cshtml" />
     <Content Include="Views\Spirit\Index.cshtml" />
+    <Content Include="Views\Whiskey\Create.cshtml" />
+    <Content Include="Views\Whiskey\Delete.cshtml" />
+    <Content Include="Views\Whiskey\Details.cshtml" />
+    <Content Include="Views\Whiskey\Edit.cshtml" />
+    <Content Include="Views\Whiskey\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

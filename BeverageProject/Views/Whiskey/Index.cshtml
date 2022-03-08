@@ -1,12 +1,8 @@
-﻿@model IEnumerable<Entities.Products.Beer>
+﻿@model IEnumerable<Entities.Products.Whiskey>
 
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
-
 <!--=================== Main Content Container ===================-->
 <main class="list-collection-page">
     <!--=================== Breadcrumb Section ===================-->
@@ -17,7 +13,7 @@
                     <div class="breadcrumb">
                         <ul class="list-inline">
                             <li><a href="#" class="raleway-light">Home <i class="fa fa-angle-right"></i></a></li>
-                            <li class="raleway-sbold">Beers</li>
+                            <li class="raleway-sbold">Whiskeys</li>
                         </ul>
                     </div>
                 </div>
@@ -49,7 +45,7 @@
             <div class="row">
                 <div class="synconis paira-margin-bottom-1">
                     <div class="container">
-                        <div class="row">
+                        <div class="row">                            
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
                                 <div class="form-group margin-clear">
                                     <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>Sort by:</b></label></h4>
@@ -57,7 +53,7 @@
                                         <option value="#">Name(A-Z)</option>
                                         <option value="#">Name(Z-A)</option>
                                         <option value="#">Price(High)</option>
-                                        <option value="#">Price(Low)</option>
+                                        <option value="#">Price(Low)</option>                                        
                                     </select>
                                 </div>
                             </div>
@@ -73,22 +69,22 @@
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 list-view">
                     <div class="product-widget">
-                        @foreach (var beer in Model)
+                        @foreach (var whiskey in Model)
                         {
                             <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-1">
                                 <div class="product text-center">
                                     <div class="block-image position-rela">
                                         <a href="#">
                                             <div class="background-overlay"></div>
-                                            <img src=@Html.DisplayFor(modelItem => beer.PhotoUrl) alt="" class="img-responsive" width='250' height='250'>
+                                            <img src=@Html.DisplayFor(modelItem => whiskey.PhotoUrl) alt="" class="img-responsive" width='250' height='250'>
                                         </a>
                                     </div>
-                                    <h1 class="font-size-18 paira-margin-top-4 margin-bottom-10"><a href="collection.html">@Html.DisplayFor(modelItem => beer.Name)</a></h1>
-                                    <span class="money font-size-18"><b class="">€@Html.DisplayFor(modelItem => beer.Price)</b></span>
+                                    <h1 class="font-size-18 paira-margin-top-4 margin-bottom-10"><a href="collection.html">@Html.DisplayFor(modelItem => whiskey.Name)</a></h1>
+                                    <span class="money font-size-18"><b class="">€@Html.DisplayFor(modelItem => whiskey.Price)</b></span>
                                     <p class="text-capitalize margin-top-15 letter-spacing-2">
-                                        @Html.DisplayFor(modelItem => beer.Description)
+                                        @Html.DisplayFor(modelItem => whiskey.Description)
                                     </p>
-                                    @Html.ActionLink("Details", "Details", new { id = beer.Id })
+                                    @Html.ActionLink("Details", "Details", new { id = whiskey.Id })
                                     <div class="product-hover">
                                         <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
                                             <a href="#paira-quick-view" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
