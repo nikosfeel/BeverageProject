@@ -2,97 +2,107 @@
     ViewBag.Title = "Contact";
 }
 
-
-
-
-
-
-
-<title>@ViewBag.Title</title>
-
-<section class="contact-content paira-padding-bottom-1">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <img alt="" class="paira-margin-bottom-1" src="~/Content/images/hedding.png">
-                <h3 class="text-uppercase raleway-light margin-clear paira-margin-bottom-1">Contact Us</h3>
-            </div>
-            <div class="col-md-12 paira-margin-top-1">
-                <!--=================== Google MAP Section ===================-->
-                @*<div id="googleMap" class="margin-top-5 full-width paira-margin-bottom-3" style="height: 400px;"></div>*@
-                <fieldset>
-
-                    <meta charset="utf-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-                    <div id="googleMap" style="height:400px;width:100%;"></div>
-                    <script>
-                        function myMap() {
-                            var myCenter = new google.maps.LatLng(37.975545089045404, 23.734711521862778);
-                            var mapProp = { center: myCenter, zoom: 17, scrollwheel: true, draggable: true, mapTypeId: google.maps.MapTypeId.ROADMAP };
-                            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-                            var marker = new google.maps.Marker({ position: myCenter });
-                            marker.setMap(map);
-                        }
-                    </script>
-                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcU3hNOjVnpXxmptiq8xlIl-RjAc97maM&callback=myMap"></script>
-                </fieldset>
-                <br />
-                <br />
-                <br />
-            </div>
-            
-            <div class="col-md-12 col-xs-12 col-sm-12">
-                <div class="text-justify contact-desc paira-padding-bottom-2">
-                    <h3 class="text-uppercase raleway-sbold">Get in touch</h3>
-                    <p class="margin-top-20 margin-bottom-0">We'd love to hear from you - please use the form to send us your message.</p>
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 col-xs-12 margin-top-10">
-                            <p class="letter-spacing-2">908 Andrianou Str.<br>Athens<br>Postal Code, 17778<br>Greece</p>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12 margin-top-10">
-                            <p class="letter-spacing-2">Email: info@e-beverage.gr<br>Toll-free: 210 000 8808</p>
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12 margin-top-10">
-                            <p class="letter-spacing-2">Opening Hours:<br>Monday to Saturday: 9am - 10pm</p>
-                        </div>
+<!--=================== Main Content Container ===================-->
+<main class="contact-page">
+    <!--=================== Breadcrumb Section ===================-->
+    <section class="breadcrumb-container paira-padding-bottom-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="breadcrumb">
+                        <ul class="list-inline">
+                            <li><a href="#" class="raleway-light">Home <i class="fa fa-angle-right"></i></a></li>
+                            <li class="raleway-sbold">Contact us</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="form-contact">
-                    <h3 class="text-uppercase raleway-sbold">Drop us a line</h3>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12">
-                            <!--=================== Contact Us Form Section ===================-->
-                            <form accept-charset="UTF-8" action="#" class="contact-form" method="post">
-                                <div class="row">
-                                    <input name="form_type" type="hidden" value="contact">
-                                    <input name="utf8" type="hidden" value="✓">
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-                                        <input type="text" class="form-control" name="contact[name]">
-                                        <span class="center-block"><label>Name</label></span>
+            </div>
+        </div>
+    </section>
+    <!--=================== contact content Section ===================-->
+    <section class="contact-content paira-padding-bottom-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <img alt="" class="paira-margin-bottom-1" src="~/Content/images/hedding.png">
+                    <h3 class="text-uppercase raleway-light margin-clear paira-margin-bottom-1">Contact Us</h3>
+                </div>
+                <div class="col-md-12 paira-margin-top-1">
+                    <!--=================== Google MAP Section ===================-->
+                    @*<div id="googleMap" class="margin-top-5 full-width paira-margin-bottom-3" style="height: 400px;"></div>*@
+                    <fieldset>
+
+                        <meta charset="utf-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1">
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+                        <div id="googleMap" style="height:500px;width:100%;"></div>
+                        <script>
+                            function myMap() {
+                                var myCenter = new google.maps.LatLng(37.975545089045404, 23.734711521862778);
+                                var mapProp = { center: myCenter, zoom: 17, scrollwheel: true, draggable: true, mapTypeId: google.maps.MapTypeId.ROADMAP };
+                                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                                var marker = new google.maps.Marker({ position: myCenter });
+                                marker.setMap(map);
+                            }
+                        </script>
+                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcU3hNOjVnpXxmptiq8xlIl-RjAc97maM&callback=myMap"></script>
+                    </fieldset>
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                    <div class="text-justify contact-desc paira-padding-bottom-2">
+                        <h3 class="text-uppercase raleway-sbold">Get in touch</h3>
+                        <p class="margin-top-20 margin-bottom-0">We'd love to hear from you - please use the form to send us your message.</p>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12 margin-top-10">
+                                <p class="letter-spacing-2">908 Andrianou Str.<br>Athens<br>Postal Code, 17778<br>Greece</p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 margin-top-10">
+                                <p class="letter-spacing-2">Email: info@e-beverage.gr<br>Toll-free: 210 000 8808</p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 margin-top-10">
+                                <p class="letter-spacing-2">Opening Hours:<br>Monday to Saturday: 9am - 10pm</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-contact">
+                        <h3 class="text-uppercase raleway-sbold">Drop us a line</h3>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <!--=================== Contact Us Form Section ===================-->
+                                <form accept-charset="UTF-8" action="#" class="contact-form" method="post">
+                                    <div class="row">
+                                        <input name="form_type" type="hidden" value="contact">
+                                        <input name="utf8" type="hidden" value="✓">
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
+                                            <input type="text" class="form-control" name="contact[name]">
+                                            <span class="center-block"><label>Name</label></span>
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
+                                            <input type="email" class="form-control" name="contact[email]">
+                                            <span class="center-block"><label>Email</label></span>
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
+                                            <input type="text" class="form-control" name="contact[phone]">
+                                            <span class="center-block"><label>Phone</label></span>
+                                        </div>
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
+                                            <textarea rows="8" name="contact[body]" class="form-control"></textarea>
+                                            @*<span class="center-block"><label>Message</label></span>*@
+                                        </div>
                                     </div>
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-                                        <input type="email" class="form-control" name="contact[email]">
-                                        <span class="center-block"><label>Email</label></span>
-                                    </div>
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-                                        <input type="text" class="form-control" name="contact[phone]">
-                                        <span class="center-block"><label>Phone</label></span>
-                                    </div>
-                                    <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-                                        <textarea rows="8" name="contact[body]" class="form-control"></textarea>
-                                        @*<span class="center-block"><label>Message</label></span>*@
-                                    </div>
-                                </div>
-                                <a href="#" class="btn btn-default btn-lg color-scheme-2 pull-right text-uppercase paira-margin-top-1 raleway-light">Send Massage</a>
-                            </form>
+                                    <a href="#" class="btn btn-default btn-lg color-scheme-2 pull-right text-uppercase paira-margin-top-1 raleway-light">Send Massage</a>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</main>
