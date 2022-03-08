@@ -66,7 +66,7 @@
                                                                     <ul class="list-unstyled mega-submenu-fix">
                                                                         @foreach (var cat in Model.BeerCategories)
                                                                         {
-                                                                            <li><a href="#">@cat.Kind</a></li>
+                                                                            <li><a href="@Url.Action("Index","Beer","category="+cat.Kind)">@cat.Kind</a></li>
                                                                         }
                                                                     </ul>
                                                                 </div>

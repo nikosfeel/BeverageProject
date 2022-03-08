@@ -189,6 +189,7 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BeerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NavigationBarController.cs" />
@@ -580,6 +581,11 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\TermsAndConditions\View.cshtml" />
+    <Content Include="Views\Beer\Create.cshtml" />
+    <Content Include="Views\Beer\Delete.cshtml" />
+    <Content Include="Views\Beer\Details.cshtml" />
+    <Content Include="Views\Beer\Edit.cshtml" />
+    <Content Include="Views\Beer\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
