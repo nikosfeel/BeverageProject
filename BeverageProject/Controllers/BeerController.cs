@@ -16,6 +16,7 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Beer
+        
         public ActionResult Index(string category)
         {
             var beers = db.Beers.Where(x=>x.Category.Kind == category).ToList();

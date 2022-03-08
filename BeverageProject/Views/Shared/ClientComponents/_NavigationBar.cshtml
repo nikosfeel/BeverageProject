@@ -56,7 +56,7 @@
                                             <li class="width-li"><a href="#" class="search-popup">Search</a></li>
                                             <!--=================== Grid Mega Menu ===================-->
                                             <li class="dropdown paira-dropdown mega-menu-fw width-li">
-                                                <a href="product.html">shop <i class="paira-angle-down angle-down fa fa-angle-down margin-left-5"></i></a>
+                                                <a href="#">shop <i class="paira-angle-down angle-down fa fa-angle-down margin-left-5"></i></a>
                                                 <ul class="dropdown-menu paira-dropdown-menu list-unstyled padding-clear">
                                                     <li>
                                                         <div class="container">
@@ -66,7 +66,7 @@
                                                                     <ul class="list-unstyled mega-submenu-fix">
                                                                         @foreach (var cat in Model.BeerCategories)
                                                                         {
-                                                                            <li><a href="@Url.Action("Index","Beer","category="+cat.Kind)">@cat.Kind</a></li>
+                                                                            <li><a href="@Url.Action("Index", "Beer")?category=@cat.Kind">@cat.Kind</a></li>
                                                                         }
                                                                     </ul>
                                                                 </div>
