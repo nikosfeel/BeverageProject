@@ -193,6 +193,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NavigationBarController.cs" />
+    <Compile Include="Controllers\WhiskeyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -586,10 +587,14 @@
     <Content Include="Views\Beer\Details.cshtml" />
     <Content Include="Views\Beer\Edit.cshtml" />
     <Content Include="Views\Beer\Index.cshtml" />
+    <Content Include="Views\Whiskey\Create.cshtml" />
+    <Content Include="Views\Whiskey\Delete.cshtml" />
+    <Content Include="Views\Whiskey\Details.cshtml" />
+    <Content Include="Views\Whiskey\Edit.cshtml" />
+    <Content Include="Views\Whiskey\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\NavigationBar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
