@@ -276,14 +276,14 @@ ul.pagination.list-inline {
     width: 130px;
 }
 .logo{
-    padding: 20px 30px;
+    padding: 10px;
     text-align: center;
 }
 .logo a{
     font-size: 45px;
 }
 .cart{
-    padding: 17px 30px;
+    padding: 10px;
     text-align: center;
 }
 .mega-menu .width-com {
@@ -407,7 +407,7 @@ a.boxclose {
     background: none;
     border: none;
     margin: 0;
-    padding: 0;
+    padding: 28px;
 }
 .mega-menu .nav, .mega-menu .collapse, .mega-menu .dropup, .mega-menu .dropdown {
     position: static;
@@ -421,7 +421,7 @@ a.boxclose {
 .mega-menu .dropdown.mega-menu-fw .dropdown-menu {
     left: -28%;
     right: 0;
-    top: 104px;
+    top: 80px;
 }
 .mega-menu-fw .container {
     max-width: 860px;
