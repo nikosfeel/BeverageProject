@@ -189,6 +189,7 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationUserController.cs" />
     <Compile Include="Controllers\BeerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -298,6 +299,26 @@
     <Content Include="Content\images\pngfind.com-website-under-construction-png-6238982.jpg" />
     <Content Include="Content\images\pop-massage.png" />
     <Content Include="Content\images\product-detail.png" />
+    <Content Include="Content\images\ProductsDummy\andwell-brewing-co-crouch-hold-engage-rich-red-ipa-500ml.jpg" />
+    <Content Include="Content\images\ProductsDummy\black-thistle-pearl-mist-gin-70cl.jpg" />
+    <Content Include="Content\images\ProductsDummy\blue-moon-beer-belgian-white-wheat-beer-single-bottle-5-4-abv_1_2.jpg" />
+    <Content Include="Content\images\ProductsDummy\bush-rum-passion-fruit-guava-rum-70cl.jpg" />
+    <Content Include="Content\images\ProductsDummy\campo-viejo-winemakers-blend-red-wine-75cl.jpg" />
+    <Content Include="Content\images\ProductsDummy\ciroc-summer-citrus-vodka-70cl_2.jpg" />
+    <Content Include="Content\images\ProductsDummy\cloudy-bay-sauvignon-blanc-white-wine-75cl_1.jpg" />
+    <Content Include="Content\images\ProductsDummy\grace-omalley-heather-infused-irish-gin-70cl.jpg" />
+    <Content Include="Content\images\ProductsDummy\guinness-nigerian-foreign-extra-imported-irish-stout-12x-600ml-nrb-case_temp_1.jpg" />
+    <Content Include="Content\images\ProductsDummy\jameson-orange-spirit-drink-70-cl-promo.jpg" />
+    <Content Include="Content\images\ProductsDummy\johnnie-walker-blue-label-whisky-70cl-icons.jpg" />
+    <Content Include="Content\images\ProductsDummy\kopparberg-rhubarb-cider-500ml.jpg" />
+    <Content Include="Content\images\ProductsDummy\la-capilla-crianza-red-wine-75cl.jpg" />
+    <Content Include="Content\images\ProductsDummy\laplandia-espresso-20cl.jpg" />
+    <Content Include="Content\images\ProductsDummy\maison-no-9-rose-wine-75cl.jpg" />
+    <Content Include="Content\images\ProductsDummy\moosehead-cracked-canoe-lager-355ml-can.jpg" />
+    <Content Include="Content\images\ProductsDummy\proclamation-blended-irish-whiskey-70cl.jpg" />
+    <Content Include="Content\images\ProductsDummy\the-busker-triple-cask-triple-smooth-irish-whiskey-70cl.jpg" />
+    <Content Include="Content\images\ProductsDummy\the-glendronach-12-year-whisky-70cl.jpg" />
+    <Content Include="Content\images\ProductsDummy\trivento-reserve-malbec-red-wine-187ml.jpg" />
     <Content Include="Content\images\product\collection-1.png" />
     <Content Include="Content\images\product\collection-2.png" />
     <Content Include="Content\images\product\collection-3.png" />
@@ -604,6 +625,11 @@
     <Content Include="Views\Whiskey\Details.cshtml" />
     <Content Include="Views\Whiskey\Edit.cshtml" />
     <Content Include="Views\Whiskey\Index.cshtml" />
+    <Content Include="Views\ApplicationUser\Create.cshtml" />
+    <Content Include="Views\ApplicationUser\Delete.cshtml" />
+    <Content Include="Views\ApplicationUser\Details.cshtml" />
+    <Content Include="Views\ApplicationUser\Edit.cshtml" />
+    <Content Include="Views\ApplicationUser\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
