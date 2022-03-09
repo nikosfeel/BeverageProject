@@ -52,13 +52,16 @@ namespace MyDatabase.Seeding
             List<WineCategory> wineCategories = new List<WineCategory>() { wC1, wC2, wC3, wC4, wC5, wC6 };
             db.WineCategories.AddRange(wineCategories);
 
-            Wine w1 = new Wine { Name = "Campo Viejo", Description = "Campo Viejo Winemakers Blend Red Wine 75cl", Price = 7.4, PhotoUrl = "https://assets.sainsburys-groceries.co.uk/gol/8093532/1/640x640.jpg", Category = wC1 };
+            Wine w1 = new Wine { Name = "Campo Viejo", Description = "Campo Viejo Winemakers Blend Red Wine 75cl", Price = 7.4, PhotoUrl = "https://assets.sainsburys-groceries.co.uk/gol/8093532/1/640x640.jpg", Category = wC2 };
             Wine w2 = new Wine { Name = "Trivento", Description = "Trivento Reserve Malbec Red Wine 187ml", Price = 2.1, PhotoUrl = "https://www.drinksupermarket.com/media/catalog/product/cache/0288c1cb4e2e8b328879830e17ef5901/t/r/trivento-reserve-malbec-red-wine-75cl_1.jpg", Category = wC2 };
-            Wine w3 = new Wine { Name = "Baron D'Arignac ", Description = "Baron D'Arignac Cabernet Sauvignon Red Wine 75cl", Price = 15.2, PhotoUrl = "https://cdn.oaks.delivery/wp-content/uploads/2017/08/baron-darignac.jpg", Category = wC1 };
-            Wine w4 = new Wine { Name = "Cloudy Bay", Description = "Cloudy Bay Sauvignon Blanc Wine 1.5Ltr Magnum", Price = 44, PhotoUrl = "https://www.drinksupermarket.com/media/catalog/product/cache/0288c1cb4e2e8b328879830e17ef5901/c/l/cloudy-bay-sauvignon-blanc-white-wine-75cl_1.jpg", Category = wC2 };
-            Wine w5 = new Wine { Name = "Maison", Description = "Maison No 9 Rose Wine 75cl", Price = 14, PhotoUrl = "https://digitalcontent.api.tesco.com/v2/media/ghs/1d20098c-11e3-4f34-8e8e-4f3035db2c3c/0457b244-cc6f-48a1-83b8-ab7095a0be7a_1708643708.jpeg?h=540&w=540" };
+            Wine w3 = new Wine { Name = "Baron D'Arignac ", Description = "Baron D'Arignac Cabernet Sauvignon Red Wine 75cl", Price = 15.2, PhotoUrl = "https://cdn.oaks.delivery/wp-content/uploads/2017/08/baron-darignac.jpg", Category = wC2 };
+            Wine w4 = new Wine { Name = "Cloudy Bay", Description = "Cloudy Bay Sauvignon Blanc Wine 1.5Ltr Magnum", Price = 44, PhotoUrl = "https://www.drinksupermarket.com/media/catalog/product/cache/0288c1cb4e2e8b328879830e17ef5901/c/l/cloudy-bay-sauvignon-blanc-white-wine-75cl_1.jpg", Category = wC6 };
+            Wine w5 = new Wine { Name = "Maison", Description = "Maison No 9 Rose Wine 75cl", Price = 14, PhotoUrl = "https://digitalcontent.api.tesco.com/v2/media/ghs/1d20098c-11e3-4f34-8e8e-4f3035db2c3c/0457b244-cc6f-48a1-83b8-ab7095a0be7a_1708643708.jpeg?h=540&w=540", Category = wC3 };
+            Wine w6 = new Wine { Name = "Vietti Moscato d’Asti", Description = "Region: Piedmont, Italy | ABV: 5% | Tasting notes: Canned peaches, Candied ginger, Honeysuckle ", Price = 14, PhotoUrl = "https://cdn11.bigcommerce.com/s-d0rwkfplpd/images/stencil/1280x1280/products/1652/2844/Vajra_-_Moscato__86496.1612829179.jpg?c=2", Category = wC5 };
+            Wine w7 = new Wine { Name = "Mega Spileo - Domaine", Description = "Cavino Deus Rosato 200ml", Price = 14, PhotoUrl = "https://www.thanopoulos.gr/883015-large_default/rosato-krasi-roze-imiafrodes-deus-200ml.jpg", Category = wC4 };
+            Wine w8 = new Wine { Name = "Château d'Yquem", Description = "Château d'Yquem 375ml 1999", Price = 220, PhotoUrl = "https://media-verticommnetwork1.netdna-ssl.com/wines/chateau-dyquem-375ml-228006-s706.jpg", Category = wC1 };
 
-            List<Wine> wines = new List<Wine> { w1, w2, w3, w4, w5 };
+            List<Wine> wines = new List<Wine> { w1, w2, w3, w4, w5,w6 ,w7,w8};
             db.Wines.AddRange(wines);
             db.SaveChanges();
         }
@@ -99,13 +102,14 @@ namespace MyDatabase.Seeding
             List<SpiritCategory> spiritCategories = new List<SpiritCategory>() { sC1, sC2, sC3, sC4 };
             db.SpiritCategories.AddRange(spiritCategories);
 
-            Spirit s1 = new Spirit { Name = "Ciroc", Description = "Ciroc Summer Citrus Vodka 70cl", Price = 32, PhotoUrl = "https://www.drinksupermarket.com/media/catalog/product/cache/0288c1cb4e2e8b328879830e17ef5901/c/i/ciroc-summer-citrus-vodka-70cl_2.jpg", Category = sC1 };
-            Spirit s2 = new Spirit { Name = "Grace O'Malley", Description = "Grace O'Malley Heather Infused Irish Gin 70cl", Price = 27, PhotoUrl = "https://cdn.shopify.com/s/files/1/0575/4142/7381/products/GraceO_MalleyHeatherInfusedIrishGin70cl_600x.png?v=1636813382", Category = sC1 };
+            Spirit s1 = new Spirit { Name = "Ciroc", Description = "Ciroc Summer Citrus Vodka 70cl", Price = 32, PhotoUrl = "https://www.drinksupermarket.com/media/catalog/product/cache/0288c1cb4e2e8b328879830e17ef5901/c/i/ciroc-summer-citrus-vodka-70cl_2.jpg", Category = sC4 };
+            Spirit s2 = new Spirit { Name = "Grace O'Malley", Description = "Grace O'Malley Heather Infused Irish Gin 70cl", Price = 27, PhotoUrl = "https://cdn.shopify.com/s/files/1/0575/4142/7381/products/GraceO_MalleyHeatherInfusedIrishGin70cl_600x.png?v=1636813382", Category = sC2 };
             Spirit s3 = new Spirit { Name = "Black Thistle", Description = "Black Thistle London Dry Gin 70cl", Price = 25, PhotoUrl = "https://www.drinksupermarket.com/media/catalog/product/cache/0288c1cb4e2e8b328879830e17ef5901/b/l/black-thistle-london-dry-gin-70cl.jpg", Category = sC2 };
-            Spirit s4 = new Spirit { Name = "Bush Rum", Description = "Bush Rum Original Spiced Rum 70cl", Price = 27, PhotoUrl = "https://www.drinksupermarket.com/media/catalog/product/cache/0288c1cb4e2e8b328879830e17ef5901/b/l/black-thistle-london-dry-gin-70cl.jpg", Category = sC1 };
-            Spirit s5 = new Spirit { Name = "Laplandia", Description = "Laplandia Espresso Vodka 20cl", Price = 10, PhotoUrl = "https://www.drinksupermarket.com/media/catalog/product/cache/0288c1cb4e2e8b328879830e17ef5901/l/a/laplandia-espresso-shot-vodka-70cl_temp.jpg", Category = sC2 };
+            Spirit s4 = new Spirit { Name = "Bush Rum", Description = "Bush Rum Original Spiced Rum 70cl", Price = 27, PhotoUrl = "https://www.drinksupermarket.com/media/catalog/product/cache/0288c1cb4e2e8b328879830e17ef5901/b/l/black-thistle-london-dry-gin-70cl.jpg", Category = sC3 };
+            Spirit s5 = new Spirit { Name = "Laplandia", Description = "Laplandia Espresso Vodka 20cl", Price = 10, PhotoUrl = "https://www.drinksupermarket.com/media/catalog/product/cache/0288c1cb4e2e8b328879830e17ef5901/l/a/laplandia-espresso-shot-vodka-70cl_temp.jpg", Category = sC4 };
+            Spirit s6 = new Spirit { Name = "CORTEL", Description = "CORTEL BRANDY X.O. CRISTALLO 0,7LT", Price = 35, PhotoUrl = "https://www.oakcava.gr/sites/default/files/img_7830_f.jpg", Category = sC1 };
             
-            List<Spirit> spirits = new List<Spirit> { s1, s2, s3, s4, s5 };
+            List<Spirit> spirits = new List<Spirit> { s1, s2, s3, s4, s5,s6 };
             db.Spirits.AddRange(spirits);
             db.SaveChanges();
         }
