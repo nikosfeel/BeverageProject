@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace MyDatabase.Seeding
 {
@@ -80,7 +79,7 @@ namespace MyDatabase.Seeding
             db.SaveChanges();
 
         
-            Whiskey wh1 = new Whiskey { Name = "The Busker", Description = "The Busker Triple Cask Triple Smooth Irish Whiskey 70cl", Price = 20, PhotoUrl = "../BeverageProjectFinal/BeverageProject/Content/images/ProductsDummy/the-busker-triple-cask-triple-smooth-irish-whiskey-70cl.jpg", Category = whC1 };
+            Whiskey wh1 = new Whiskey { Name = "The Busker", Description = "The Busker Triple Cask Triple Smooth Irish Whiskey 70cl", Price = 20, PhotoUrl = "https://c.scdn.gr/images/sku_main_images/028500/28500414/20210427112457_the_busker_single_malt_oyiski_700ml.jpeg", Category = whC1 };
             Whiskey wh2 = new Whiskey { Name = "Jameson", Description = "Jameson Orange Spirit Drink 70cl", Price = 24, PhotoUrl = "https://cdn.shopify.com/s/files/1/0078/7038/2195/products/6112371cdf67a_430x.jpg?v=1631804706", Category = whC2 };
             Whiskey wh3 = new Whiskey { Name = "Proclamation", Description = "Proclamation Blended Irish Whiskey 70cl", Price = 27, PhotoUrl = "https://d2wwnnx8tks4e8.cloudfront.net/images/app/large/5391534150329_3.JPG", Category = whC1 };
             Whiskey wh4 = new Whiskey { Name = "Johnnie Walker", Description = "Johnnie Walker Blue Label Whisky 70cl 2.0 Icons Bottle", Price = 110, PhotoUrl = "https://www.malts.com/en-gb/static/794771079f7422e1fc94398e2a9a83bb/f08e8/5000267187204_Johnnie_Walker_Blue_Label_700ml_Icon_Bottle_CF_1_4b3feef4b1.jpg", Category = whC2 };
