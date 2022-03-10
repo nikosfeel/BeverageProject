@@ -6,5 +6,6 @@ subtotal.innerText = price + "€"
 quantity.addEventListener("input", updateValue);
 
 function updateValue(e) {
-    subtotal.innerText = parseFloat(e.data) * price + "€"
+    
+    subtotal.innerText = parseFloat(e.data) * price + "€";
 }
