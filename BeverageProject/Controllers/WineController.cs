@@ -18,6 +18,10 @@ namespace BeverageProject.Controllers
         // GET: Wine
         public ActionResult Index(string category)
         {
+            if (category is null)
+            {
+                return View(db.Wines.ToList());
+            }
             var wines = db.Wines.Where(x => x.Category.Kind == category).ToList();
             return View(wines);
         }

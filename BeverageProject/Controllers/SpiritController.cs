@@ -18,6 +18,10 @@ namespace BeverageProject.Controllers
         // GET: Spirit
         public ActionResult Index(string category)
         {
+            if (category is null)
+            {
+                return View(db.Spirits.ToList());
+            }
             var spirits = db.Spirits.Where(x => x.Category.Kind == category).ToList();
             return View(spirits);
         }
