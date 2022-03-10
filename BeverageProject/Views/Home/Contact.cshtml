@@ -29,18 +29,16 @@
                 </div>
                 <div class="col-md-12 paira-margin-top-1">
                     <!--=================== Google MAP Section ===================-->
-                    @*<div id="googleMap" class="margin-top-5 full-width paira-margin-bottom-3" style="height: 400px;"></div>*@
                     <fieldset>
-
                         <meta charset="utf-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1">
                         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-                        <div id="googleMap" style="height:500px;width:100%;"></div>
+                        <div id="googleMap" style="height:450px;width:100%;"></div>
                         <script>
                             function myMap() {
-                                var myCenter = new google.maps.LatLng(37.975545089045404, 23.734711521862778);
+                                var myCenter = new google.maps.LatLng(37.977504796076225, 23.729058332097605);
                                 var mapProp = { center: myCenter, zoom: 17, scrollwheel: true, draggable: true, mapTypeId: google.maps.MapTypeId.ROADMAP };
                                 var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
                                 var marker = new google.maps.Marker({ position: myCenter });
@@ -49,7 +47,6 @@
                         </script>
                         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcU3hNOjVnpXxmptiq8xlIl-RjAc97maM&callback=myMap"></script>
                     </fieldset>
-                    <br />
                     <br />
                     <br />
                 </div>

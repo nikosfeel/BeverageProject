@@ -14,7 +14,7 @@
                     <div class="breadcrumb">
                         <ul class="list-inline">
                             <li><a href="#" class="raleway-light">Home <i class="fa fa-angle-right"></i></a></li>
-                            <li class="raleway-sbold">White fruit wine</li>
+                            <li class="raleway-sbold">@Html.DisplayFor(model => model.Name)</li>
                         </ul>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                     <div class="paira-product single-varients-product">
                         <div class="row">
                             <div class="single-product-image col-md-9 col-sm-9 col-xs-9 paira-single-product-image">
-                                <img src=@Html.DisplayNameFor(model => model.PhotoUrl) alt="" class="paira-product-image img-responsive">
+                                <img src=@Html.DisplayFor(model => model.PhotoUrl) alt="" class="paira-product-image img-responsive">
                                 <a href="#" data-toggle="modal" data-target=".image-popup">
                                     <i class="fa fa-plus fa-2x img-plus"></i>
                                 </a>
@@ -43,7 +43,6 @@
                             <div class="pro-body">
                                 <div class="bottom-img">
                                     <div class="info">
-                                        @*<a href="#" class="toggle-button"><i class="fa fa-angle-right fa-2x"></i></a>*@
                                         <h3 class="raleway-sbold full-width"> @Html.DisplayFor(model => model.Price)€</h3>
                                         <h2 class="raleway-light full-width text-capitalize margin-top-20">  @Html.DisplayFor(model => model.Name)</h2>
                                         <p class="margin-top-15 letter-spacing-2">
