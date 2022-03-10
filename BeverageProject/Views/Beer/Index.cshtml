@@ -84,12 +84,11 @@
                                     <span class="money font-size-18"><b class="">@Html.DisplayFor(modelItem => beer.Price)€</b></span>
                                     <p class="text-capitalize margin-top-15 letter-spacing-2">
                                         @Html.DisplayFor(modelItem => beer.Description)
-                                    </p>
-                                    @Html.ActionLink("Details", "Details", new { id = beer.Id })
+                                    </p>                                    
                                     <div class="product-hover">
                                         <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                            <a href="#paira-quick-view" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
-                                            <a href="#" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="Content/images/cart-2.png" alt=""></a>
+                                            
+                                            <a href="#" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="~/Content/images/cart-2.png" alt=""></a>
                                         </div>
                                     </div>
                                 </div>

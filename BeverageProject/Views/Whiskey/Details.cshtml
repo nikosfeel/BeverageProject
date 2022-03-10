@@ -44,7 +44,7 @@
                             <div class="pro-body">
                                 <div class="bottom-img">
                                     <div class="info">
-                                        <h3 class="raleway-sbold full-width">@Html.DisplayFor(model => model.Price)€</h3>
+                                        <h3 id="price" class="raleway-sbold full-width">@Html.DisplayFor(model => model.Price)€</h3>
                                         <h2 class="raleway-light full-width text-capitalize margin-top-20">@Html.DisplayFor(model => model.Name)</h2>
                                         <p class="margin-top-15 letter-spacing-2">@Html.DisplayFor(model => model.Description)</p>
                                         <div class="quantity paira-margin-top-1 display-inline-b full-width pull-left">
@@ -53,7 +53,7 @@
                                             </h4>
                                             <div class="pull-left">
                                                 <div class="product_quantity_group product-quantity-fix">
-                                                    <input type="text" class="form-control text-center pull-left font-size-16" value="2">
+                                                    <input id="quantity" type="text" class="form-control text-center pull-left font-size-16" value="1">
                                                     <div class="up-down text-center pull-left overflow">
                                                         <span class="up" data-direction="up"><i class="fa fa-angle-up"></i></span>
                                                         <span class="down" data-direction="down"><i class="fa fa-angle-down"></i></span>
@@ -65,7 +65,7 @@
                                             <h4 class="font-size-16 letter-spacing-2 pull-left">
                                                 <label class="text-uppercase pull-left margin-right-10"><b>Subtotal : </b></label>
                                             </h4>
-                                            <h3 class="money margin-left-5 pull-left raleway-sbold">40.0€</h3>
+                                            <h3 id="subtotal" class="money margin-left-5 pull-left raleway-sbold">40.0€</h3>
                                         </div>
                                         <div class="btn-group paira-margin-top-1 half-width pull-left" role="group"
                                              aria-label="Basic example">
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                  
+                    </div>
                     <p>
                         @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
                         @Html.ActionLink("Back to List", "Index")
@@ -86,3 +86,10 @@
         </div>
     </section>
 </main>
+
+@section Scripts {
+
+
+
+    <script src="~/Scripts/CalculateSubtotal.js"></script>
+}
