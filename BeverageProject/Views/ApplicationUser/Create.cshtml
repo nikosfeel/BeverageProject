@@ -4,11 +4,26 @@
     ViewBag.Title = "Create";
 }
 
+<main class="register-page">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <main class="register-page">
+        <!--=================== Breadcrumb Section ===================-->
+        <section class="breadcrumb-container paira-padding-bottom-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="breadcrumb">
+                            <ul class="list-inline">
+                                <li><a href="@Url.Action("Index", "Home")" class="raleway-light">Home <i class="fa fa-angle-right"></i></a></li>
+                                <li class="raleway-sbold">Sign Up</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!--=================== Register Content Section ===================-->
         <section class="login-content paira-padding-bottom-1">
             <div class="container">
@@ -22,16 +37,16 @@
                         <div class="form-contact">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })                                    
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group">
-                                        <div class="col-md-10">
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
                                             @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                                             <span class="center-block"><label>Username</label></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-md-10">
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
                                             @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                             <span class="center-block"><label>Email</label></span>
@@ -47,7 +62,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-md-10">
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
                                             @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
                                             @Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "text-danger" })
                                             <span class="center-block"><label>Password</label></span>
@@ -61,7 +76,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-md-10">
+                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
                                             @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
                                             @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
                                             <span class="center-block"><label>Phone Number</label></span>
@@ -100,13 +115,13 @@
                                                 <span class="center-block"><label>Lockout Enabled</label></span>
                                             </div>
                                         </div>
-                                    </div>                                                                      
+                                    </div>
                                     <div class="form-group">
                                         <div class="col-md-offset-2 col-md-10">
                                             <br />
-                                            <a href="@Url.Action("Login", "Account")" class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25">Login</a>
-                                            <a class="text-uppercase text-color-black margin-right-5 raleway-light letter-spacing-2 margin-left-25">Or</a>
-                                            <input class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25" type="submit" value="Create"/>
+                                            <a href="@Url.Action("Login", "Account")" class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25 pull-right">Login</a>
+                                            <a class="text-uppercase text-color-black margin-right-5 raleway-light letter-spacing-2 margin-left-25 pull-right">Or</a>
+                                            <input class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25 pull-right" type="submit" value="Create" />
                                         </div>
                                     </div>
                                 </div>
@@ -116,13 +131,9 @@
                 </div>
             </div>
         </section>
-    </main>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    }
+</main>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
