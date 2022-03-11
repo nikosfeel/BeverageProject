@@ -218,6 +218,7 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\css\font-awesome.css" />
     <Content Include="Content\css\css\font-awesome.min.css" />
+    <Content Include="Content\css\css\FONTS.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\css\jquery.bxslider.css" />
