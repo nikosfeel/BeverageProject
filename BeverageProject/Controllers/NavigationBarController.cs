@@ -19,10 +19,10 @@ namespace BeverageProject.Controllers
         {
             NavBarViewModel viewModel = new NavBarViewModel();
 
-            viewModel.BeerCategories = db.BeerCategories.ToList();
-            viewModel.WineCategories = db.WineCategories.ToList();
-            viewModel.WhiskeyCategories = db.WhiskeyCategories.ToList();
-            viewModel.SpiritCategories = db.SpiritCategories.ToList();           
+            viewModel.BeerCategories = db.BeerCategories.OrderBy(x=>x.Kind).ToList();
+            viewModel.WineCategories = db.WineCategories.OrderBy(x => x.Kind).ToList();
+            viewModel.WhiskeyCategories = db.WhiskeyCategories.OrderBy(x => x.Kind).ToList();
+            viewModel.SpiritCategories = db.SpiritCategories.OrderBy(x => x.Kind).ToList();           
 
 
 
