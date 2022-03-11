@@ -4,7 +4,6 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 <!--=================== Main Content Container ===================-->
 <main class="product-page">
     <!--=================== Breadcrumb Section ===================-->
@@ -14,7 +13,7 @@
                 <div class="col-md-12 text-center">
                     <div class="breadcrumb">
                         <ul class="list-inline">
-                            <li><a href="#" class="raleway-light">Home <i class="fa fa-angle-right"></i></a></li>
+                            <li><a href="@Url.Action("Index","Whiskey")" class="raleway-light">Whiskeys<i class="fa fa-angle-right"></i></a></li>
                             <li class="raleway-sbold">@Html.DisplayFor(model => model.Name)</li>
                         </ul>
                     </div>
@@ -31,9 +30,6 @@
                         <div class="row">
                             <div class="single-product-image col-md-9 col-sm-9 col-xs-9 paira-single-product-image">
                                 <img src=@Html.DisplayFor(model => model.PhotoUrl) alt="" class="paira-product-image img-responsive" width='600' height='400'>
-                                <a href="#" data-toggle="modal" data-target=".image-popup">
-                                    <i class="fa fa-plus fa-2x img-plus"></i>
-                                </a>
                             </div>
                         </div>
                     </div>
