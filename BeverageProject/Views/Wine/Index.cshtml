@@ -79,7 +79,7 @@
                                     <div class="block-image position-rela">
                                         <a href="@Url.Action("Details","Wine",new  {id = wine.Id})">
                                             <div class="background-overlay"></div>
-                                            <img src=@Html.DisplayFor(modelItem => wine.PhotoUrl) alt="" class="img-responsive" width='250' height='250'>
+                                            <img src=@Html.DisplayFor(modelItem => wine.PhotoUrl) alt="" class="img-responsive" width='300'>                                          
                                         </a>
                                     </div>
                                     <h1 class="font-size-18 paira-margin-top-4 margin-bottom-10"><a href="@Url.Action("Details","Wine",new {id= wine.Id})">@Html.DisplayFor(modelItem => wine.Name)</a></h1>
@@ -89,9 +89,11 @@
                                     </p>
                                     <div class="product-hover">
                                         <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                            
                                             <a href="#" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="~/Content/images/cart-2.png" alt=""></a>
                                         </div>
+                                        <br />  
+                                        <br />  
+                                        <br />  
                                     </div>
                                 </div>
                             </div>

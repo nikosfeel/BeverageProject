@@ -29,7 +29,7 @@
                     <div class="paira-product single-varients-product">
                         <div class="row">
                             <div class="single-product-image col-md-9 col-sm-9 col-xs-9 paira-single-product-image">
-                                <img src=@Html.DisplayFor(model => model.PhotoUrl) alt="" class="paira-product-image img-responsive">
+                                <img src=@Html.DisplayFor(model => model.PhotoUrl) alt="" class="paira-product-image img-rounded">
                             </div>
                         </div>
                     </div>
@@ -40,7 +40,6 @@
                             <div class="pro-body">
                                 <div class="bottom-img">
                                     <div class="info">
-                                        @*<a href="#" class="toggle-button"><i class="fa fa-angle-right fa-2x"></i></a>*@
                                         <h3 id="price" class="raleway-sbold full-width"> @Html.DisplayFor(model => model.Price)€</h3>
                                         <h2 class="raleway-light full-width text-capitalize margin-top-20">  @Html.DisplayFor(model => model.Name)</h2>
                                         <p class="margin-top-15 letter-spacing-2">
@@ -74,10 +73,6 @@
                                 </div>
                             </div>
                         </div>
-                        <p>
-                            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-                            @Html.ActionLink("Back to List", "Index")
-                        </p>
                     </div>
                 </div>
             </div>
