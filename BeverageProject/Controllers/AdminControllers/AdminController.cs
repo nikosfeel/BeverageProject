@@ -13,5 +13,21 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             return View();
         }
+        public ActionResult Orders()
+        {
+            return View();
+        }
+        public ActionResult Products()
+        {
+            return View();
+        }
+        public ActionResult LockScreen()
+        {
+            return View();
+        }
+
+
+
+
     }
 }

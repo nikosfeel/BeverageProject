@@ -6416,6 +6416,7 @@
     <Content Include="Scripts\AdminJs\skycons\.gitignore" />
     <Content Include="Scripts\AdminJs\skycons\README.md" />
     <Content Include="Views\Admin\Dashboard.cshtml" />
+    <Content Include="Views\Admin\LockScreen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />
