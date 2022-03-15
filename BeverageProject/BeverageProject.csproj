@@ -5422,7 +5422,7 @@
     <Content Include="Views\ApplicationUser\Index.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_NavBar.cshtml" />
-    <Content Include="Views\Shared\AdminComponents\_Footer.cshtml" />
+    <Content Include="Views\Shared\AdminComponents\_SideMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />
