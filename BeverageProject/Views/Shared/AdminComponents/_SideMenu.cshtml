@@ -1,0 +1,55 @@
+﻿<!--sidebar start-->
+<aside>
+    <div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a class="active" href=@Url.Action("DashBoard","Admin")>
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sub-menu" data-toggle="collapse" data-target="#customerorders">
+                    <a href="javascript:;" >
+                        <i class="fa fa-refresh"></i>
+                        <span >Orders</span>
+                    </a>
+                    <ul class="sub" >
+                        <li class="collapse" id="customerorders"><a href=@Url.Action("CustomerOrders","Admin")>Customer Orders</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu" data-toggle="collapse" data-target="#products">
+                    <a href="javascript:;">
+                        <i class="fa fa-glass"></i>
+                        <span>Products</span>
+                    </a>
+                    <ul class="sub">
+                        <li class="collapse" id="products"><a href=@Url.Action("AllProducts","Admin")>All Products</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu" data-toggle="collapse" data-target="#extras">
+                    <a href="javascript:;">
+                        <i class="fa fa-fire"></i>
+                        <span>Extra</span>
+                    </a>
+                    <ul class="sub collapse" id="extras">
+
+                        <li ><a href=@Url.Action("LockScreen","Admin")>Lock Screen</a></li>
+                        <li ><a href="profile.html">Profile</a></li>
+                        <li ><a href="registration.html">Registration</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="login.html">
+                        <i class="fa fa-user"></i>
+                        <span>Login Page</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+
+<!--sidebar end-->
