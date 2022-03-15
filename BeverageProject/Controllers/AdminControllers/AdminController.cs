@@ -25,9 +25,5 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             return View();
         }
-
-
-
-
     }
 }
