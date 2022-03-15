@@ -84,7 +84,7 @@
                                                                     <ul class="list-unstyled mega-submenu-fix">
                                                                         @foreach (var cat in Model.WineCategories)
                                                                         {
-                                                                        <li><a href="@Url.Action("Index", "Wine")?category=@cat.Kind">@cat.Kind</a></li>
+                                                                            <li><a href="@Url.Action("Index", "Wine")?category=@cat.Kind">@cat.Kind</a></li>
                                                                         }
                                                                     </ul>
                                                                 </div>
@@ -105,9 +105,7 @@
                                             <!--=================== Single Menu ===================-->
                                             <li class="width-li"><a href="@Url.Action("About", "Home")">About us</a></li>
                                             <!--=================== Single Menu ===================-->
-                                            <li class="width-li"><a href="#" class="login-popup">login</a></li>
-                                            <!--=================== Single Menu ===================-->
-                                            <li class="width-li"><a href="@Url.Action("Create", "ApplicationUser")">register</a></li>
+                                            <li class="width-li" style=" display:flex; justify-content: start; align-items: center;"><a href="@Url.Action("Create", "ApplicationUser")">Register</a><a href="@Url.Action("Login", "Account")">Login</a></li>
                                         </ul>
                                     </div>
                                 </div>
