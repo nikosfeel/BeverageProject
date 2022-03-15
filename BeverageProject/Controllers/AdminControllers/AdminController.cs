@@ -13,11 +13,11 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             return View();
         }
-        public ActionResult Orders()
+        public ActionResult CustomerOrders()
         {
             return View();
         }
-        public ActionResult Products()
+        public ActionResult AllProducts()
         {
             return View();
         }

@@ -16,7 +16,7 @@
                         <span >Orders</span>
                     </a>
                     <ul class="sub" >
-                        <li class="collapse" id="customerorders"><a href="#">Customer Orders</a></li>
+                        <li class="collapse" id="customerorders"><a href=@Url.Action("CustomerOrders","Admin")>Customer Orders</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu" data-toggle="collapse" data-target="#products">
@@ -25,14 +25,9 @@
                         <span>Products</span>
                     </a>
                     <ul class="sub">
-                        <li class="collapse" id="products"><a href="general.html">All Products</a></li>
+                        <li class="collapse" id="products"><a href=@Url.Action("AllProducts","Admin")>All Products</a></li>
                     </ul>
                 </li>
-
-
-
-
-
                 <li class="sub-menu" data-toggle="collapse" data-target="#extras">
                     <a href="javascript:;">
                         <i class="fa fa-fire"></i>
@@ -40,7 +35,7 @@
                     </a>
                     <ul class="sub collapse" id="extras">
 
-                        <li ><a href=@Url.Action("Admin","LockScreen")>Lock Screen</a></li>
+                        <li ><a href=@Url.Action("LockScreen","Admin")>Lock Screen</a></li>
                         <li ><a href="profile.html">Profile</a></li>
                         <li ><a href="registration.html">Registration</a></li>
                     </ul>
