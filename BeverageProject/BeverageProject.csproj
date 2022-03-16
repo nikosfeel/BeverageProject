@@ -6417,7 +6417,6 @@
     <Content Include="Views\Admin\LockScreen.cshtml" />
     <Content Include="Views\Admin\CustomerOrders.cshtml" />
     <Content Include="Views\Admin\AllProducts.cshtml" />
-    <Content Include="Views\Admin\TestView.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_RightSideBar.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_NavigationBar.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_SideBar.cshtml" />
