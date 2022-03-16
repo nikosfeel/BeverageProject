@@ -6351,8 +6351,6 @@
     <Content Include="Views\ApplicationUser\Edit.cshtml" />
     <Content Include="Views\ApplicationUser\Index.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_AdminLayout.cshtml" />
-    <Content Include="Views\Shared\AdminComponents\_NavBar.cshtml" />
-    <Content Include="Views\Shared\AdminComponents\_SideMenu.cshtml" />
     <Content Include="Scripts\AdminJs\advanced-datatable\images\Sorting icons.psd" />
     <Content Include="Scripts\AdminJs\bootstrap-colorpicker\less\colorpicker.less" />
     <Content Include="Scripts\AdminJs\bootstrap-datepicker\less\datepicker.less" />
@@ -6419,6 +6417,10 @@
     <Content Include="Views\Admin\LockScreen.cshtml" />
     <Content Include="Views\Admin\CustomerOrders.cshtml" />
     <Content Include="Views\Admin\AllProducts.cshtml" />
+    <Content Include="Views\Admin\TestView.cshtml" />
+    <Content Include="Views\Shared\AdminComponents\_RightSideBar.cshtml" />
+    <Content Include="Views\Shared\AdminComponents\_NavigationBar.cshtml" />
+    <Content Include="Views\Shared\AdminComponents\_SideBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />
