@@ -81,16 +81,19 @@
                                             <img src=@Html.DisplayFor(modelItem => spirit.PhotoUrl) alt="" class="img-responsive" width='250' height='250'>
                                         </a>
                                     </div>
-                                    <h1 class="font-size-18 paira-margin-top-4 margin-bottom-10"><a href="@Url.Action("Details","Spirit", new {id = spirit.Id})">@Html.DisplayFor(modelItem => spirit.Name)</a></h1>
+                                    <h1 class="font-size-18 margin-bottom-10"><a href="@Url.Action("Details","Spirit", new {id = spirit.Id})">@Html.DisplayFor(modelItem => spirit.Name)</a></h1>
                                     <span class="money font-size-18"><b class="">@Html.DisplayFor(modelItem => spirit.Price)€</b></span>
                                     <p class="text-capitalize margin-top-15 letter-spacing-2">
                                         @Html.DisplayFor(modelItem => spirit.Description)
                                     </p>                          
                                     <div class="product-hover">
                                         <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                           
+
                                             <a href="@Url.Action("Details","Spirit",new  {id = spirit.Id})" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="~/Content/images/cart-2.png" alt=""></a>
                                         </div>
+                                        <br />
+                                        <br />
+                                        <br />
                                     </div>
                                 </div>
                             </div>
