@@ -6432,6 +6432,12 @@
     <Content Include="Views\Shared\AdminComponents\_SideBar.cshtml" />
     <Content Include="Views\Admin\UserProfile.cshtml" />
     <Content Include="Views\Admin\MailInbox.cshtml" />
+    <Content Include="Views\Admin\ComposeMail.cshtml" />
+    <Content Include="Views\Admin\ViewMail.cshtml" />
+    <Content Include="Views\Admin\Registration.cshtml" />
+    <Content Include="Views\Admin\LoginPage.cshtml" />
+    <Content Include="Views\Admin\CustomerInvoice.cshtml" />
+    <Content Include="Views\Admin\PrintCustomerInvoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />
