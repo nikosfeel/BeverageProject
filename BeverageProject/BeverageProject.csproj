@@ -1203,6 +1203,12 @@
     <Content Include="Content\adminImages\gallery\image3.jpg" />
     <Content Include="Content\adminImages\gallery\image4.jpg" />
     <Content Include="Content\adminImages\gallery\image5.jpg" />
+    <Content Include="Content\adminImages\ico-moon icon font\demo-files\demo.css" />
+    <Content Include="Content\adminImages\ico-moon icon font\demo-files\demo.js" />
+    <Content Include="Content\adminImages\ico-moon icon font\demo.html" />
+    <Content Include="Content\adminImages\ico-moon icon font\fonts\bucket-ico-font.svg" />
+    <Content Include="Content\adminImages\ico-moon icon font\Read Me.txt" />
+    <Content Include="Content\adminImages\ico-moon icon font\style.css" />
     <Content Include="Content\adminImages\input-spinner.gif" />
     <Content Include="Content\adminImages\lock-screen.jpg" />
     <Content Include="Content\adminImages\lock_thumb.jpg" />
@@ -5293,6 +5299,10 @@
     <Content Include="Scripts\AdminJs\bs3\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Scripts\AdminJs\bs3\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Scripts\AdminJs\bs3\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\adminImages\ico-moon icon font\fonts\bucket-ico-font.eot" />
+    <Content Include="Content\adminImages\ico-moon icon font\fonts\bucket-ico-font.ttf" />
+    <Content Include="Content\adminImages\ico-moon icon font\fonts\bucket-ico-font.woff" />
+    <Content Include="Content\adminImages\ico-moon icon font\selection.json" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -6420,6 +6430,8 @@
     <Content Include="Views\Shared\AdminComponents\_RightSideBar.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_NavigationBar.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_SideBar.cshtml" />
+    <Content Include="Views\Admin\UserProfile.cshtml" />
+    <Content Include="Views\Admin\MailInbox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />

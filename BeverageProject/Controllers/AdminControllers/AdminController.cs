@@ -25,5 +25,13 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             return View();
         }
+        public ActionResult UserProfile()
+        {
+            return View();
+        }
+        public ActionResult MailInbox()
+        {
+            return View();
+        }
     }
 }
