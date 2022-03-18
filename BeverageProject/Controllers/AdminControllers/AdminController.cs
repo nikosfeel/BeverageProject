@@ -28,7 +28,11 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             return View();
         }
-        public ActionResult AllProducts(string category)
+        public ActionResult CustomerInformation()
+        {
+            return View(db.Users.ToList());
+        }
+        public ActionResult AllProducts()
         {
             if (category is null)
             {

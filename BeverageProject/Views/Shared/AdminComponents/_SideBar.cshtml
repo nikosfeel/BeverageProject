@@ -16,7 +16,7 @@
                     <ul class="sub">
                         <li><a href="@Url.Action("CustomerOrders", "Admin")">Orders</a></li>
                         <li><a href="@Url.Action("CustomerInvoice", "Admin")">Invoice</a></li>
-                        <li><a href="#">Users Information</a></li>
+                        <li><a href="@Url.Action("CustomerInformation", "Admin")">Users Information</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -49,12 +49,11 @@
                         <span>Extra</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="@Url.Action("LockScreen", "Admin")">Lock Screen</a></li>
                         <li><a href="@Url.Action("Registration", "Admin")">Registration</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="@Url.Action("LoginPage", "Admin")">
+                    <a href="@Url.Action("LockScreen", "Admin")">
                         <i class="fa fa-user"></i>
                         <span>Login Page</span>
                     </a>
