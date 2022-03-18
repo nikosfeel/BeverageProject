@@ -28,6 +28,10 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             return View();
         }
+        public ActionResult CustomerInformation()
+        {
+            return View(db.Users.ToList());
+        }
         public ActionResult AllProducts()
         {
             return View();
