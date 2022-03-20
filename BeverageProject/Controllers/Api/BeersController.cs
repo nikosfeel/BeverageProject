@@ -18,9 +18,20 @@ namespace BeverageProject.Controllers.Api
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: api/Beers
-        public IQueryable<Beer> GetBeers()
+        public IHttpActionResult GetBeers()
         {
-            return db.Beers;
+            var beers = db.Beers.Select(beer => new
+            {
+                beer.Id,
+                beer.Name,
+                beer.Description,
+                beer.PhotoUrl,
+                beer.Price,
+                Category = new { beer.Category.Title, beer.Category.Kind }
+            }).ToList();
+            
+
+            return Json(new {beers = beers });
         }
 
         // GET: api/Beers/5
