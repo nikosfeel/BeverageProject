@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Entities.Products.Beer>
+﻿@model IEnumerable<Entities.Products.Whiskey>
 @{
     ViewBag.Title = "AllProducts";
     Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
@@ -43,7 +43,6 @@
 
 @section scripts{
     <script src="~/Scripts/jquery-3.2.1.js"></script>
-    @*<script src="~/Scripts/jquery-3.2.1.min.js"></script>*@
     <script type="text/javascript">
         LoadData();
         function LoadData() {
@@ -54,8 +53,8 @@
             };
 
             $.ajax(settings).done(function (response) {
-
-                let whiskeys = response.whiskey;
+                
+                let whiskeys = response.whiskeys;
                 console.log(whiskeys);
                 for (let whiskey of whiskeys) {
                     let template = `

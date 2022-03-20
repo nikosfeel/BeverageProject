@@ -43,7 +43,6 @@
 
 @section scripts{
     <script src="~/Scripts/jquery-3.2.1.js"></script>
-    @*<script src="~/Scripts/jquery-3.2.1.min.js"></script>*@
     <script type="text/javascript">
         LoadData();
         function LoadData() {
@@ -53,19 +52,21 @@
                 "timeout": 0,
             };
 
+
+
             $.ajax(settings).done(function (response) {
 
-                let wines = response.wines;
-                console.log(wines);
-                for (let wine of wines) {
+                let Wines = response.Wines;
+                console.log(Wines);
+                for (let Wine of Wines) {
                     let template = `
                         <tr>
-                            <td>${wine.Id}</td>
-                            <td>${wine.Category.Title} > ${wine .Category.Kind}</td>
-                            <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                            <td>${wine.Name}</td>
-                            <td>${wine.Price}</td>
-                            <td style="width:40%">${wine.Description}</td>
+                            <td>${Wine.Id}</td>
+                            <td>${Wine.Category.Title} > ${Wine.Category.Kind}</td>
+                            <td><img src="${Wine.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                            <td>${Wine.Name}</td>
+                            <td>${Wine.Price}</td>
+                            <td style="width:40%">${Wine.Description}</td>
                             <td>
                                  <button class="btn btn-info">Edit</button>
                                  <button class="btn btn-danger">Delete</button>
@@ -81,9 +82,9 @@
                     $("tbody").append(element);
                 }
             });
+        
         }
 
     </script>
 
 }
-
