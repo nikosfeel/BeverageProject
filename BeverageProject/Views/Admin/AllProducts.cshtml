@@ -3,7 +3,9 @@
     ViewBag.Title = "AllProducts";
     Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
 }
-
+<style>
+    
+</style>
 <section id="main-content">
     <section class="wrapper">
         <div class="row">
@@ -12,9 +14,7 @@
                     <header class="panel-heading">
                         All Products
                         <span class="tools pull-right">
-                            <a href="javascript:;" class="fa fa-chevron-down"></a>
-                            <a href="javascript:;" class="fa fa-cog"></a>
-                            <a href="javascript:;" class="fa fa-times"></a>
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>                            
                         </span>
                     </header>
                     <div class="panel-body">
@@ -72,11 +72,11 @@
                     let template = `
                     <tr>
                         <td>${beer.Id}</td>
-                        <td>Beer</td>
+                        <td>${beer.Category.Title} > ${beer.Category.Kind}</td>
                         <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
                         <td>${beer.Name}</td>
                         <td>${beer.Price}</td>
-                        <td>${beer.Description}</td>
+                        <td style="width:40%">${beer.Description}</td>
                         <td>
                              <button class="btn btn-info">Edit</button>
                              <button class="btn btn-danger">Delete</button>
