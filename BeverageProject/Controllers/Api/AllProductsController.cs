@@ -63,7 +63,7 @@ namespace BeverageProject.Controllers.Api
                 Category = new { spirit.Category.Title, spirit.Category.Kind }
             }).ToList();
 
-            return Json(new {data = beers,wines,whiskeys,spirits});
+            return Json(new {beers = beers,wines = wines,whiskeys = whiskeys,spirits = spirits});
         }
 
         // GET: api/AllProducts/5
