@@ -34,12 +34,8 @@ namespace BeverageProject.Controllers.AdminControllers
         }
         public ActionResult AllProducts()
         {
-            if (category is null)
-            {
-                return View(db.Beers.ToList());
-            }
-            var beers = db.Beers.Where(x => x.Category.Kind == category).ToList();
-            return View(beers);
+            
+            return View();
         }
         public ActionResult AllBeers()
         {
