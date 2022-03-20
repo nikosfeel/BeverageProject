@@ -31,7 +31,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   
                                 </tbody>
                             </table>
                         </section>
@@ -49,24 +48,24 @@
         LoadData();
         function LoadData() {
             var settings = {
-                "url": "/api/Beers",
+                "url": "/api/Whiskeys",
                 "method": "GET",
                 "timeout": 0,
             };
 
             $.ajax(settings).done(function (response) {
 
-                let beers = response.beers;
-                console.log(beers);
-                for (let beer of beers) {
+                let whiskeys = response.whiskey;
+                console.log(whiskeys);
+                for (let whiskey of whiskeys) {
                     let template = `
                         <tr>
-                            <td>${beer.Id}</td>
-                            <td>${beer.Category.Title} > ${beer.Category.Kind}</td>
-                            <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                            <td>${beer.Name}</td>
-                            <td>${beer.Price}</td>
-                            <td style="width:40%">${beer.Description}</td>
+                            <td>${whiskey.Id}</td>
+                            <td>${whiskey.Category.Title} > ${whiskey.Category.Kind}</td>
+                            <td><img src="${whiskey.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                            <td>${whiskey.Name}</td>
+                            <td>${whiskey.Price}</td>
+                            <td style="width:40%">${whiskey.Description}</td>
                             <td>
                                  <button class="btn btn-info">Edit</button>
                                  <button class="btn btn-danger">Delete</button>
@@ -87,3 +86,4 @@
     </script>
 
 }
+

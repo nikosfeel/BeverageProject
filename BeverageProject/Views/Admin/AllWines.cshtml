@@ -31,7 +31,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   
                                 </tbody>
                             </table>
                         </section>
@@ -49,24 +48,24 @@
         LoadData();
         function LoadData() {
             var settings = {
-                "url": "/api/Beers",
+                "url": "/api/Wines",
                 "method": "GET",
                 "timeout": 0,
             };
 
             $.ajax(settings).done(function (response) {
 
-                let beers = response.beers;
-                console.log(beers);
-                for (let beer of beers) {
+                let wines = response.wines;
+                console.log(wines);
+                for (let wine of wines) {
                     let template = `
                         <tr>
-                            <td>${beer.Id}</td>
-                            <td>${beer.Category.Title} > ${beer.Category.Kind}</td>
+                            <td>${wine.Id}</td>
+                            <td>${wine.Category.Title} > ${wine .Category.Kind}</td>
                             <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                            <td>${beer.Name}</td>
-                            <td>${beer.Price}</td>
-                            <td style="width:40%">${beer.Description}</td>
+                            <td>${wine.Name}</td>
+                            <td>${wine.Price}</td>
+                            <td style="width:40%">${wine.Description}</td>
                             <td>
                                  <button class="btn btn-info">Edit</button>
                                  <button class="btn btn-danger">Delete</button>
@@ -87,3 +86,4 @@
     </script>
 
 }
+

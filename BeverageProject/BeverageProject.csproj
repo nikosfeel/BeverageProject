@@ -192,6 +192,9 @@
     <Compile Include="Controllers\AdminControllers\AdminController.cs" />
     <Compile Include="Controllers\Api\AllProductsController.cs" />
     <Compile Include="Controllers\Api\BeersController.cs" />
+    <Compile Include="Controllers\Api\SpiritsController.cs" />
+    <Compile Include="Controllers\Api\WhiskeysController.cs" />
+    <Compile Include="Controllers\Api\WinesController.cs" />
     <Compile Include="Controllers\ApplicationUserController.cs" />
     <Compile Include="Controllers\BeerController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -6443,6 +6446,9 @@
     <Content Include="Views\Admin\PrintCustomerInvoice.cshtml" />
     <Content Include="Views\Admin\CustomerInformation.cshtml" />
     <Content Include="Views\Admin\AllBeers.cshtml" />
+    <Content Include="Views\Admin\AllSpirits.cshtml" />
+    <Content Include="Views\Admin\AllWhiskeys.cshtml" />
+    <Content Include="Views\Admin\AllWines.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />

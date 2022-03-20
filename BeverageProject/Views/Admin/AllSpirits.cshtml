@@ -31,7 +31,6 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   
                                 </tbody>
                             </table>
                         </section>
@@ -49,24 +48,24 @@
         LoadData();
         function LoadData() {
             var settings = {
-                "url": "/api/Beers",
+                "url": "/api/Spirits",
                 "method": "GET",
                 "timeout": 0,
             };
 
             $.ajax(settings).done(function (response) {
 
-                let beers = response.beers;
-                console.log(beers);
-                for (let beer of beers) {
+                let spirits = response.spirits;
+                console.log(spirits);
+                for (let spirit of spirits) {
                     let template = `
                         <tr>
-                            <td>${beer.Id}</td>
-                            <td>${beer.Category.Title} > ${beer.Category.Kind}</td>
-                            <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                            <td>${beer.Name}</td>
-                            <td>${beer.Price}</td>
-                            <td style="width:40%">${beer.Description}</td>
+                            <td>${spirit.Id}</td>
+                            <td>${spirit.Category.Title} > ${spirit.Category.Kind}</td>
+                            <td><img src="${spirit.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                            <td>${spirit.Name}</td>
+                            <td>${spirit.Price}</td>
+                            <td style="width:40%">${spirit.Description}</td>
                             <td>
                                  <button class="btn btn-info">Edit</button>
                                  <button class="btn btn-danger">Delete</button>
@@ -87,3 +86,5 @@
     </script>
 
 }
+
+
