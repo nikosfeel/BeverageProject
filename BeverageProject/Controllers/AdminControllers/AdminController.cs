@@ -35,14 +35,7 @@ namespace BeverageProject.Controllers.AdminControllers
         }
         public ActionResult AllProducts()
         {
-            AdminAllProductsViewModel vm = new AdminAllProductsViewModel();
-            vm.Beers = db.Beers.ToList();
-            vm.Wines = db.Wines.ToList();
-            vm.Whiskeys = db.Whiskeys.ToList();
-            vm.Spirits = db.Spirits.ToList();
-
-
-            return View(vm);
+            return View();
         }
         public ActionResult AllBeers()
         {
