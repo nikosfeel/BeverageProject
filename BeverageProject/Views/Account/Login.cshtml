@@ -45,9 +45,13 @@
                                             <input type="password" class="form-control" name="contact[password]">
                                             <span class="center-block"><label>Password</label></span>
                                         </div>
+                                        <div class="forget-password text-right">
+                                            <a href="@Url.Action("ForgotPassword", "Account")" class="text-capitalize position-rela">Forgοt Password?</a>
+                                        </div>
                                     </div>
+                                    <br/>
                                     <div class="text-right paira-margin-top-1">
-                                        <a href="@Url.Action("Create", "ApplicationUser")" class="text-capitalize font-size-16 raleway-light letter-spacing-2">New Customer?</a>
+                                        <a class="text-capitalize font-size-16 raleway-light letter-spacing-2">New Customer?</a>
                                         <a href="@Url.Action("Create", "ApplicationUser")" class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25">create an account</a>
                                         <a class="text-uppercase text-color-black margin-right-5 raleway-light letter-spacing-2 margin-left-25">Or</a>
                                         <a href="#" class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25 logi">login</a>
