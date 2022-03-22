@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Entities.Products.Beer>
+@{
+    ViewBag.Title = "AllProducts";
+    Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
+}
+<style>
+</style>
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        All Products
+                        <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                        </span>
+                    </header>
+                    <div class="panel-body">
+                        <section id="unseen">
+                            <table class="table table-bordered table-striped table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Category</th>
+                                        <th>PhotoUrl</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Description</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</section>
+
+@section scripts{
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        LoadData();
+        function LoadData() {
+            var settings = {
+                "url": "/api/Wines",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+
+
+            $.ajax(settings).done(function (response) {
+
+                let Wines = response.Wines;
+                console.log(Wines);
+                for (let Wine of Wines) {
+                    let template = `
+                        <tr>
+                            <td>${Wine.Id}</td>
+                            <td>${Wine.Category.Title} > ${Wine.Category.Kind}</td>
+                            <td><img src="${Wine.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                            <td>${Wine.Name}</td>
+                            <td>${Wine.Price}</td>
+                            <td style="width:40%">${Wine.Description}</td>
+                            <td>
+                                 <button class="btn btn-info">Edit</button>
+                                 <button class="btn btn-danger">Delete</button>
+                           </td>
+                        </tr>
+                      `
+                    let element = $(template);
+
+                    //element.find(".delete-btn").click(DeleteRow);
+                    //element.find(".edit1-btn").click(Edit1Row);
+
+
+                    $("tbody").append(element);
+                }
+            });
+        
+        }
+
+    </script>
+
+}

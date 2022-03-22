@@ -1,4 +1,5 @@
 ﻿using Entities.Categories;
+using Entities.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,9 @@ namespace BeverageProject.Models.ViewModels
 {
     public class AdminAllProductsViewModel
     {
-        public List<BeerCategory> BeerCategories { get; set; }
-        public List<WineCategory> WineCategories { get; set; }
-        public List<WhiskeyCategory> WhiskeyCategories { get; set; }
-        public List<SpiritCategory> SpiritCategories { get; set; }
+        public List<Beer> Beers { get; set; }
+        public List<Wine> Wines { get; set; }
+        public List<Whiskey> Whiskeys { get; set; }
+        public List<Spirit> Spirits { get; set; }
     }
 }

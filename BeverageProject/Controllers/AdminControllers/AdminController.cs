@@ -1,4 +1,5 @@
-﻿using MyDatabase;
+﻿using BeverageProject.Models.ViewModels;
+using MyDatabase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,6 @@ namespace BeverageProject.Controllers.AdminControllers
         }
         public ActionResult AllProducts()
         {
-            
             return View();
         }
         public ActionResult AllBeers()

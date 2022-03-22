@@ -16,6 +16,7 @@ namespace Entities.Products
         public string PhotoUrl { get; set; }
 
         //Foreign Key For Category
+        
         public BeerCategory Category { get; set; }
         
     }

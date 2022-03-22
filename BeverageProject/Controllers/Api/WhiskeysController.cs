@@ -13,55 +13,55 @@ using MyDatabase;
 
 namespace BeverageProject.Controllers.Api
 {
-    public class BeersController : ApiController
+    public class WhiskeysController : ApiController
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: api/Beers
-        public IHttpActionResult GetBeers()
+        // GET: api/Whiskeys
+        public IHttpActionResult GetWhiskeys()
         {
-            var beers = db.Beers.Select(beer => new
+            var Whiskeys = db.Whiskeys.Select(Whiskey => new
             {
-                beer.Id,
-                beer.Name,
-                beer.Description,
-                beer.PhotoUrl,
-                beer.Price,
-                Category = new { beer.Category.Title, beer.Category.Kind }
+                Whiskey.Id,
+                Whiskey.Name,
+                Whiskey.Description,
+                Whiskey.PhotoUrl,
+                Whiskey.Price,
+                Category = new { Whiskey.Category.Title, Whiskey.Category.Kind }
             }).ToList();
-            
 
-            return Json(new {beers = beers });
+
+            return Json(new { whiskeys = Whiskeys });
         }
 
-        // GET: api/Beers/5
-        [ResponseType(typeof(Beer))]
-        public IHttpActionResult GetBeer(int id)
+        // GET: api/Whiskeys/5
+        [ResponseType(typeof(Whiskey))]
+        public IHttpActionResult GetWhiskey(int id)
         {
-            Beer beer = db.Beers.Find(id);
-            if (beer == null)
+            Whiskey whiskey = db.Whiskeys.Find(id);
+            if (whiskey == null)
             {
                 return NotFound();
             }
 
-            return Ok(beer);
+            return Ok(whiskey);
         }
 
-        // PUT: api/Beers/5
+        // PUT: api/Whiskeys/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutBeer(int id, Beer beer)
+        public IHttpActionResult PutWhiskey(int id, Whiskey whiskey)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != beer.Id)
+            if (id != whiskey.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(beer).State = EntityState.Modified;
+            db.Entry(whiskey).State = EntityState.Modified;
 
             try
             {
@@ -69,7 +69,7 @@ namespace BeverageProject.Controllers.Api
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BeerExists(id))
+                if (!WhiskeyExists(id))
                 {
                     return NotFound();
                 }
@@ -82,35 +82,35 @@ namespace BeverageProject.Controllers.Api
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Beers
-        [ResponseType(typeof(Beer))]
-        public IHttpActionResult PostBeer(Beer beer)
+        // POST: api/Whiskeys
+        [ResponseType(typeof(Whiskey))]
+        public IHttpActionResult PostWhiskey(Whiskey whiskey)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Beers.Add(beer);
+            db.Whiskeys.Add(whiskey);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = beer.Id }, beer);
+            return CreatedAtRoute("DefaultApi", new { id = whiskey.Id }, whiskey);
         }
 
-        // DELETE: api/Beers/5
-        [ResponseType(typeof(Beer))]
-        public IHttpActionResult DeleteBeer(int id)
+        // DELETE: api/Whiskeys/5
+        [ResponseType(typeof(Whiskey))]
+        public IHttpActionResult DeleteWhiskey(int id)
         {
-            Beer beer = db.Beers.Find(id);
-            if (beer == null)
+            Whiskey whiskey = db.Whiskeys.Find(id);
+            if (whiskey == null)
             {
                 return NotFound();
             }
 
-            db.Beers.Remove(beer);
+            db.Whiskeys.Remove(whiskey);
             db.SaveChanges();
 
-            return Ok(beer);
+            return Ok(whiskey);
         }
 
         protected override void Dispose(bool disposing)
@@ -122,9 +122,9 @@ namespace BeverageProject.Controllers.Api
             base.Dispose(disposing);
         }
 
-        private bool BeerExists(int id)
+        private bool WhiskeyExists(int id)
         {
-            return db.Beers.Count(e => e.Id == id) > 0;
+            return db.Whiskeys.Count(e => e.Id == id) > 0;
         }
     }
 }

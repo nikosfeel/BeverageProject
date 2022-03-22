@@ -3,7 +3,8 @@
     ViewBag.Title = "AllProducts";
     Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
 }
-
+<style>
+</style>
 <section id="main-content">
     <section class="wrapper">
         <div class="row">
@@ -13,8 +14,6 @@
                         All Products
                         <span class="tools pull-right">
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
-                            <a href="javascript:;" class="fa fa-cog"></a>
-                            <a href="javascript:;" class="fa fa-times"></a>
                         </span>
                     </header>
                     <div class="panel-body">
@@ -32,18 +31,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @*@foreach (var beer in Model)
-                                    {
-                                        <tr>
-                                            <td>@Html.DisplayFor(modelItem => beer.Id)</td>
-                                            <td>Beer</td>
-                                            <td><img src=" @Html.DisplayFor(modelItem => beer.PhotoUrl)" alt=" " class="img-responsive" style="width:50px;" /></td>
-                                            <td>@Html.DisplayFor(modelItem => beer.Name)</td>
-                                            <td>@Html.DisplayFor(modelItem => beer.Price)</td>
-                                            <td>@Html.DisplayFor(modelItem => beer.Description)</td>
-                                            <td><span class="btn btn-info">Edit</span><span class="btn btn-danger">Delete</span></td>
-                                        </tr>
-                                    }*@
+                                   
                                 </tbody>
                             </table>
                         </section>
@@ -55,46 +43,133 @@
 </section>
 
 @section scripts{
-
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
         LoadData();
         function LoadData() {
             var settings = {
-                "url": "/api/Beers",
+                "url": "/api/AllProducts",
                 "method": "GET",
                 "timeout": 0,
             };
 
             $.ajax(settings).done(function (response) {
-                console.log(response);
+                LoadBeers();
+                LoadWines();
+                LoadWhiskeys();
+                LoadSpirits();
 
-                let beers = response;
-                for (let beer of beers) {
-                    let template = `
-                    <tr>
-                        <td>${beer.Id}</td>
-                        <td>Beer</td>
-                        <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                        <td>${beer.Name}</td>
-                        <td>${beer.Price}</td>
-                        <td>${beer.Description}</td>
-                        <td>
-                             <button class="btn btn-info">Edit</button>
-                             <button class="btn btn-danger">Delete</button>
-                       </td>
-                    </tr>
-                  `
-                    let element = $(template);
+                function LoadBeers() {
+                    let beers = response.beers;
+                    for (let beer of beers) {
+                        let template = `
+                        <tr>
+                            <td>${beer.Id}</td>
+                            <td>${beer.Category.Title} > ${beer.Category.Kind}</td>
+                            <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                            <td>${beer.Name}</td>
+                            <td>${beer.Price}€</td>
+                            <td style="width:40%">${beer.Description}</td>
+                            <td>
+                                 <button class="btn btn-info">Edit</button>
+                                 <button class="btn btn-danger">Delete</button>
+                           </td>
+                        </tr>
+                      `
+                        let element = $(template);
 
-                    element.find(".delete-btn").click(DeleteRow);
-                    element.find(".edit1-btn").click(Edit1Row);
+                        //element.find(".delete-btn").click(DeleteRow);
+                        //element.find(".edit1-btn").click(Edit1Row);
 
 
-                    $("tbody").append(element);
+                        $("tbody").append(element);
+                    }
+                }
+
+                function LoadWines() {
+
+                    let wines = response.wines;
+                    for (let wine of wines) {
+                        let template = `
+                        <tr>
+                            <td>${wine.Id}</td>
+                            <td>${wine.Category.Title} > ${wine.Category.Kind}</td>
+                            <td><img src="${wine.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                            <td>${wine.Name}</td>
+                            <td>${wine.Price}€</td>
+                            <td style="width:40%">${wine.Description}</td>
+                            <td>
+                                 <button class="btn btn-info">Edit</button>
+                                 <button class="btn btn-danger">Delete</button>
+                           </td>
+                        </tr>
+                      `
+                        let element = $(template);
+
+                        //element.find(".delete-btn").click(DeleteRow);
+                        //element.find(".edit1-btn").click(Edit1Row);
+
+
+                        $("tbody").append(element);
+                    }
+                }
+
+                function LoadWhiskeys() {
+                    let whiskeys = response.whiskeys;
+                    for (let whiskey of whiskeys) {
+                        let template = `
+                        <tr>
+                            <td>${whiskey.Id}</td>
+                            <td>${whiskey.Category.Title} > ${whiskey.Category.Kind}</td>
+                            <td><img src="${whiskey.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                            <td>${whiskey.Name}</td>
+                            <td>${whiskey.Price}€</td>
+                            <td style="width:40%">${whiskey.Description}</td>
+                            <td>
+                                 <button class="btn btn-info">Edit</button>
+                                 <button class="btn btn-danger">Delete</button>
+                           </td>
+                        </tr>
+                      `
+                        let element = $(template);
+
+                        //element.find(".delete-btn").click(DeleteRow);
+                        //element.find(".edit1-btn").click(Edit1Row);
+
+
+                        $("tbody").append(element);
+                    }
+                }
+
+                function LoadSpirits() {
+                    let spirits = response.spirits;
+                    for (let spirit of spirits) {
+                        let template = `
+                        <tr>
+                            <td>${spirit.Id}</td>
+                            <td>${spirit.Category.Title} > ${spirit.Category.Kind}</td>
+                            <td><img src="${spirit.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                            <td>${spirit.Name}</td>
+                            <td>${spirit.Price}€</td>
+                            <td style="width:40%">${spirit.Description}</td>
+                            <td>
+                                 <button class="btn btn-info">Edit</button>
+                                 <button class="btn btn-danger">Delete</button>
+                           </td>
+                        </tr>
+                      `
+                        let element = $(template);
+
+                        //element.find(".delete-btn").click(DeleteRow);
+                        //element.find(".edit1-btn").click(Edit1Row);
+
+
+                        $("tbody").append(element);
+                    }
                 }
             });
         }
-     
+
     </script>
 
 }
