@@ -16,12 +16,21 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            var beers = db.Beers.Where(b=>b.Category.Kind == "Bock").ToList();
+            var beers = db.Beers;
+            var spirits = db.Spirits;
+            var whiskeys = db.Whiskeys;
+            var wines = db.Wines;
+          
 
-            foreach (var beer in beers)
+            IEnumerable<IProduct> prod = beers;
+            var newList = prod.Union(spirits).Union(whiskeys).Union(wines);
+            Console.WriteLine(newList.Count());
+
+            foreach (var item in newList)
             {
-                Console.WriteLine(beer.Name);
-            }            
+                Console.WriteLine(item.Id + " " + item.Name);
+            }
+          
         }
     }
 }
