@@ -1,7 +1,6 @@
 ﻿@using Entities.Items
 
 
-
 <!--=================== Ajax Cart Dialog ===================-->
 <div class="modal fade paira-cart-popup" id="paira-ajax-cart" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-lg">
@@ -43,26 +42,18 @@
                                     </div>
                                 }
                                 @{
-                                    List<Item>
-                                        cart = (List<Item>)Session["cart"];
+                                    List<Item>cart = (List<Item>)Session["cart"];
                                     var total = cart.Sum(item => item.Product.Price * item.Quantity);
                                 }
 
-
-
-
-
-
                                 <!--Items End-->
-
                             </div>
                         </div>
                         <div class="col-md-12 col-sm-12 col-xs-12 pull-right text-right">
                             <div>
                                 <h3 class="text-color-1">Subtotal : <span><b>@total</b></span></h3>
                                 <p class="margin-top-10 text-color-1">Shipping & tax calculate at checkout</p>
-                                <a href="@Url.Action("Index", "Beer")" class="btn-border text-color-1 text-uppercase margin-top-20">CONTINUE SHOPPING</a>
-                                <a href="#" class="btn btn-success updat btn-lg text-uppercase margin-top-20 margin-left-20">update</a>
+                                <a href="@Url.Action("Index", "Cart")" class="btn btn-success updat btn-lg text-uppercase margin-top-20 margin-left-20">CONTINUE SHOPPING</a>
                                 <a href="#" class="btn btn-default btn-lg text-uppercase checkout margin-top-20 margin-left-20">checkout</a>
                             </div>
                         </div>
