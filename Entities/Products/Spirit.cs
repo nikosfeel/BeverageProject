@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Products
 {
-    public class Spirit : IProduct
+    public class Spirit : Product,IProduct
     {
-        public int Id { get; set; }
+        
         public string Name { get; set; }
         public string Description { get; set; }
         public double Price { get; set; }

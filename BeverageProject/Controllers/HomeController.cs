@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BeverageProject.Models;
+using MyDatabase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +10,10 @@ namespace BeverageProject.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
+            
             return View();
         }
 

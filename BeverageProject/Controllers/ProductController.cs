@@ -1,4 +1,6 @@
-﻿using Entities.Items;
+﻿using BeverageProject.Models;
+using Entities;
+using Entities.Items;
 using Entities.Products;
 using MyDatabase;
 using System;
@@ -12,19 +14,21 @@ namespace BeverageProject.Controllers
     public class ProductController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        
+
         public ActionResult Index()
         {
-            var beers = db.Beers.ToList();
-            var spirits = db.Spirits.ToList();
-            var wines = db.Wines.ToList();
-            var whiskeys = db.Whiskeys.ToList();
+            var beers = db.Beers;
+            var spirits = db.Spirits;
+            var whiskeys = db.Whiskeys;
+            var wines = db.Wines;
 
-            ItemModel itemModel = new ItemModel(beers, spirits, wines, whiskeys);
-            ViewBag.Beers = itemModel.findAllBeers();
-            ViewBag.Spirits = itemModel.findAllSpirits();
-            ViewBag.Wines = itemModel.findAllWines();
-            ViewBag.Whiskeys = itemModel.findAllWhiskeys();
+
+            IEnumerable<IProduct> prod = beers;
+            var allProducts = prod.Union(spirits).Union(whiskeys).Union(wines);
+
+
+            ItemModel productModel = new ItemModel();
+            ViewBag.products = productModel.findAllProducts();
             return View();
         }
     }
