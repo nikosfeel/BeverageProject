@@ -198,6 +198,7 @@
     <Compile Include="Controllers\ApplicationUserController.cs" />
     <Compile Include="Controllers\BeerController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NavigationBarController.cs" />
@@ -6451,6 +6452,8 @@
     <Content Include="Views\Admin\AllWhiskeys.cshtml" />
     <Content Include="Views\Admin\AllWines.cshtml" />
     <Content Include="Views\Shared\ClientComponents\_CartView.cshtml" />
+    <Content Include="Views\Checkout\_PayPal.cshtml" />
+    <Content Include="Views\Checkout\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />
