@@ -12,6 +12,8 @@ using Entities;
 using Entities.Products;
 using Entities.Categories;
 using Entities.Items;
+using Entities.Customers;
+using Entities.Orders;
 
 namespace MyDatabase
 {
@@ -36,7 +38,8 @@ namespace MyDatabase
         public DbSet<WineCategory> WineCategories { get; set; }
         public DbSet<WhiskeyCategory> WhiskeyCategories { get; set; }
         public DbSet<SpiritCategory> SpiritCategories { get; set; }
-        
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
 
 

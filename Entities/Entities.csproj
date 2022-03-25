@@ -62,7 +62,9 @@
     <Compile Include="Categories\SpiritCategory.cs" />
     <Compile Include="Categories\WhiskeyCategory.cs" />
     <Compile Include="Categories\WineCategory.cs" />
+    <Compile Include="Orders\Order.cs" />
     <Compile Include="Items\Item.cs" />
+    <Compile Include="Orders\OrderDetail.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="IdentityUsers\ApplicationUser.cs" />
     <Compile Include="IProduct.cs" />
