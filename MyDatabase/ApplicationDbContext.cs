@@ -12,7 +12,6 @@ using Entities;
 using Entities.Products;
 using Entities.Categories;
 using Entities.Items;
-using Entities.Customers;
 using Entities.Orders;
 
 namespace MyDatabase
