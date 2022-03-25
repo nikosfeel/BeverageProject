@@ -28,7 +28,6 @@ namespace MyDatabase
         }
 
         public DbSet<Product> Products { get; set; }
-        public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Beer> Beers { get; set; }
         public DbSet<Wine> Wines { get; set; }
         public DbSet<Whiskey> Whiskeys { get; set; }
