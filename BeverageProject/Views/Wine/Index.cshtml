@@ -87,7 +87,8 @@
                                     </p>
                                     <div class="product-hover">
                                         <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                            <a href="@Url.Action("Details","Wine",new {id= wine.Id})" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="~/Content/images/cart-2.png" alt=""></a>
+                                            <a href=" @Url.Action("Details", "Wine", new { id = wine.Id })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
+                                            <a href="@Url.Action("Buy","Cart",new {id= wine.Id})" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="~/Content/images/cart-2.png" alt=""></a>
                                         </div>
                                         <br />  
                                         <br />  

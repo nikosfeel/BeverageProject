@@ -74,6 +74,25 @@ namespace BeverageProject.Controllers
             Session["cart"] = cart;
             return RedirectToAction("Index");
         }
+        public ActionResult ButtonUp(int? id)
+        {
+            List<Item> cart = (List<Item>)Session["cart"];
+            int index = isExist(id);
+            cart[index].Quantity++;
+            Session["cart"] = cart;
+            return RedirectToAction("Index");
+        }
+        public ActionResult ButtonDown(int? id)
+        {
+            List<Item> cart = (List<Item>)Session["cart"];
+            int index = isExist(id);
+            if (cart[index].Quantity > 1)
+            {
+                cart[index].Quantity--;                
+            }            
+            Session["cart"] = cart;
+            return RedirectToAction("Index");
+        }
 
         private int isExist(int? id)
         {
