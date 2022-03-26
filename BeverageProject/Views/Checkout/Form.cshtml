@@ -40,10 +40,13 @@
                         {
                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                             <div>
-                                <h6 class="my-0">@item.Product.Name</h6>
-                                <small class="text-muted">@item.Product.GetType().Name</small>
+                                <h6 class="my-0">Name : @item.Product.Name</h6>
+                                <small class="text-muted">Kind : @item.Product.GetType().Name</small>
                             </div>
-                            <span class="text-muted">@item.Product.Price€</span>
+                            <strong class="text-muted">Quantity : @item.Quantity</strong>
+                            <br />
+                            <span class="text-muted">Price : @item.Product.Price€</span>
+
                             <a href="@Url.Action("Remove", "Cart", new { id = item.Product.Id })" class="remove"><i class="fa fa-trash fa-2x"></i></a>
                         </li>
                         }
