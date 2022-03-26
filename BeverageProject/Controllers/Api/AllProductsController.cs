@@ -9,6 +9,8 @@ using System.Web.Http;
 using System.Data.Entity;
 using System.Web.Mvc;
 using Entities.Categories;
+using System.Web.Http.Description;
+using Entities;
 
 namespace BeverageProject.Controllers.Api
 {
@@ -20,8 +22,8 @@ namespace BeverageProject.Controllers.Api
         public IHttpActionResult Get()
         {
             AdminAllProductsViewModel vm = new AdminAllProductsViewModel();
-            vm.Beers = db.Beers.Include(x=>x.Category).ToList();
-            
+            vm.Beers = db.Beers.Include(x => x.Category).ToList();
+
             var beers = vm.Beers.Select(beer => new
             {
                 beer.Id,
@@ -63,7 +65,7 @@ namespace BeverageProject.Controllers.Api
                 Category = new { spirit.Category.Title, spirit.Category.Kind }
             }).ToList();
 
-            return Json(new {beers = beers,wines = wines,whiskeys = whiskeys,spirits = spirits});
+            return Json(new { beers = beers, wines = wines, whiskeys = whiskeys, spirits = spirits });
         }
 
         // GET: api/AllProducts/5
@@ -73,18 +75,34 @@ namespace BeverageProject.Controllers.Api
         }
 
         // POST: api/AllProducts
-        public void Post([FromBody]string value)
+        public void Post([FromBody] string value)
         {
         }
 
         // PUT: api/AllProducts/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 
         // DELETE: api/AllProducts/5
-        public void Delete(int id)
+        [ResponseType(typeof(IProduct))]
+        public IHttpActionResult DeleteProduct(int id)
         {
+            IEnumerable<IProduct> Products = db.Beers;
+            Products.Union(db.Wines).Union(db.Whiskeys).Union(db.Spirits);
+
+            var product = Products.Where(p => p.Id == id).First();
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            var type = product.GetType();
+
+            Products.
+            db.SaveChanges();
+
         }
     }
 }
