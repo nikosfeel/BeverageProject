@@ -18,5 +18,9 @@ namespace BeverageProject.Controllers
         {
             return View();
         }
+        public ActionResult PayPal()
+        {
+            return View();
+        }
     }
 }
