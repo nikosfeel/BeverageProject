@@ -2,7 +2,7 @@
     ViewBag.Title = "Form";
     Layout = "";
 }
-
+@using Entities.Items
 @*@Html.Partial("~/Views/Checkout/_PayPal.cshtml")*@
 
 <!DOCTYPE html>
@@ -17,6 +17,7 @@
         body {
             background-color: #D0D0D0;
         }
+
         .invalid-feedback {
             color: red;
         }
@@ -35,37 +36,24 @@
                         <span class="badge badge-secondary badge-pill">4</span>
                     </h4>
                     <ul class="list-group mb-3 sticky-top">
+                        @foreach (Item item in (List<Item>)Session["cart"])
+                        {
                         <li class="list-group-item d-flex justify-content-between lh-condensed">
                             <div>
-                                <h6 class="my-0">Product name</h6>
-                                <small class="text-muted">Beer</small>
+                                <h6 class="my-0">@item.Product.Name</h6>
+                                <small class="text-muted">@item.Product.GetType().Name</small>
                             </div>
-                            <span class="text-muted">12€</span>
+                            <span class="text-muted">@item.Product.Price€</span>
+                            <a href="@Url.Action("Remove", "Cart", new { id = item.Product.Id })" class="remove"><i class="fa fa-trash fa-2x"></i></a>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                            <div>
-                                <h6 class="my-0">Product name</h6>
-                                <small class="text-muted">Spirit</small>
-                            </div>
-                            <span class="text-muted">12€</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                            <div>
-                                <h6 class="my-0">Product name</h6>
-                                <small class="text-muted">Wine</small>
-                            </div>
-                            <span class="text-muted">12€</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-condensed">
-                            <div>
-                                <h6 class="my-0">Product name</h6>
-                                <small class="text-muted">Whiskey</small>
-                            </div>
-                            <span class="text-muted">12€</span>
-                        </li>
+                        }
+                        @{
+                            List<Item> cart = (List<Item>)Session["cart"];
+                            var total = cart.Sum(item => item.Product.Price * item.Quantity);
+                        }
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Total :</span>
-                            <strong>20€</strong>
+                            <strong>@total€</strong>
                         </li>
                     </ul>
                 </div>
@@ -122,11 +110,7 @@
                             <div class="custom-control custom-radio">
                                 <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
                                 <label class="custom-control-label" for="credit">Credit card</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                                <label class="custom-control-label" for="debit">Debit card</label>
-                            </div>
+                            </div>                            
                             <div class="custom-control custom-radio">
                                 <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
                                 <label class="custom-control-label" for="paypal">PayPal</label>
@@ -226,27 +210,27 @@
 </html>
 @*@section scripts{
 
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-            'use strict'
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function () {
+                'use strict'
 
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation')
+                window.addEventListener('load', function () {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation')
 
-                // Loop over them and prevent submission
-                Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault()
-                            event.stopPropagation()
-                        }
-                        form.classList.add('was-validated')
-                    }, false)
-                })
-            }, false)
-        }())
-    </script>
+                    // Loop over them and prevent submission
+                    Array.prototype.filter.call(forms, function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
+                            form.classList.add('was-validated')
+                        }, false)
+                    })
+                }, false)
+            }())
+        </script>
 
-}*@
+    }*@
