@@ -18,7 +18,7 @@
                     </header>
                     <div class="panel-body">
                         <section id="unseen">
-                            <table class="display table table-bordered table-striped table-condensed" id="table_id">
+                            <table class="table" id="example">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -41,11 +41,33 @@
     </section>
 </section>
 
+          
 @section scripts{
 
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
-    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">
+        LoadData();
+
+        setTimeout(function () {
+            $('#example').DataTable(
+                {
+                    stateSave: true,
+                    stateSaveCallback: function (settings, data) {
+                        localStorage.setItem('DataTables_' + settings.sInstance, JSON.stringify(data))
+                    },
+                    stateLoadCallback: function (settings) {
+                        return JSON.parse(localStorage.getItem('DataTables_' + settings.sInstance))
+                    },
+                    paging: true,
+                }
+            )
+        }, 500);
+
+
+
+
+
 
         function LoadData() {
             var settings = {
@@ -64,22 +86,22 @@
                     let beers = response.beers;
                     for (let beer of beers) {
                         let template = `
-                                    <tr>
-                                        <td>${beer.Id}</td>
-                                        <td>${beer.Category.Title} > ${beer.Category.Kind}</td>
-                                        <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                                        <td>${beer.Name}</td>
-                                        <td>${beer.Price}€</td>
-                                        <td style="width:40%">${beer.Description}</td>
-                                        <td>
-                                             <button class="btn btn-info">Edit</button>
-                                             <button class="btn btn-danger">Delete</button>
-                                       </td>
-                                    </tr>
-                                  `
+                                                                                                <tr id="${beer.Id}">
+                                                                                                    <td>${beer.Id}</td>
+                                                                                                    <td>${beer.Category.Title} > ${beer.Category.Kind}</td>
+                                                                                                    <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                                                                                                    <td>${beer.Name}</td>
+                                                                                                    <td>${beer.Price}€</td>
+                                                                                                    <td style="width:40%">${beer.Description}</td>
+                                                                                                    <td>
+                                                                                                         <button class="btn btn-info">Edit</button>
+                                                                                                         <button class="btn btn-danger delete-btn">Delete</button>
+                                                                                                   </td>
+                                                                                                </tr>
+                                                                                              `
                         let element = $(template);
 
-                        //element.find(".delete-btn").click(DeleteRow);
+                        element.find(".delete-btn").click(DeleteRow);
                         //element.find(".edit1-btn").click(Edit1Row);
 
 
@@ -92,19 +114,19 @@
                     let wines = response.wines;
                     for (let wine of wines) {
                         let template = `
-                                    <tr id="${wine.Id}">
-                                        <td>${wine.Id}</td>
-                                        <td>${wine.Category.Title} > ${wine.Category.Kind}</td>
-                                        <td><img src="${wine.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                                        <td>${wine.Name}</td>
-                                        <td>${wine.Price}€</td>
-                                        <td style="width:40%">${wine.Description}</td>
-                                        <td>
-                                             <button class="btn btn-info">Edit</button>
-                                             <button class="btn btn-danger delete-btn">Delete</button>
-                                       </td>
-                                    </tr>
-                                  `
+                            <tr id="${wine.Id}">
+                                <td>${wine.Id}</td>
+                                <td>${wine.Category.Title} > ${wine.Category.Kind}</td>
+                                <td><img src="${wine.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                                <td>${wine.Name}</td>
+                                <td>${wine.Price}€</td>
+                                <td style="width:40%">${wine.Description}</td>
+                                <td>
+                                     <button class="btn btn-info">Edit</button>
+                                     <button class="btn btn-danger delete-btn">Delete</button>
+                               </td>
+                            </tr>
+                          `
                         let element = $(template);
 
                         element.find(".delete-btn").click(DeleteRow);
@@ -119,22 +141,22 @@
                     let whiskeys = response.whiskeys;
                     for (let whiskey of whiskeys) {
                         let template = `
-                                    <tr>
-                                        <td>${whiskey.Id}</td>
-                                        <td>${whiskey.Category.Title} > ${whiskey.Category.Kind}</td>
-                                        <td><img src="${whiskey.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                                        <td>${whiskey.Name}</td>
-                                        <td>${whiskey.Price}€</td>
-                                        <td style="width:40%">${whiskey.Description}</td>
-                                        <td>
-                                             <button class="btn btn-info">Edit</button>
-                                             <button class="btn btn-danger">Delete</button>
-                                       </td>
-                                    </tr>
-                                  `
+                       <tr id="${whiskey.Id}>
+                           <td ">${whiskey.Id}</td>
+                           <td>${whiskey.Category.Title} > ${whiskey.Category.Kind}</td>
+                           <td><img src="${whiskey.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                           <td>${whiskey.Name}</td>
+                           <td>${whiskey.Price}€</td>
+                           <td style="width:40%">${whiskey.Description}</td>
+                           <td>
+                                <button class="btn btn-info">Edit</button>
+                                <button class="btn btn-danger delete-btn">Delete</button>
+                          </td>
+                       </tr>
+                     `
                         let element = $(template);
 
-                        //element.find(".delete-btn").click(DeleteRow);
+                        element.find(".delete-btn").click(DeleteRow);
                         //element.find(".edit1-btn").click(Edit1Row);
 
 
@@ -146,22 +168,22 @@
                     let spirits = response.spirits;
                     for (let spirit of spirits) {
                         let template = `
-                                    <tr>
-                                        <td ">${spirit.Id}</td>
-                                        <td>${spirit.Category.Title} > ${spirit.Category.Kind}</td>
-                                        <td><img src="${spirit.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                                        <td>${spirit.Name}</td>
-                                        <td>${spirit.Price}€</td>
-                                        <td style="width:40%">${spirit.Description}</td>
-                                        <td>
-                                             <button class="btn btn-info">Edit</button>
-                                             <button class="btn btn-danger">Delete</button>
-                                       </td>
-                                    </tr>
-                                  `
+                                                                                                <tr id="${spirit.Id}>
+                                                                                                    <td ">${spirit.Id}</td>
+                                                                                                    <td>${spirit.Category.Title} > ${spirit.Category.Kind}</td>
+                                                                                                    <td><img src="${spirit.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                                                                                                    <td>${spirit.Name}</td>
+                                                                                                    <td>${spirit.Price}€</td>
+                                                                                                    <td style="width:40%">${spirit.Description}</td>
+                                                                                                    <td>
+                                                                                                         <button class="btn btn-info">Edit</button>
+                                                                                                         <button class="btn btn-danger delete-btn">Delete</button>
+                                                                                                   </td>
+                                                                                                </tr>
+                                                                                              `
                         let element = $(template);
 
-                        //element.find(".delete-btn").click(DeleteRow);
+                        element.find(".delete-btn").click(DeleteRow);
                         //element.find(".edit1-btn").click(Edit1Row);
 
 
@@ -172,11 +194,6 @@
 
 
         }
-        $('#table_id').DataTable({
-            ajax: LoadData(),
-            paging: true
-        });
-
         function DeleteRow() {
             let rowId = $(this).parent().parent().attr('id');
             console.log(rowId);
@@ -198,6 +215,9 @@
                 }
             });
         }
+    </script>
+    <script type="text/javascript">
+
     </script>
 
 }
