@@ -20,13 +20,12 @@ namespace ConsoleApp
             var spirits = db.Spirits;
             var whiskeys = db.Whiskeys;
             var wines = db.Wines;
-            
 
-            IEnumerable<IProduct> prod = beers;
-            var newList = prod.Union(spirits).Union(whiskeys).Union(wines);
-            Console.WriteLine(newList.Count());
 
-            foreach (var item in newList)
+            IEnumerable<IProduct> firstProd = db.Beers;
+            var Products = firstProd.Union(db.Wines).Union(db.Whiskeys).Union(db.Spirits);
+
+            foreach (var item in Products)
             {
                 Console.WriteLine(item.Id + " " + item.Name);
             }

@@ -86,23 +86,24 @@ namespace BeverageProject.Controllers.Api
 
         // DELETE: api/AllProducts/5
         [ResponseType(typeof(IProduct))]
-        public IHttpActionResult DeleteProduct(int id)
+        public IHttpActionResult DeleteProduct(string id)
         {
-            IEnumerable<IProduct> Products = db.Beers;
-            Products.Union(db.Wines).Union(db.Whiskeys).Union(db.Spirits);
+            IEnumerable<IProduct> firstProd = db.Beers;
+            var Products = firstProd.Union(db.Wines).Union(db.Whiskeys).Union(db.Spirits);
 
-            var product = Products.Where(p => p.Id == id).First();
+            var product = Products.Where(p => p.Id == Convert.ToInt32(id)).First();
 
             if (product == null)
             {
                 return NotFound();
             }
 
-            var type = product.GetType();
 
-            Products.
+
+            db.Entry(product).State = EntityState.Deleted;
             db.SaveChanges();
 
+            return Ok(product);
         }
     }
 }
