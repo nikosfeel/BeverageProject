@@ -6457,7 +6457,7 @@
     <Content Include="Views\Checkout\_PayPal.cshtml" />
     <Content Include="Views\Checkout\Form.cshtml" />
     <Content Include="Views\Checkout\PayPal.cshtml" />
-    <Content Include="Views\ProductCreate\Create.cshtml" />
+    <Content Include="Views\ProductCreate\CreateBeer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />
