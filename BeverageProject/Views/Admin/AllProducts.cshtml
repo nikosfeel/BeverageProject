@@ -3,8 +3,7 @@
     ViewBag.Title = "AllProducts";
     Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
 }
-<style>
-</style>
+
 <section id="main-content">
     <section class="wrapper">
         <div class="row">
@@ -63,10 +62,6 @@
                 }
             )
         }, 1000);
-
-
-
-
 
 
         function LoadData() {
@@ -131,7 +126,6 @@
 
                         element.find(".delete-btn").click(DeleteRow);
                         //element.find(".edit1-btn").click(Edit1Row);
-
 
                         $("tbody").append(element);
                     }

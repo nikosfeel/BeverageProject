@@ -98,12 +98,19 @@ namespace BeverageProject.Controllers.Api
                 return NotFound();
             }
 
-
-
             db.Entry(product).State = EntityState.Deleted;
             db.SaveChanges();
 
             return Ok(product);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
