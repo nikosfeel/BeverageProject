@@ -20,14 +20,14 @@ namespace BeverageProject.Controllers.Api
         // GET: api/Spirits
         public IHttpActionResult GetSpirits()
         {
-            var spirits = db.Spirits.Select(Spirit => new
+            var spirits = db.Spirits.Select(spirit => new
             {
-              Spirit.Id,
-              Spirit.Name,
-              Spirit.Description,
-              Spirit.PhotoUrl,
-              Spirit.Price,
-              Category = new { Spirit.Category.Title, Spirit.Category.Kind }
+                spirit.Id,
+                spirit.Name,
+                spirit.Description,
+                spirit.PhotoUrl,
+                spirit.Price,
+                Category = new { spirit.Category.Title, spirit.Category.Kind }
             }).ToList();
 
 

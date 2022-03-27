@@ -20,18 +20,18 @@ namespace BeverageProject.Controllers.Api
         // GET: api/Whiskeys
         public IHttpActionResult GetWhiskeys()
         {
-            var Whiskeys = db.Whiskeys.Select(Whiskey => new
+            var whiskeys = db.Whiskeys.Select(whiskey => new
             {
-                Whiskey.Id,
-                Whiskey.Name,
-                Whiskey.Description,
-                Whiskey.PhotoUrl,
-                Whiskey.Price,
-                Category = new { Whiskey.Category.Title, Whiskey.Category.Kind }
+                whiskey.Id,
+                whiskey.Name,
+                whiskey.Description,
+                whiskey.PhotoUrl,
+                whiskey.Price,
+                Category = new { whiskey.Category.Title, whiskey.Category.Kind }
             }).ToList();
 
 
-            return Json(new { whiskeys = Whiskeys });
+            return Json(new { whiskeys = whiskeys });
         }
 
         // GET: api/Whiskeys/5
