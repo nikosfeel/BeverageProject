@@ -190,6 +190,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminControllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminControllers\ProductCreateController.cs" />
     <Compile Include="Controllers\Api\AllProductsController.cs" />
     <Compile Include="Controllers\Api\BeersController.cs" />
     <Compile Include="Controllers\Api\SpiritsController.cs" />
@@ -1328,6 +1329,7 @@
     <Content Include="Content\images\grabbing.png" />
     <Content Include="Content\images\hedding.png" />
     <Content Include="Content\images\image-zoom.jpg" />
+    <Content Include="Content\images\nav-expand.png" />
     <Content Include="Content\images\overlay1.png" />
     <Content Include="Content\images\overlay10.png" />
     <Content Include="Content\images\overlay2.png" />
@@ -6455,6 +6457,7 @@
     <Content Include="Views\Checkout\_PayPal.cshtml" />
     <Content Include="Views\Checkout\Form.cshtml" />
     <Content Include="Views\Checkout\PayPal.cshtml" />
+    <Content Include="Views\ProductCreate\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />
