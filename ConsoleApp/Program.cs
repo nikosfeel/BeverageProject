@@ -16,18 +16,11 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            var beers = db.Beers;
-            var spirits = db.Spirits;
-            var whiskeys = db.Whiskeys;
-            var wines = db.Wines;
+            var orders = db.Orders.ToList();
 
-
-            IEnumerable<IProduct> firstProd = db.Beers;
-            var Products = firstProd.Union(db.Wines).Union(db.Whiskeys).Union(db.Spirits);
-
-            foreach (var item in Products)
+            foreach (var item in orders)
             {
-                Console.WriteLine(item.Id + " " + item.Name);
+                Console.WriteLine(item.FullName);
             }
           
         }

@@ -19,7 +19,8 @@ namespace BeverageProject.Controllers.AdminControllers
         }
         public ActionResult CustomerOrders()
         {
-            return View();
+            var orders = db.Orders.ToList();
+            return View(orders);
         }
         public ActionResult CustomerInvoice()
         {

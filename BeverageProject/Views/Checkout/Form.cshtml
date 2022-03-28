@@ -99,13 +99,12 @@ span.price {
     <div class="row">
         <div class="col-75">
             <div class="container">
-                <form action="/action_page.php">
-
+                <form action="@Url.Action("CreateOrder","CheckOut")" method="post">
                     <div class="row">
                         <div class="col-50">
                             <h3>Billing Address</h3>
                             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                            <input type="text" id="fname" name="firstname" placeholder="Giannis Dimitriou">
+                            <input type="text" id="fname" name="fullname" placeholder="Giannis Dimitriou">
                             <label for="email"><i class="fa fa-envelope-o"></i> Email</label>
                             <input type="text" id="email" name="email" placeholder="john@example.com">
                             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
@@ -116,9 +115,11 @@ span.price {
                             <div class="row">
                                 <div class="col-50">
                                     <label for="zip"><i class="fa fa-map-marker"></i> Zip</label>
-                                    <input type="text" id="zip" name="zip" placeholder="10001">
+                                    <input type="text" id="zip" name="postalcode" placeholder="10001">
                                 </div>
                             </div>
+                            <label for="phone"><i class="fa fa-mobile-phone"></i> Phone Number</label>
+                            <input type="text" id="phone" name="phone" placeholder="e.g 6912345678">
                         </div>
 
                         <div class="col-25">
@@ -137,20 +138,28 @@ span.price {
             </div>
         </div>
         <div class="col-25">
+            @{
+                List<Item> cart = (List<Item>)Session["cart"];
+                var total = cart.Sum(item => item.Product.Price * item.Quantity);
+            }
             <div class="container">
                 <h4>
                     Cart
                     <span class="price" style="color:black">
                         <i class="fa fa-shopping-cart"></i>
-                        <b>4</b>
+                        <b>@cart.Count()</b>
                     </span>
                 </h4>
-                <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-                <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-                <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-                <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-                <hr>
-                <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+                @foreach (Item item in (List<Item>)Session["cart"])
+                {
+                    <p><span>@item.Product.Name</span> <span class="text-muted">Price : @item.Product.Price€</span></p>
+                    <small class="text-muted">Kind : @item.Product.GetType().Name</small>
+                    <strong class="text-muted">Quantity : @item.Quantity</strong>
+                    <a href="@Url.Action("Remove", "Cart", new { id = item.Product.Id })" class="remove"><i class="fa fa-trash-o fa-2x"></i></a>
+                    <hr>
+                }
+
+                <p>Total <span class="price" style="color:black"><b name="total">@total€</b></span></p>
             </div>
         </div>
     </div>
@@ -159,7 +168,7 @@ span.price {
 
 
 
-
+    
 
 
 
