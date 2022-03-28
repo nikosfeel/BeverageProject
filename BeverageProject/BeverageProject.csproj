@@ -6461,6 +6461,10 @@
     <Content Include="Views\ProductCreate\CreateSpirit.cshtml" />
     <Content Include="Views\ProductCreate\CreateWhiskey.cshtml" />
     <Content Include="Views\ProductCreate\CreateWine.cshtml" />
+    <Content Include="Views\Beer\IndexCollection.cshtml" />
+    <Content Include="Views\Spirit\IndexCollection.cshtml" />
+    <Content Include="Views\Whiskey\IndexCollection.cshtml" />
+    <Content Include="Views\Wine\IndexCollection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />

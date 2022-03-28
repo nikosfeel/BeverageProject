@@ -26,6 +26,16 @@ namespace BeverageProject.Controllers
             return View(spirits);
         }
 
+        public ActionResult IndexCollection(string category)
+        {
+            if (category is null)
+            {
+                return View(db.Spirits.ToList());
+            }
+            var spirits = db.Spirits.Where(x => x.Category.Kind == category).ToList();
+            return View(spirits);
+        }
+
         // GET: Spirit/Details/5
         public ActionResult Details(int? id)
         {
