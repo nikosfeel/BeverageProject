@@ -62,7 +62,7 @@
                                 <div class="form-group margin-clear pull-right list-grid margin-top-5 float-0">
                                     <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>View :</b></label></h4>
                                     <button data-value="list"><i class="fa fa-th-list fa-2x"></i></button>
-                                    <button data-value="grid" class="active list"><i class="fa fa-th fa-2x"></i></button>
+                                    <button data-value="grid" class="active list" onclick="location.href='@Url.Action("IndexCollection","Beer")'"><i class="fa fa-th fa-2x"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                                     </p>
                                     <div class="product-hover">
                                         <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                            <a href=" @Url.Action("Details", "Beer", new { id = beer.Id })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
+                                            <a href="@Url.Action("Details", "Beer", new { id = beer.Id })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
                                             <a href="@Url.Action("Buy", "Cart", new { id = beer.Id })" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="~/Content/images/cart-2.png" alt=""></a>
                                         </div>
                                         <br />

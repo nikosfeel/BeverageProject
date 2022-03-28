@@ -1,10 +1,9 @@
-﻿@model IEnumerable<Entities.Products.Whiskey>
-
+﻿@model IEnumerable<Entities.Products.Spirit>
 @{
-    ViewBag.Title = "Whiskeys";
+    ViewBag.Title = "SpiritsCollection";
 }
-<!--=================== Main Content Container ===================-->
-<main class="list-collection-page">
+
+<main class="collection-page">
     <!--=================== Breadcrumb Section ===================-->
     <section class="breadcrumb-container paira-padding-bottom-1">
         <div class="container">
@@ -13,7 +12,7 @@
                     <div class="breadcrumb">
                         <ul class="list-inline">
                             <li><a href="@Url.Action("Index", "Home")" class="raleway-light">Home <i class="fa fa-angle-right"></i></a></li>
-                            <li class="raleway-sbold">Whiskeys</li>
+                            <li class="raleway-sbold">Spirits</li>
                         </ul>
                     </div>
                 </div>
@@ -28,24 +27,24 @@
             </div>
         </div>
     </div>
-    <!--=================== big Banner Section ===================-->
+    <!--=================== Big Banner Section ===================-->
     <section class="big-banner">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-xs-12 col-sm-12">
-                    <img src="~/Theme/OurTemplate/images/banner/banner-1.jpg" class="img-responsive paira-margin-top-1" alt="" />
-                    <h1>WHISKEY FOR PARTY</h1>
+                    <img src="~/Content/images/banner/banner-1.jpg" class="img-responsive paira-margin-top-1" alt="">
+                    <h1 class="text-uppercase">SPIRIT FOR PARTY</h1>
                 </div>
             </div>
         </div>
     </section>
     <!--=================== Latest Product Section ===================-->
-    <section class="latest-product text-center paira-margin-bottom-1">
+    <section class="latest-product text-center paira-padding-bottom-1">
         <div class="container">
             <div class="row">
                 <div class="synconis paira-margin-bottom-1">
                     <div class="container">
-                        <div class="row">                            
+                        <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
                                 <div class="form-group margin-clear">
                                     <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>Sort by:</b></label></h4>
@@ -60,44 +59,35 @@
                             <div class="col-md-4 col-sm-4 col-xs-4 paira-margin-top-1 pull-right">
                                 <div class="form-group margin-clear pull-right list-grid margin-top-5 float-0">
                                     <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>View :</b></label></h4>
-                                    <button data-value="list"><i class="fa fa-th-list fa-2x"></i></button>
-                                    <button data-value="grid" class="active list" onclick="location.href='@Url.Action("IndexCollection","Whiskey")'"><i class="fa fa-th fa-2x"></i></button>
+                                    <button data-value="list" class="active list" onclick="location.href='@Url.Action("Index","Spirit")'"><i class="fa fa-th-list fa-2x"></i></button>
+                                    <button data-value="grid"><i class="fa fa-th fa-2x"></i></button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 list-view">
-                    <div class="product-widget">
-                        @foreach (var whiskey in Model)
-                        {
-                            <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-1">
-                                <div class="product text-center">
-                                    <div class="block-image position-rela">
-                                        <a href="@Url.Action("Details","Whiskey",new  {id = whiskey.Id})">
-                                            <div class="background-overlay"></div>
-
-                                            <img src=@Html.DisplayFor(modelItem => whiskey.PhotoUrl) alt="" class="img-responsive" width='250' height='250' >
-                                        </a>
-                                    </div>
-                                    <h1 class="font-size-18 margin-bottom-10"><a href="@Url.Action("Details","Whiskey",new  {id = whiskey.Id})">@Html.DisplayFor(modelItem => whiskey.Name)</a></h1>
-                                    <span class="money font-size-18"><b class="">@Html.DisplayFor(modelItem => whiskey.Price)€</b></span>
-                                    <p class="text-capitalize margin-top-15 letter-spacing-2">
-                                        @Html.DisplayFor(modelItem => whiskey.Description)
-                                    </p>
-                                    <div class="product-hover">
-                                        <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                            <a href=" @Url.Action("Details", "Whiskey", new { id = whiskey.Id })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
-                                            <a href="@Url.Action("Buy","Cart",new  {id = whiskey.Id})" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="~/Content/images/cart-2.png" alt=""></a>
-                                        </div>
-                                        <br />
-                                        <br />
-                                        <br />
+                <div class="product-widget">
+                    @foreach (var spirit in Model)
+                    {
+                        <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-1">
+                            <div class="product text-center">
+                                <div class="block-image position-rela">
+                                    <a href="@Url.Action("Details","Beer",new  {id = spirit.Id})">
+                                        <div class="background-overlay"></div>
+                                        <img src=@Html.DisplayFor(modelItem => spirit.PhotoUrl) alt="" class="img-responsive">
+                                    </a>
+                                </div>
+                                <h1 class="font-size-16 paira-margin-top-4 margin-bottom-10"><a href="collection.html">@Html.DisplayFor(modelItem => spirit.Name)</a></h1>
+                                <span class="money font-size-16"><b>@Html.DisplayFor(modelItem => spirit.Price)€</b></span>
+                                <div class="product-hover">
+                                    <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
+                                        <a href="@Url.Action("Details", "Spirit", new { id = spirit.Id })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
+                                        <a href="@Url.Action("Buy", "Cart", new { id = spirit.Id })" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="~/Content/images/cart-2.png" alt=""></a>
                                     </div>
                                 </div>
                             </div>
-                        }
-                    </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
@@ -108,10 +98,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="pagination list-inline">
-                        <li class="pull-left raleway-light letter-spacing-2 paira-margin-top-1">Showing : <b>1 - 12</b> Of <b>@Model.Count()</b></li>
+                        <li class="pull-left raleway-light letter-spacing-2">Showing : <b>1 - 12</b> Of <b>60</b></li>
                         <li class="pull-right">
                             <ul class="list-inline">
-                                <li class="disabled letter-spacing-2 paira-margin-top-1"><span>Preview</span></li>
+                                <li class="disabled letter-spacing-2"><span>Preview</span></li>
                                 <li class="active"><span>1</span></li>
                                 <li><a href="#">2</a></li>
                                 <li><a href="#">3</a></li>

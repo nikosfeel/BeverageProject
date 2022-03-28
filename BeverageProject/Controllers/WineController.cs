@@ -26,6 +26,16 @@ namespace BeverageProject.Controllers
             return View(wines);
         }
 
+        public ActionResult IndexCollection(string category)
+        {
+            if (category is null)
+            {
+                return View(db.Wines.ToList());
+            }
+            var wines = db.Wines.Where(x => x.Category.Kind == category).ToList();
+            return View(wines);
+        }
+
         // GET: Wine/Details/5
         public ActionResult Details(int? id)
         {
