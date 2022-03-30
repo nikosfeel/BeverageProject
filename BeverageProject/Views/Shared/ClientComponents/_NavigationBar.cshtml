@@ -1,4 +1,4 @@
-﻿@model BeverageProject.Models.ViewModels.NavBarViewModel
+﻿@model BeverageProject.Models.ViewModels.NavViewModel
 @using Entities.Items
 @using System.Linq;
 <div class="paira-container">
@@ -63,36 +63,38 @@
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","Beer")">@Model.BeerCategories.FirstOrDefault().Title</a></h4>
+                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","Beer")">Beers</a></h4>
                                                                     <ul class="list-unstyled mega-submenu-fix">
-                                                                        @foreach (var cat in Model.BeerCategories)
+                                                                        @foreach (var cat in Model.Beers)
                                                                         {
+
                                                                             <li><a href="@Url.Action("Index", "Beer")?category=@cat.Kind">@cat.Kind</a></li>
+
                                                                         }
                                                                     </ul>
                                                                 </div>
                                                                 <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","Spirit")">@Model.SpiritCategories.FirstOrDefault().Title</a></h4>
+                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","Spirit")">Spirits</a></h4>
                                                                     <ul class="list-unstyled mega-submenu-fix">
-                                                                        @foreach (var cat in Model.SpiritCategories)
+                                                                        @foreach (var cat in Model.Spirits)
                                                                         {
                                                                             <li><a href="@Url.Action("Index", "Spirit")?category=@cat.Kind">@cat.Kind</a></li>
                                                                         }
                                                                     </ul>
                                                                 </div>
                                                                 <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","Wine")">@Model.WineCategories.FirstOrDefault().Title</a></h4>
+                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","Wine")">Wines</a></h4>
                                                                     <ul class="list-unstyled mega-submenu-fix">
-                                                                        @foreach (var cat in Model.WineCategories)
+                                                                        @foreach (var cat in Model.Wines)
                                                                         {
                                                                             <li><a href="@Url.Action("Index", "Wine")?category=@cat.Kind">@cat.Kind</a></li>
                                                                         }
                                                                     </ul>
                                                                 </div>
                                                                 <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","Whiskey")">@Model.WhiskeyCategories.FirstOrDefault().Title</a></h4>
+                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","Whiskey")">Whiskeys</a></h4>
                                                                     <ul class="list-unstyled mega-submenu-fix">
-                                                                        @foreach (var cat in Model.WhiskeyCategories)
+                                                                        @foreach (var cat in Model.Whiskeys)
                                                                         {
                                                                             <li><a href="@Url.Action("Index", "Whiskey")?category=@cat.Kind">@cat.Kind</a></li>
                                                                         }

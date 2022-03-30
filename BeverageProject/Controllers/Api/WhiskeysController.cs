@@ -27,7 +27,7 @@ namespace BeverageProject.Controllers.Api
                 whiskey.Description,
                 whiskey.PhotoUrl,
                 whiskey.Price,
-                Category = new { whiskey.Category.Title, whiskey.Category.Kind }
+                Category = new { whiskey.Name, whiskey.Kind }
             }).ToList();
 
 

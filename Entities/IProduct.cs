@@ -1,5 +1,4 @@
-﻿using Entities.Categories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +12,7 @@ namespace Entities
         string Name { get; set; }
         string Description { get; set; }
         double Price { get; set; }
-        string PhotoUrl { get; set; }    
+        string PhotoUrl { get; set; }
+        string Kind { get; set; }
     }
 }

@@ -50,6 +50,6 @@ namespace Entities.Orders
         [ScaffoldColumn(false)]
         public bool HasBeenShipped { get; set; }
 
-        public List<IProduct> Products { get; set; }
+        public IEnumerable<IProduct> Products { get; set; }
     }
 }

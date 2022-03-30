@@ -10,7 +10,6 @@ using System.Data.Entity;
 using Entities.IdentityUsers;
 using Entities;
 using Entities.Products;
-using Entities.Categories;
 using Entities.Items;
 using Entities.Orders;
 
@@ -33,10 +32,6 @@ namespace MyDatabase
         public DbSet<Wine> Wines { get; set; }
         public DbSet<Whiskey> Whiskeys { get; set; }
         public DbSet<Spirit> Spirits { get; set; }
-        public DbSet<BeerCategory> BeerCategories { get; set; }
-        public DbSet<WineCategory> WineCategories { get; set; }
-        public DbSet<WhiskeyCategory> WhiskeyCategories { get; set; }
-        public DbSet<SpiritCategory> SpiritCategories { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
