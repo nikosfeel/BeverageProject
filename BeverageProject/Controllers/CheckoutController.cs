@@ -43,7 +43,7 @@ namespace BeverageProject.Controllers
             {
                 order.Total = order.Total + Convert.ToDecimal(item.Product.Price);
                 
-                order.Products.Append(item.Product);
+                //order.Products.Append(item.Product);
             }
             
 
