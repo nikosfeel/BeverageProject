@@ -1,11 +1,19 @@
-﻿@model IEnumerable<Entities.Products.Beer>
+﻿
+@model PagedList.IPagedList<Entities.Products.Beer>
+@using PagedList.Mvc;
+@using PagedList;
 
 @{
     ViewBag.Title = "Beers";
 }
 
+
+
 <!--=================== Main Content Container ===================-->
 <main class="list-collection-page">
+    <br />
+    page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    <br />
     <!--=================== Breadcrumb Section ===================-->
     <section class="breadcrumb-container paira-padding-bottom-1">
         <div class="container">
@@ -125,3 +133,4 @@
     </section>
 </main>
 
+@Html.PagedListPager(Model, x => Url.Action("Index", "Beer", new { page = x }))
