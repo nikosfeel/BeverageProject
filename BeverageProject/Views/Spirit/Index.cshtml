@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Entities.Products.Spirit>
+﻿@model PagedList.IPagedList<Entities.Products.Spirit>
+@using PagedList.Mvc;
+@using PagedList;
 
 @{
     ViewBag.Title = "Index";
@@ -6,7 +8,12 @@
 
 <!--=================== Main Content Container ===================-->
 <main class="list-collection-page">
+    <br />
+    page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    <br />
+
     <!--=================== Breadcrumb Section ===================-->
+
     <section class="breadcrumb-container paira-padding-bottom-1">
         <div class="container">
             <div class="row">
@@ -85,7 +92,7 @@
                                     <span class="money font-size-18"><b class="">@Html.DisplayFor(modelItem => spirit.Price)€</b></span>
                                     <p class="text-capitalize margin-top-15 letter-spacing-2">
                                         @Html.DisplayFor(modelItem => spirit.Description)
-                                    </p>                          
+                                    </p>
                                     <div class="product-hover">
                                         <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
                                             <a href=" @Url.Action("Details", "Spirit", new { id = spirit.Id })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
@@ -126,3 +133,4 @@
         </div>
     </section>
 </main>
+@Html.PagedListPager(Model, x => Url.Action("Index", "Spirit", new { page = x }))

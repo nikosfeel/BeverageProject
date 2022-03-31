@@ -18,7 +18,7 @@ namespace BeverageProject.Controllers
 
         // GET: Beer
         
-        public ActionResult Index(string category, int? page, int? pSize)
+        public ActionResult Index( int? page, int? pSize)
         {
             //if (category is null)
             //{

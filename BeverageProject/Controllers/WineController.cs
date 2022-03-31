@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Entities.Products;
 using MyDatabase;
+using PagedList;
 
 namespace BeverageProject.Controllers
 {
@@ -16,14 +17,14 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Wine
-        public ActionResult Index(string category)
+        public ActionResult Index(int? page, int? pSize)
         {
-            if (category is null)
-            {
-                return View(db.Wines.ToList());
-            }
-            var wines = db.Wines.Where(x => x.Kind == category).ToList();
-            return View(wines);
+            var wines = db.Wines.ToList();
+
+            int pagenumber = page ?? 1;
+            int pagesize = pSize ?? 10;
+
+            return View(wines.ToPagedList(pagenumber, pagesize));
         }
 
         public ActionResult IndexCollection(string category)
