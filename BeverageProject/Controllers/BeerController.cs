@@ -20,15 +20,15 @@ namespace BeverageProject.Controllers
         
         public ActionResult Index(string category, int? page, int? pSize)
         {
-            if (category is null)
-            {
-                return View(db.Beers.ToList());
-            }
-            var beers = db.Beers.Where(x=>x.Kind == category).ToList();
-            return View(beers);
-            var beers = db.Beers.Where(x=>x.Category.Kind == category).ToList();
+            //if (category is null)
+            //{
+            //    return View(db.Beers.ToList());
+            //}
+            var beers = db.Beers.ToList();
+            
+            
 
-            int pageSize = pSize ?? 4; //καθε σελιδα θα παρουσιαζει 4 προϊοντα
+            int pageSize = pSize ?? 10; //καθε σελιδα θα παρουσιαζει 4 προϊοντα
             int pageNumber = page ?? 1;
             return View(beers.ToPagedList(pageNumber, pageSize));
         }
