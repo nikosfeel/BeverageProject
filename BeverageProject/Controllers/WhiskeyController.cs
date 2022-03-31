@@ -23,18 +23,16 @@ namespace BeverageProject.Controllers
 
             int pagenumber = page ?? 1;
             int pagesize = pSize ?? 10;
-
             return View(whiskeys.ToPagedList(pagenumber, pagesize));
         }
 
-        public ActionResult IndexCollection(string category)
+        public ActionResult IndexCollection(int? page, int? pSize)
         {
-            if (category is null)
-            {
-                return View(db.Whiskeys.ToList());
-            }
-            var whiskeys = db.Whiskeys.Where(x => x.Kind == category).ToList();
-            return View(whiskeys);
+            var whiskeys = db.Whiskeys.ToList();
+
+            int pagenumber = page ?? 1;
+            int pagesize = pSize ?? 12;
+            return View(whiskeys.ToPagedList(pagenumber, pagesize));
         }
 
         // GET: Whiskey/Details/5

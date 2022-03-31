@@ -2,17 +2,11 @@
 @using PagedList.Mvc;
 @using PagedList;
 
-
-
-
 @{
     ViewBag.Title = "Whiskeys";
 }
 <!--=================== Main Content Container ===================-->
 <main class="list-collection-page">
-    <br />
-    page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-    <br />
     <!--=================== Breadcrumb Section ===================-->
     <section class="breadcrumb-container paira-padding-bottom-1">
         <div class="container">
@@ -116,7 +110,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="pagination list-inline">
-                        <li class="pull-left raleway-light letter-spacing-2 paira-margin-top-1">Showing : <b>1 - 12</b> Of <b>@Model.Count()</b></li>
+                        <li class="pull-left raleway-light letter-spacing-2 paira-margin-top-1">Showing : <b>@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)-@Model.PageCount</b> Of <b>@Model.TotalItemCount</b></li>
                         <li class="pull-right">
                             <ul class="list-inline">
                                 <li class="disabled letter-spacing-2 paira-margin-top-1"><span>Preview</span></li>
