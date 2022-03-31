@@ -1,4 +1,7 @@
-﻿@{
+﻿@model IEnumerable<Entities.IProduct>
+@using System.Linq
+
+@{
     //ViewBag.Title = "Home Page";
 }
 
@@ -19,6 +22,7 @@
                         <li data-target="#carousel" data-slide-to="0" class="active"></li>
                         <li data-target="#carousel" data-slide-to="1"></li>
                         <li data-target="#carousel" data-slide-to="2"></li>
+                        <li data-target="#carousel" data-slide-to="3"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="item active">
@@ -34,29 +38,40 @@
                                     <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.2s">
                                         WINE
                                     </h1>
-                                    <a href="collection.html" class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
+                                    <a href='@Url.Action("Index","Wine")' class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
-                            <img alt="Second slide" src="~/Content/images/slider/slider-2.jpg">
+                            <img alt="Second slide" src="~/Content/images/slider/BeerCarousel.png" />
                             <div class="container">
                                 <div class="carousel-caption">
                                     <h1 class="text-uppercase paira-animation animated fadeInRight margin-top-0" data-paira-animation="fadeInRight" data-paira-animation-delay="0.0s">YOU CAN</h1>
-                                    <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInRight" data-paira-animation-delay="0.2s">DRINK</h1>
-                                    <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInRight" data-paira-animation-delay="0.3s">WINE</h1>
-                                    <a href="collection.html" class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.4s">Shop Now</a>
+                                    <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInRight" data-paira-animation-delay="0.1s">DRINK</h1>
+                                    <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInRight" data-paira-animation-delay="0.2s">BEER</h1>
+                                    <a href='@Url.Action("Index","Beer")' class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
                                 </div>
                             </div>
                         </div>
                         <div class="item">
-                            <img alt="Third slide" src="~/Content/images/slider/slider-3.jpg">
+                            <img alt="Third slide" src="~/Content/images/slider/WhiskeyCasourel.png">
                             <div class="container">
                                 <div class="carousel-caption carousel-caption1">
-                                    <h1 class="text-uppercase paira-animation animated fadeInRight margin-top-0" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.0s">EXPLORE</h1>
-                                    <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.1s">&</h1>
-                                    <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.2s">ENJOY</h1>
-                                    <a href="collection.html" class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
+                                    <h1 class="text-uppercase paira-animation animated fadeInRight margin-top-0" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.0s">ON THE ROCKS</h1>
+                                    <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.1s">OR</h1>
+                                    <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.2s">NEAT</h1>
+                                    <a href='@Url.Action("Index","Whiskey")' class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img alt="Forth slide" src="~/Content/images/slider/SpiritCasourel.png">
+                            <div class="container">
+                                <div class="carousel-caption">
+                                    <h1 class="text-uppercase paira-animation animated fadeInRight margin-top-0" data-paira-animation="fadeInRight" data-paira-animation-delay="0.0s">ENJOY</h1>
+                                    <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInRight" data-paira-animation-delay="0.1s">WITH</h1>
+                                    <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInRight" data-paira-animation-delay="0.2s">FRIENDS</h1>
+                                    <a href='@Url.Action("Index","Spirit")' class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -78,21 +93,21 @@
                 <div class="col-md-4 col-xs-12 col-sm-6">
                     <div class="banner-small-back text-center">
                         <img alt="" src="~/Content/images/banner/discaount-2.png">
-                        <h4 class="paira-margin-bottom-1 paira-margin-top-1 text-uppercase"><a href="#" class="raleway-light">Free shipping for all</a></h4>
+                        <h4 class="paira-margin-bottom-1 paira-margin-top-1 text-uppercase"><a class="raleway-light">Free shipping on orders over 50€</a></h4>
                         <a href="collection.html" class="text-capitalize btn-border raleway-light">shop now</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-xs-12 col-sm-6">
                     <div class="banner-small-back text-center">
                         <img alt="" src="~/Content/images/banner/discaount-1.png">
-                        <h4 class="paira-margin-bottom-1 paira-margin-top-1 text-uppercase"><a href="#" class="raleway-light">30% Discount for all</a></h4>
-                        <a href="collection.html" class="text-capitalize btn-border raleway-light">shop now</a>
+                        <h4 class="paira-margin-bottom-1 paira-margin-top-1 text-uppercase"><a class="raleway-light">10% Discount for new users</a></h4>
+                        <a href="@Url.Action("Create","ApplicationUser")" class="text-capitalize btn-border raleway-light">Register & shop now</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-xs-12 col-sm-6">
                     <div class="banner-small-back text-center">
                         <img alt="" src="~/Content/images/banner/discaount-3.png">
-                        <h4 class="paira-margin-bottom-1 paira-margin-top-1 text-uppercase"><a href="#" class="raleway-light">Special customer gift</a></h4>
+                        <h4 class="paira-margin-bottom-1 paira-margin-top-1 text-uppercase"><a class="raleway-light">Only special gifts for someone special</a></h4>
                         <a href="collection.html" class="text-capitalize btn-border raleway-light">shop now</a>
                     </div>
                 </div>
@@ -102,161 +117,34 @@
     <!--=================== Latest Product Section ===================-->
     <section class="latest-product text-center paira-padding-bottom-1">
         <div class="container">
+            <img alt="" class="paira-margin-bottom-1" src="~/Content/images/hedding.png">
+            <h3 class="text-uppercase raleway-light margin-clear paira-margin-bottom-1">latest products</h3>
             <div class="row">
                 <div class="col-md-12">
-                    <img alt="" class="paira-margin-bottom-1" src="images/hedding.png">
-                    <h3 class="text-uppercase raleway-light margin-clear paira-margin-bottom-1">latest product</h3>
+                    <img alt="" class="paira-margin-bottom-1">
                 </div>
-                @*<div class="product-widget">
-                    <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-1">
-                        <div class="product text-center">
-                            <div class="block-image position-rela">
-                                <a href="#">
-                                    <div class="background-overlay"></div>
-                                    <img src="images/product/product-1.png" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <h1 class="font-size-16 paira-margin-top-4 margin-bottom-10"><a href="collection.html">Black wine</a></h1>
-                            <span class="money font-size-16"><b>$10.00</b></span>
-                            <div class="product-hover">
-                                <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                    <a href="#paira-quick-view" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="images/cart-2.png" alt=""></a>
+                <div class="product-widget">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-1">
+                            <div class="product text-center">
+                                <div class="block-image position-rela">
+                                    <a href="#">
+                                        <div class="background-overlay"></div>
+                                        <img style="width:320px;" src=@Html.DisplayFor(modelItem => item.PhotoUrl) alt="" class="img-responsive">
+                                    </a>
+                                </div>
+                                <h1 class="font-size-16 paira-margin-top-4 margin-bottom-10"><a href="collection.html">@Html.DisplayFor(modelItem => item.Name)</a></h1>
+                                <span class="money font-size-16"><b>@Html.DisplayFor(modelItem => item.Price)€</b></span>
+                                <div class="product-hover">
+                                    <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
+                                        <a href="#paira-quick-view" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
+                                        <a href="@Url.Action("Details", item.GetType().Name, new { id = item.Id })" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="~/Content/images/cart-2.png" alt=""></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-1">
-                        <div class="product text-center">
-                            <div class="block-image position-rela">
-                                <a href="#">
-                                    <div class="background-overlay"></div>
-                                    <img src="images/product/product-2.png" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <h1 class="font-size-16 paira-margin-top-4 margin-bottom-10"><a href="collection.html">Finger wine</a></h1>
-                            <span class="money font-size-16"><b>$10.00</b></span>
-                            <div class="product-hover">
-                                <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                    <a href="#paira-quick-view" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="images/cart-2.png" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-1">
-                        <div class="product text-center">
-                            <div class="block-image position-rela">
-                                <a href="#">
-                                    <div class="background-overlay"></div>
-                                    <img src="images/product/product-3.png" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <h1 class="font-size-16 paira-margin-top-4 margin-bottom-10"><a href="collection.html">Awesome wine</a></h1>
-                            <span class="money font-size-16"><b>$10.00</b></span>
-                            <div class="product-hover">
-                                <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                    <a href="#paira-quick-view" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="images/cart-2.png" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-1">
-                        <div class="product text-center">
-                            <div class="block-image position-rela">
-                                <a href="#">
-                                    <div class="background-overlay"></div>
-                                    <img src="images/product/product-4.png" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <h1 class="font-size-16 paira-margin-top-4 margin-bottom-10"><a href="collection.html">Red wine</a></h1>
-                            <span class="money font-size-16"><b>$10.00</b></span>
-                            <div class="product-hover">
-                                <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                    <a href="#paira-quick-view" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="images/cart-2.png" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-3">
-                        <div class="product text-center">
-                            <div class="block-image position-rela">
-                                <a href="#">
-                                    <div class="background-overlay"></div>
-                                    <img src="images/product/product-5.png" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <h1 class="font-size-16 paira-margin-top-4 margin-bottom-10"><a href="collection.html">Black wine</a></h1>
-                            <span class="money font-size-16"><b>$10.00</b></span>
-                            <div class="product-hover">
-                                <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                    <a href="#paira-quick-view" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="images/cart-2.png" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-3">
-                        <div class="product text-center">
-                            <div class="block-image position-rela">
-                                <a href="#">
-                                    <div class="background-overlay"></div>
-                                    <img src="images/product/product-6.png" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <h1 class="font-size-16 paira-margin-top-4 margin-bottom-10"><a href="collection.html">Finger wine</a></h1>
-                            <span class="money font-size-16"><b>$10.00</b></span>
-                            <div class="product-hover">
-                                <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                    <a href="#paira-quick-view" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="images/cart-2.png" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-3">
-                        <div class="product text-center">
-                            <div class="block-image position-rela">
-                                <a href="#">
-                                    <div class="background-overlay"></div>
-                                    <img src="images/product/product-7.png" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <h1 class="font-size-16 paira-margin-top-4 margin-bottom-10"><a href="collection.html">Awesome wine</a></h1>
-                            <span class="money font-size-16"><b>$10.00</b></span>
-                            <div class="product-hover">
-                                <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                    <a href="#paira-quick-view" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="images/cart-2.png" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-3">
-                        <div class="product text-center">
-                            <div class="block-image position-rela">
-                                <a href="#">
-                                    <div class="background-overlay"></div>
-                                    <img src="images/product/product-8.png" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <h1 class="font-size-16 paira-margin-top-4 margin-bottom-10"><a href="collection.html">Red wine</a></h1>
-                            <span class="money font-size-16"><b>$10.00</b></span>
-                            <div class="product-hover">
-                                <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                    <a href="#paira-quick-view" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="images/cart-2.png" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
-                <div class="col-md-12 col-sm-12 col-xs-12 text-capitalize text-center paira-margin-top-3">
-                    <div class="see-more">
-                        <a href="collection.html" class="btn-border font-size-14">See More</a>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
@@ -266,14 +154,14 @@
         <div class="position-r paral">
             <div class="banner-small banner2">
                 <div class="container">
-                    <div class="row" >
+                    <div class="row">
                         <div class="col-md-6 col-sm-12 col-xs-12">
                             <div class="banner-small-back">
                                 <img alt="" src="~/Content/images/banner/banner-3.png" class="pull-left">
                                 <div class="paira-margin-top-3 pull-left wine-con">
                                     <h1 class="margin-bottom-10 paira-margin-top-1 text-uppercase"><a href="#" class="raleway-sbold">Black win</a></h1>
                                     <h4 class="paira-margin-bottom-1 text-uppercase"><a href="#" class="raleway-light">most popular</a></h4>
-                                    <a href="collection.html" class="text-capitalize btn-border raleway-light">shop now</a>
+                                    <a href="@Url.Action("Details","Beer")" class="text-capitalize btn-border raleway-light">shop now</a>
                                 </div>
                             </div>
                         </div>
@@ -292,81 +180,22 @@
             </div>
         </div>
     </section>
-    <!--=================== Latest Collection List Section ===================-->
-    <section class="latest-collection text-center paira-padding-bottom-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <img alt="" class="paira-margin-bottom-1" src="~/Content/images/hedding.png">
-                    <h3 class="text-uppercase raleway-light margin-clear paira-margin-bottom-1">latest collection</h3>
-                </div>
-                <div class="product-widget">
-                    <div class="col-sm-6 col-md-4 col-xs-6 paira-margin-top-1">
-                        <div class="product text-center">
-                            <div class="block-image position-rela">
-                                <a href="#">
-                                    <div class="background-overlay"></div>
-                                    <img src="~/Content/images/product/collection-1.png" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <div class="product-hover">
-                                <h2 class="raleway-sbold text-uppercase margin-bottom-10"><a href="collection.html">PLUM WINE</a></h2>
-                                <h4 class="raleway-sbold text-capitalize paira-margin-bottom-1"><span class="margin-clear">12</span> items</h4>
-                                <a href="category.html" class="btn color-scheme-2 font-size-14 letter-spacing-2">Shop Collection</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-xs-6 paira-margin-top-1">
-                        <div class="product text-center">
-                            <div class="block-image position-rela">
-                                <a href="#">
-                                    <div class="background-overlay"></div>
-                                    <img src="~/Content/images/product/collection-2.png" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <div class="product-hover">
-                                <h2 class="raleway-sbold text-uppercase margin-bottom-10"><a href="collection.html">PLUM WINE</a></h2>
-                                <h4 class="raleway-sbold text-capitalize paira-margin-bottom-1"><span class="margin-clear">12</span> items</h4>
-                                <a href="category.html" class="btn color-scheme-2 font-size-14 letter-spacing-2">Shop Collection</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-4 col-xs-6 paira-margin-top-1">
-                        <div class="product text-center">
-                            <div class="block-image position-rela">
-                                <a href="#">
-                                    <div class="background-overlay"></div>
-                                    <img src="~/Content/images/product/collection-3.png" alt="" class="img-responsive">
-                                </a>
-                            </div>
-                            <div class="product-hover">
-                                <h2 class="raleway-sbold text-uppercase margin-bottom-10"><a href="collection.html">PLUM WINE</a></h2>
-                                <h4 class="raleway-sbold text-capitalize paira-margin-bottom-1"><span class="margin-clear">12</span> items</h4>
-                                <a href="category.html" class="btn color-scheme-2 font-size-14 letter-spacing-2 raleway-light">Shop Collection</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <!--=================== Brand Logo Section ===================-->
     <section class="brand text-center paira-padding-bottom-1">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <img alt="" class="paira-margin-bottom-1" src="~/Content/images/hedding.png">
-                    <h3 class="text-uppercase raleway-light margin-clear paira-margin-bottom-1">Featured brand</h3>
+                    <h3 class="text-uppercase raleway-light margin-clear paira-margin-bottom-1">Featured brands</h3>
                 </div>
                 <div class="col-md-12 brand-hover paira-margin-top-1">
-                    <div class="paira-brand ">
-                        <a href="#"><img src="~/Content/images/brand/brand-1.png" alt="" /></a>
-                        <a href="#"><img src="~/Content/images/brand/brand-2.png" alt="" /></a>
-                        <a href="#"><img src="~/Content/images/brand/brand-3.png" alt="" /></a>
-                        <a href="#"><img src="~/Content/images/brand/brand-4.png" alt="" /></a>
-                        <a href="#"><img src="~/Content/images/brand/brand-1.png" alt="" /></a>
-                        <a href="#"><img src="~/Content/images/brand/brand-3.png" alt="" /></a>
-                        <a href="#"><img src="~/Content/images/brand/brand-2.png" alt="" /></a>
+                    <div class="paira-brand">
+                        <a><img src="~/Content/images/brand/CaptainMorgan.png" alt="" /></a>
+                        <a><img style="width:160px;" src="~/Content/images/brand/Tanqueray.png" alt="" /></a>
+                        <a><img style="width:230px;" src="~/Content/images/brand/Schneider.png" alt="" /></a>
+                        <a><img src="~/Content/images/brand/Woodford.png" alt="" /></a>
+                        <a><img src="~/Content/images/brand/Famous.png" alt="" /></a>
                     </div>
                     <div class="brand-button">
                         <button class="paira-brand-left pull-left"><i class="fa fa-angle-left fa-3x"></i></button>
@@ -376,25 +205,24 @@
             </div>
         </div>
     </section>
-    <!--=================== Instagram Gallery Section ===================-->
+    <!--=================== Packs Section ===================-->
     <section class="instagram  paira-padding-bottom-1">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <img alt="" class="paira-margin-bottom-1" src="images/hedding.png">
-                    <h3 class="text-uppercase raleway-light margin-clear paira-margin-bottom-1">instagram</h3>
+                    <img alt="" class="paira-margin-bottom-1" src="~/Content/images/hedding.png">
+                    <h3 class="text-uppercase raleway-light margin-clear paira-margin-bottom-1">Packs</h3>
                 </div>
                 <div class="col-sm-6 col-md-3 col-xs-6 paira-margin-top-1">
                     <div class="product">
                         <div class="block-image position-rela">
                             <a href="#">
                                 <div class="background-overlay1"></div>
-                                <img src="~/Content/images/gallery/gallery-1.jpg" alt="" class="img-responsive">
+                                <img src="~/Content/images/brand/beers3.jpg" alt="" class="img-responsive">
                             </a>
                         </div>
                         <div class="product-hover">
-                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="collection.html">WINE Pack</a></h3>
-                            <a href="lookbook.html" class="btn-border font-size-12">view gallery</a>
+                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="@Url.Action("Details","Beer")">Beer Pack</a></h3>
                         </div>
                     </div>
                 </div>
@@ -403,12 +231,11 @@
                         <div class="block-image position-rela">
                             <a href="#">
                                 <div class="background-overlay1"></div>
-                                <img src="~/Content/images/gallery/gallery-2.jpg" alt="" class="img-responsive">
+                                <img style="height:264px;" src="~/Content/images/brand/spirits.jpg" alt="" class="img-responsive">
                             </a>
                         </div>
                         <div class="product-hover">
-                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="collection.html">WINE Pack</a></h3>
-                            <a href="lookbook.html" class="btn-border font-size-12">view gallery</a>
+                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="@Url.Action("Details","Spirit")">Spirit Pack</a></h3>
                         </div>
                     </div>
                 </div>
@@ -417,12 +244,11 @@
                         <div class="block-image position-rela">
                             <a href="#">
                                 <div class="background-overlay1"></div>
-                                <img src="~/Content/images/gallery/gallery-3.jpg" alt="" class="img-responsive">
+                                <img style="height:264px;" src="~/Content/images/brand/whiskeys.jpg" alt="" class="img-responsive">
                             </a>
                         </div>
                         <div class="product-hover">
-                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="collection.html">WINE Pack</a></h3>
-                            <a href="lookbook.html" class="btn-border font-size-12">view gallery</a>
+                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="@Url.Action("Details","Whiskeys")">Whiskey Pack</a></h3>
                         </div>
                     </div>
                 </div>
@@ -431,12 +257,11 @@
                         <div class="block-image position-rela">
                             <a href="#">
                                 <div class="background-overlay1"></div>
-                                <img src="~/Content/images/gallery/gallery-4.jpg" alt="" class="img-responsive">
+                                <img src="~/Content/images/brand/wines.jpg" alt="" class="img-responsive">
                             </a>
                         </div>
                         <div class="product-hover">
-                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="collection.html">WINE Pack</a></h3>
-                            <a href="lookbook.html" class="btn-border font-size-12">view gallery</a>
+                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="@Url.Action("Details","Wines")">WINE Pack</a></h3>
                         </div>
                     </div>
                 </div>
@@ -471,11 +296,6 @@
         </div>
     </section>
 </main>
-
-
-
-
-
 
 <!--=================== Welcome Newsletter Dialog ===================-->
 <div class="modal fade welcome-newsletter-content" id="paira-welcome-newsletter" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static" data-keyboard="false" style="display: none">
