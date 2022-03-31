@@ -27,11 +27,11 @@ namespace BeverageProject.Controllers.Api
                 beer.Description,
                 beer.PhotoUrl,
                 beer.Price,
-                Category = new { beer.Category.Title, beer.Category.Kind }
+                Category = new { beer.Name, beer.Kind }
             }).ToList();
-            
 
-            return Json(new {beers = beers });
+
+            return Json(new { beers = beers });
         }
 
         // GET: api/Beers/5

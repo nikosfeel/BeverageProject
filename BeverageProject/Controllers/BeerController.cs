@@ -24,6 +24,8 @@ namespace BeverageProject.Controllers
             {
                 return View(db.Beers.ToList());
             }
+            var beers = db.Beers.Where(x=>x.Kind == category).ToList();
+            return View(beers);
             var beers = db.Beers.Where(x=>x.Category.Kind == category).ToList();
 
             int pageSize = pSize ?? 4; //καθε σελιδα θα παρουσιαζει 4 προϊοντα
@@ -37,7 +39,7 @@ namespace BeverageProject.Controllers
             {
                 return View(db.Beers.ToList());
             }
-            var beers = db.Beers.Where(x => x.Category.Kind == category).ToList();
+            var beers = db.Beers.Where(x => x.Kind == category).ToList();
             return View(beers);
         }
 

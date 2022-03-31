@@ -1,5 +1,4 @@
 ﻿using Entities;
-using Entities.Categories;
 using Entities.Products;
 using MyDatabase;
 using System;
@@ -29,7 +28,6 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             if (ModelState.IsValid)
             {
-                beer.Category = new BeerCategory() { Kind = "Wheat" };
                 db.Beers.Add(beer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -52,7 +50,6 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             if (ModelState.IsValid)
             {
-                spirit.Category = new SpiritCategory() { Kind = "Vodka" };
                 db.Spirits.Add(spirit);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -75,7 +72,6 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             if (ModelState.IsValid)
             {
-                whiskey.Category = new WhiskeyCategory() { Kind = "Bourbon" };
                 db.Whiskeys.Add(whiskey);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -98,7 +94,6 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             if (ModelState.IsValid)
             {
-                wine.Category = new WineCategory() { Kind = "Dessert" };
                 db.Wines.Add(wine);
                 db.SaveChanges();
                 return RedirectToAction("Index");

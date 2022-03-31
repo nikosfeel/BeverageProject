@@ -1,4 +1,5 @@
 ﻿using BeverageProject.Models.Dtos;
+using Entities;
 using Entities.Items;
 using Entities.Orders;
 using MyDatabase;
@@ -36,12 +37,13 @@ namespace BeverageProject.Controllers
             order.FullName = orderDto.FullName;
             order.Total = 0;
             order.OrderDate = orderDto.OrderDate;
+            
 
             foreach (var item in cart)
             {
                 order.Total = order.Total + Convert.ToDecimal(item.Product.Price);
                 
-                //order.Products.Add(item.Product);
+                //order.Products.Append(item.Product);
             }
             
 

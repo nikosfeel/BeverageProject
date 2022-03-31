@@ -70,25 +70,26 @@
             };
 
             $.ajax(settings).done(function (response) {
+                console.log(response);
                 LoadBeers();
 
                 function LoadBeers() {
                     let beers = response.beers;
                     for (let beer of beers) {
                         let template = `
-                                                      <tr id="${beer.Id}">
-                                                          <td>${beer.Id}</td>
-                                                          <td>${beer.Category.Title} > ${beer.Category.Kind}</td>
-                                                          <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                                                          <td>${beer.Name}</td>
-                                                          <td>${beer.Price}€</td>
-                                                          <td style="width:40%">${beer.Description}</td>
-                                                          <td>
-                                                               <button class="btn btn-info">Edit</button>
-                                                               <button class="btn btn-danger delete-btn">Delete</button>
-                                                         </td>
-                                                      </tr>
-                                                    `
+                                          <tr id="${beer.Id}">
+                                              <td>${beer.Id}</td>
+                                              <td>Beer > ${beer.Category.Kind}</td>
+                                              <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                                              <td>${beer.Name}</td>
+                                              <td>${beer.Price}€</td>
+                                              <td style="width:40%">${beer.Description}</td>
+                                              <td>
+                                                   <button class="btn btn-info">Edit</button>
+                                                   <button class="btn btn-danger delete-btn">Delete</button>
+                                             </td>
+                                          </tr>
+                                        `
                         let element = $(template);
 
                         element.find(".delete-btn").click(DeleteRow);

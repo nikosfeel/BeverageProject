@@ -27,7 +27,7 @@ namespace BeverageProject.Controllers.Api
                 wine.Description,
                 wine.PhotoUrl,
                 wine.Price,
-                Category = new { wine.Category.Title, wine.Category.Kind }
+                Category = new { wine.Kind }
             }).ToList();
 
 

@@ -8,7 +8,6 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Data.Entity;
 using System.Web.Mvc;
-using Entities.Categories;
 using System.Web.Http.Description;
 using Entities;
 
@@ -22,7 +21,7 @@ namespace BeverageProject.Controllers.Api
         public IHttpActionResult Get()
         {
             AdminAllProductsViewModel vm = new AdminAllProductsViewModel();
-            vm.Beers = db.Beers.Include(x => x.Category).ToList();
+            vm.Beers = db.Beers.ToList();
 
             var beers = vm.Beers.Select(beer => new
             {
@@ -31,9 +30,9 @@ namespace BeverageProject.Controllers.Api
                 beer.Description,
                 beer.PhotoUrl,
                 beer.Price,
-                Category = new { beer.Category.Title, beer.Category.Kind }
+                Category = new { beer.GetType().Name, beer.Kind }
             }).ToList();
-            vm.Wines = db.Wines.Include(x => x.Category).ToList();
+            vm.Wines = db.Wines.ToList();
             var wines = vm.Wines.Select(wine => new
             {
                 wine.Id,
@@ -41,10 +40,10 @@ namespace BeverageProject.Controllers.Api
                 wine.Description,
                 wine.PhotoUrl,
                 wine.Price,
-                Category = new { wine.Category.Title, wine.Category.Kind }
+                Category = new { wine.GetType().Name, wine.Kind }
             }).ToList();
 
-            vm.Whiskeys = db.Whiskeys.Include(x => x.Category).ToList();
+            vm.Whiskeys = db.Whiskeys.ToList();
             var whiskeys = vm.Whiskeys.Select(whiskey => new
             {
                 whiskey.Id,
@@ -52,9 +51,9 @@ namespace BeverageProject.Controllers.Api
                 whiskey.Description,
                 whiskey.PhotoUrl,
                 whiskey.Price,
-                Category = new { whiskey.Category.Title, whiskey.Category.Kind }
+                Category = new { whiskey.GetType().Name, whiskey.Kind }
             }).ToList();
-            vm.Spirits = db.Spirits.Include(x => x.Category).ToList();
+            vm.Spirits = db.Spirits.ToList();
             var spirits = vm.Spirits.Select(spirit => new
             {
                 spirit.Id,
@@ -62,7 +61,7 @@ namespace BeverageProject.Controllers.Api
                 spirit.Description,
                 spirit.PhotoUrl,
                 spirit.Price,
-                Category = new { spirit.Category.Title, spirit.Category.Kind }
+                Category = new { spirit.GetType().Name, spirit.Kind }
             }).ToList();
 
             return Json(new { beers = beers, wines = wines, whiskeys = whiskeys, spirits = spirits });

@@ -22,7 +22,7 @@ namespace BeverageProject.Controllers
             {
                 return View(db.Whiskeys.ToList());
             }
-            var whiskeys = db.Whiskeys.Where(x => x.Category.Kind == category).ToList();
+            var whiskeys = db.Whiskeys.Where(x => x.Kind == category).ToList();
             return View(whiskeys);
         }
 
@@ -32,7 +32,7 @@ namespace BeverageProject.Controllers
             {
                 return View(db.Whiskeys.ToList());
             }
-            var whiskeys = db.Whiskeys.Where(x => x.Category.Kind == category).ToList();
+            var whiskeys = db.Whiskeys.Where(x => x.Kind == category).ToList();
             return View(whiskeys);
         }
 

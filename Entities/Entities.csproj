@@ -63,11 +63,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categories\BeerCategory.cs" />
-    <Compile Include="Categories\ICategory.cs" />
-    <Compile Include="Categories\SpiritCategory.cs" />
-    <Compile Include="Categories\WhiskeyCategory.cs" />
-    <Compile Include="Categories\WineCategory.cs" />
     <Compile Include="Orders\Order.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Orders\OrderDetail.cs" />

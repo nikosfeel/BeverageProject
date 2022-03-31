@@ -27,7 +27,7 @@ namespace BeverageProject.Controllers.Api
                 spirit.Description,
                 spirit.PhotoUrl,
                 spirit.Price,
-                Category = new { spirit.Category.Title, spirit.Category.Kind }
+                Category = new { spirit.Name, spirit.Kind }
             }).ToList();
 
 
