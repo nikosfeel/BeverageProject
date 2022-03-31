@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Entities.Products.Wine>
+﻿@model PagedList.IPagedList<Entities.Products.Wine>
+@using PagedList.Mvc;
+@using PagedList;
 
 @{
     ViewBag.Title = "Index";
@@ -77,7 +79,7 @@
                                     <div class="block-image position-rela">
                                         <a href="@Url.Action("Details","Wine",new  {id = wine.Id})">
                                             <div class="background-overlay"></div>
-                                            <img src=@Html.DisplayFor(modelItem => wine.PhotoUrl) alt="" class="img-responsive" width='300'>                                          
+                                            <img src=@Html.DisplayFor(modelItem => wine.PhotoUrl) alt="" class="img-responsive" width='300'>
                                         </a>
                                     </div>
                                     <h1 class="font-size-18 paira-margin-top-4 margin-bottom-10"><a href="@Url.Action("Details","Wine",new {id= wine.Id})">@Html.DisplayFor(modelItem => wine.Name)</a></h1>
@@ -90,9 +92,9 @@
                                             <a href=" @Url.Action("Details", "Wine", new { id = wine.Id })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
                                             <a href="@Url.Action("Buy","Cart",new {id= wine.Id})" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="~/Content/images/cart-2.png" alt=""></a>
                                         </div>
-                                        <br />  
-                                        <br />  
-                                        <br />  
+                                        <br />
+                                        <br />
+                                        <br />
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +110,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="pagination list-inline">
-                        <li class="pull-left raleway-light letter-spacing-2 paira-margin-top-1">Showing : <b>1 - 12</b> Of <b>@Model.Count()</b></li>
+                        <li class="pull-left raleway-light letter-spacing-2 paira-margin-top-1">Showing : <b>@Model.Count()</b> Of <b>@Model.TotalItemCount</b></li>
                         <li class="pull-right">
                             <ul class="list-inline">
                                 <li class="disabled letter-spacing-2 paira-margin-top-1"><span>Preview</span></li>
@@ -124,3 +126,4 @@
         </div>
     </section>
 </main>
+@Html.PagedListPager(Model, x => Url.Action("Index", "Wine", new { page = x }))

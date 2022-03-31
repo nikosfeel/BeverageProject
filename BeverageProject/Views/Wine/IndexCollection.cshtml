@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Entities.Products.Wine>
+﻿@model PagedList.IPagedList<Entities.Products.Wine>
+@using PagedList.Mvc;
+@using PagedList;
 @{
     ViewBag.Title = "WinesCollection";
 }
@@ -98,7 +100,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="pagination list-inline">
-                        <li class="pull-left raleway-light letter-spacing-2">Showing : <b>1 - 12</b> Of <b>60</b></li>
+                        <li class="pull-left raleway-light letter-spacing-2">Showing : <b>@Model.Count()</b> Of <b>@Model.TotalItemCount</b></li>
                         <li class="pull-right">
                             <ul class="list-inline">
                                 <li class="disabled letter-spacing-2"><span>Preview</span></li>
@@ -114,3 +116,5 @@
         </div>
     </section>
 </main>
+
+@Html.PagedListPager(Model, x => Url.Action("IndexCollection", "Wine", new { page = x }))

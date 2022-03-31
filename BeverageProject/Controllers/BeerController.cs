@@ -18,29 +18,22 @@ namespace BeverageProject.Controllers
 
         // GET: Beer
         
-        public ActionResult Index(string category, int? page, int? pSize)
+        public ActionResult Index( int? page, int? pSize)
         {
-            //if (category is null)
-            //{
-            //    return View(db.Beers.ToList());
-            //}
             var beers = db.Beers.ToList();
-            
-            
-
-            int pageSize = pSize ?? 10; //καθε σελιδα θα παρουσιαζει 4 προϊοντα
+                             
             int pageNumber = page ?? 1;
+            int pageSize = pSize ?? 10;
             return View(beers.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult IndexCollection(string category)
+        public ActionResult IndexCollection(int? page, int? pSize)
         {
-            if (category is null)
-            {
-                return View(db.Beers.ToList());
-            }
-            var beers = db.Beers.Where(x => x.Kind == category).ToList();
-            return View(beers);
+            var beers = db.Beers.ToList();
+ 
+            int pageNumber = page ?? 1;
+            int pageSize = pSize ?? 12;
+            return View(beers.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Beer/Details/5
