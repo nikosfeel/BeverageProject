@@ -16,6 +16,19 @@ namespace BeverageProject.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+
+
+        public ActionResult SortBy(IEnumerable<Whiskey> whiskeys)
+        {
+            whiskeys = db.Whiskeys.ToList();
+
+            return null;
+        }
+
+
+
+
+
         // GET: Whiskey
         public ActionResult Index(int? page, int? pSize)
         {
