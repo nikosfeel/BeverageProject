@@ -23,18 +23,16 @@ namespace BeverageProject.Controllers
 
             int pagenumber = page ?? 1;
             int pagesize = pSize ?? 10;
-
             return View(wines.ToPagedList(pagenumber, pagesize));
         }
 
-        public ActionResult IndexCollection(string category)
+        public ActionResult IndexCollection(int? page, int? pSize)
         {
-            if (category is null)
-            {
-                return View(db.Wines.ToList());
-            }
-            var wines = db.Wines.Where(x => x.Kind == category).ToList();
-            return View(wines);
+            var wines = db.Wines.ToList();
+
+            int pagenumber = page ?? 1;
+            int pagesize = pSize ?? 12;
+            return View(wines.ToPagedList(pagenumber, pagesize));
         }
 
         // GET: Wine/Details/5

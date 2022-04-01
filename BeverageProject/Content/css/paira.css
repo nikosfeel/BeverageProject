@@ -828,6 +828,14 @@ a.boxclose {
     position: relative;
     margin: 0 0 0 -3px;
 }
+
+    .product-widget .col-md-3 .widget {
+        display: inline-block;
+        vertical-align: top;
+        letter-spacing: normal;
+        position: relative;
+        margin: 0 0 0 -3px;
+    }
 .btn-image:hover{
     border: none;
 }

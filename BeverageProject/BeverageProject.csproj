@@ -1313,10 +1313,16 @@
     <Content Include="Content\images\blog\blog-user-1.png" />
     <Content Include="Content\images\blog\blog-user-2.png" />
     <Content Include="Content\images\blog\blog-user-3.png" />
-    <Content Include="Content\images\brand\brand-1.png" />
-    <Content Include="Content\images\brand\brand-2.png" />
-    <Content Include="Content\images\brand\brand-3.png" />
-    <Content Include="Content\images\brand\brand-4.png" />
+    <Content Include="Content\images\brand\CaptainMorgan.png" />
+    <Content Include="Content\images\brand\Famous.png" />
+    <Content Include="Content\images\brand\Primator.png" />
+    <Content Include="Content\images\brand\Schneider.png" />
+    <Content Include="Content\images\brand\Woodford.png" />
+    <Content Include="Content\images\brand\Tanqueray.png" />
+    <Content Include="Content\images\brand\beers3.jpg" />
+    <Content Include="Content\images\brand\spirits.jpg" />
+    <Content Include="Content\images\brand\whiskeys.jpg" />
+    <Content Include="Content\images\brand\wines.jpg" />
     <Content Include="Content\images\cart-2.png" />
     <Content Include="Content\images\cart-3.png" />
     <Content Include="Content\images\cart.png" />
@@ -1378,6 +1384,7 @@
     <Content Include="Content\images\ProductsDummy\the-busker-triple-cask-triple-smooth-irish-whiskey-70cl.jpg" />
     <Content Include="Content\images\ProductsDummy\the-glendronach-12-year-whisky-70cl.jpg" />
     <Content Include="Content\images\ProductsDummy\trivento-reserve-malbec-red-wine-187ml.jpg" />
+    <Content Include="Content\images\slider\BeerCarousel.png" />
     <Content Include="Content\images\product\collection-1.png" />
     <Content Include="Content\images\product\collection-2.png" />
     <Content Include="Content\images\product\collection-3.png" />
@@ -1414,6 +1421,8 @@
     <Content Include="Content\images\slider\slider-1.jpg" />
     <Content Include="Content\images\slider\slider-2.jpg" />
     <Content Include="Content\images\slider\slider-3.jpg" />
+    <Content Include="Content\images\slider\SpiritCasourel.png" />
+    <Content Include="Content\images\slider\WhiskeyCasourel.png" />
     <Content Include="Content\images\wine-glass.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
