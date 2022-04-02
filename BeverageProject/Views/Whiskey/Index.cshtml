@@ -8,11 +8,6 @@
 
 
 
-@{ 
-    var sortByNameAscending = Model.OrderBy(m => m.Name).ToList();
-}
-
-
 <!--=================== Main Content Container ===================-->
 <main class="list-collection-page">
     <!--=================== Breadcrumb Section ===================-->
@@ -64,10 +59,10 @@
                                         </label>
                                     </h4>
                                     <select id="sort-dropdown" class="sort-by paira-filter-category">
-                                        <option value=sortByNameAscending>Name(A-Z)</option>
-                                        <option value="@Model.OrderByDescending(m=>m.Name)">Name(Z-A)</option>
+                                        <option value="nameAsc">Name(A-Z)</option>
+                                        <option value="#">Name(Z-A)</option>
                                         <option value="#">Price(↑)</option>
-                                        <option value="@Model.OrderByDescending(m=>m.Price)">Price(↓)</option>
+                                        <option value="#">Price(↓)</option>
                                     </select>
                                 </div>
 
@@ -156,17 +151,79 @@
 
     @*<script>
 
-        const sortByDropDown = $("#sort-dropdown");
-      
+            const sortByDropDown = $("#sort-dropdown");
 
 
-    </script>*@
+
+        </script>*@
 
 
 </main>
 
 
 
+
+
+@section scripts
+{
+    <script type="text/javascript">
+
+
+
+        let sortDropdown = $("#sort-dropdown");
+        let sortBy;
+        let whiskeyArray = [];
+        let whiskeyItems = [];
+        let whiskeyVariations = [];
+        let whiskeyNames = [];
+
+
+        $(document).ready(function () {
+
+            let data = {
+                "url": "https://localhost:44386/api/whiskeys",
+                "method": "GET",
+                "timeout": 0,
+                "datatype": "json"
+            };
+
+            $.ajax(data).done((data) => StartApp(data));
+
+            function StartApp(data) {
+
+                console.log(data);
+
+                whiskeyArray = data.whiskeys.map(x => x.Name);
+
+
+
+
+                sortDropdown.on("input", function () {
+                    sortBy = $(this).val();
+                    console.log(sortBy);
+
+                })
+
+                sortBy = sortDropdown.val();
+
+                if (sortBy) {
+                    switch (sortBy) {
+                        case "nameAsc": whiskeyArray.sort((a, b) => a.Name < b.Name ? -1 : 1); break;
+                    }
+                }
+
+
+
+            }
+
+        })
+
+    </script>
+
+
+}
+
+
+
+
 @Html.PagedListPager(Model, x => Url.Action("Index", "Whiskey", new { page = x }))
-
-
