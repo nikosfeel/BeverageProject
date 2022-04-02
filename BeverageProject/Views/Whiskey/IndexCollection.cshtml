@@ -99,23 +99,10 @@
     <section class="page-list paira-padding-bottom-1">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <ul class="pagination list-inline">
-                        <li class="pull-left raleway-light letter-spacing-2">Showing : <b>@Model.Count()</b> Of <b>@Model.TotalItemCount</b></li>
-                        <li class="pull-right">
-                            <ul class="list-inline">
-                                <li class="disabled letter-spacing-2"><span>Preview</span></li>
-                                <li class="active"><span>1</span></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">Next</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                <div class="col-md-12" style="text-align:center">
+                    @Html.PagedListPager(Model, x => Url.Action("IndexCollection", "Whiskey", new { page = x }), PagedListRenderOptions.ClassicPlusFirstAndLast)
                 </div>
             </div>
         </div>
     </section>
 </main>
-
-@Html.PagedListPager(Model, x => Url.Action("IndexCollection", "Whiskey", new { page = x }))
