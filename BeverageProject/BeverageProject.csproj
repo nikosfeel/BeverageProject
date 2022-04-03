@@ -6490,6 +6490,7 @@
     <Content Include="Views\Spirit\IndexCollection.cshtml" />
     <Content Include="Views\Whiskey\IndexCollection.cshtml" />
     <Content Include="Views\Wine\IndexCollection.cshtml" />
+    <Content Include="Views\Whiskey\response.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />
