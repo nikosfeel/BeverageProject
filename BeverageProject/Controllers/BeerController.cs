@@ -17,7 +17,26 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Beer
-        
+
+
+        private static void BubbleSortOrderBy(Beer[] beers)
+        {
+            Beer t;
+            int size = beers.Length - 2;
+            for (int p = 0; p <= size; p++)
+            {
+                for (int i = 0; i <= size; i++)
+                {
+                    if (beers[i].Price> beers[i + 1].Price)
+                    {
+                        t = beers[i + 1];
+                        beers[i + 1] = beers[i];
+                        beers[i] = t;
+                    }
+                }
+            }
+        }
+
         public ActionResult Index(string searchBeer, int? page, int? pSize)
         {
             @ViewBag.searchBeer = searchBeer;
