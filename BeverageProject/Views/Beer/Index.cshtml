@@ -23,6 +23,7 @@
             </div>
         </div>
     </section>
+    
     <div class="container text-center">
         <div class="row">
             <div class="col-md-12">
@@ -44,6 +45,13 @@
     </section>
     <!--=================== Latest Product Section ===================-->
     <section class="latest-product text-center paira-margin-bottom-1">
+
+        <form style="margin-left:40px" class="form-inline" action="/Beer/Index" method="get">
+            <input class="form-control mr-sm-2" id="searchBeer" type="text" name="searchBeer" value="@ViewBag.searchBeer" placeholder="search Beer" />
+            <button class="btn btn-success " type="submit">Search</button>
+            <button class="btn btn-danger " type="reset">Clear</button>
+        </form>
+
         <div class="container">
             <div class="row">
                 <div class="synconis paira-margin-bottom-1">
@@ -115,3 +123,10 @@
         </div>
     </section>
 </main>
+
+<script>
+    $("#reset").click(function (e) {
+        e.preventDefault();
+        $("#searchBeer").val("");
+    });
+</script>

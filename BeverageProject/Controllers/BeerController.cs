@@ -18,10 +18,16 @@ namespace BeverageProject.Controllers
 
         // GET: Beer
         
-        public ActionResult Index( int? page, int? pSize)
+        public ActionResult Index(string searchBeer, int? page, int? pSize)
         {
+            @ViewBag.searchBeer = searchBeer;
             var beers = db.Beers.ToList();
-                             
+
+            if (!string.IsNullOrEmpty(searchBeer))
+            {
+                beers = beers.Where(t => t.Name.ToUpper().Contains(searchBeer.ToUpper())).ToList();
+            }
+
             int pageNumber = page ?? 1;
             int pageSize = pSize ?? 10;
             return View(beers.ToPagedList(pageNumber, pageSize));
@@ -37,7 +43,7 @@ namespace BeverageProject.Controllers
         }
 
         // GET: Beer/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details( int? id)
         {
             if (id == null)
             {

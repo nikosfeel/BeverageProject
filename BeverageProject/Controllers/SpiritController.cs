@@ -17,9 +17,15 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Spirit
-        public ActionResult Index(int? page, int? pSize)
+        public ActionResult Index(string searchSpirit, int? page, int? pSize)
         {
+            @ViewBag.searchSpirit = searchSpirit;
+
             var spirits = db.Spirits.ToList() ;
+            if (!string.IsNullOrEmpty(searchSpirit))
+            {
+                spirits = spirits.Where(t => t.Name.ToUpper().Contains(searchSpirit.ToUpper())).ToList();
+            }
 
             int pageNumber = page ?? 1;
             int pagesize = pSize ?? 10;          

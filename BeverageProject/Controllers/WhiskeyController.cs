@@ -30,9 +30,14 @@ namespace BeverageProject.Controllers
 
 
         // GET: Whiskey
-        public ActionResult Index(int? page, int? pSize)
+        public ActionResult Index(string searchWhiskey, int? page, int? pSize)
         {
+            @ViewBag.searchWhiskey = searchWhiskey;
             var whiskeys = db.Whiskeys.ToList();
+            if (!string.IsNullOrEmpty(searchWhiskey))
+            {
+                whiskeys = whiskeys.Where(t => t.Name.ToUpper().Contains(searchWhiskey.ToUpper())).ToList();
+            }
 
             int pagenumber = page ?? 1;
             int pagesize = pSize ?? 10;
