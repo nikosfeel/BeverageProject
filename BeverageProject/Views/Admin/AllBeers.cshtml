@@ -81,20 +81,24 @@
                                               <td>${beer.Id}</td>
                                               <td>Beer > ${beer.Category.Kind}</td>
                                               <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                                              <td>${beer.Name}</td>
+                                              <td class="Name">
+                                                  <span>${beer.Name}</span>
+                                                  <input type="text" value="${beer.Name}" style="display:none"/>
+                                              </td>
                                               <td>${beer.Price}€</td>
                                               <td style="width:40%">${beer.Description}</td>
                                               <td>
-                                                   <button class="btn btn-info">Edit</button>
-                                                   <button class="btn btn-danger delete-btn">Delete</button>
+                                                   <button class="btn btn-info edit-btn" href="javascript:;">Edit</button>
+                                                   <button class="btn btn-danger delete-btn" href="javascript:;">Delete</button>
+                                                   <button class="btn btn-warning update-btn" href="javascript:;" style="display:none">Update</a>
+                                                   <button class="btn btn-danger cancel-btn" href="javascript:;" style="display:none">Cancel</a>
                                              </td>
                                           </tr>
                                         `
                         let element = $(template);
 
                         element.find(".delete-btn").click(DeleteRow);
-                        //element.find(".edit1-btn").click(Edit1Row);
-
+                        element.find(".edit-btn").click(EditRow);
 
                         $("tbody").append(element);
                     }
@@ -103,9 +107,67 @@
 
 
         }
+
+        //Edit
+        function EditRow() {
+            $("body").on("click", "#example .edit-btn", function () {
+                var row = $(this).closest("tr");
+                $("td", row).each(function () {
+                    if ($(this).find("input").length > 0) {
+                        $(this).find("input").show();
+                        $(this).find("span").hide();
+                    }
+                });
+                row.find(".update-btn").show();
+                row.find(".cancel-btn").show();
+                row.find(".delete-btn").hide();
+                $(this).hide();
+            });
+
+            //Update
+            $("body").on("click", "#example .update-btn", function () {
+                var row = $(this).closest("tr");
+                $("td", row).each(function () {
+                    if ($(this).find("input").length > 0) {
+                        var span = $(this).find("span");
+                        var input = $(this).find("input");
+                        span.html(input.val());
+                        span.show();
+                        input.hide();
+                    }
+                });
+                row.find(".edit-btn").show();
+                row.find(".delete-btn").show();
+                row.find(".cancel-btn").hide();
+                $(this).hide();
+
+                var beer = {};
+                beer.Name = row.find(".Name").find("span").html();
+
+            });
+
+            //Cancel
+            $("body").on("click", "#example .cancel-btn", function () {
+                var row = $(this).closest("tr");
+                $("td", row).each(function () {
+                    if ($(this).find("input").length > 0) {
+                        var span = $(this).find("span");
+                        var input = $(this).find("input");
+                        input.val(span.html());
+                        span.show();
+                        input.hide();
+                    }
+                });
+                row.find(".edit-btn").show();
+                row.find(".delete-btn").show();
+                row.find(".update-btn").hide();
+                $(this).hide();
+            });
+        }
+
+      
         function DeleteRow() {
             let rowId = $(this).parent().parent().attr('id');
-            console.log(rowId);
 
             var settings = {
                 "url": "/api/Beers?id=" + rowId,
