@@ -44,5 +44,19 @@ namespace BeverageProject.Controllers
 
             return View();
         }
+
+        public ActionResult Blog()
+        {
+            ViewBag.Message = "Your blog page.";
+
+            return View();
+        }
+
+        public ActionResult BlogDetails()
+        {
+            ViewBag.Message = "Your blog-details page.";
+
+            return View();
+        }
     }
 }
