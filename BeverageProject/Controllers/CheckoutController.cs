@@ -39,22 +39,21 @@ namespace BeverageProject.Controllers
             order.Total = 0;
             order.OrderDate = orderDto.OrderDate;
             
-            List<OrderProduct> products = new List<OrderProduct>();
+            
 
             foreach (var item in cart)
             {
                 order.Total += Convert.ToDecimal(item.Product.Price);
-                products.Add(new OrderProduct() { Order = order, Product = item.Product, OrderId = order.OrderId, ProductId = item.Product.Id });
+                order.Products = $"Name: {item.Product.Name} Price:{item.Product.Price} Quantity: {item.Quantity}";
             }
 
-            order.OrderProducts = products;
 
             db.Entry(order).State = EntityState.Added;
             db.SaveChanges();
             cart.Clear();
 
 
-            return Json(new { status = "Success!!" });
+            return Json(new {status = "Success"});
         }
 
 
