@@ -16,25 +16,41 @@ namespace BeverageProject.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+
+
+        public ActionResult SortBy(IEnumerable<Whiskey> whiskeys)
+        {
+            whiskeys = db.Whiskeys.ToList();
+
+            return null;
+        }
+
+
+
+
+
         // GET: Whiskey
-        public ActionResult Index(int? page, int? pSize)
+        public ActionResult Index(string searchWhiskey, int? page, int? pSize)
+        {
+            @ViewBag.searchWhiskey = searchWhiskey;
+            var whiskeys = db.Whiskeys.ToList();
+            if (!string.IsNullOrEmpty(searchWhiskey))
+            {
+                whiskeys = whiskeys.Where(t => t.Name.ToUpper().Contains(searchWhiskey.ToUpper())).ToList();
+            }
+
+            int pagenumber = page ?? 1;
+            int pagesize = pSize ?? 10;
+            return View(whiskeys.ToPagedList(pagenumber, pagesize));
+        }
+
+        public ActionResult IndexCollection(int? page, int? pSize)
         {
             var whiskeys = db.Whiskeys.ToList();
 
             int pagenumber = page ?? 1;
-            int pagesize = pSize ?? 10;
-
+            int pagesize = pSize ?? 12;
             return View(whiskeys.ToPagedList(pagenumber, pagesize));
-        }
-
-        public ActionResult IndexCollection(string category)
-        {
-            if (category is null)
-            {
-                return View(db.Whiskeys.ToList());
-            }
-            var whiskeys = db.Whiskeys.Where(x => x.Kind == category).ToList();
-            return View(whiskeys);
         }
 
         // GET: Whiskey/Details/5

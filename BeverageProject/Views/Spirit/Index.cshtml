@@ -8,10 +8,6 @@
 
 <!--=================== Main Content Container ===================-->
 <main class="list-collection-page">
-    <br />
-    page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-    <br />
-
     <!--=================== Breadcrumb Section ===================-->
 
     <section class="breadcrumb-container paira-padding-bottom-1">
@@ -48,6 +44,11 @@
         </div>
     </section>
     <!--=================== Latest Product Section ===================-->
+    <form style="margin-left:15px" class="form-inline" action="/Spirit/Index" method="post">
+        <input class="form-control mr-sm-2" id="searchSpirit" type="text" name="searchSpirit" value="@ViewBag.searchSpirit" placeholder="search Spirit" />
+        <button class="btn btn-success " type="submit">Search</button>
+        <button class="btn btn-danger " type="reset">Clear</button>
+    </form>
     <section class="latest-product text-center paira-margin-bottom-1">
         <div class="container">
             <div class="row">
@@ -115,22 +116,10 @@
     <section class="page-list paira-padding-bottom-1">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <ul class="pagination list-inline">
-                        <li class="pull-left raleway-light letter-spacing-2 paira-margin-top-1">Showing : <b>1 - 12</b> Of <b>@Model.Count()</b></li>
-                        <li class="pull-right">
-                            <ul class="list-inline">
-                                <li class="disabled letter-spacing-2 paira-margin-top-1"><span>Preview</span></li>
-                                <li class="active"><span>1</span></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">Next</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                <div class="col-md-12" style="text-align:center">
+                    @Html.PagedListPager(Model, x => Url.Action("Index", "Spirit", new { page = x }), PagedListRenderOptions.ClassicPlusFirstAndLast)
                 </div>
             </div>
         </div>
     </section>
 </main>
-@Html.PagedListPager(Model, x => Url.Action("Index", "Spirit", new { page = x }))

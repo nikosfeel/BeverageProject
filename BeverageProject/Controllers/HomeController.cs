@@ -1,4 +1,5 @@
 ﻿using BeverageProject.Models;
+using Entities;
 using MyDatabase;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,23 @@ namespace BeverageProject.Controllers
     public class HomeController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        public ActionResult Index()
+        public ActionResult Index(string searchΑllProducts)
         {
-            
-            return View();
+            @ViewBag.searchΑllProducts = searchΑllProducts;
+            var beers = db.Beers;
+            var spirits = db.Spirits;
+            var whiskeys = db.Whiskeys;
+            var wines = db.Wines.ToList();
+
+            IEnumerable<IProduct> prod = beers;
+            var allProducts = prod.Union(spirits).Union(whiskeys).Union(wines).OrderByDescending(x=>x.Id).Take(4);
+
+            if (!string.IsNullOrEmpty(searchΑllProducts))
+            {
+                allProducts = allProducts.Where(t => t.Name.ToUpper().Contains(searchΑllProducts.ToUpper())).ToList();
+            }
+
+            return View(allProducts);
         }
 
         public ActionResult About()

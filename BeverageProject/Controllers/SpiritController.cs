@@ -17,25 +17,28 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Spirit
-        public ActionResult Index(int? page, int? pSize)
+        public ActionResult Index(string searchSpirit, int? page, int? pSize)
         {
+            @ViewBag.searchSpirit = searchSpirit;
 
             var spirits = db.Spirits.ToList() ;
+            if (!string.IsNullOrEmpty(searchSpirit))
+            {
+                spirits = spirits.Where(t => t.Name.ToUpper().Contains(searchSpirit.ToUpper())).ToList();
+            }
 
             int pageNumber = page ?? 1;
-            int pagesize = pSize ?? 10;
-           
+            int pagesize = pSize ?? 10;          
             return View(spirits.ToPagedList(pageNumber,pagesize));
         }
 
-        public ActionResult IndexCollection(string category)
+        public ActionResult IndexCollection(int? page, int? pSize)
         {
-            if (category is null)
-            {
-                return View(db.Spirits.ToList());
-            }
-            var spirits = db.Spirits.Where(x => x.Kind == category).ToList();
-            return View(spirits);
+            var spirits = db.Spirits.ToList();
+
+            int pageNumber = page ?? 1;
+            int pagesize = pSize ?? 12;
+            return View(spirits.ToPagedList(pageNumber, pagesize));
         }
 
         // GET: Spirit/Details/5

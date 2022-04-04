@@ -17,24 +17,28 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Wine
-        public ActionResult Index(int? page, int? pSize)
+        public ActionResult Index(string searchWine,int? page, int? pSize)
+        {
+            @ViewBag.searchWine = searchWine;
+            var wines = db.Wines.ToList();
+
+            if (!string.IsNullOrEmpty(searchWine))
+            {
+                wines = wines.Where(t => t.Name.ToUpper().Contains(searchWine.ToUpper())).ToList();
+            }
+
+            int pagenumber = page ?? 1;
+            int pagesize = pSize ?? 10;
+            return View(wines.ToPagedList(pagenumber, pagesize));
+        }
+
+        public ActionResult IndexCollection(int? page, int? pSize)
         {
             var wines = db.Wines.ToList();
 
             int pagenumber = page ?? 1;
-            int pagesize = pSize ?? 10;
-
+            int pagesize = pSize ?? 12;
             return View(wines.ToPagedList(pagenumber, pagesize));
-        }
-
-        public ActionResult IndexCollection(string category)
-        {
-            if (category is null)
-            {
-                return View(db.Wines.ToList());
-            }
-            var wines = db.Wines.Where(x => x.Kind == category).ToList();
-            return View(wines);
         }
 
         // GET: Wine/Details/5
