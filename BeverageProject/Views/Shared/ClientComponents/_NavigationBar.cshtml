@@ -108,7 +108,8 @@
                                             <!--=================== Single Menu ===================-->
                                             <li class="width-li"><a href="@Url.Action("About", "Home")">About us</a></li>
                                             <!--=================== Single Menu ===================-->
-                                            <li class="width-li" style=" display:flex; justify-content: start; align-items: center;"><a href="@Url.Action("Create", "ApplicationUser")">Register</a><a href="@Url.Action("Login", "Account")">Login</a> <a href="@Url.Action("Dashboard", "Admin")">Admin</a> </li>
+                                            <li class="width-li" style=" display: flex; justify-content: start; align-items: center; white-space: nowrap; ">@Html.Partial("_LoginPartial")</li>
+                                            <li class="width-li" style=" display:flex; justify-content: start; align-items: center;"><a href="@Url.Action("Dashboard", "Admin")">Admin</a> </li>
                                         </ul>
                                     </div>
                                 </div>

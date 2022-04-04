@@ -47,7 +47,7 @@ namespace BeverageProject.Models
     }
 
     public class LoginViewModel
-    {
+    {            
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]
@@ -64,6 +64,10 @@ namespace BeverageProject.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; } 
+        
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

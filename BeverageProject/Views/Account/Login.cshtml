@@ -1,95 +1,58 @@
 ﻿@using BeverageProject.Models
+
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
 }
 
-<main class="login-page">
-    <!--=================== Breadcrumb Section ===================-->
-    <section class="breadcrumb-container paira-padding-bottom-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="breadcrumb">
-                        <ul class="list-inline">
-                            <li><a href="@Url.Action("Index", "Home")" class="raleway-light">Home <i class="fa fa-angle-right"></i></a></li>
-                            <li class="raleway-sbold">Login</li>
-                        </ul>
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    <div class="col-md-10">
+                        <span class="center-block"><label>Email</label></span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!--=================== Login Content Section ===================-->
-    <section class="login-content paira-padding-bottom-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <img alt="" class="paira-margin-bottom-1" src="images/hedding.png">
-                    <h3 class="text-uppercase raleway-light margin-clear paira-margin-bottom-1">Customer Login</h3>
-                </div>
-                <div class="col-md-12 col-xs-12 col-sm-12">
-                    <div class="form-contact">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12">
-                                <!--=================== Contact Us Form Section ===================-->
-                                <form accept-charset="UTF-8" action="#" class="contact-form" method="post">
-                                    <div class="row">
-                                        <input name="form_type" type="hidden" value="contact">
-                                        <input name="utf8" type="hidden" value="✓">
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-                                            <input type="email" class="form-control" name="contact[email]">
-                                            <span class="center-block"><label>Email</label></span>
-                                        </div>
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-                                            <input type="password" class="form-control" name="contact[password]">
-                                            <span class="center-block"><label>Password</label></span>
-                                        </div>
-                                        <div class="forget-password text-right">
-                                            <a href="@Url.Action("ForgotPassword", "Account")" class="text-capitalize position-rela">Forgοt Password?</a>
-                                        </div>
-                                    </div>
-                                    <br/>
-                                    <div class="text-right paira-margin-top-1">
-                                        <a class="text-capitalize font-size-16 raleway-light letter-spacing-2">New Customer?</a>
-                                        <a href="@Url.Action("Create", "ApplicationUser")" class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25">create an account</a>
-                                        <a class="text-uppercase text-color-black margin-right-5 raleway-light letter-spacing-2 margin-left-25">Or</a>
-                                        <a href="@Url.Action("Login", "Account")" class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25 logi">login</a>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    <div class="col-md-10">
+                        <span class="center-block"><label>Password</label></span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-</main>
-<!--=================== Login Dialog ===================-->
-<div class="modal fade paira-login-popup" id="paira-login" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3 class="margin-bottom-30 text-capitalize">Customer Login</h3>
-                        <form class="popup-login-form">
-                            <input type="email" class="form-control" name="EMAIL" value="" placeholder="Email" />
-                            <input type="password" class="form-control paira-margin-top-1" name="password" value="" placeholder="Password" />
-                            <div class="forget-password text-right">
-                                <a href="reset-password.html" class="text-capitalize position-rela btn-border">Forget Password?</a>
-                                <button class="btn btn-success color-scheme-2 btn-lg text-uppercase paira-margin-top-1">Login</button>
-                            </div>
-                        </form>
-                        <div class="new-customer text-right overflow">
-                            <h3 class="text-capitalize display-inline-b position-rela margin-top-40">New Customer</h3>
-                            <a href="register.html" class="btn btn-default pull-right btn-lg forget-password text-uppercase margin-top-40">Register</a>
-                        </div>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-0 margin-bottom-1">
+                    <div class="checkbox margin-left-25 pull-right">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
                     </div>
                 </div>
-            </div>
-        </div>
+                <div class="form-group">
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-0 margin-bottom-4">
+                        <br />
+                        <input class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25 pull-right" type="submit" value="Login" />
+                        <a class="text-uppercase text-color-black margin-right-5 raleway-light letter-spacing-2 margin-left-25 pull-right">Or</a>
+                        <a href="@Url.Action("Register", "Account")" class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25 pull-right">Register</a>
+                    </div>
+                </div>
+                @* Enable this once you have account confirmation enabled for password reset functionality
+            <p>
+                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+            </p>*@
+            }
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </section>
     </div>
 </div>
 
