@@ -22,6 +22,9 @@
                                 <thead>
                                     <tr>
                                         <th>
+                                            @Html.DisplayNameFor(model => model.OrderId)
+                                        </th>
+                                        <th>
                                             @Html.DisplayNameFor(model => model.OrderDate)
                                         </th>
                                         <th>
@@ -52,6 +55,9 @@
                                     {
                                         <tr>
                                             <td>
+                                                @Html.DisplayFor(modelItem => order.OrderId)
+                                            </td>
+                                            <td>
                                                 @Html.DisplayFor(modelItem => order.OrderDate)
                                             </td>
                                             <td>
@@ -74,10 +80,9 @@
                                             </td>
                                             <td>
                                                 <ul>
-                                                    @foreach (var orderProduct in order.OrderProducts)
-                                                    {
-                                                        <li>@orderProduct.Product.Name @orderProduct.Product.Price</li>
-                                                    }                                                    
+                                                   
+                                                    <li>@Html.DisplayFor(modelItem => order.Products)</li>
+                                                                                                       
                                                 </ul>
                                             </td>
                                         </tr>

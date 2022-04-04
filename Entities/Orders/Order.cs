@@ -55,8 +55,7 @@ namespace Entities.Orders
         //public ICollection<Whiskey> Whiskeys { get; set; } = new List<Whiskey>();
         //public ICollection<Spirit> Spirits { get; set; } = new List<Spirit>();
 
-        public ICollection<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
-
+        public string Products { get; set; }
 
     }
 }
