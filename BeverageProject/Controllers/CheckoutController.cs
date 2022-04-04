@@ -51,6 +51,8 @@ namespace BeverageProject.Controllers
 
             db.Entry(order).State = EntityState.Added;
             db.SaveChanges();
+            cart.Clear();
+
 
             return Json(new { status = "Success!!" });
         }
