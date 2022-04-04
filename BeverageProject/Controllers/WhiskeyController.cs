@@ -30,7 +30,7 @@ namespace BeverageProject.Controllers
 
 
         // GET: Whiskey
-        public ActionResult Index(string searchWhiskey, int? page, int? pSize)
+        public ActionResult Index(string category,string searchWhiskey, int? page, int? pSize)
         {
             @ViewBag.searchWhiskey = searchWhiskey;
             var whiskeys = db.Whiskeys.ToList();
@@ -39,9 +39,13 @@ namespace BeverageProject.Controllers
                 whiskeys = whiskeys.Where(t => t.Name.ToUpper().Contains(searchWhiskey.ToUpper())).ToList();
             }
 
-            int pagenumber = page ?? 1;
-            int pagesize = pSize ?? 10;
-            return View(whiskeys.ToPagedList(pagenumber, pagesize));
+            int pageNumber = page ?? 1;
+            int pageSize = pSize ?? 10;
+            if (category is null)
+            {
+                return View(whiskeys.ToPagedList(pageNumber, pageSize));
+            }
+            return View(whiskeys.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult IndexCollection(int? page, int? pSize)

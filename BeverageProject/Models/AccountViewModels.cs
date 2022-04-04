@@ -47,7 +47,10 @@ namespace BeverageProject.Models
     }
 
     public class LoginViewModel
-    {            
+    {
+        [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; }         
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]

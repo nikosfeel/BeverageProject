@@ -17,7 +17,7 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Wine
-        public ActionResult Index(string searchWine,int? page, int? pSize)
+        public ActionResult Index(string category, string searchWine,int? page, int? pSize)
         {
             @ViewBag.searchWine = searchWine;
             var wines = db.Wines.ToList();
@@ -27,9 +27,13 @@ namespace BeverageProject.Controllers
                 wines = wines.Where(t => t.Name.ToUpper().Contains(searchWine.ToUpper())).ToList();
             }
 
-            int pagenumber = page ?? 1;
-            int pagesize = pSize ?? 10;
-            return View(wines.ToPagedList(pagenumber, pagesize));
+            int pageNumber = page ?? 1;
+            int pageSize = pSize ?? 10;
+            if (category is null)
+            {
+                return View(wines.ToPagedList(pageNumber, pageSize));
+            }
+            return View(wines.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult IndexCollection(int? page, int? pSize)

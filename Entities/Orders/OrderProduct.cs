@@ -13,8 +13,9 @@ namespace Entities.Orders
         [Key,Column(Order = 1)]
         
         public int OrderId { get; set; }
+        public int ProductId { get; set; }
         
-        public string Product { get; set; }
+        public IProduct Product { get; set; }
         public Order Order { get; set; } = new Order();
     }
 }

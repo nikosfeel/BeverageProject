@@ -17,7 +17,7 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Spirit
-        public ActionResult Index(string searchSpirit, int? page, int? pSize)
+        public ActionResult Index(string category, string searchSpirit, int? page, int? pSize)
         {
             @ViewBag.searchSpirit = searchSpirit;
 
@@ -28,8 +28,13 @@ namespace BeverageProject.Controllers
             }
 
             int pageNumber = page ?? 1;
-            int pagesize = pSize ?? 10;          
-            return View(spirits.ToPagedList(pageNumber,pagesize));
+            int pageSize = pSize ?? 10;
+
+            if (category is null)
+            {
+                return View(spirits.ToPagedList(pageNumber, pageSize));
+            }
+            return View(spirits.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult IndexCollection(int? page, int? pSize)

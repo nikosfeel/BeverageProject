@@ -21,11 +21,8 @@ namespace BeverageProject.Controllers
 
        
 
-        public ActionResult Index(string searchBeer, int? page, int? pSize, string sortOrder)
-        {
-            //@ViewBag.searchBeer = searchBeer;
-            //var beers = db.Beers.ToList();
-            
+        public ActionResult Index(string category, string searchBeer, int? page, int? pSize, string sortOrder)
+        {           
             List<Beer> beers = Filtering(sortOrder);
             //Filtering
             beers = Filter(searchBeer, beers);
@@ -34,7 +31,15 @@ namespace BeverageProject.Controllers
 
             int pageSize, pageNumber;
             Pagination(pSize, page, out pageSize, out pageNumber);
-            return View(beers.ToPagedList(pageNumber, pageSize));
+
+
+
+            if (category is null)
+            {
+                return View(beers.ToPagedList(pageNumber, pageSize));
+            }
+            return View(beers.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
+
         }
 
         private static List<Beer> Sorting(string sortOrder, List<Beer> beers)
