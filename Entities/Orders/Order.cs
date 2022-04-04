@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Products;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -17,7 +18,7 @@ namespace Entities.Orders
         [Required(ErrorMessage = "First Name is required")]
         [DisplayName("First Name")]
         [StringLength(160)]
-        public string FullName { get; set; }        
+        public string FullName { get; set; }
 
         [Required(ErrorMessage = "Address is required")]
         [StringLength(70)]
@@ -37,7 +38,7 @@ namespace Entities.Orders
 
         [Required(ErrorMessage = "Email Address is required")]
         [DisplayName("Email Address")]
-        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}",ErrorMessage = "Email is is not valid.")]
+        [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}", ErrorMessage = "Email is is not valid.")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
@@ -49,7 +50,13 @@ namespace Entities.Orders
 
         [ScaffoldColumn(false)]
         public bool HasBeenShipped { get; set; }
+        //public ICollection<Beer> Beers { get; set; } = new List<Beer>();
+        //public ICollection<Wine> Wines { get; set; } = new List<Wine>();
+        //public ICollection<Whiskey> Whiskeys { get; set; } = new List<Whiskey>();
+        //public ICollection<Spirit> Spirits { get; set; } = new List<Spirit>();
 
-        //public IEnumerable<IProduct> Products { get; set; }
+        public ICollection<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
+
+
     }
 }

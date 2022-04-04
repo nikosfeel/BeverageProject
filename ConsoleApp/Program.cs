@@ -16,7 +16,7 @@ namespace ConsoleApp
         static void Main(string[] args)
         {
             ApplicationDbContext db = new ApplicationDbContext();
-            var orders = db.Orders.ToList();
+            var products = db.Products.ToList();
 
             //foreach (var item in orders)
             //{

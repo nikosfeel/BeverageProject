@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Orders;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,7 @@ namespace Entities
         double Price { get; set; }
         string PhotoUrl { get; set; }
         string Kind { get; set; }
+
+        ICollection<OrderProduct> OrderProducts { get; set; }
     }
 }

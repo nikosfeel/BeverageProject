@@ -10,7 +10,6 @@ namespace Entities
     {
 
         public int Id { get; set; }
-
-       
+        
     }
 }
