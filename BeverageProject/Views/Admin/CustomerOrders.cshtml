@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Entities.Orders.Order>
+@using Entities
 @{
     ViewBag.Title = "CustomerOrders";
     Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
@@ -41,32 +42,43 @@
                                         <th>
                                             @Html.DisplayNameFor(model => model.Email)
                                         </th>
+                                        <th>
+                                            <strong>Products</strong>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model)
+                                    @foreach (var order in Model)
                                     {
                                         <tr>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.OrderDate)
+                                                @Html.DisplayFor(modelItem => order.OrderDate)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.FullName)
+                                                @Html.DisplayFor(modelItem => order.FullName)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.Address)
+                                                @Html.DisplayFor(modelItem => order.Address)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.City)
+                                                @Html.DisplayFor(modelItem => order.City)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.PostalCode)
+                                                @Html.DisplayFor(modelItem => order.PostalCode)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.Phone)
+                                                @Html.DisplayFor(modelItem => order.Phone)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.Email)
+                                                @Html.DisplayFor(modelItem => order.Email)
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    @foreach (var orderProduct in order.OrderProducts)
+                                                    {
+                                                        <li>@orderProduct.Product.Name @orderProduct.Product.Price</li>
+                                                    }                                                    
+                                                </ul>
                                             </td>
                                         </tr>
                                     }

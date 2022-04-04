@@ -2,6 +2,7 @@
 using Entities;
 using Entities.Items;
 using Entities.Orders;
+using Entities.Products;
 using MyDatabase;
 using System;
 using System.Collections.Generic;
@@ -38,14 +39,15 @@ namespace BeverageProject.Controllers
             order.Total = 0;
             order.OrderDate = orderDto.OrderDate;
             
+            List<OrderProduct> products = new List<OrderProduct>();
 
             foreach (var item in cart)
             {
-                order.Total = order.Total + Convert.ToDecimal(item.Product.Price);
-                
-                //order.Products.Append(item.Product);
+                order.Total += Convert.ToDecimal(item.Product.Price);
+                products.Add(new OrderProduct() { Order = order, Product = item.Product, OrderId = order.OrderId, ProductId = item.Product.Id });
             }
-            
+
+            order.OrderProducts = products;
 
             db.Entry(order).State = EntityState.Added;
             db.SaveChanges();
