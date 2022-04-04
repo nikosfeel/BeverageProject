@@ -138,8 +138,7 @@
                                 <span class="money font-size-16"><b>@Html.DisplayFor(modelItem => item.Price)€</b></span>
                                 <div class="product-hover">
                                     <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                        <a href="#paira-quick-view" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
-                                        <a href="@Url.Action("Details", item.GetType().Name, new { id = item.Id })" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="~/Content/images/cart-2.png" alt=""></a>
+                                        <a href="@Url.Action("Details", item.GetType().Name, new { id = item.Id })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -280,16 +279,16 @@
                     <img alt="" src="~/Content/images/blog/blog-2.jpg" class="img-responsive">
                     <div class="blogs1">
                         <h3 class="text-uppercase margin-bottom-10">05 may</h3>
-                        <h4 class="paira-margin-bottom-1"><a href="blog-single.html" class="date raleway-light letter-spacing-2">All customer choosen wine</a></h4>
-                        <a href="blog-single.html" class="btn-border font-size-12">Read More</a>
+                        <h4 class="paira-margin-bottom-1"><a href="@Url.Action("Blog", "Home")" class="date raleway-light letter-spacing-2">All customer choosen wine</a></h4>
+                        <a href="@Url.Action("Blog", "Home")" class="btn-border font-size-12">Read More</a>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12 col-xs-12 paira-margin-top-1">
                     <img alt="" src="~/Content/images/blog/blog-1.jpg" class="img-responsive">
                     <div class="blogs">
                         <h3 class="text-uppercase margin-bottom-10">15 april</h3>
-                        <h4 class="paira-margin-bottom-1"><a href="blog-single.html" class="date raleway-light letter-spacing-2">Red wine like all people</a></h4>
-                        <a href="blog-single.html" class="btn-border font-size-12">Read More</a>
+                        <h4 class="paira-margin-bottom-1"><a href="@Url.Action("Blog", "Home")" class="date raleway-light letter-spacing-2">Red wine like all people</a></h4>
+                        <a href="@Url.Action("Blog", "Home")" class="btn-border font-size-12">Read More</a>
                     </div>
                 </div>
             </div>
@@ -332,31 +331,6 @@
                         <div class="alert alert-success margin-bottom-20 margin-top-20 text-center font-size-14" role="alert">
                             <strong class="paira-common-message-details"><i class="fa fa-info-circle font-size-16"></i> Sorry, your are not able to access this site. We have age restriction!</strong>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--=================== Ajax Success Message ===================-->
-<div class="modal fade ajax-success-message" id="paira-ajax-success-message" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <div class="row">
-                    <div class="col-md-4 paira-success-message-img"><img src="images/product/product-3.png" alt="" class="img-responsive"></div>
-                    <div class="col-md-8">
-                        <h4 class="margin-top-15 paira-success-message-title text-capitalize">Deko lorem Ipsum product lorem product</h4>
-                        <a href="#" class="btn btn-success btn-lg text-uppercase btn-block margin-top-20">Continue Shopping</a>
-                        <a href="#" class="btn btn-default btn-lg text-uppercase btn-block margin-top-15 paira-success-message-link">Go To Cart</a>
-                    </div>
-                </div>
-                <div class="row paira-margin-top-5">
-                    <div class="col-md-12">
-                        <div class="alert alert-success margin-bottom-0 margin-top-15 padding-top-5 padding-bottom-5 text-center" role="alert"><strong class="paira-success-message-details letter-spacing-2"><i class="fa fa-check"></i> Added To Your Shopping Cart.</strong></div>
                     </div>
                 </div>
             </div>
