@@ -19,38 +19,66 @@ namespace BeverageProject.Controllers
         // GET: Beer
 
 
-        private static void BubbleSortOrderBy(Beer[] beers)
+       
+
+        public ActionResult Index(string searchBeer, int? page, int? pSize, string sortOrder)
         {
-            Beer t;
-            int size = beers.Length - 2;
-            for (int p = 0; p <= size; p++)
-            {
-                for (int i = 0; i <= size; i++)
-                {
-                    if (beers[i].Price> beers[i + 1].Price)
-                    {
-                        t = beers[i + 1];
-                        beers[i + 1] = beers[i];
-                        beers[i] = t;
-                    }
-                }
-            }
+            //@ViewBag.searchBeer = searchBeer;
+            //var beers = db.Beers.ToList();
+            
+            List<Beer> beers = Filtering(sortOrder);
+            //Filtering
+            beers = Filter(searchBeer, beers);
+            //Sorting
+            beers = Sorting(sortOrder, beers);
+
+            int pageSize, pageNumber;
+            Pagination(pSize, page, out pageSize, out pageNumber);
+            return View(beers.ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult Index(string searchBeer, int? page, int? pSize)
+        private static List<Beer> Sorting(string sortOrder, List<Beer> beers)
         {
-            @ViewBag.searchBeer = searchBeer;
-            var beers = db.Beers.ToList();
+            switch (sortOrder)
+            {
+                case "PriceDesc":beers = beers.OrderByDescending(x => x.Price).ToList(); break;
+                case "PriceAsc": beers = beers.OrderBy(x => x.Price).ToList(); break;
+                case "NameAsc":  beers = beers.OrderBy(x => x.Name).ToList(); break;
+                case "NameDesc": beers = beers.OrderByDescending(x => x.Name).ToList(); break;
+                default: beers = beers.OrderBy(x => x.Price).ToList(); break;
 
+            }
+            return beers;
+        }
+
+        private List<Beer> Filtering(string sortOrder)
+        {
+            var beers = db.Beers.ToList();
+            ViewBag.PD = String.IsNullOrEmpty(sortOrder) ? "PriceDesc" : "";
+            ViewBag.PA = sortOrder == "PriceAsc" ? "PriceDesc" : "PriceAsc";
+            ViewBag.NA = sortOrder == "NameAsc" ? "NameDesc" : "NameAsc";
+            ViewBag.ND = sortOrder == "NameDesc" ? "NameAsc" : "NameDesc";
+            return beers;
+        }
+
+        private static void Pagination(int? pSize, int? page, out int pageSize, out int pageNumber)
+        {
+            pageNumber = page ?? 1;
+            pageSize = pSize ?? 10;
+        }
+
+        private static List<Beer> Filter(string searchBeer, List<Beer> beers)
+        {
             if (!string.IsNullOrEmpty(searchBeer))
             {
                 beers = beers.Where(t => t.Name.ToUpper().Contains(searchBeer.ToUpper())).ToList();
             }
-
-            int pageNumber = page ?? 1;
-            int pageSize = pSize ?? 10;
-            return View(beers.ToPagedList(pageNumber, pageSize));
+            return beers;
         }
+
+
+
+
 
         public ActionResult IndexCollection(int? page, int? pSize)
         {
