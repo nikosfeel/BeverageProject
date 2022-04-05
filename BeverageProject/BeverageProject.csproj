@@ -6381,7 +6381,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\TermsAndConditions\View.cshtml" />
     <Content Include="Views\Beer\Create.cshtml" />
     <Content Include="Views\Beer\Delete.cshtml" />
     <Content Include="Views\Beer\Details.cshtml" />

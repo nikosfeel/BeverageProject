@@ -82,9 +82,6 @@ namespace BeverageProject.Controllers
         }
 
 
-
-
-
         public ActionResult IndexCollection(string category, string searchBeer, int? page, int? pSize)
         {
             @ViewBag.searchBeer = searchBeer;
