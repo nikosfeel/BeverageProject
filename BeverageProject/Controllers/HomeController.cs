@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Net;
+using System.Net.Mail;
 
 namespace BeverageProject.Controllers
 {
@@ -21,7 +23,7 @@ namespace BeverageProject.Controllers
             var wines = db.Wines.ToList();
 
             IEnumerable<IProduct> prod = beers;
-            var allProducts = prod.Union(spirits).Union(whiskeys).Union(wines).OrderByDescending(x=>x.Id).Take(4);
+            var allProducts = prod.Union(spirits).Union(whiskeys).Union(wines).OrderByDescending(x => x.Id).Take(4);
 
             if (!string.IsNullOrEmpty(searchΑllProducts))
             {
