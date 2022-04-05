@@ -26,6 +26,10 @@ namespace BeverageProject.Controllers
         {
             return View();
         }
+        public ActionResult Success()
+        {
+            return View();
+        }
         public ActionResult CreateOrder(OrderDto orderDto)
         {
             List<Item> cart = (List<Item>)Session["cart"];
@@ -53,7 +57,7 @@ namespace BeverageProject.Controllers
             cart.Clear();
 
 
-            return Json(new {status = "Success"});
+            return RedirectToAction("Success");
         }
 
 
