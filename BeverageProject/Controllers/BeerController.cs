@@ -17,10 +17,6 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Beer
-
-
-
-
         public ActionResult Index(string category, string searchBeer, int? page, int? pSize, string sortOrder)
         {
             List<Beer> beers = Filtering(sortOrder);
@@ -31,8 +27,6 @@ namespace BeverageProject.Controllers
 
             int pageSize, pageNumber;
             Pagination(pSize, page, out pageSize, out pageNumber);
-
-
 
             if (category is null)
             {

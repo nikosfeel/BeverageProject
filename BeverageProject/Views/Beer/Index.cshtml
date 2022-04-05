@@ -6,34 +6,6 @@
     ViewBag.Title = "Beers";
 }
 
-<style>
-    .list-group-horizontal .list-group-item {
-        display: inline-block;
-        background-color: #D0D0D0;
-        font-weight: bolder;
-    }
-
-    .list-group-horizontal .list-group-item {
-        margin-bottom: 0;
-        margin-left: -4px;
-        margin-right: 0;
-        border-right-width: 0;
-        border-color:black;
-    }
-
-        .list-group-horizontal .list-group-item:nth-child(2) {
-            border-top-right-radius: 0;
-            border-bottom-left-radius: 5px;
-            border-top-left-radius: 5px;
-        }
-
-        .list-group-horizontal .list-group-item:last-child {
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-            border-bottom-left-radius: 0;
-            border-right-width: 1px;
-        }
-</style>
 <!--=================== Main Content Container ===================-->
 <main class="list-collection-page">
     <!--=================== Breadcrumb Section ===================-->
@@ -65,17 +37,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-xs-12 col-sm-12">
-                    <img src="~/Theme/OurTemplate/images/banner/banner-1.jpg" class="img-responsive paira-margin-top-1" alt="" />
+                    <img src="~/Theme/OurTemplate/images/banner/banner-1.jpg" class="img-responsive paira-margin-top-1" alt=""/>
                     <h1>BEER FOR PARTY</h1>
                 </div>
             </div>
         </div>
     </section>
     <!--=================== Product Section ===================-->
-    <form style="margin-left:15px;margin-top:5px;" class="form-inline" action="/Beer/Index" method="post">
-        <input class="form-control mr-sm-2" id="searchBeer" type="text" name="searchBeer" value="@ViewBag.searchBeer" placeholder="Search beer" style="background-color:white; border-radius:5px" />
-        <button class="btn btn-success" style="border-radius: 5px" type="submit">Search</button>
-    </form>
+
     <section class="latest-product text-center paira-margin-bottom-1">
         <div class="container">
             <div class="row">
@@ -83,18 +52,20 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
-
-                                <ul class="list-group list-group-horizontal">
+                                <ul class="list-group list-group-horizontal pull-left">
                                     <li class="list-group-item" style="font-size:18px; border-style:none">SORT BY: </li>
-                                    <li class="list-group-item"><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.NA },null)">All</a></li>
-                                    <li class="list-group-item"><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.PD },null)">Price↓</a></li>
-                                    <li class="list-group-item"><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.PA },null)">Price↑</a></li>
-
+                                    <li class="list-group-item"><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.ND },null)">Name ↓↑</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.PD },null)">Price ↓↑</a></li>
                                 </ul>
-
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
+                                <form style="margin-left:140px; margin-top:5px;" class="form-inline" action="/Beer/Index" method="post">
+                                    <i class="fa fa-search input-group" style="font-size:2rem;"></i> 
+                                    <input class="form-control mr-sm-2" id="searchBeer" type="text" name="searchBeer" value="@ViewBag.searchBeer" placeholder="Search" style="background-color:white; border-radius:30px" />
+                                </form>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-4 paira-margin-top-1 pull-right">
-                                <div class="form-group margin-clear pull-right list-grid margin-top-5 float-0">
+                                <div class="form-group margin-clear pull-right list-grid margin-top-10 float-0">
                                     <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>View :</b></label></h4>
                                     <button data-value="list"><i class="fa fa-th-list fa-2x"></i></button>
                                     <button data-value="grid" class="active list" onclick="location.href='@Url.Action("IndexCollection","Beer")'"><i class="fa fa-th fa-2x"></i></button>
