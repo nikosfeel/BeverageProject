@@ -6,6 +6,34 @@
     ViewBag.Title = "Beers";
 }
 
+<style>
+    .list-group-horizontal .list-group-item {
+        display: inline-block;
+        background-color: #D0D0D0;
+        font-weight: bolder;
+    }
+
+    .list-group-horizontal .list-group-item {
+        margin-bottom: 0;
+        margin-left: -4px;
+        margin-right: 0;
+        border-right-width: 0;
+        border-color:black;
+    }
+
+        .list-group-horizontal .list-group-item:nth-child(2) {
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        .list-group-horizontal .list-group-item:last-child {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-bottom-left-radius: 0;
+            border-right-width: 1px;
+        }
+</style>
 <!--=================== Main Content Container ===================-->
 <main class="list-collection-page">
     <!--=================== Breadcrumb Section ===================-->
@@ -23,7 +51,7 @@
             </div>
         </div>
     </section>
-    
+
     <div class="container text-center">
         <div class="row">
             <div class="col-md-12">
@@ -43,40 +71,27 @@
             </div>
         </div>
     </section>
-    <!--=================== Latest Product Section ===================-->
+    <!--=================== Product Section ===================-->
+    <form style="margin-left:15px;margin-top:5px;" class="form-inline" action="/Beer/Index" method="post">
+        <input class="form-control mr-sm-2" id="searchBeer" type="text" name="searchBeer" value="@ViewBag.searchBeer" placeholder="Search beer" style="background-color:white; border-radius:5px" />
+        <button class="btn btn-success" style="border-radius: 5px" type="submit">Search</button>
+    </form>
     <section class="latest-product text-center paira-margin-bottom-1">
-
-        <form style="margin-left:40px" class="form-inline" action="/Beer/Index" method="post">
-            <input class="form-control mr-sm-2" id="searchBeer" type="text" name="searchBeer" value="@ViewBag.searchBeer" placeholder="search Beer" />
-            <button class="btn btn-success " type="submit">Search</button>
-            <button class="btn btn-danger " type="reset">Clear</button>
-        </form>
-
         <div class="container">
             <div class="row">
                 <div class="synconis paira-margin-bottom-1">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
-                                <div class="form-group margin-clear">
-                                    <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>Sort by:</b></label></h4>
-                                    @*<select class="sort-by paira-filter-category">
-                                        <option value="#">Name(A-Z)</option>
-                                        <option value="#">Name(Z-A)</option>
-                                        <option action="/Beer/Index" value="ViewBag.PA ">Price(↑)</option>
-                                        <option value="#">Price(↓)</option>
-                                    </select>*@
 
-                                    <ul class="sort-by paira-filter-category">
-                                        <li><span><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.NA },null)">All</a></span></li>
-                                        <li><span><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.PD },null)">Price(↓)</a></span></li>
-                                        <li><span><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.PA },null)">Price(↑)</a></span></li>
-                                        
-                                    </ul>
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="list-group-item" style="font-size:18px; border-style:none">SORT BY: </li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.NA },null)">All</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.PD },null)">Price↓</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.PA },null)">Price↑</a></li>
 
+                                </ul>
 
-
-                                </div>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-4 paira-margin-top-1 pull-right">
                                 <div class="form-group margin-clear pull-right list-grid margin-top-5 float-0">
