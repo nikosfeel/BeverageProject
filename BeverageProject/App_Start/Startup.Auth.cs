@@ -57,9 +57,9 @@ namespace BeverageProject
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "398206325068084",
+               appSecret: "39ce767df482b9ed1a6d3cf0ab5e416d");
 
             app.UseGoogleAuthentication(
                  clientId: "107171567915-h7jl04mne13rou89ccotlp9q7lgpevqs.apps.googleusercontent.com",

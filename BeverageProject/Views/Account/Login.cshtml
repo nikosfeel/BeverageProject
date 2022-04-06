@@ -13,41 +13,41 @@
             <h2 style="text-align: center; margin-left:auto; margin-right: auto;">@ViewBag.Title</h2>
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-            @Html.AntiForgeryToken()
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                <div class="col-md-10">
-                    <span class="center-block"><label>Email</label></span>
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    <div class="col-md-10">
+                        <span class="center-block"><label>Email</label></span>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                <div class="col-md-10">
-                    <span class="center-block"><label>Password</label></span>
+                <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    <div class="col-md-10">
+                        <span class="center-block"><label>Password</label></span>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-0 margin-bottom-1">
-                <div class="checkbox margin-left-25 pull-right">
-                    @Html.CheckBoxFor(m => m.RememberMe)
-                    @Html.LabelFor(m => m.RememberMe)
+                <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-0 margin-bottom-1">
+                    <div class="checkbox margin-left-25 pull-right">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-0 margin-bottom-4">
-                    <br />
-                    <input class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25 pull-right" type="submit" value="Login" />
-                    <a class="text-uppercase text-color-black margin-right-5 raleway-light letter-spacing-2 margin-left-25 pull-right">Or</a>
-                    <a href="@Url.Action("Register", "Account")" class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25 pull-right">Register</a>
+                <div class="form-group">
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-0 margin-bottom-4">
+                        <br />
+                        <input class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25 pull-right" type="submit" value="Login" />
+                        <a class="text-uppercase text-color-black margin-right-5 raleway-light letter-spacing-2 margin-left-25 pull-right">Or</a>
+                        <a href="@Url.Action("Register", "Account")" class="btn btn-default btn-lg color-scheme-2 text-uppercase raleway-light margin-left-25 pull-right">Register</a>
+                    </div>
                 </div>
-            </div>
-            @* Enable this once you have account confirmation enabled for password reset functionality
-        <p>
-            @Html.ActionLink("Forgot your password?", "ForgotPassword")
-        </p>*@
+                @* Enable this once you have account confirmation enabled for password reset functionality
+                    <p>
+                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                    </p>*@
             }
         </section>
     </div>
