@@ -19,6 +19,7 @@ namespace BeverageProject.Controllers
         // GET: Beer
         public ActionResult Index(string category, string searchBeer, int? page, int? pSize, string sortOrder)
         {
+            ViewBag.Category = category;
             List<Beer> beers = Filtering(sortOrder);
             //Filtering
             beers = Filter(searchBeer, beers);

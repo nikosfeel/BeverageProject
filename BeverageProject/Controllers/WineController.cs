@@ -20,6 +20,7 @@ namespace BeverageProject.Controllers
         public ActionResult Index(string category, string searchWine, int? page, int? pSize)
         {
             @ViewBag.searchWine = searchWine;
+            ViewBag.Category = category;
             var wines = db.Wines.ToList();
 
             if (!string.IsNullOrEmpty(searchWine))

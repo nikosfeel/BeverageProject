@@ -20,7 +20,7 @@ namespace BeverageProject.Controllers
         public ActionResult Index(string category, string searchSpirit, int? page, int? pSize)
         {
             @ViewBag.searchSpirit = searchSpirit;
-
+            ViewBag.Category = category;
             var spirits = db.Spirits.ToList();
             if (!string.IsNullOrEmpty(searchSpirit))
             {

@@ -53,8 +53,8 @@
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
                                 <ul class="list-group list-group-horizontal pull-left">
                                     <li class="list-group-item" style="font-size:18px; border-style:none">SORT BY: </li>
-                                    <li class="list-group-item"><a href="@Url.Action("Index","Spirit",new {sortOrder=ViewBag.ND },null)">Name ↓↑</a></li>
-                                    <li class="list-group-item"><a href="@Url.Action("Index","Spirit",new {sortOrder=ViewBag.PD },null)">Price ↓↑</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","Spirit",new {sortOrder=ViewBag.ND,category = ViewBag.Category },null)">Name ↓↑</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","Spirit",new {sortOrder=ViewBag.PD,category = ViewBag.Category },null)">Price ↓↑</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
@@ -114,7 +114,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12" style="text-align:center">
-                    @Html.PagedListPager(Model, x => Url.Action("Index", "Spirit", new { page = x }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                    @Html.PagedListPager(Model, x => Url.Action("Index", "Spirit", new { page = x, category = ViewBag.Category }), PagedListRenderOptions.ClassicPlusFirstAndLast)
                 </div>
             </div>
         </div>

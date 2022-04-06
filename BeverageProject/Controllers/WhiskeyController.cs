@@ -33,6 +33,7 @@ namespace BeverageProject.Controllers
         public ActionResult Index(string category, string searchWhiskey, int? page, int? pSize)
         {
             @ViewBag.searchWhiskey = searchWhiskey;
+            ViewBag.Category = category;
             var whiskeys = db.Whiskeys.ToList();
             if (!string.IsNullOrEmpty(searchWhiskey))
             {
