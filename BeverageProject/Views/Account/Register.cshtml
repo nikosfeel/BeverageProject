@@ -3,27 +3,26 @@
     ViewBag.Title = "Create a new account";
 }
 
-<h2>@ViewBag.Title</h2>
 
 <Main class="register-page">
+
+    <img style="display:block; margin-left:auto; margin-right:auto;" class="form-group paira-margin-bottom-1" src="/Content/images/hedding.png">
+
+    <h2 style="text-align: center; margin-left:auto; margin-right: auto;">@ViewBag.Title</h2>
+
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
         <hr />
-        @Html.ValidationSummary("", new { @class = "text-danger" })
         <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-            @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
-            <div class="col-md-10">
-                <span class="center-block"><label>Username</label></span>
-            </div>
-        </div>
-        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
             <div class="col-md-10">
                 <span class="center-block"><label>Email</label></span>
             </div>
         </div>
         <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
             <div class="col-md-10">
                 <span class="center-block"><label>Password</label></span>

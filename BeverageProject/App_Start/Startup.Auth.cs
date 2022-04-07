@@ -8,6 +8,7 @@ using Owin;
 using BeverageProject.Models;
 using MyDatabase;
 using Entities.IdentityUsers;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BeverageProject
 {
@@ -56,15 +57,21 @@ namespace BeverageProject
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "398206325068084",
+               appSecret: "39ce767df482b9ed1a6d3cf0ab5e416d");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(
+                 clientId: "107171567915-h7jl04mne13rou89ccotlp9q7lgpevqs.apps.googleusercontent.com",
+                 clientSecret: "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");
         }
+
+        //public void ConfigureServices(IServiceCollection services)
+        //{
+        //    services.AddAuthentication()
+        //        .AddGoogle()
+        //        .AddFacebook();
+
+        //}
     }
 }

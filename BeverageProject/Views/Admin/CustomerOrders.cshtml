@@ -18,7 +18,7 @@
                     </header>
                     <div class="panel-body">
                         <section id="unseen">
-                            <table class="table" id="example">
+                            <table class="table table-hover" id="example">
                                 <thead>
                                     <tr>
                                         <th>
@@ -54,17 +54,21 @@
                                     @foreach (var order in Model)
                                     {
                                         <tr>
-                                            <td>
+                                            <td>                                                
                                                 @Html.DisplayFor(modelItem => order.OrderId)
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => order.OrderDate)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => order.FullName)
+                                                <strong>
+                                                    @Html.DisplayFor(modelItem => order.FullName)
+                                                </strong>
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => order.Address)
+                                                <strong>
+                                                    @Html.DisplayFor(modelItem => order.Address)
+                                                </strong>
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => order.City)
@@ -80,9 +84,9 @@
                                             </td>
                                             <td>
                                                 <ul>
-                                                   
-                                                    <li>@Html.DisplayFor(modelItem => order.Products)</li>
-                                                                                                       
+                                                    
+                                                    <li><strong>@Html.DisplayFor(modelItem => order.Products)</strong></li>
+                                                    
                                                 </ul>
                                             </td>
                                         </tr>

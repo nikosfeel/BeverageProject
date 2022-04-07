@@ -40,7 +40,7 @@
             </div>
         </div>
     </section>
-    <!--=================== Latest Product Section ===================-->
+    <!--=================== Product Section ===================-->
     <section class="latest-product text-center paira-padding-bottom-1">
         <div class="container">
             <div class="row">
@@ -48,18 +48,20 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
-                                <div class="form-group margin-clear">
-                                    <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>Sort by:</b></label></h4>
-                                    <select class="sort-by paira-filter-category">
-                                        <option value="#">Name(A-Z)</option>
-                                        <option value="#">Name(Z-A)</option>
-                                        <option value="#">Price(↑)</option>
-                                        <option value="#">Price(↓)</option>
-                                    </select>
-                                </div>
+                                <ul class="list-group list-group-horizontal pull-left">
+                                    <li class="list-group-item" style="font-size:18px; border-style:none">SORT BY: </li>
+                                    <li class="list-group-item"><a href="@Url.Action("IndexCollection","Spirit",new {sortOrder=ViewBag.ND },null)">Name ↓↑</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("IndexCollection","Spirit",new {sortOrder=ViewBag.PD },null)">Price ↓↑</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
+                                <form style="margin-left:140px;margin-top:5px;" class="form-inline" action="/Spirit/IndexCollection" method="post">
+                                    <i class="fa fa-search input-group" style="font-size:2rem;"></i>
+                                    <input class="form-control mr-sm-2" id="searchSpirit" type="text" name="searchSpirit" value="@ViewBag.searchSpirit" placeholder="Search" style="background-color:white; border-radius:30px" />
+                                </form>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-4 paira-margin-top-1 pull-right">
-                                <div class="form-group margin-clear pull-right list-grid margin-top-5 float-0">
+                                <div class="form-group margin-clear pull-right list-grid margin-top-10 float-0">
                                     <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>View :</b></label></h4>
                                     <button data-value="list" class="active list" onclick="location.href='@Url.Action("Index","Spirit")'"><i class="fa fa-th-list fa-2x"></i></button>
                                     <button data-value="grid"><i class="fa fa-th fa-2x"></i></button>

@@ -44,11 +44,6 @@
         </div>
     </section>
     <!--=================== Latest Product Section ===================-->
-    <form style="margin-left:15px" class="form-inline" action="/Wine/Index" method="post">
-        <input class="form-control mr-sm-2" id="searchSpirit" type="text" name="searchWine" value="@ViewBag.searchSpirit" placeholder="search Spirit" />
-        <button class="btn btn-success " type="submit">Search</button>
-        <button class="btn btn-danger " type="reset">Clear</button>
-    </form>
     <section class="latest-product text-center paira-margin-bottom-1">
         <div class="container">
             <div class="row">
@@ -56,18 +51,20 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
-                                <div class="form-group margin-clear">
-                                    <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>Sort by:</b></label></h4>
-                                    <select class="sort-by paira-filter-category">
-                                        <option value="#">Name(A-Z)</option>
-                                        <option value="#">Name(Z-A)</option>
-                                        <option value="#">Price(↑)</option>
-                                        <option value="#">Price(↓)</option>
-                                    </select>
-                                </div>
+                                <ul class="list-group list-group-horizontal pull-left">
+                                    <li class="list-group-item" style="font-size:18px; border-style:none">SORT BY: </li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","Wine",new {sortOrder=ViewBag.ND,category = ViewBag.Category },null)">Name ↓↑</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","Wine",new {sortOrder=ViewBag.PD,category = ViewBag.Category },null)">Price ↓↑</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
+                                <form style="margin-left:140px;margin-top:5px;" class="form-inline" action="/Wine/Index" method="post">
+                                    <i class="fa fa-search input-group" style="font-size:2rem;"></i>
+                                    <input class="form-control mr-sm-2" id="searchWine" type="text" name="searchWine" value="@ViewBag.searchWine" placeholder="Search" style="background-color:white; border-radius:30px" />
+                                </form>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-4 paira-margin-top-1 pull-right">
-                                <div class="form-group margin-clear pull-right list-grid margin-top-5 float-0">
+                                <div class="form-group margin-clear pull-right list-grid margin-top-10 float-0">
                                     <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>View :</b></label></h4>
                                     <button data-value="list"><i class="fa fa-th-list fa-2x"></i></button>
                                     <button data-value="grid" class="active list" onclick="location.href='@Url.Action("IndexCollection","Wine")'"><i class="fa fa-th fa-2x"></i></button>
@@ -115,7 +112,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12" style="text-align:center">
-                    @Html.PagedListPager(Model, x => Url.Action("Index", "Wine", new { page = x }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                    @Html.PagedListPager(Model, x => Url.Action("Index", "Wine", new { page = x, category = ViewBag.Category }), PagedListRenderOptions.ClassicPlusFirstAndLast)
                 </div>
             </div>
         </div>

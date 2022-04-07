@@ -23,7 +23,7 @@
             </div>
         </div>
     </section>
-    
+
     <div class="container text-center">
         <div class="row">
             <div class="col-md-12">
@@ -37,49 +37,35 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-xs-12 col-sm-12">
-                    <img src="~/Theme/OurTemplate/images/banner/banner-1.jpg" class="img-responsive paira-margin-top-1" alt="" />
+                    <img src="~/Theme/OurTemplate/images/banner/banner-1.jpg" class="img-responsive paira-margin-top-1" alt=""/>
                     <h1>BEER FOR PARTY</h1>
                 </div>
             </div>
         </div>
     </section>
-    <!--=================== Latest Product Section ===================-->
+    <!--=================== Product Section ===================-->
+
     <section class="latest-product text-center paira-margin-bottom-1">
-
-        <form style="margin-left:40px" class="form-inline" action="/Beer/Index" method="post">
-            <input class="form-control mr-sm-2" id="searchBeer" type="text" name="searchBeer" value="@ViewBag.searchBeer" placeholder="search Beer" />
-            <button class="btn btn-success " type="submit">Search</button>
-            <button class="btn btn-danger " type="reset">Clear</button>
-        </form>
-
         <div class="container">
             <div class="row">
                 <div class="synconis paira-margin-bottom-1">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
-                                <div class="form-group margin-clear">
-                                    <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>Sort by:</b></label></h4>
-                                    @*<select class="sort-by paira-filter-category">
-                                        <option value="#">Name(A-Z)</option>
-                                        <option value="#">Name(Z-A)</option>
-                                        <option action="/Beer/Index" value="ViewBag.PA ">Price(↑)</option>
-                                        <option value="#">Price(↓)</option>
-                                    </select>*@
-
-                                    <ul class="sort-by paira-filter-category">
-                                        <li><span><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.NA },null)">All</a></span></li>
-                                        <li><span><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.PD },null)">Price(↓)</a></span></li>
-                                        <li><span><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.PA },null)">Price(↑)</a></span></li>
-                                        
-                                    </ul>
-
-
-
-                                </div>
+                                <ul class="list-group list-group-horizontal pull-left">
+                                    <li class="list-group-item" style="font-size:18px; border-style:none">SORT BY: </li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.ND,category = ViewBag.Category },null)">Name ↓↑</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","Beer",new {sortOrder=ViewBag.PD,category = ViewBag.Category },null)">Price ↓↑</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
+                                <form style="margin-left:140px; margin-top:5px;" class="form-inline" action="/Beer/Index" method="post">
+                                    <i class="fa fa-search input-group" style="font-size:2rem;"></i> 
+                                    <input class="form-control mr-sm-2" id="searchBeer" type="text" name="searchBeer" value="@ViewBag.searchBeer" placeholder="Search" style="background-color:white; border-radius:30px" />
+                                </form>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-4 paira-margin-top-1 pull-right">
-                                <div class="form-group margin-clear pull-right list-grid margin-top-5 float-0">
+                                <div class="form-group margin-clear pull-right list-grid margin-top-10 float-0">
                                     <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>View :</b></label></h4>
                                     <button data-value="list"><i class="fa fa-th-list fa-2x"></i></button>
                                     <button data-value="grid" class="active list" onclick="location.href='@Url.Action("IndexCollection","Beer")'"><i class="fa fa-th fa-2x"></i></button>
@@ -127,7 +113,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12" style="text-align:center">
-                    @Html.PagedListPager(Model, x => Url.Action("Index", "Beer", new { page = x }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                    @Html.PagedListPager(Model, x => Url.Action("Index", "Beer", new { page = x, category = ViewBag.Category }), PagedListRenderOptions.ClassicPlusFirstAndLast)
                 </div>
             </div>
         </div>

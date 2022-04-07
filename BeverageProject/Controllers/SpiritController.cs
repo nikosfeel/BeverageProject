@@ -17,28 +17,43 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Spirit
-        public ActionResult Index(string searchSpirit, int? page, int? pSize)
+        public ActionResult Index(string category, string searchSpirit, int? page, int? pSize)
         {
             @ViewBag.searchSpirit = searchSpirit;
-
-            var spirits = db.Spirits.ToList() ;
+            ViewBag.Category = category;
+            var spirits = db.Spirits.ToList();
             if (!string.IsNullOrEmpty(searchSpirit))
             {
                 spirits = spirits.Where(t => t.Name.ToUpper().Contains(searchSpirit.ToUpper())).ToList();
             }
 
             int pageNumber = page ?? 1;
-            int pagesize = pSize ?? 10;          
-            return View(spirits.ToPagedList(pageNumber,pagesize));
+            int pageSize = pSize ?? 10;
+
+            if (category is null)
+            {
+                return View(spirits.ToPagedList(pageNumber, pageSize));
+            }
+            return View(spirits.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult IndexCollection(int? page, int? pSize)
+        public ActionResult IndexCollection(string category, string searchSpirit, int? page, int? pSize)
         {
+            @ViewBag.searchSpirit = searchSpirit;
+
             var spirits = db.Spirits.ToList();
+            if (!string.IsNullOrEmpty(searchSpirit))
+            {
+                spirits = spirits.Where(t => t.Name.ToUpper().Contains(searchSpirit.ToUpper())).ToList();
+            }
 
             int pageNumber = page ?? 1;
-            int pagesize = pSize ?? 12;
-            return View(spirits.ToPagedList(pageNumber, pagesize));
+            int pageSize = pSize ?? 12;
+            if (category is null)
+            {
+                return View(spirits.ToPagedList(pageNumber, pageSize));
+            }
+            return View(spirits.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Spirit/Details/5

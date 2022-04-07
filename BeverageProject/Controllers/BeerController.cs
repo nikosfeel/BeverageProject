@@ -17,15 +17,9 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Beer
-
-
-       
-
-        public ActionResult Index(string searchBeer, int? page, int? pSize, string sortOrder)
+        public ActionResult Index(string category, string searchBeer, int? page, int? pSize, string sortOrder)
         {
-            //@ViewBag.searchBeer = searchBeer;
-            //var beers = db.Beers.ToList();
-            
+            ViewBag.Category = category;
             List<Beer> beers = Filtering(sortOrder);
             //Filtering
             beers = Filter(searchBeer, beers);
@@ -34,16 +28,22 @@ namespace BeverageProject.Controllers
 
             int pageSize, pageNumber;
             Pagination(pSize, page, out pageSize, out pageNumber);
-            return View(beers.ToPagedList(pageNumber, pageSize));
+
+            if (category is null)
+            {
+                return View(beers.ToPagedList(pageNumber, pageSize));
+            }
+            return View(beers.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
+
         }
 
         private static List<Beer> Sorting(string sortOrder, List<Beer> beers)
         {
             switch (sortOrder)
             {
-                case "PriceDesc":beers = beers.OrderByDescending(x => x.Price).ToList(); break;
+                case "PriceDesc": beers = beers.OrderByDescending(x => x.Price).ToList(); break;
                 case "PriceAsc": beers = beers.OrderBy(x => x.Price).ToList(); break;
-                case "NameAsc":  beers = beers.OrderBy(x => x.Name).ToList(); break;
+                case "NameAsc": beers = beers.OrderBy(x => x.Name).ToList(); break;
                 case "NameDesc": beers = beers.OrderByDescending(x => x.Name).ToList(); break;
                 default: beers = beers.OrderBy(x => x.Price).ToList(); break;
 
@@ -77,20 +77,27 @@ namespace BeverageProject.Controllers
         }
 
 
-
-
-
-        public ActionResult IndexCollection(int? page, int? pSize)
+        public ActionResult IndexCollection(string category, string searchBeer, int? page, int? pSize)
         {
+            @ViewBag.searchBeer = searchBeer;
+
             var beers = db.Beers.ToList();
- 
+            if (!string.IsNullOrEmpty(searchBeer))
+            {
+                beers = beers.Where(t => t.Name.ToUpper().Contains(searchBeer.ToUpper())).ToList();
+            }
+
             int pageNumber = page ?? 1;
             int pageSize = pSize ?? 12;
-            return View(beers.ToPagedList(pageNumber, pageSize));
+            if (category is null)
+            {
+                return View(beers.ToPagedList(pageNumber, pageSize));
+            }
+            return View(beers.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Beer/Details/5
-        public ActionResult Details( int? id)
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {

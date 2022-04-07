@@ -17,7 +17,27 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Wine
-        public ActionResult Index(string searchWine,int? page, int? pSize)
+        public ActionResult Index(string category, string searchWine, int? page, int? pSize)
+        {
+            @ViewBag.searchWine = searchWine;
+            ViewBag.Category = category;
+            var wines = db.Wines.ToList();
+
+            if (!string.IsNullOrEmpty(searchWine))
+            {
+                wines = wines.Where(t => t.Name.ToUpper().Contains(searchWine.ToUpper())).ToList();
+            }
+
+            int pageNumber = page ?? 1;
+            int pageSize = pSize ?? 10;
+            if (category is null)
+            {
+                return View(wines.ToPagedList(pageNumber, pageSize));
+            }
+            return View(wines.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
+        }
+
+        public ActionResult IndexCollection(string category, string searchWine, int? page, int? pSize)
         {
             @ViewBag.searchWine = searchWine;
             var wines = db.Wines.ToList();
@@ -27,18 +47,13 @@ namespace BeverageProject.Controllers
                 wines = wines.Where(t => t.Name.ToUpper().Contains(searchWine.ToUpper())).ToList();
             }
 
-            int pagenumber = page ?? 1;
-            int pagesize = pSize ?? 10;
-            return View(wines.ToPagedList(pagenumber, pagesize));
-        }
-
-        public ActionResult IndexCollection(int? page, int? pSize)
-        {
-            var wines = db.Wines.ToList();
-
-            int pagenumber = page ?? 1;
-            int pagesize = pSize ?? 12;
-            return View(wines.ToPagedList(pagenumber, pagesize));
+            int pageNumber = page ?? 1;
+            int pageSize = pSize ?? 12;
+            if (category is null)
+            {
+                return View(wines.ToPagedList(pageNumber, pageSize));
+            }
+            return View(wines.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Wine/Details/5
