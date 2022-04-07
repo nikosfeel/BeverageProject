@@ -17,18 +17,17 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Spirit
-        public ActionResult Index(string category, string searchSpirit, int? page, int? pSize)
+        public ActionResult Index(string category, string searchSpirit, int? page, int? pSize, string sortOrder)
         {
-            @ViewBag.searchSpirit = searchSpirit;
             ViewBag.Category = category;
-            var spirits = db.Spirits.ToList();
-            if (!string.IsNullOrEmpty(searchSpirit))
-            {
-                spirits = spirits.Where(t => t.Name.ToUpper().Contains(searchSpirit.ToUpper())).ToList();
-            }
+            List<Spirit> spirits = Filtering(sortOrder);
+            //Filtering
+            spirits = Filter(searchSpirit, spirits);
+            //Sorting
+            spirits = Sorting(sortOrder, spirits);
 
-            int pageNumber = page ?? 1;
-            int pageSize = pSize ?? 10;
+            int pageSize, pageNumber;
+            Pagination(pSize, page, out pageSize, out pageNumber);
 
             if (category is null)
             {
@@ -37,18 +36,62 @@ namespace BeverageProject.Controllers
             return View(spirits.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
         }
 
-        public ActionResult IndexCollection(string category, string searchSpirit, int? page, int? pSize)
+        private static List<Spirit> Sorting(string sortOrder, List<Spirit> spirits)
         {
-            @ViewBag.searchSpirit = searchSpirit;
+            switch (sortOrder)
+            {
+                case "PriceDesc": spirits = spirits.OrderByDescending(x => x.Price).ToList(); break;
+                case "PriceAsc": spirits = spirits.OrderBy(x => x.Price).ToList(); break;
+                case "NameAsc": spirits = spirits.OrderBy(x => x.Name).ToList(); break;
+                case "NameDesc": spirits = spirits.OrderByDescending(x => x.Name).ToList(); break;
+                default: spirits = spirits.OrderBy(x => x.Price).ToList(); break;
 
+            }
+            return spirits;
+        }
+
+        private List<Spirit> Filtering(string sortOrder)
+        {
             var spirits = db.Spirits.ToList();
+            ViewBag.PD = String.IsNullOrEmpty(sortOrder) ? "PriceDesc" : "";
+            ViewBag.PA = sortOrder == "PriceAsc" ? "PriceDesc" : "PriceAsc";
+            ViewBag.NA = sortOrder == "NameAsc" ? "NameDesc" : "NameAsc";
+            ViewBag.ND = sortOrder == "NameDesc" ? "NameAsc" : "NameDesc";
+            return spirits;
+        }
+
+        private static void Pagination(int? pSize, int? page, out int pageSize, out int pageNumber)
+        {
+            pageNumber = page ?? 1;
+            pageSize = pSize ?? 10;
+        }
+
+        private static void PaginationSecondView(int? pSize, int? page, out int pageSize, out int pageNumber)
+        {
+            pageNumber = page ?? 1;
+            pageSize = pSize ?? 12;
+        }
+
+        private static List<Spirit> Filter(string searchSpirit, List<Spirit> spirits)
+        {
             if (!string.IsNullOrEmpty(searchSpirit))
             {
                 spirits = spirits.Where(t => t.Name.ToUpper().Contains(searchSpirit.ToUpper())).ToList();
             }
+            return spirits;
+        }
 
-            int pageNumber = page ?? 1;
-            int pageSize = pSize ?? 12;
+        public ActionResult IndexCollection(string category, string searchSpirit, int? page, int? pSize, string sortOrder)
+        {
+            ViewBag.Category = category;
+            List<Spirit> spirits = Filtering(sortOrder);
+            //Filtering
+            spirits = Filter(searchSpirit, spirits);
+            //Sorting
+            spirits = Sorting(sortOrder, spirits);
+
+            int pageSize, pageNumber;
+            PaginationSecondView(pSize, page, out pageSize, out pageNumber);
             if (category is null)
             {
                 return View(spirits.ToPagedList(pageNumber, pageSize));

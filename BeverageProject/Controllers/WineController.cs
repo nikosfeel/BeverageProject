@@ -17,24 +17,62 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Wine
-        public ActionResult Index(string category, string searchWine, int? page, int? pSize)
+        public ActionResult Index(string category, string searchWine, int? page, int? pSize, string sortOrder)
         {
-            @ViewBag.searchWine = searchWine;
             ViewBag.Category = category;
-            var wines = db.Wines.ToList();
+            List<Wine> wines = Filtering(sortOrder);
+            //Filtering
+            wines = Filter(searchWine, wines);
+            //Sorting
+            wines = Sorting(sortOrder, wines);
 
-            if (!string.IsNullOrEmpty(searchWine))
-            {
-                wines = wines.Where(t => t.Name.ToUpper().Contains(searchWine.ToUpper())).ToList();
-            }
+            int pageSize, pageNumber;
+            Pagination(pSize, page, out pageSize, out pageNumber);
 
-            int pageNumber = page ?? 1;
-            int pageSize = pSize ?? 10;
             if (category is null)
             {
                 return View(wines.ToPagedList(pageNumber, pageSize));
             }
             return View(wines.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
+        }
+
+        private static List<Wine> Sorting(string sortOrder, List<Wine> wines)
+        {
+            switch (sortOrder)
+            {
+                case "PriceDesc": wines = wines.OrderByDescending(x => x.Price).ToList(); break;
+                case "PriceAsc": wines = wines.OrderBy(x => x.Price).ToList(); break;
+                case "NameAsc": wines = wines.OrderBy(x => x.Name).ToList(); break;
+                case "NameDesc": wines = wines.OrderByDescending(x => x.Name).ToList(); break;
+                default: wines = wines.OrderBy(x => x.Price).ToList(); break;
+
+            }
+            return wines;
+        }
+
+        private List<Wine> Filtering(string sortOrder)
+        {
+            var wines = db.Wines.ToList();
+            ViewBag.PD = String.IsNullOrEmpty(sortOrder) ? "PriceDesc" : "";
+            ViewBag.PA = sortOrder == "PriceAsc" ? "PriceDesc" : "PriceAsc";
+            ViewBag.NA = sortOrder == "NameAsc" ? "NameDesc" : "NameAsc";
+            ViewBag.ND = sortOrder == "NameDesc" ? "NameAsc" : "NameDesc";
+            return wines;
+        }
+
+        private static void Pagination(int? pSize, int? page, out int pageSize, out int pageNumber)
+        {
+            pageNumber = page ?? 1;
+            pageSize = pSize ?? 10;
+        }
+
+        private static List<Wine> Filter(string searchWine, List<Wine> wines)
+        {
+            if (!string.IsNullOrEmpty(searchWine))
+            {
+                wines = wines.Where(t => t.Name.ToUpper().Contains(searchWine.ToUpper())).ToList();
+            }
+            return wines;
         }
 
         public ActionResult IndexCollection(string category, string searchWine, int? page, int? pSize)

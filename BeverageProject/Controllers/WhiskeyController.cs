@@ -16,37 +16,63 @@ namespace BeverageProject.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-
-
-        public ActionResult SortBy(IEnumerable<Whiskey> whiskeys)
-        {
-            whiskeys = db.Whiskeys.ToList();
-
-            return null;
-        }
-
-
-
-
-
         // GET: Whiskey
-        public ActionResult Index(string category, string searchWhiskey, int? page, int? pSize)
+        public ActionResult Index(string category, string searchWhiskey, int? page, int? pSize, string sortOrder)
         {
-            @ViewBag.searchWhiskey = searchWhiskey;
             ViewBag.Category = category;
-            var whiskeys = db.Whiskeys.ToList();
-            if (!string.IsNullOrEmpty(searchWhiskey))
-            {
-                whiskeys = whiskeys.Where(t => t.Name.ToUpper().Contains(searchWhiskey.ToUpper())).ToList();
-            }
+            List<Whiskey> whiskeys = Filtering(sortOrder);
+            //Filtering
+            whiskeys = Filter(searchWhiskey, whiskeys);
+            //Sorting
+            whiskeys = Sorting(sortOrder, whiskeys);
 
-            int pageNumber = page ?? 1;
-            int pageSize = pSize ?? 10;
+            int pageSize, pageNumber;
+            Pagination(pSize, page, out pageSize, out pageNumber);
+
             if (category is null)
             {
                 return View(whiskeys.ToPagedList(pageNumber, pageSize));
             }
             return View(whiskeys.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
+        }
+
+        private static List<Whiskey> Sorting(string sortOrder, List<Whiskey> whiskeys)
+        {
+            switch (sortOrder)
+            {
+                case "PriceDesc": whiskeys = whiskeys.OrderByDescending(x => x.Price).ToList(); break;
+                case "PriceAsc": whiskeys = whiskeys.OrderBy(x => x.Price).ToList(); break;
+                case "NameAsc": whiskeys = whiskeys.OrderBy(x => x.Name).ToList(); break;
+                case "NameDesc": whiskeys = whiskeys.OrderByDescending(x => x.Name).ToList(); break;
+                default: whiskeys = whiskeys.OrderBy(x => x.Price).ToList(); break;
+
+            }
+            return whiskeys;
+        }
+
+        private List<Whiskey> Filtering(string sortOrder)
+        {
+            var whiskeys = db.Whiskeys.ToList();
+            ViewBag.PD = String.IsNullOrEmpty(sortOrder) ? "PriceDesc" : "";
+            ViewBag.PA = sortOrder == "PriceAsc" ? "PriceDesc" : "PriceAsc";
+            ViewBag.NA = sortOrder == "NameAsc" ? "NameDesc" : "NameAsc";
+            ViewBag.ND = sortOrder == "NameDesc" ? "NameAsc" : "NameDesc";
+            return whiskeys;
+        }
+
+        private static void Pagination(int? pSize, int? page, out int pageSize, out int pageNumber)
+        {
+            pageNumber = page ?? 1;
+            pageSize = pSize ?? 10;
+        }
+
+        private static List<Whiskey> Filter(string searchWhiskey, List<Whiskey> whiskeys)
+        {
+            if (!string.IsNullOrEmpty(searchWhiskey))
+            {
+                whiskeys = whiskeys.Where(t => t.Name.ToUpper().Contains(searchWhiskey.ToUpper())).ToList();
+            }
+            return whiskeys;
         }
 
         public ActionResult IndexCollection(string category, string searchWhiskey, int? page, int? pSize)
