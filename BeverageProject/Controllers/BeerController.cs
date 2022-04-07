@@ -67,6 +67,12 @@ namespace BeverageProject.Controllers
             pageSize = pSize ?? 10;
         }
 
+        private static void PaginationSecondView(int? pSize, int? page, out int pageSize, out int pageNumber)
+        {
+            pageNumber = page ?? 1;
+            pageSize = pSize ?? 12;
+        }
+
         private static List<Beer> Filter(string searchBeer, List<Beer> beers)
         {
             if (!string.IsNullOrEmpty(searchBeer))
@@ -76,18 +82,17 @@ namespace BeverageProject.Controllers
             return beers;
         }
 
-        public ActionResult IndexCollection(string category, string searchBeer, int? page, int? pSize)
+        public ActionResult IndexCollection(string category, string searchBeer, int? page, int? pSize, string sortOrder)
         {
-            @ViewBag.searchBeer = searchBeer;
+            ViewBag.Category = category;
+            List<Beer> beers = Filtering(sortOrder);
+            //Filtering
+            beers = Filter(searchBeer, beers);
+            //Sorting
+            beers = Sorting(sortOrder, beers);
 
-            var beers = db.Beers.ToList();
-            if (!string.IsNullOrEmpty(searchBeer))
-            {
-                beers = beers.Where(t => t.Name.ToUpper().Contains(searchBeer.ToUpper())).ToList();
-            }
-
-            int pageNumber = page ?? 1;
-            int pageSize = pSize ?? 12;
+            int pageSize, pageNumber;
+            PaginationSecondView(pSize, page, out pageSize, out pageNumber);
             if (category is null)
             {
                 return View(beers.ToPagedList(pageNumber, pageSize));

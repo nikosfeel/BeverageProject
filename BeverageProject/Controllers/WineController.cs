@@ -66,6 +66,12 @@ namespace BeverageProject.Controllers
             pageSize = pSize ?? 10;
         }
 
+        private static void PaginationSecondView(int? pSize, int? page, out int pageSize, out int pageNumber)
+        {
+            pageNumber = page ?? 1;
+            pageSize = pSize ?? 12;
+        }
+
         private static List<Wine> Filter(string searchWine, List<Wine> wines)
         {
             if (!string.IsNullOrEmpty(searchWine))
@@ -75,18 +81,17 @@ namespace BeverageProject.Controllers
             return wines;
         }
 
-        public ActionResult IndexCollection(string category, string searchWine, int? page, int? pSize)
+        public ActionResult IndexCollection(string category, string searchWine, int? page, int? pSize, string sortOrder)
         {
-            @ViewBag.searchWine = searchWine;
-            var wines = db.Wines.ToList();
+            ViewBag.Category = category;
+            List<Wine> wines = Filtering(sortOrder);
+            //Filtering
+            wines = Filter(searchWine, wines);
+            //Sorting
+            wines = Sorting(sortOrder, wines);
 
-            if (!string.IsNullOrEmpty(searchWine))
-            {
-                wines = wines.Where(t => t.Name.ToUpper().Contains(searchWine.ToUpper())).ToList();
-            }
-
-            int pageNumber = page ?? 1;
-            int pageSize = pSize ?? 12;
+            int pageSize, pageNumber;
+            PaginationSecondView(pSize, page, out pageSize, out pageNumber);
             if (category is null)
             {
                 return View(wines.ToPagedList(pageNumber, pageSize));

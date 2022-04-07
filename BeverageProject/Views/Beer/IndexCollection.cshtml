@@ -51,8 +51,8 @@
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
                                 <ul class="list-group list-group-horizontal pull-left">
                                     <li class="list-group-item" style="font-size:18px; border-style:none">SORT BY: </li>
-                                    <li class="list-group-item"><a href="@Url.Action("IndexCollection","Beer",new {sortOrder=ViewBag.ND },null)">Name ↓↑</a></li>
-                                    <li class="list-group-item"><a href="@Url.Action("IndexCollection","Beer",new {sortOrder=ViewBag.PD },null)">Price ↓↑</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("IndexCollection","Beer",new {sortOrder=ViewBag.ND,category = ViewBag.Category },null)">Name ↓↑</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("IndexCollection","Beer",new {sortOrder=ViewBag.PD,category = ViewBag.Category },null)">Price ↓↑</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">

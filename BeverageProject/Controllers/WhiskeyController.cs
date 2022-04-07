@@ -66,6 +66,12 @@ namespace BeverageProject.Controllers
             pageSize = pSize ?? 10;
         }
 
+        private static void PaginationSecondView(int? pSize, int? page, out int pageSize, out int pageNumber)
+        {
+            pageNumber = page ?? 1;
+            pageSize = pSize ?? 12;
+        }
+
         private static List<Whiskey> Filter(string searchWhiskey, List<Whiskey> whiskeys)
         {
             if (!string.IsNullOrEmpty(searchWhiskey))
@@ -75,17 +81,17 @@ namespace BeverageProject.Controllers
             return whiskeys;
         }
 
-        public ActionResult IndexCollection(string category, string searchWhiskey, int? page, int? pSize)
+        public ActionResult IndexCollection(string category, string searchWhiskey, int? page, int? pSize, string sortOrder)
         {
-            @ViewBag.searchWhiskey = searchWhiskey;
-            var whiskeys = db.Whiskeys.ToList();
-            if (!string.IsNullOrEmpty(searchWhiskey))
-            {
-                whiskeys = whiskeys.Where(t => t.Name.ToUpper().Contains(searchWhiskey.ToUpper())).ToList();
-            }
+            ViewBag.Category = category;
+            List<Whiskey> whiskeys = Filtering(sortOrder);
+            //Filtering
+            whiskeys = Filter(searchWhiskey, whiskeys);
+            //Sorting
+            whiskeys = Sorting(sortOrder, whiskeys);
 
-            int pageNumber = page ?? 1;
-            int pageSize = pSize ?? 12;
+            int pageSize, pageNumber;
+            PaginationSecondView(pSize, page, out pageSize, out pageNumber);
             if (category is null)
             {
                 return View(whiskeys.ToPagedList(pageNumber, pageSize));
