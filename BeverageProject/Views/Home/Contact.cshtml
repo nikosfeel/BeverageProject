@@ -29,24 +29,29 @@
                 </div>
                 <div class="col-md-12 paira-margin-top-1">
                     <!--=================== Google MAP Section ===================-->
-                    <fieldset>
-                        <meta charset="utf-8">
-                        <meta name="viewport" content="width=device-width, initial-scale=1">
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <iframe width="1200" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=%CE%B1%CE%BA%CF%81%CE%BF%CF%80%CE%BF%CE%BB%CE%B7&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com"></a><br>
+                            <style>
+                                .mapouter {
+                                    position: relative;
+                                    text-align: right;
+                                    max-height: 500px;
+                                    max-width: 1200px;
+                                }
+                            </style>
+                            <style>
+                                .gmap_canvas {
+                                    overflow: hidden;
+                                    background: none !important;
+                                    max-height: 400px;
+                                    max-width: 1148px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                    <!--=========================================================-->
 
-                        <div id="googleMap" style="height:450px;width:100%;"></div>
-                        <script>
-                            function myMap() {
-                                var myCenter = new google.maps.LatLng(37.977504796076225, 23.729058332097605);
-                                var mapProp = { center: myCenter, zoom: 17, scrollwheel: true, draggable: true, mapTypeId: google.maps.MapTypeId.ROADMAP };
-                                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-                                var marker = new google.maps.Marker({ position: myCenter });
-                                marker.setMap(map);
-                            }
-                        </script>
-                        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcU3hNOjVnpXxmptiq8xlIl-RjAc97maM&callback=myMap"></script>
-                    </fieldset>
                     <br />
                     <br />
                 </div>
