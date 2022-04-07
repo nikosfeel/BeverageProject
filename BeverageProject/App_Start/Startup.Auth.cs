@@ -49,9 +49,9 @@ namespace BeverageProject
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            app.UseMicrosoftAccountAuthentication(
+                clientId: "2fd464b7-5933-4333-af69-d24f74d7f150",
+                clientSecret: "1e9d54c7-e3b1-4ac2-804b-e1d145f22a74");
 
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
