@@ -43,14 +43,14 @@
     <style>
         body {
             background-color: #D0D0D0;
-            
         }
-        .chat{
-            position:sticky;
-            left:50px;
-            bottom:0;
-            
 
+        .chat {
+            position: sticky;
+            left: 1780px;
+            bottom: 40px;
+            border-radius: 30px;
+            padding:10px 20px;
         }
     </style>
 </head>
@@ -67,14 +67,9 @@
 
             @Html.Partial("~/Views/Shared/ClientComponents/_Footer.cshtml")
         </footer>
-
-        <a href=@Url.Action("Chat","Home") class="chat btn btn-success">Chat</a>
-        @*<div class="chat">
-            @Html.Partial("~/Views/Home/Chat.cshtml")
-        </div>*@
-        
-
     </div>
+    <a href=@Url.Action("Chat","Home") class="chat fa fa-comment-o fa-3x"></a>
+
     <!--=================== Placed at the end of the document, so the pages load faster ===================-->
     <script src="~/Scripts/jquery-3.2.1.js"></script>
     <script src="~/Scripts/jquery-migrate-3.0.0.min.js"></script>
