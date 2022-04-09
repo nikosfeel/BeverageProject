@@ -63,11 +63,11 @@ namespace BeverageProject.Models
     }
 
     public class RegisterViewModel
-    {     
-        
+    {
+
         [Required]
         [Display(Name = "UserRoles")]
-        public string UserRoles { get; set; }
+        public string UserRoles { get; set; } = "Customer";
 
         [Required]
         [EmailAddress]
