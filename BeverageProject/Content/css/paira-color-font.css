@@ -106,7 +106,7 @@ button, .carousel-indicators li, .btn-border, .form-control , .blog-post-tags li
 .welcome-newsletter h1 span, figcaption, .logo, .cart-menu-body a span, .carousel-indicators li{
     background: #000;
 }
-.breadcrumb, .cart, .pro-content, .home-page .banner-small .banner-small-back, .form-group .center-block label, .welcome-newsletter-content .modal-content {
+.breadcrumb, .pro-content, .home-page .banner-small .banner-small-back, .form-group .center-block label, .welcome-newsletter-content .modal-content {
     background: #fff;
 }
 .form-control:focus {

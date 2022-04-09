@@ -231,6 +231,7 @@
     <Compile Include="Controllers\ApplicationUserController.cs" />
     <Compile Include="Controllers\BeerController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\ChartsController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -1499,6 +1500,7 @@
     <Content Include="Scripts\AdminJs\bs3\js\npm.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\CalculateSubtotal.js" />
+    <Content Include="Scripts\ClockDashboard.js" />
     <Content Include="Scripts\html5shiv.min.js" />
     <Content Include="AdminTheme\.DS_Store" />
     <Content Include="AdminTheme\html\.git\COMMIT_EDITMSG" />
@@ -6519,6 +6521,8 @@
     <Content Include="Views\Checkout\Success.cshtml" />
     <Content Include="Views\Checkout\Form.cshtml" />
     <Content Include="Views\Home\Chat.cshtml" />
+    <Content Include="Views\Charts\BeerChart.cshtml" />
+    <Content Include="Views\Charts\SpiritChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />

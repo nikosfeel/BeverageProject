@@ -19,7 +19,7 @@
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <i class="fa fa-tasks"></i>
-                    <span class="badge bg-success">0</span>
+                    <span class="badge bg-important">0</span>
                 </a>
                 <ul class="dropdown-menu extended tasks-bar">
                     <li>
@@ -42,7 +42,7 @@
                         <p class="red">You have no mails</p>
                     </li>
                     <li>
-                        <a href="@Url.Action("MailInbox", "Admin")">See all messages</a>
+                        <a href="#">See all messages</a>
                     </li>
                 </ul>
             </li>
@@ -52,7 +52,7 @@
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
                     <i class="fa fa-bell-o"></i>
-                    <span class="badge bg-warning">2</span>
+                    <span class="badge bg-success">1</span>
                 </a>
                 <ul class="dropdown-menu extended notification">
                     <li>
@@ -62,15 +62,7 @@
                         <div class="alert alert-success clearfix">
                             <span class="alert-icon"><i class="fa fa-book"></i></span>
                             <div class="noti-info">
-                                <a href="#"> You have a new order.</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="alert alert-info clearfix">
-                            <span class="alert-icon"><i class="fa fa-user"></i></span>
-                            <div class="noti-info">
-                                <a href="#"> A new user registered.</a>
+                                <a href="@Url.Action("CustomerOrders", "Admin")"> You have a new order.</a>
                             </div>
                         </div>
                     </li>

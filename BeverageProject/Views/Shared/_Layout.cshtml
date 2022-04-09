@@ -50,23 +50,21 @@
             left: 1780px;
             bottom: 40px;
             border-radius: 30px;
-            padding:10px 20px;
+            padding: 10px 20px;
         }
     </style>
 </head>
 <body>
+    <div class="paira-container">
+        @{Html.RenderAction("NavBarCategories", "NavigationBar");}
+        @Html.Partial("~/Views/Shared/ClientComponents/_CartView.cshtml")
+      
+            @RenderBody()
+            <hr />
+            <footer>
 
-    @{Html.RenderAction("NavBarCategories", "NavigationBar");}
-    @Html.Partial("~/Views/Shared/ClientComponents/_CartView.cshtml")
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-
-        <footer>
-
-            @Html.Partial("~/Views/Shared/ClientComponents/_Footer.cshtml")
-        </footer>
+                @Html.Partial("~/Views/Shared/ClientComponents/_Footer.cshtml")
+            </footer>    
     </div>
     <a href=@Url.Action("Chat","Home") class="chat fa fa-comment-o fa-3x"></a>
 

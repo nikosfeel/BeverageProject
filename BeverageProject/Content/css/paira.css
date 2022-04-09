@@ -283,7 +283,7 @@ ul.pagination.list-inline {
     font-size: 45px;
 }
 .cart{
-    padding: 10px;
+    padding: 17px 30px;
     text-align: center;
 }
 .mega-menu .width-com {
@@ -406,7 +406,7 @@ a.boxclose {
 .mega-menu {
     background: none;
     border: none;
-    margin: 0;
+    margin: 0px;
     padding: 28px;
 }
 .mega-menu .nav, .mega-menu .collapse, .mega-menu .dropup, .mega-menu .dropdown {

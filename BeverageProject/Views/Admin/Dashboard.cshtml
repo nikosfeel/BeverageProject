@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Dashboard";
     Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
 }
@@ -7,40 +6,78 @@
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper">
-
-       
-      
-       
         <div class="row">
-            <div class="col-md-8">
-                <div class="event-calendar clearfix">
-                    <div class="col-lg-7 calendar-block">
-                        <div class="cal1 ">
-                        </div>
-                    </div>
-                    <div class="col-lg-5 event-list-block">
-                        <div class="cal-day">
-                            <span>Today</span>
-                            Friday
-                        </div>
-                        <ul class="event-list">
-                            <li>Lunch with jhon  3:30 <a href="#" class="event-close"><i class="ico-close2"></i></a></li>
-                            <li>Coffee meeting with Lisa  4:30 <a href="#" class="event-close"><i class="ico-close2"></i></a></li>
-                            <li>Skypee conf with patrick  5:45 <a href="#" class="event-close"><i class="ico-close2"></i></a></li>
-                            <li>Gym  7:00 <a href="#" class="event-close"><i class="ico-close2"></i></a></li>
-                            <li>Dinner with daniel  9:30 <a href="#" class="event-close"><i class="ico-close2"></i></a></li>
-                        </ul>
-                        <input type="text" class="form-control evnt-input" placeholder="NOTES">
+            <div class="col-md-3">
+                <div class="mini-stat clearfix">
+                    <span class="mini-stat-icon tar"><i class="fa fa-bar-chart-o"></i></span>
+                    <div class="mini-stat-info">
+                        <span>
+                            <a href="@Url.Action("BeerChart","Charts")" style="color: #767676">Beer Charts</a>
+                        </span>
+                        Column, Line, Pie
                     </div>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="mini-stat clearfix">
+                    <span class="mini-stat-icon tar"><i class="fa fa-bar-chart-o"></i></span>
+                    <div class="mini-stat-info">
+                        <span>
+                            <a href="@Url.Action("SpiritChart","Charts")" style="color: #767676">Spirit Charts</a>
+                        </span>
+                        Column, Line, Pie
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="mini-stat clearfix">
+                    <span class="mini-stat-icon tar"><i class="fa fa-bar-chart-o"></i></span>
+                    <div class="mini-stat-info">
+                        <span>
+                            <a href="@Url.Action("Chart","Charts")" style="color: #767676">Whiskey Charts</a>
+                        </span>
+                        Column, Line, Pie
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="mini-stat clearfix">
+                    <span class="mini-stat-icon tar"><i class="fa fa-bar-chart-o"></i></span>
+                    <div class="mini-stat-info">
+                        <span>
+                            <a href="@Url.Action("Chart","Charts")" style="color: #767676">Wine Charts</a>
+                        </span>
+                        Column, Line, Pie
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Sales
+                        <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                        </span>
+                    </header>
+                    <div class="panel-body">
+                        <div class="chartJS">
+                            <canvas id="bar-chart-js" height="257" width="800"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
             <div class="col-md-4">
                 <div class="profile-nav alt">
                     <section class="panel">
                         <div class="user-heading alt clock-row terques-bg">
-                            <h1>December 14</h1>
-                            <p class="text-left">2014, Friday</p>
-                            <p class="text-left">7:53 PM</p>
+                            <h1>@DateTime.Now.ToString("MMMM")</h1>
+                            <p class="text-left">@DateTime.Now.Year, @DateTime.Now.ToString("dddd")</p>
+                            <p class="text-left">@DateTime.Now.ToString("HH:mm")</p>
                         </div>
                         <ul id="clock">
                             <li id="sec"></li>
@@ -57,7 +94,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <i class="ico-alarm2 "></i>
+                                    <i class="ico-alarm2"></i>
                                     <span>Alarm</span>
                                 </a>
                             </li>
@@ -74,9 +111,7 @@
                                 </a>
                             </li>
                         </ul>
-
                     </section>
-
                 </div>
             </div>
         </div>
@@ -84,59 +119,49 @@
             <div class="col-md-12">
                 <section class="panel">
                     <div class="wdgt-row">
-                        <img src="~/Content/adminImages/weather_image.jpg" height="250" alt="">
+                        <img src="https://cdn.britannica.com/66/102266-050-FBDEFCA1/acropolis-city-state-Greece-Athens.jpg" height="400" alt="">
                         <div class="wdt-head">
                             weather forecast
                         </div>
-                        <div class="country-select">
-                            <select class="styled">
-                                <option>Athens </option>
-                                <option>Piraeus </option>
-                                <option>London </option>
-                                <option>Paris </option>
-                                <option>Madrid </option>
-                            </select>
-                        </div>
                     </div>
-
                     <div class="panel-body">
                         <div class="row weather-full-info">
-                            <div class="col-md-3 today-status">
+                            <div class="col-md-2 today-status">
                                 <h1>Today</h1>
-                                <i class=" ico-cloudy "></i>
-                                <div class="degree">37</div>
+                                <i class=" ico-cloudy text-warning"></i>
+                                <div class="degree">30</div>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-10">
                                 <ul>
                                     <li>
-                                        <h2>Tomorrow</h2>
-                                        <i class=" ico-cloudy text-primary"></i>
-                                        <div class="statistics">32</div>
+                                        <h2>Monday</h2>
+                                        <i class="ico-rainy2 text-primary"></i>
+                                        <div class="statistics">20</div>
                                     </li>
                                     <li>
-                                        <h2>Mon</h2>
-                                        <i class=" ico-rainy2 text-danger"></i>
-                                        <div class="statistics">40</div>
+                                        <h2>Tuesday</h2>
+                                        <i class="ico-cloudy text-warning"></i>
+                                        <div class="statistics">28</div>
                                     </li>
                                     <li>
-                                        <h2>Tue</h2>
-                                        <i class=" ico-lightning3 text-info"></i>
-                                        <div class="statistics">25</div>
-                                    </li>
-                                    <li>
-                                        <h2>Wed</h2>
-                                        <i class=" ico-sun3 text-success"></i>
-                                        <div class="statistics">37</div>
-                                    </li>
-                                    <li>
-                                        <h2>Thu</h2>
-                                        <i class=" ico-snowy3 text-warning"></i>
-                                        <div class="statistics">15</div>
-                                    </li>
-                                    <li>
-                                        <h2>Fri</h2>
-                                        <i class=" ico-cloudy "></i>
+                                        <h2>Wednesday</h2>
+                                        <i class="ico-lightning3 text-primary"></i>
                                         <div class="statistics">21</div>
+                                    </li>
+                                    <li>
+                                        <h2>Thursday</h2>
+                                        <i class="ico-sun3 text-warning"></i>
+                                        <div class="statistics">31</div>
+                                    </li>
+                                    <li>
+                                        <h2>Friday</h2>
+                                        <i class="ico-sun3 text-warning"></i>
+                                        <div class="statistics">29</div>
+                                    </li>
+                                    <li>
+                                        <h2>Saturday</h2>
+                                        <i class="ico-cloudy text-warning"></i>
+                                        <div class="statistics">25</div>
                                     </li>
                                 </ul>
                             </div>
