@@ -236,7 +236,9 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NavigationBarController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SpiritController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\WineController.cs" />
     <Compile Include="Controllers\WhiskeyController.cs" />
     <Compile Include="Global.asax.cs">
@@ -6519,6 +6521,8 @@
     <Content Include="Views\Checkout\Success.cshtml" />
     <Content Include="Views\Checkout\Form.cshtml" />
     <Content Include="Views\Home\Chat.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Role\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AdminTheme\html\.git\branches\" />
