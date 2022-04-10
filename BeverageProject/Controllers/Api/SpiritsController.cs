@@ -30,7 +30,6 @@ namespace BeverageProject.Controllers.Api
                 Category = new { spirit.Name, spirit.Kind }
             }).ToList();
 
-
             return Json(new { spirits = spirits });
         }
 
@@ -43,7 +42,6 @@ namespace BeverageProject.Controllers.Api
             {
                 return NotFound();
             }
-
             return Ok(spirit);
         }
 
@@ -78,7 +76,6 @@ namespace BeverageProject.Controllers.Api
                     throw;
                 }
             }
-
             return StatusCode(HttpStatusCode.NoContent);
         }
 

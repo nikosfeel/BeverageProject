@@ -60,11 +60,7 @@ namespace BeverageProject.Controllers
             return RedirectToAction("Success");
         }
 
-
-
         // paypal payments
-
-
         private Payment payment;
 
         private Payment CreatePayment(APIContext apiContext, string redirectUrl)

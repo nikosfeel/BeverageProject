@@ -64,9 +64,7 @@
                                                                     <ul class="list-unstyled mega-submenu-fix">
                                                                         @foreach (var cat in Model.Beers)
                                                                         {
-
                                                                             <li><a href="@Url.Action("Index", "Beer")?category=@cat.Kind">@cat.Kind</a></li>
-
                                                                         }
                                                                     </ul>
                                                                 </div>
@@ -106,10 +104,10 @@
                                             <li class="width-li"><a href="@Url.Action("About", "Home")">About us</a></li>
                                             <li class="width-li"><a href="@Url.Action("Contact", "Home")">Contact us</a></li>
                                             <!--=================== Single Menu ===================-->
-                                            <li class="width-li" style=" display: flex; justify-content: start; align-items: center; white-space: nowrap; ">@Html.Partial("_LoginPartial")</li>
+                                            <li>@Html.Partial("_LoginPartial")</li>
                                             @if (this.User.IsInRole("Admin"))
                                             {
-                                                <li class="width-li" style=" display:flex; justify-content: start; align-items: center;"><a href="@Url.Action("Dashboard", "Admin")">Admin</a> </li>
+                                                <li class="width-li"><a href="@Url.Action("Dashboard", "Admin")">Admin</a> </li>
                                             }
                                         </ul>
                                     </div>

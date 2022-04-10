@@ -30,7 +30,6 @@ namespace BeverageProject.Controllers.Api
                 Category = new { beer.Name, beer.Kind }
             }).ToList();
 
-
             return Json(new { beers = beers });
         }
 
@@ -43,7 +42,6 @@ namespace BeverageProject.Controllers.Api
             {
                 return NotFound();
             }
-
             return Ok(beer);
         }
 
@@ -106,7 +104,6 @@ namespace BeverageProject.Controllers.Api
             {
                 return NotFound();
             }
-
             db.Beers.Remove(beer);
             db.SaveChanges();
 

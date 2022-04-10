@@ -12,7 +12,7 @@ namespace BeverageProject.Controllers.AdminControllers
     public class ProductCreateController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
-        // GET: ProductCreate
+       
         public ActionResult Index()
         {
             return View("~/Views/Admin/AllProducts.cshtml");
@@ -22,6 +22,7 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateBeer([Bind(Include = "Id,Name,Description,Price,PhotoUrl,Kind")] Beer beer)
@@ -32,7 +33,6 @@ namespace BeverageProject.Controllers.AdminControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(beer);
         }
 
@@ -41,9 +41,6 @@ namespace BeverageProject.Controllers.AdminControllers
             return View();
         }
 
-        // POST: Spirit/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateSpirit([Bind(Include = "Id,Name,Description,Price,PhotoUrl")] Spirit spirit)
@@ -54,7 +51,6 @@ namespace BeverageProject.Controllers.AdminControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(spirit);
         }
 
@@ -63,9 +59,6 @@ namespace BeverageProject.Controllers.AdminControllers
             return View();
         }
 
-        // POST: Whiskey/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateWhiskey([Bind(Include = "Id,Name,Description,Price,PhotoUrl")] Whiskey whiskey)
@@ -76,7 +69,6 @@ namespace BeverageProject.Controllers.AdminControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(whiskey);
         }
 
@@ -85,9 +77,6 @@ namespace BeverageProject.Controllers.AdminControllers
             return View();
         }
 
-        // POST: Wine/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CreateWine([Bind(Include = "Id,Name,Description,Price,PhotoUrl")] Wine wine)
@@ -98,7 +87,6 @@ namespace BeverageProject.Controllers.AdminControllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(wine);
         }
     }

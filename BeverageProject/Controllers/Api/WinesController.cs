@@ -30,7 +30,6 @@ namespace BeverageProject.Controllers.Api
                 Category = new { wine.Kind }
             }).ToList();
 
-
             return Json(new { wines = wines });
         }
 
@@ -43,7 +42,6 @@ namespace BeverageProject.Controllers.Api
             {
                 return NotFound();
             }
-
             return Ok(wine);
         }
 
@@ -78,7 +76,6 @@ namespace BeverageProject.Controllers.Api
                     throw;
                 }
             }
-
             return StatusCode(HttpStatusCode.NoContent);
         }
 

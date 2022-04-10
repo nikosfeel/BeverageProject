@@ -17,7 +17,6 @@ namespace BeverageProject.Controllers
 
         public ActionResult Index()
         {
-
             return Redirect(Request.UrlReferrer.ToString());
         }
 
