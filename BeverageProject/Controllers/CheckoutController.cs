@@ -83,7 +83,6 @@ namespace BeverageProject.Controllers
                     price = cart.Product.Price.ToString(),
                     quantity = cart.Quantity.ToString(),
                     sku = "sku"
-
                 }); 
             }
 
