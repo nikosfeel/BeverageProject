@@ -62,11 +62,11 @@
                                                             @foreach (var cat in Model.Categories)
                                                             {
                                                                 <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","ProductsView", new {category= cat.Title })">@cat.Title</a></h4>
+                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","ProductsView", new {category = cat.Title })">@cat.Title</a></h4>
                                                                     <ul class="list-unstyled mega-submenu-fix">
                                                                         @foreach (var prod in Model.Products.Where(x=>x.Category == cat))
                                                                         {
-                                                                            <li><a href=@Url.Action("Index", "ProductsView",new {kind = prod.Kind})>@prod.Kind</a></li>
+                                                                            <li><a href=@Url.Action("Index", "ProductsView",new {kind = prod.Kind, category = cat.Title})>@prod.Kind</a></li>
                                                                         }
 
                                                                     </ul>
