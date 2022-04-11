@@ -15,7 +15,7 @@ namespace BeverageProject.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Beer
+        // GET: Product
         public ActionResult Index(string category, string kind, string searchProduct, int? page, int? pSize, string sortOrder)
         {
             ViewBag.Category = category;
@@ -73,34 +73,34 @@ namespace BeverageProject.Controllers
             pageSize = pSize ?? 12;
         }
 
-        private static List<Product> Filter(string searchBeer, List<Product> beers)
+        private static List<Product> Filter(string searchProduct, List<Product> products)
         {
-            if (!string.IsNullOrEmpty(searchBeer))
+            if (!string.IsNullOrEmpty(searchProduct))
             {
-                beers = beers.Where(t => t.Name.ToUpper().Contains(searchBeer.ToUpper())).ToList();
+                products = products.Where(t => t.Name.ToUpper().Contains(searchProduct.ToUpper())).ToList();
             }
-            return beers;
+            return products;
         }
 
-        public ActionResult IndexCollection(string category, string searchBeer, int? page, int? pSize, string sortOrder)
+        public ActionResult IndexCollection(string category, string searchProduct, int? page, int? pSize, string sortOrder)
         {
             ViewBag.Category = category;
-            List<Product> beers = Filtering(sortOrder);
+            List<Product> products = Filtering(sortOrder);
             //Filtering
-            beers = Filter(searchBeer, beers);
+            products = Filter(searchProduct, products);
             //Sorting
-            beers = Sorting(sortOrder, beers);
+            products = Sorting(sortOrder, products);
 
             int pageSize, pageNumber;
             PaginationSecondView(pSize, page, out pageSize, out pageNumber);
             if (category is null)
             {
-                return View(beers.ToPagedList(pageNumber, pageSize));
+                return View(products.ToPagedList(pageNumber, pageSize));
             }
-            return View(beers.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
+            return View(products.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
         }
 
-        // GET: Beer/Details/5
+        // GET: Product/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -115,13 +115,13 @@ namespace BeverageProject.Controllers
             return View(product);
         }
 
-        // GET: Beer/Create
+        // GET: Product/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Beer/Create
+        // POST: Product/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -138,7 +138,7 @@ namespace BeverageProject.Controllers
             return View(product);
         }
 
-        // GET: Beer/Edit/5
+        // GET: Product/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -153,7 +153,7 @@ namespace BeverageProject.Controllers
             return View(product);
         }
 
-        // POST: Beer/Edit/5
+        // POST: Product/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -169,7 +169,7 @@ namespace BeverageProject.Controllers
             return View(product);
         }
 
-        // GET: Beer/Delete/5
+        // GET: Product/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -184,7 +184,7 @@ namespace BeverageProject.Controllers
             return View(product);
         }
 
-        // POST: Beer/Delete/5
+        // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
