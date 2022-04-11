@@ -53,8 +53,8 @@ namespace BeverageProject.Controllers
 
         private List<Product> Filtering(string sortOrder)
         {
-            var products = db.Products.ToList();
-            ViewBag.PD = String.IsNullOrEmpty(sortOrder) ? "PriceDesc" : "";
+            var products = db.Products.Include(x=>x.Category).ToList();
+            ViewBag.PD = string.IsNullOrEmpty(sortOrder) ? "PriceDesc" : "";
             ViewBag.PA = sortOrder == "PriceAsc" ? "PriceDesc" : "PriceAsc";
             ViewBag.NA = sortOrder == "NameAsc" ? "NameDesc" : "NameAsc";
             ViewBag.ND = sortOrder == "NameDesc" ? "NameAsc" : "NameDesc";
