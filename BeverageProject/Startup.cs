@@ -16,6 +16,7 @@ namespace BeverageProject
             app.MapSignalR();
             CreateRolesandUsers();
         }
+
         // In this method we will create default User roles and Admin user for login    
         private void CreateRolesandUsers()
         {
@@ -48,7 +49,6 @@ namespace BeverageProject
                 if (checkUser.Succeeded)
                 {
                     var result1 = UserManager.AddToRole(user.Id, "Admin");
-
                 }
             }
 
@@ -58,10 +58,7 @@ namespace BeverageProject
                 var role = new IdentityRole();
                 role.Name = "Customer";
                 roleManager.Create(role);
-
-            }
-
-            
+            }           
         }
     }
 }
