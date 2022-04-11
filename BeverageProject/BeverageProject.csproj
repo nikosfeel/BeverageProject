@@ -1577,13 +1577,13 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Charts\BeerChart.cshtml" />
     <Content Include="Views\Charts\SpiritChart.cshtml" />
+    <Content Include="Views\ProductsView\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Paypal\" />
     <Folder Include="Views\Payment\" />
     <Folder Include="Views\Paypal\" />
-    <Folder Include="Views\ProductsView\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

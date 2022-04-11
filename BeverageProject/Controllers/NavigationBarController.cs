@@ -19,7 +19,8 @@ namespace BeverageProject.Controllers
         {
             
             NavViewModel viewModel = new NavViewModel();
-            viewModel.Products = db.Products.GroupBy(x => x.Category.Title).Select(x => x.FirstOrDefault()).ToList();
+            viewModel.Products = db.Products.GroupBy(x=>x.Kind).Select(c=>c.FirstOrDefault()).ToList();
+            viewModel.Categories = db.Categories.ToList();
             
 
 

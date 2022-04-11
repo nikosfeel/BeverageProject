@@ -8,7 +8,8 @@ namespace BeverageProject.Models.ViewModels
 {
     public class NavViewModel
     {
-        public List<Product> Products { get; set; }
+        public IEnumerable<Category> Categories { get; set; }
+        public IEnumerable<Product> Products { get; set; }
         
 
     }

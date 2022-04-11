@@ -15,6 +15,7 @@ namespace Entities.Products
         public string PhotoUrl { get; set; }        
         public string Kind { get; set; }
 
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
     }
 }

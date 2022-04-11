@@ -30,9 +30,9 @@ namespace BeverageProject.Controllers
 
             if (kind is null)
             {
-                return View(products.Where(x=>x.Category.Title == category).ToPagedList(pageNumber, pageSize));
+                return View(products.Where(x => x.Category.Title == category).ToPagedList(pageNumber, pageSize));
             }
-            
+
             return View(products.Where(x => x.Category.Title == category && x.Kind == kind).ToPagedList(pageNumber, pageSize));
 
         }
@@ -53,12 +53,12 @@ namespace BeverageProject.Controllers
 
         private List<Product> Filtering(string sortOrder)
         {
-            var beers = db.Products.ToList();
+            var products = db.Products.ToList();
             ViewBag.PD = String.IsNullOrEmpty(sortOrder) ? "PriceDesc" : "";
             ViewBag.PA = sortOrder == "PriceAsc" ? "PriceDesc" : "PriceAsc";
             ViewBag.NA = sortOrder == "NameAsc" ? "NameDesc" : "NameAsc";
             ViewBag.ND = sortOrder == "NameDesc" ? "NameAsc" : "NameDesc";
-            return beers;
+            return products;
         }
 
         private static void Pagination(int? pSize, int? page, out int pageSize, out int pageNumber)
