@@ -31,7 +31,7 @@
                                     <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.2s">
                                         WINE
                                     </h1>
-                                    <a href='@Url.Action("Index","Wine")' class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
+                                    <a href='@Url.Action("Index","ProductsView", new {category = "Wine" })' class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                                     <h1 class="text-uppercase paira-animation animated fadeInRight margin-top-0" data-paira-animation="fadeInRight" data-paira-animation-delay="0.0s">YOU CAN</h1>
                                     <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInRight" data-paira-animation-delay="0.1s">DRINK</h1>
                                     <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInRight" data-paira-animation-delay="0.2s">BEER</h1>
-                                    <a href='@Url.Action("Index","Beer")' class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
+                                    <a href='@Url.Action("Index","ProductsView", new {category = "Beer" })' class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                                     <h1 class="text-uppercase paira-animation animated fadeInRight margin-top-0" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.0s">ON THE ROCKS</h1>
                                     <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.1s">OR</h1>
                                     <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.2s">NEAT</h1>
-                                    <a href='@Url.Action("Index","Whiskey")' class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
+                                    <a href='@Url.Action("Index","ProductsView", new {category = "Whiskey" })' class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                     <h1 class="text-uppercase paira-animation animated fadeInRight margin-top-0" data-paira-animation="fadeInRight" data-paira-animation-delay="0.0s">ENJOY</h1>
                                     <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInRight" data-paira-animation-delay="0.1s">WITH</h1>
                                     <h1 class="text-uppercase paira-animation animated fadeInRight" data-paira-animation="fadeInRight" data-paira-animation-delay="0.2s">FRIENDS</h1>
-                                    <a href='@Url.Action("Index","Spirit")' class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
+                                    <a href='@Url.Action("Index","ProductsView", new {category = "Spirit" })' class="btn-border margin-top-20 paira-animation animated fadeInRight" data-paira-animation="fadeInLeft" data-paira-animation-delay="0.3s">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@
                                 <span class="money font-size-16"><b>@Html.DisplayFor(modelItem => item.Price)€</b></span>
                                 <div class="product-hover">
                                     <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                        @*<a href="@Url.Action("Details", "ProductsView", new { id = item.Id })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>*@
+                                        <a href="@Url.Action("Details", "ProductsView", new { id = item.ProductId })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -206,52 +206,54 @@
                 <div class="col-sm-6 col-md-3 col-xs-6 paira-margin-top-1">
                     <div class="product">
                         <div class="block-image position-rela">
-                            <a href="@Url.Action("IndexCollection","Beer")">
+                            <a href="@Url.Action("Index" , "ProductsView", new {category = "Beer" })">
                                 <div class="background-overlay1"></div>
                                 <img style="height:264px; width:260px;" src="~/Content/images/brand/beers3.jpg" alt="" class="img-circle">
                             </a>
                         </div>
                         <div class="product-hover">
-                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="@Url.Action("IndexCollection","Beer")">Beer Pack</a></h3>
+                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="@Url.Action("Index" , "ProductsView", new {category = "Beer" })">Beer Pack
+                                </a>
+                            </h3>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 col-xs-6 paira-margin-top-1">
                     <div class="product">
                         <div class="block-image position-rela">
-                            <a href="@Url.Action("IndexCollection","Spirit")">
+                            <a href="@Url.Action("Index","ProductsView", new {category = "Spirit" })">
                                 <div class="background-overlay1"></div>
                                 <img style="height:264px; width:260px;" src="~/Content/images/brand/spirits.jpg" alt="" class="img-circle">
                             </a>
                         </div>
                         <div class="product-hover">
-                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="@Url.Action("IndexCollection","Spirit")">Spirit Pack</a></h3>
+                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="@Url.Action("Index","ProductsView", new {category = "Spirit" })">Spirit Pack</a></h3>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 col-xs-6 paira-margin-top-1">
                     <div class="product">
                         <div class="block-image position-rela">
-                            <a href="@Url.Action("IndexCollection","Whiskey")">
+                            <a href="@Url.Action("Index","ProductsView", new {category = "Whiskey" })">
                                 <div class="background-overlay1"></div>
                                 <img style="height:264px; width:260px;" src="~/Content/images/brand/whiskeys.jpg" alt="" class="img-circle">
                             </a>
                         </div>
                         <div class="product-hover">
-                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="@Url.Action("IndexCollection","Whiskey")">Whiskey Pack</a></h3>
+                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="@Url.Action("Index","ProductsView", new {category = "Whiskey" })">Whiskey Pack</a></h3>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3 col-xs-6 paira-margin-top-1">
                     <div class="product">
                         <div class="block-image position-rela">
-                            <a href="@Url.Action("IndexCollection","Wine")">
+                            <a href="@Url.Action("Index","ProductsView", new {category = "Wine" })">
                                 <div class="background-overlay1"></div>
                                 <img style="height:264px; width:260px;" src="~/Content/images/brand/wines.jpg" alt="" class="img-circle">
                             </a>
                         </div>
                         <div class="product-hover">
-                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="@Url.Action("IndexCollection","Wine")">Wine Pack</a></h3>
+                            <h3 class="raleway-sbold text-uppercase margin-bottom-10"><a href="@Url.Action("Index","ProductsView", new {category = "Wine" })">Wine Pack</a></h3>
                         </div>
                     </div>
                 </div>

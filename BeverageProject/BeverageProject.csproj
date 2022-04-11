@@ -1459,26 +1459,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Beer\Create.cshtml" />
-    <Content Include="Views\Beer\Delete.cshtml" />
-    <Content Include="Views\Beer\Details.cshtml" />
-    <Content Include="Views\Beer\Edit.cshtml" />
-    <Content Include="Views\Beer\Index.cshtml" />
-    <Content Include="Views\Wine\Create.cshtml" />
-    <Content Include="Views\Wine\Delete.cshtml" />
-    <Content Include="Views\Wine\Details.cshtml" />
-    <Content Include="Views\Wine\Edit.cshtml" />
-    <Content Include="Views\Wine\Index.cshtml" />
-    <Content Include="Views\Spirit\Create.cshtml" />
-    <Content Include="Views\Spirit\Delete.cshtml" />
-    <Content Include="Views\Spirit\Details.cshtml" />
-    <Content Include="Views\Spirit\Edit.cshtml" />
-    <Content Include="Views\Spirit\Index.cshtml" />
-    <Content Include="Views\Whiskey\Create.cshtml" />
-    <Content Include="Views\Whiskey\Delete.cshtml" />
-    <Content Include="Views\Whiskey\Details.cshtml" />
-    <Content Include="Views\Whiskey\Edit.cshtml" />
-    <Content Include="Views\Whiskey\Index.cshtml" />
     <Content Include="Views\ApplicationUser\Create.cshtml" />
     <Content Include="Views\ApplicationUser\Delete.cshtml" />
     <Content Include="Views\ApplicationUser\Details.cshtml" />
@@ -1563,11 +1543,7 @@
     <Content Include="Views\ProductCreate\CreateSpirit.cshtml" />
     <Content Include="Views\ProductCreate\CreateWhiskey.cshtml" />
     <Content Include="Views\ProductCreate\CreateWine.cshtml" />
-    <Content Include="Views\Beer\IndexCollection.cshtml" />
-    <Content Include="Views\Spirit\IndexCollection.cshtml" />
-    <Content Include="Views\Whiskey\IndexCollection.cshtml" />
-    <Content Include="Views\Wine\IndexCollection.cshtml" />
-    <Content Include="Views\Whiskey\response.json" />
+    <Content Include="Views\ProductsView\IndexCollection.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Home\BlogDetails.cshtml" />
     <Content Include="Views\Checkout\Success.cshtml" />
@@ -1578,6 +1554,9 @@
     <Content Include="Views\Charts\BeerChart.cshtml" />
     <Content Include="Views\Charts\SpiritChart.cshtml" />
     <Content Include="Views\ProductsView\Index.cshtml" />
+    <Content Include="Views\ProductsView\Details.cshtml" />
+    <Content Include="Views\ProductCreate\CreateProduct.cshtml" />
+    <Content Include="Views\ProductsView\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
