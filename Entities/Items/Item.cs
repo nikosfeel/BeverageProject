@@ -9,7 +9,7 @@ namespace Entities.Items
 {
     public class Item
     {
-        public IProduct Product { get; set; }
+        public Product Product { get; set; }
 
         public int Quantity { get; set; }
      

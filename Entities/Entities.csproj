@@ -67,13 +67,10 @@
     <Compile Include="Items\Item.cs" />
     <Compile Include="Orders\OrderDetail.cs" />
     <Compile Include="Orders\OrderProduct.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="Products\Category.cs" />
+    <Compile Include="Products\Product.cs" />
     <Compile Include="IdentityUsers\ApplicationUser.cs" />
     <Compile Include="IProduct.cs" />
-    <Compile Include="Products\Beer.cs" />
-    <Compile Include="Products\Spirit.cs" />
-    <Compile Include="Products\Whiskey.cs" />
-    <Compile Include="Products\Wine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -22,14 +22,7 @@ namespace BeverageProject.Controllers
 
         public ActionResult Buy(int? id)
         {
-            var beers = db.Beers;
-            var spirits = db.Spirits;
-            var whiskeys = db.Whiskeys;
-            var wines = db.Wines;
-
-
-            IEnumerable<IProduct> prod = beers;
-            var allProducts = prod.Union(spirits).Union(whiskeys).Union(wines);
+            var products = db.Products;            
 
             ItemModel itemModel = new ItemModel();
 
@@ -99,7 +92,7 @@ namespace BeverageProject.Controllers
             List<Item> cart = (List<Item>)Session["cart"];
             for (int i = 0; i < cart.Count; i++)
             {
-                if (cart[i].Product.Id.Equals(id))
+                if (cart[i].Product.ProductId.Equals(id))
                 {
                     return i;
                 }              

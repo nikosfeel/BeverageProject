@@ -12,30 +12,16 @@ namespace BeverageProject.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        public ActionResult BeerChart()
+        public ActionResult ProductChart()
         {
             return View();
-        }
+        }       
 
-        public ActionResult SpiritChart()
+        public ActionResult GetProductChartData()
         {
-            return View();
-        }
+            List<Product> products = db.Products.ToList();
 
-        public ActionResult GetBeerChartData()
-        {
-            List<Beer> beers = db.Beers.ToList();
-
-            var dataforchart = beers.Select(x => new { name = x.Name, y = x.Price });
-
-            return Json(dataforchart, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult GetSpiritChartData()
-        {
-            List<Spirit> spirits = db.Spirits.ToList();
-
-            var dataforchart = spirits.Select(x => new { name = x.Name, y = x.Price });
+            var dataforchart = products.Select(x => new { name = x.Name, y = x.Price });
 
             return Json(dataforchart, JsonRequestBehavior.AllowGet);
         }
