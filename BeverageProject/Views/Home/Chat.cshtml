@@ -4,7 +4,7 @@
     }
 
     div.panel-heading {
-        font-size:18px;
+        font-size: 18px;
     }
 </style>
 
@@ -57,9 +57,9 @@
                 if (name == "Support") {
                     $('#discussion').append('<p style="color:black; text-align:right;"><strong>' + name + ":" + ' </strong> ' + htmlEncode(message) + '</p><hr/>');
                 }
-                else if (name != "Support") {
+                else if (name != "Support"){
                     $('#discussion').append('<p style="color:black;text-align:left;"><strong>' + name + ":" + ' </strong> ' + htmlEncode(message) + '</p><hr/>');
-                }
+                }                
             };
             // Get the user name and store it to prepend to messages.
             $('#displayname').val(prompt('Enter your name:', ''));

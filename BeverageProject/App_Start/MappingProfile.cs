@@ -16,22 +16,8 @@ namespace BeverageProject.App_Start
             Mapper.CreateMap<Order, OrderDto>();
             Mapper.CreateMap<OrderDto, Order>();
 
-            Mapper.CreateMap<Wine, WineDto>();
-            Mapper.CreateMap<WineDto, Wine>();
-
-            Mapper.CreateMap<Beer, BeerDto>();
-            Mapper.CreateMap<BeerDto, Beer>();
-
-
-            Mapper.CreateMap<Spirit, SpiritDto>();
-            Mapper.CreateMap<SpiritDto, Spirit>();
-
-
-            Mapper.CreateMap<Whiskey, WhiskeyDto>();
-            Mapper.CreateMap<WhiskeyDto, Whiskey>();
-
-
-
+            Mapper.CreateMap<Product, WineDto>();
+            Mapper.CreateMap<WineDto, Product>();
 
         }
 

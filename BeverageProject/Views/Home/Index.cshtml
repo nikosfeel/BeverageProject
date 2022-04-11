@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Entities.IProduct>
+﻿@model IEnumerable<Entities.Products.Product>
 
 @{
     //ViewBag.Title = "Home Page";
@@ -131,7 +131,7 @@
                                 <span class="money font-size-16"><b>@Html.DisplayFor(modelItem => item.Price)€</b></span>
                                 <div class="product-hover">
                                     <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                        <a href="@Url.Action("Details", item.GetType().Name, new { id = item.Id })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
+                                        @*<a href="@Url.Action("Details", "ProductsView", new { id = item.Id })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>*@
                                     </div>
                                 </div>
                             </div>

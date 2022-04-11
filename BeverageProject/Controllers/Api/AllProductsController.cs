@@ -21,50 +21,21 @@ namespace BeverageProject.Controllers.Api
         public IHttpActionResult Get()
         {
             AdminAllProductsViewModel vm = new AdminAllProductsViewModel();
-            vm.Beers = db.Beers.ToList();
+            vm.Products = db.Products.ToList();
 
-            var beers = vm.Beers.Select(beer => new
+            var products = vm.Products.Select(product => new
             {
-                beer.Id,
-                beer.Name,
-                beer.Description,
-                beer.PhotoUrl,
-                beer.Price,
-                Category = new { beer.GetType().Name, beer.Kind }
+                product.ProductId,
+                product.Name,
+                product.Description,
+                product.PhotoUrl,
+                product.Price,
+                product.Kind,
+                Category = new { product.Category.GetType().Name}
             }).ToList();
-            vm.Wines = db.Wines.ToList();
-            var wines = vm.Wines.Select(wine => new
-            {
-                wine.Id,
-                wine.Name,
-                wine.Description,
-                wine.PhotoUrl,
-                wine.Price,
-                Category = new { wine.GetType().Name, wine.Kind }
-            }).ToList();
+            
 
-            vm.Whiskeys = db.Whiskeys.ToList();
-            var whiskeys = vm.Whiskeys.Select(whiskey => new
-            {
-                whiskey.Id,
-                whiskey.Name,
-                whiskey.Description,
-                whiskey.PhotoUrl,
-                whiskey.Price,
-                Category = new { whiskey.GetType().Name, whiskey.Kind }
-            }).ToList();
-            vm.Spirits = db.Spirits.ToList();
-            var spirits = vm.Spirits.Select(spirit => new
-            {
-                spirit.Id,
-                spirit.Name,
-                spirit.Description,
-                spirit.PhotoUrl,
-                spirit.Price,
-                Category = new { spirit.GetType().Name, spirit.Kind }
-            }).ToList();
-
-            return Json(new { beers = beers, wines = wines, whiskeys = whiskeys, spirits = spirits });
+            return Json(new { products = products });
         }
 
         // GET: api/AllProducts/5
@@ -87,10 +58,9 @@ namespace BeverageProject.Controllers.Api
         [ResponseType(typeof(IProduct))]
         public IHttpActionResult DeleteProduct(string id)
         {
-            IEnumerable<IProduct> firstProd = db.Beers;
-            var Products = firstProd.Union(db.Wines).Union(db.Whiskeys).Union(db.Spirits);
 
-            var product = Products.Where(p => p.Id == Convert.ToInt32(id)).First();
+            var Products = db.Products.ToList();
+            var product = Products.Where(p => p.ProductId == Convert.ToInt32(id)).First();
 
             if (product == null)
             {

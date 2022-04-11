@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace PersistenceLayerGeneric.Repositories
 {
-    public class WhiskeyRepository : GenericRepository<Whiskey>
+    public class ProductService : GenericRepository<Product>
     {
-        public WhiskeyRepository(ApplicationDbContext context) : base(context)
+        public ProductService(ApplicationDbContext context) : base(context)
         {
         }
     }

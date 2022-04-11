@@ -17,20 +17,16 @@ namespace BeverageProject.Controllers
         public ActionResult Index(string searchΑllProducts)
         {
             @ViewBag.searchΑllProducts = searchΑllProducts;
-            var beers = db.Beers;
-            var spirits = db.Spirits;
-            var whiskeys = db.Whiskeys;
-            var wines = db.Wines.ToList();
+            var products = db.Products.OrderByDescending(x => x.ProductId).Take(4).ToList();
 
-            IEnumerable<IProduct> prod = beers;
-            var allProducts = prod.Union(spirits).Union(whiskeys).Union(wines).OrderByDescending(x => x.Id).Take(4);
+            
 
             if (!string.IsNullOrEmpty(searchΑllProducts))
             {
-                allProducts = allProducts.Where(t => t.Name.ToUpper().Contains(searchΑllProducts.ToUpper())).ToList();
+                products = products.Where(t => t.Name.ToUpper().Contains(searchΑllProducts.ToUpper())).ToList();
             }
 
-            return View(allProducts);
+            return View(products);
         }
 
         public ActionResult Chat()

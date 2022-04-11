@@ -12,32 +12,24 @@ namespace BeverageProject.Models
     public class ItemModel
     {
         private ApplicationDbContext db;
-        private IEnumerable<IProduct> Products;
-        
+        private IEnumerable<Product> Products;
 
         public ItemModel()
         {
             db = new ApplicationDbContext();
-            var beers = db.Beers;
-            var spirits = db.Spirits;
-            var whiskeys = db.Whiskeys;
-            var wines = db.Wines;
+            var products = db.Products.ToList();
 
-
-            IEnumerable<IProduct> prod = beers;
-            var allProducts = prod.Union(spirits).Union(whiskeys).Union(wines);
-            Products = allProducts;
-            
+            Products = products;
         }
 
-        public IEnumerable<IProduct> findAllProducts()
+        public IEnumerable<Product> findAllProducts()
         {
             return this.Products;
         }
-               
-        public IProduct FindProduct(int? id)
+
+        public Product FindProduct(int? id)
         {
-            return this.Products.Single(p => p.Id.Equals(id));
+            return this.Products.Single(p => p.ProductId.Equals(id));
         }
     }
 }
