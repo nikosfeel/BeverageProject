@@ -83,9 +83,10 @@ namespace BeverageProject.Controllers
             return products;
         }
 
-        public ActionResult IndexCollection(string category, string searchProduct, int? page, int? pSize, string sortOrder)
+        public ActionResult IndexCollection(string category, string kind, string searchProduct, int? page, int? pSize, string sortOrder)
         {
             ViewBag.Category = category;
+            ViewBag.Kind = kind;
             List<Product> products = Filtering(sortOrder);
             //Filtering
             products = Filter(searchProduct, products);
@@ -94,11 +95,13 @@ namespace BeverageProject.Controllers
 
             int pageSize, pageNumber;
             PaginationSecondView(pSize, page, out pageSize, out pageNumber);
-            if (category is null)
+
+            if (kind is null)
             {
-                return View(products.ToPagedList(pageNumber, pageSize));
+                return View(products.Where(x => x.Category.Title == category).ToPagedList(pageNumber, pageSize));
             }
-            return View(products.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
+
+            return View(products.Where(x => x.Category.Title == category && x.Kind == kind).ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Product/Details/5
