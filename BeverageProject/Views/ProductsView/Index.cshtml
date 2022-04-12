@@ -68,7 +68,7 @@
                                 <div class="form-group margin-clear pull-right list-grid margin-top-10 float-0">
                                     <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>View :</b></label></h4>
                                     <button data-value="list"><i class="fa fa-th-list fa-2x"></i></button>
-                                    <button data-value="grid" class="active list" onclick="location.href='@Url.Action("IndexCollection","ProductsView")'"><i class="fa fa-th fa-2x"></i></button>
+                                    <button data-value="grid" class="active list" onclick="location.href='@Url.Action("IndexCollection","ProductsView", new {category=ViewBag.Category,kind= ViewBag.Kind},null)'"><i class="fa fa-th fa-2x"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12" style="text-align:center">
-                    @Html.PagedListPager(Model, x => Url.Action("Index", "ProductsView", new { page = x , category = ViewBag.Category, kind = ViewBag.Kind}), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                    @Html.PagedListPager(Model, x => Url.Action("Index", "ProductsView", new { page = x, category = ViewBag.Category, kind = ViewBag.Kind }), PagedListRenderOptions.ClassicPlusFirstAndLast)
                 </div>
             </div>
         </div>
