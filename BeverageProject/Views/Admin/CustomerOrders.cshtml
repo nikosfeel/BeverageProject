@@ -83,10 +83,14 @@
                                                 @Html.DisplayFor(modelItem => order.Email)
                                             </td>
                                             <td>
+                                                
                                                 <ul>
                                                     
-                                                    <li><strong>@Html.DisplayFor(modelItem => order.Products)</strong></li>
-                                                    
+                                                    @foreach (var item in order.OrderProducts)
+                                                    {
+                                                        <li>@item.Product.Name</li>
+                                                    }
+
                                                 </ul>
                                             </td>
                                         </tr>
