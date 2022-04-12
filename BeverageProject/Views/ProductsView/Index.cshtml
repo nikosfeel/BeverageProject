@@ -54,12 +54,12 @@
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
                                 <ul class="list-group list-group-horizontal pull-left">
                                     <li class="list-group-item" style="font-size:18px; border-style:none">SORT BY: </li>
-                                    <li class="list-group-item"><a href="@Url.Action("Index","ProductsView",new {sortOrder=ViewBag.ND,category = ViewBag.Category },null)">Name ↓↑</a></li>
-                                    <li class="list-group-item"><a href="@Url.Action("Index","ProductsView",new {sortOrder=ViewBag.PD,category = ViewBag.Category },null)">Price ↓↑</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","ProductsView",new {sortOrder=ViewBag.ND,category = ViewBag.Category,kind = ViewBag.Kind },null)">Name ↓↑</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","ProductsView",new {sortOrder=ViewBag.PD,category = ViewBag.Category,kind = ViewBag.Kind },null)">Price ↓↑</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
-                                <form style="margin-left:140px; margin-top:5px;" class="form-inline" action="/ProductsView/Index?category=@ViewBag.Category" method="post">
+                                <form style="margin-left:140px; margin-top:5px;" class="form-inline" action="/ProductsView/Index?category=@ViewBag.Category&kind=@ViewBag.Kind" method="post">
                                     <i class="fa fa-search input-group" style="font-size:2rem;"></i>
                                     <input class="form-control mr-sm-2" id="searchProduct" type="text" name="searchProduct" value="@ViewBag.searchProduct" placeholder="Search" style="background-color:white; border-radius:30px" />
                                 </form>
@@ -113,7 +113,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12" style="text-align:center">
-                    @Html.PagedListPager(Model, x => Url.Action("Index", "ProductsView", new { page = x , category = ViewBag.Category }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                    @Html.PagedListPager(Model, x => Url.Action("Index", "ProductsView", new { page = x , category = ViewBag.Category, kind = ViewBag.Kind}), PagedListRenderOptions.ClassicPlusFirstAndLast)
                 </div>
             </div>
         </div>
