@@ -21,7 +21,7 @@ namespace BeverageProject.Controllers.Api
         public IHttpActionResult Get()
         {
             AdminAllProductsViewModel vm = new AdminAllProductsViewModel();
-            vm.Products = db.Products.ToList();
+            vm.Products = db.Products.Include(x=>x.Category).ToList();
 
             var products = vm.Products.Select(product => new
             {
@@ -31,7 +31,7 @@ namespace BeverageProject.Controllers.Api
                 product.PhotoUrl,
                 product.Price,
                 product.Kind,
-                Category = new { product.Category.GetType().Name}
+                Category = product.Category.Title,
             }).ToList();
             
 

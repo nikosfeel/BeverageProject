@@ -1534,15 +1534,7 @@
     <Content Include="Views\Shared\AdminComponents\_NavigationBar.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_SideBar.cshtml" />
     <Content Include="Views\Admin\CustomerInformation.cshtml" />
-    <Content Include="Views\Admin\AllBeers.cshtml" />
-    <Content Include="Views\Admin\AllSpirits.cshtml" />
-    <Content Include="Views\Admin\AllWhiskeys.cshtml" />
-    <Content Include="Views\Admin\AllWines.cshtml" />
     <Content Include="Views\Shared\ClientComponents\_CartView.cshtml" />
-    <Content Include="Views\ProductCreate\CreateBeer.cshtml" />
-    <Content Include="Views\ProductCreate\CreateSpirit.cshtml" />
-    <Content Include="Views\ProductCreate\CreateWhiskey.cshtml" />
-    <Content Include="Views\ProductCreate\CreateWine.cshtml" />
     <Content Include="Views\ProductsView\IndexCollection.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Home\BlogDetails.cshtml" />
@@ -1555,8 +1547,8 @@
     <Content Include="Views\Charts\SpiritChart.cshtml" />
     <Content Include="Views\ProductsView\Index.cshtml" />
     <Content Include="Views\ProductsView\Details.cshtml" />
-    <Content Include="Views\ProductCreate\CreateProduct.cshtml" />
     <Content Include="Views\ProductsView\Create.cshtml" />
+    <Content Include="Views\ProductCreate\CreateProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
