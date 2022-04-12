@@ -5,7 +5,7 @@ using Microsoft.Owin;
 using MyDatabase;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(BeverageProject.Startup))]
+[assembly: OwinStartup(typeof(BeverageProject.Startup))]
 namespace BeverageProject
 {
     public partial class Startup
@@ -13,8 +13,9 @@ namespace BeverageProject
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            app.MapSignalR();
             CreateRolesandUsers();
+            app.MapSignalR();
+            
         }
 
         // In this method we will create default User roles and Admin user for login    

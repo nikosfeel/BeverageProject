@@ -219,17 +219,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ProductsViewController.cs" />
     <Compile Include="SignalR\hubs\ChatHub.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminControllers\AdminController.cs" />
     <Compile Include="Controllers\AdminControllers\ProductCreateController.cs" />
     <Compile Include="Controllers\Api\AllProductsController.cs" />
-    <Compile Include="Controllers\Api\BeersController.cs" />
-    <Compile Include="Controllers\Api\SpiritsController.cs" />
-    <Compile Include="Controllers\Api\WhiskeysController.cs" />
-    <Compile Include="Controllers\Api\WinesController.cs" />
     <Compile Include="Controllers\ApplicationUserController.cs" />
-    <Compile Include="Controllers\BeerController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ChartsController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
@@ -238,10 +234,7 @@
     <Compile Include="Controllers\NavigationBarController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
-    <Compile Include="Controllers\SpiritController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Controllers\WineController.cs" />
-    <Compile Include="Controllers\WhiskeyController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1466,26 +1459,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Beer\Create.cshtml" />
-    <Content Include="Views\Beer\Delete.cshtml" />
-    <Content Include="Views\Beer\Details.cshtml" />
-    <Content Include="Views\Beer\Edit.cshtml" />
-    <Content Include="Views\Beer\Index.cshtml" />
-    <Content Include="Views\Wine\Create.cshtml" />
-    <Content Include="Views\Wine\Delete.cshtml" />
-    <Content Include="Views\Wine\Details.cshtml" />
-    <Content Include="Views\Wine\Edit.cshtml" />
-    <Content Include="Views\Wine\Index.cshtml" />
-    <Content Include="Views\Spirit\Create.cshtml" />
-    <Content Include="Views\Spirit\Delete.cshtml" />
-    <Content Include="Views\Spirit\Details.cshtml" />
-    <Content Include="Views\Spirit\Edit.cshtml" />
-    <Content Include="Views\Spirit\Index.cshtml" />
-    <Content Include="Views\Whiskey\Create.cshtml" />
-    <Content Include="Views\Whiskey\Delete.cshtml" />
-    <Content Include="Views\Whiskey\Details.cshtml" />
-    <Content Include="Views\Whiskey\Edit.cshtml" />
-    <Content Include="Views\Whiskey\Index.cshtml" />
     <Content Include="Views\ApplicationUser\Create.cshtml" />
     <Content Include="Views\ApplicationUser\Delete.cshtml" />
     <Content Include="Views\ApplicationUser\Details.cshtml" />
@@ -1561,20 +1534,8 @@
     <Content Include="Views\Shared\AdminComponents\_NavigationBar.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_SideBar.cshtml" />
     <Content Include="Views\Admin\CustomerInformation.cshtml" />
-    <Content Include="Views\Admin\AllBeers.cshtml" />
-    <Content Include="Views\Admin\AllSpirits.cshtml" />
-    <Content Include="Views\Admin\AllWhiskeys.cshtml" />
-    <Content Include="Views\Admin\AllWines.cshtml" />
     <Content Include="Views\Shared\ClientComponents\_CartView.cshtml" />
-    <Content Include="Views\ProductCreate\CreateBeer.cshtml" />
-    <Content Include="Views\ProductCreate\CreateSpirit.cshtml" />
-    <Content Include="Views\ProductCreate\CreateWhiskey.cshtml" />
-    <Content Include="Views\ProductCreate\CreateWine.cshtml" />
-    <Content Include="Views\Beer\IndexCollection.cshtml" />
-    <Content Include="Views\Spirit\IndexCollection.cshtml" />
-    <Content Include="Views\Whiskey\IndexCollection.cshtml" />
-    <Content Include="Views\Wine\IndexCollection.cshtml" />
-    <Content Include="Views\Whiskey\response.json" />
+    <Content Include="Views\ProductsView\IndexCollection.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Home\BlogDetails.cshtml" />
     <Content Include="Views\Checkout\Success.cshtml" />
@@ -1584,6 +1545,10 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Charts\BeerChart.cshtml" />
     <Content Include="Views\Charts\SpiritChart.cshtml" />
+    <Content Include="Views\ProductsView\Index.cshtml" />
+    <Content Include="Views\ProductsView\Details.cshtml" />
+    <Content Include="Views\ProductsView\Create.cshtml" />
+    <Content Include="Views\ProductCreate\CreateProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -72,116 +72,49 @@
             };
 
             $.ajax(settings).done(function (response) {
-                LoadBeers();
-                LoadWines();
-                LoadWhiskeys();
-                LoadSpirits();
+                LoadProducts();
 
-                function LoadBeers() {
-                    let beers = response.beers;
-                    for (let beer of beers) {
+                function LoadProducts() {
+                    let products = response.products;
+                    for (let prod of products) {
                         let template = `
-                                          <tr id="${beer.Id}">
-                                              <td>${beer.Id}</td>
-                                              <td>Beer > ${beer.Category.Kind}</td>
-                                              <td><img src="${beer.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                                              <td>${beer.Name}</td>
-                                              <td>${beer.Price}€</td>
-                                              <td style="width:40%">${beer.Description}</td>
-                                              <td>
-                                                   <button class="btn btn-info">Edit</button>
-                                                   <button class="btn btn-danger delete-btn">Delete</button>
-                                             </td>
-                                          </tr>
-                                        `
+                                           <tr id="${prod.ProductId}">
+                                                  <td>${prod.ProductId}</td>
+                                                  <td>${prod.Category} > ${prod.Kind}</td>
+                                                  <td><img src="${prod.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                                                  <td class="Name">
+                                                      <span>${prod.Name}</span>
+                                                      <input type="text" value="${prod.Name}" style="display:none" />
+                                                  </td>
+                                                  <td>${prod.Price}€</td>
+                                                  <td style="width:40%">${prod.Description}</td>
+                                                  <td>
+                                                         <button class="btn btn-info edit-btn" href="javascript:;">Edit</button>
+                                                         <button class="btn btn-danger delete-btn" href="javascript:;">Delete</button>
+                                                         <button class="btn btn-warning update-btn" href="javascript:;" style="display:none">Update</a>
+                                                         <button class="btn btn-danger cancel-btn" href="javascript:;" style="display:none">Cancel</a>
+                                                  </td>
+                                            </tr>
+                                                    `
                         let element = $(template);
 
                         element.find(".delete-btn").click(DeleteRow);
-                        //element.find(".edit1-btn").click(Edit1Row);
+                        element.find(".edit-btn").click(EditRow);
 
 
                         $("tbody").append(element);
-                    }
-                }
-
-                function LoadWines() {
-
-                    let wines = response.wines;
-                    for (let wine of wines) {
-                        let template = `
-                                        <tr id="${wine.Id}">
-                                            <td>${wine.Id}</td>
-                                            <td>Wine > ${wine.Category.Kind}</td>
-                                            <td><img src="${wine.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                                            <td>${wine.Name}</td>
-                                            <td>${wine.Price}€</td>
-                                            <td style="width:40%">${wine.Description}</td>
-                                            <td>
-                                                 <button class="btn btn-info">Edit</button>
-                                                 <button class="btn btn-danger delete-btn">Delete</button>
-                                           </td>
-                                        </tr>
-                                      `
-                        let element = $(template);
-
-                        element.find(".delete-btn").click(DeleteRow);
-                        //element.find(".edit1-btn").click(Edit1Row);
-
-                        $("tbody").append(element);
-                    }
-                }
-
-                function LoadWhiskeys() {
-                    let whiskeys = response.whiskeys;
-                    for (let whiskey of whiskeys) {
-                        let template = `
-                                   <tr id="${whiskey.Id}">
-                                       <td ">${whiskey.Id}</td>
-                                       <td>Whiskey > ${whiskey.Category.Kind}</td>
-                                       <td><img src="${whiskey.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                                       <td>${whiskey.Name}</td>
-                                       <td>${whiskey.Price}€</td>
-                                       <td style="width:40%">${whiskey.Description}</td>
-                                       <td>
-                                            <button class="btn btn-info">Edit</button>
-                                            <button class="btn btn-danger delete-btn">Delete</button>
-                                      </td>
-                                   </tr>
-                                 `
-                        let element = $(template);
-
-                        element.find(".delete-btn").click(DeleteRow);
-                        //element.find(".edit1-btn").click(Edit1Row);
 
 
-                        $("tbody").append(element);
-                    }
-                }
-
-                function LoadSpirits() {
-                    let spirits = response.spirits;
-                    for (let spirit of spirits) {
-                        let template = `
-                       <tr id="${spirit.Id}">
-                           <td ">${spirit.Id}</td>
-                           <td>Spirit > ${spirit.Category.Kind}</td>
-                           <td><img src="${spirit.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                           <td>${spirit.Name}</td>
-                           <td>${spirit.Price}€</td>
-                           <td style="width:40%">${spirit.Description}</td>
-                           <td>
-                                <button class="btn btn-info">Edit</button>
-                                <button class="btn btn-danger delete-btn">Delete</button>
-                          </td>
-                       </tr>
-                      `
-                        let element = $(template);
-
-                        element.find(".delete-btn").click(DeleteRow);
-                        //element.find(".edit1-btn").click(Edit1Row);
 
 
-                        $("tbody").append(element);
+
+
+
+
+
+
+
+
                     }
                 }
             });
@@ -207,6 +140,71 @@
                 function removeRow() {
                     $(querry).remove();
                 }
+            });
+        }
+
+        function EditRow() {
+            $("body").on("click", "#example .edit-btn", function () {
+                var row = $(this).closest("tr");
+                $("td", row).each(function () {
+                    if ($(this).find("input").length > 0) {
+                        $(this).find("input").show();
+                        $(this).find("span").hide();
+                    }
+                });
+                row.find(".update-btn").show();
+                row.find(".cancel-btn").show();
+                row.find(".delete-btn").hide();
+                $(this).hide();
+            });
+
+
+
+            //Update
+            $("body").on("click", "#example .update-btn", function () {
+                var row = $(this).closest("tr");
+                $("td", row).each(function () {
+                    if ($(this).find("input").length > 0) {
+                        var span = $(this).find("span");
+                        var input = $(this).find("input");
+                        span.html(input.val());
+                        span.show();
+                        input.hide();
+                    }
+                });
+                row.find(".edit-btn").show();
+                row.find(".delete-btn").show();
+                row.find(".cancel-btn").hide();
+                $(this).hide();
+
+
+
+                var product = {};
+                product.Name = row.find(".Name").find("span").html();
+                console.log(row);
+
+
+
+            });
+
+
+
+            //Cancel
+            $("body").on("click", "#example .cancel-btn", function () {
+                var row = $(this).closest("tr");
+                $("td", row).each(function () {
+                    if ($(this).find("input").length > 0) {
+                        var span = $(this).find("span");
+                        var input = $(this).find("input");
+                        input.val(span.html());
+                        span.show();
+                        input.hide();
+                    }
+                });
+                row.find(".edit-btn").show();
+                row.find(".delete-btn").show();
+                row.find(".update-btn").hide();
+                $(this).hide();
             });
         }
     </script>

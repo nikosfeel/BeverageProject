@@ -19,10 +19,9 @@ namespace BeverageProject.Controllers
         {
             
             NavViewModel viewModel = new NavViewModel();
-            viewModel.Beers = db.Beers.GroupBy(x => x.Kind).Select(x => x.FirstOrDefault()).ToList();
-            viewModel.Wines = db.Wines.GroupBy(x => x.Kind).Select(x => x.FirstOrDefault()).ToList();
-            viewModel.Whiskeys = db.Whiskeys.GroupBy(x => x.Kind).Select(x => x.FirstOrDefault()).ToList();
-            viewModel.Spirits = db.Spirits.GroupBy(x => x.Kind).Select(x => x.FirstOrDefault()).ToList();
+            viewModel.Products = db.Products.GroupBy(x=>x.Kind).Select(c=>c.FirstOrDefault()).ToList();
+            viewModel.Categories = db.Categories.ToList();
+            
 
 
             return PartialView("ClientComponents/_NavigationBar", viewModel);

@@ -28,10 +28,7 @@ namespace MyDatabase
         }
 
         public DbSet<Product> Products { get; set; }
-        public DbSet<Beer> Beers { get; set; }
-        public DbSet<Wine> Wines { get; set; }
-        public DbSet<Whiskey> Whiskeys { get; set; }
-        public DbSet<Spirit> Spirits { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<OrderProduct> OrderProducts { get; set; }

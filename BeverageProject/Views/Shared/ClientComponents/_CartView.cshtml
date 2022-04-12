@@ -30,20 +30,20 @@
                                                 <div class="quantity-fix display-inline-b">
                                                     @if (item.Quantity > 1)
                                                     {
-                                                        <a href="@Url.Action("ButtonDown", "Cart", new { id = item.Product.Id })" class="btn-default btn" data-direction="down"><i class="fa fa-angle-down"></i></a>
+                                                        <a href="@Url.Action("ButtonDown", "Cart", new { id = item.Product.ProductId })" class="btn-default btn" data-direction="down"><i class="fa fa-angle-down"></i></a>
                                                     }
                                                     @if (item.Quantity == 1)
                                                     {
                                                         <button class="btn-default btn" data-direction="down"><i class="fa fa-angle-down"></i></button>
                                                     }
                                                     <input type="text" value="@item.Quantity" class="text-center product_quantity_text">
-                                                    <a href="@Url.Action("ButtonUp", "Cart", new { id = item.Product.Id })" class="btn-success btn" data-direction="up"><i class="fa fa-angle-up"></i></a>
+                                                    <a href="@Url.Action("ButtonUp", "Cart", new { id = item.Product.ProductId })" class="btn-success btn" data-direction="up"><i class="fa fa-angle-up"></i></a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row-5">
                                             <p>
-                                                <a href="@Url.Action("Remove", "Cart", new { id = item.Product.Id })" class="remove"><i class="fa fa-trash fa-2x"></i></a>
+                                                <a href="@Url.Action("Remove", "Cart", new { id = item.Product.ProductId })" class="remove"><i class="fa fa-trash fa-2x"></i></a>
                                             </p>
                                         </div>
                                     </div>

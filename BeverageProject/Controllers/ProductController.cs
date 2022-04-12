@@ -16,17 +16,7 @@ namespace BeverageProject.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         public ActionResult Index()
-        {
-            var beers = db.Beers;
-            var spirits = db.Spirits;
-            var whiskeys = db.Whiskeys;
-            var wines = db.Wines;
-
-
-            IEnumerable<IProduct> prod = beers;
-            var allProducts = prod.Union(spirits).Union(whiskeys).Union(wines);
-
-
+        {            
             ItemModel productModel = new ItemModel();
             ViewBag.products = productModel.findAllProducts();
             return View();

@@ -1,64 +1,65 @@
-﻿using System;
+﻿using Entities.Products;
+using MyDatabase;
+using PagedList;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Entities.Products;
-using MyDatabase;
-using PagedList;
 
 namespace BeverageProject.Controllers
 {
-    public class BeerController : Controller
+    public class ProductsViewController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Beer
-        public ActionResult Index(string category, string searchBeer, int? page, int? pSize, string sortOrder)
+        // GET: Product
+        public ActionResult Index(string category, string kind, string searchProduct, int? page, int? pSize, string sortOrder)
         {
             ViewBag.Category = category;
-            List<Beer> beers = Filtering(sortOrder);
+            ViewBag.Kind = kind;
+            List<Product> products = Filtering(sortOrder);
             //Filtering
-            beers = Filter(searchBeer, beers);
+            products = Filter(searchProduct, products);
             //Sorting
-            beers = Sorting(sortOrder, beers);
+            products = Sorting(sortOrder, products);
 
             int pageSize, pageNumber;
             Pagination(pSize, page, out pageSize, out pageNumber);
 
-            if (category is null)
+            if (kind is null)
             {
-                return View(beers.ToPagedList(pageNumber, pageSize));
+                return View(products.Where(x => x.Category.Title == category).ToPagedList(pageNumber, pageSize));
             }
-            return View(beers.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
+
+            return View(products.Where(x => x.Category.Title == category && x.Kind == kind).ToPagedList(pageNumber, pageSize));
 
         }
 
-        private static List<Beer> Sorting(string sortOrder, List<Beer> beers)
+        private static List<Product> Sorting(string sortOrder, List<Product> products)
         {
             switch (sortOrder)
             {
-                case "PriceDesc": beers = beers.OrderByDescending(x => x.Price).ToList(); break;
-                case "PriceAsc": beers = beers.OrderBy(x => x.Price).ToList(); break;
-                case "NameAsc": beers = beers.OrderBy(x => x.Name).ToList(); break;
-                case "NameDesc": beers = beers.OrderByDescending(x => x.Name).ToList(); break;
-                default: beers = beers.OrderBy(x => x.Price).ToList(); break;
+                case "PriceDesc": products = products.OrderByDescending(x => x.Price).ToList(); break;
+                case "PriceAsc": products = products.OrderBy(x => x.Price).ToList(); break;
+                case "NameAsc": products = products.OrderBy(x => x.Name).ToList(); break;
+                case "NameDesc": products = products.OrderByDescending(x => x.Name).ToList(); break;
+                default: products = products.OrderBy(x => x.Price).ToList(); break;
 
             }
-            return beers;
+            return products;
         }
 
-        private List<Beer> Filtering(string sortOrder)
+        private List<Product> Filtering(string sortOrder)
         {
-            var beers = db.Beers.ToList();
-            ViewBag.PD = String.IsNullOrEmpty(sortOrder) ? "PriceDesc" : "";
+            var products = db.Products.Include(x=>x.Category).ToList();
+            ViewBag.PD = string.IsNullOrEmpty(sortOrder) ? "PriceDesc" : "";
             ViewBag.PA = sortOrder == "PriceAsc" ? "PriceDesc" : "PriceAsc";
             ViewBag.NA = sortOrder == "NameAsc" ? "NameDesc" : "NameAsc";
             ViewBag.ND = sortOrder == "NameDesc" ? "NameAsc" : "NameDesc";
-            return beers;
+            return products;
         }
 
         private static void Pagination(int? pSize, int? page, out int pageSize, out int pageNumber)
@@ -73,124 +74,127 @@ namespace BeverageProject.Controllers
             pageSize = pSize ?? 12;
         }
 
-        private static List<Beer> Filter(string searchBeer, List<Beer> beers)
+        private static List<Product> Filter(string searchProduct, List<Product> products)
         {
-            if (!string.IsNullOrEmpty(searchBeer))
+            if (!string.IsNullOrEmpty(searchProduct))
             {
-                beers = beers.Where(t => t.Name.ToUpper().Contains(searchBeer.ToUpper())).ToList();
+                products = products.Where(t => t.Name.ToUpper().Contains(searchProduct.ToUpper())).ToList();
             }
-            return beers;
+            return products;
         }
 
-        public ActionResult IndexCollection(string category, string searchBeer, int? page, int? pSize, string sortOrder)
+        public ActionResult IndexCollection(string category, string kind, string searchProduct, int? page, int? pSize, string sortOrder)
         {
             ViewBag.Category = category;
-            List<Beer> beers = Filtering(sortOrder);
+            ViewBag.Kind = kind;
+            List<Product> products = Filtering(sortOrder);
             //Filtering
-            beers = Filter(searchBeer, beers);
+            products = Filter(searchProduct, products);
             //Sorting
-            beers = Sorting(sortOrder, beers);
+            products = Sorting(sortOrder, products);
 
             int pageSize, pageNumber;
             PaginationSecondView(pSize, page, out pageSize, out pageNumber);
-            if (category is null)
+
+            if (kind is null)
             {
-                return View(beers.ToPagedList(pageNumber, pageSize));
+                return View(products.Where(x => x.Category.Title == category).ToPagedList(pageNumber, pageSize));
             }
-            return View(beers.Where(x => x.Kind == category).ToPagedList(pageNumber, pageSize));
+
+            return View(products.Where(x => x.Category.Title == category && x.Kind == kind).ToPagedList(pageNumber, pageSize));
         }
 
-        // GET: Beer/Details/5
+        // GET: Product/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Beer beer = db.Beers.Find(id);
-            if (beer == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(beer);
+            return View(product);
         }
 
-        // GET: Beer/Create
+        // GET: Product/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Beer/Create
+        // POST: Product/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Price,PhotoUrl")] Beer beer)
+        public ActionResult Create([Bind(Include = "Id,Name,Description,Price,PhotoUrl")] Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Beers.Add(beer);
+                db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(beer);
+            return View(product);
         }
 
-        // GET: Beer/Edit/5
+        // GET: Product/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Beer beer = db.Beers.Find(id);
-            if (beer == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(beer);
+            return View(product);
         }
 
-        // POST: Beer/Edit/5
+        // POST: Product/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,PhotoUrl")] Beer beer)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,PhotoUrl")] Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(beer).State = EntityState.Modified;
+                db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(beer);
+            return View(product);
         }
 
-        // GET: Beer/Delete/5
+        // GET: Product/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Beer beer = db.Beers.Find(id);
-            if (beer == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(beer);
+            return View(product);
         }
 
-        // POST: Beer/Delete/5
+        // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Beer beer = db.Beers.Find(id);
-            db.Beers.Remove(beer);
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

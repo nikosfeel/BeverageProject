@@ -13,11 +13,8 @@ namespace MyDatabase.Initializers
         protected override void Seed(ApplicationDbContext context)
         {
             SeedingService service = new SeedingService(context);
-
-            service.SeedBeer();
-            service.SeedWhiskey();
-            service.SeedWine();
-            service.SeedSpirit();
+            
+            service.Seeding();
 
             base.Seed(context);
         }

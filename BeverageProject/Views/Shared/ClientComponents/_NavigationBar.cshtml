@@ -2,138 +2,115 @@
 @using Entities.Items
 @using System.Linq;
 
-    <!--=================== Login Dialog ===================-->
-    <div class="modal fade paira-login-popup" id="paira-login" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3 class="margin-bottom-30 text-capitalize">Customer Login</h3>
-                            <form class="popup-login-form">
-                                <input type="email" class="form-control" name="EMAIL" value="" placeholder="Email" />
-                                <input type="password" class="form-control paira-margin-top-1" name="password" value="" placeholder="Password" />
-                                <div class="forget-password text-right">
-                                    <a href="@Url.Action("ForgotPassword", "Account")" class="text-capitalize position-rela btn-border">Forgot Password?</a>
-                                    <button class="btn btn-success color-scheme-2 btn-lg text-uppercase paira-margin-top-1">Login</button>
-                                </div>
-                            </form>
-                            <div class="new-customer text-right overflow">
-                                <h3 class="text-capitalize display-inline-b position-rela margin-top-40"></h3>
-                                <a href="@Url.Action("Create", "ApplicationUser")" class="btn btn-default pull-right btn-lg forget-password text-uppercase margin-top-40">Register</a>
+<!--=================== Login Dialog ===================-->
+<div class="modal fade paira-login-popup" id="paira-login" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="margin-bottom-30 text-capitalize">Customer Login</h3>
+                        <form class="popup-login-form">
+                            <input type="email" class="form-control" name="EMAIL" value="" placeholder="Email" />
+                            <input type="password" class="form-control paira-margin-top-1" name="password" value="" placeholder="Password" />
+                            <div class="forget-password text-right">
+                                <a href="@Url.Action("ForgotPassword", "Account")" class="text-capitalize position-rela btn-border">Forgot Password?</a>
+                                <button class="btn btn-success color-scheme-2 btn-lg text-uppercase paira-margin-top-1">Login</button>
                             </div>
+                        </form>
+                        <div class="new-customer text-right overflow">
+                            <h3 class="text-capitalize display-inline-b position-rela margin-top-40"></h3>
+                            <a href="@Url.Action("Create", "ApplicationUser")" class="btn btn-default pull-right btn-lg forget-password text-uppercase margin-top-40">Register</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--=================== Header Container ===================-->
-    <header>
-        <!--=================== Header Top Section ===================-->
-        <section class="header-top margin-bottom-30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="col-md-2 col-sm-2 col-xs-3 logo">
-                            <a href="@Url.Action("Index", "Home")" class="text-center font-size-18"><i class="fa fa-glass fa-2x"></i><em><br />E-Beverage</em></a>
-                        </div>
-                        <div class="col-md-8 col-sm-8 col-xs-12">
-                            <!--=================== Main Menu ===================-->
-                            <nav class="navbar navbar-default paira-mega-menu mega-menu">
-                                <div class="navbar-header">
-                                    <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                </div>
-                                <div class="width-com">
-                                    <div id="navbar-collapse" class="navbar-collapse collapse ">
-                                        <ul class="nav navbar-nav">
-                                            <!--=================== Grid Mega Menu ===================-->
-                                            <li class="dropdown paira-dropdown mega-menu-fw width-li">
-                                                <a href="#">shop <i class="paira-angle-down angle-down fa fa-angle-down margin-left-5"></i></a>
-                                                <ul class="dropdown-menu paira-dropdown-menu list-unstyled padding-clear">
-                                                    <li>
-                                                        <div class="container">
-                                                            <div class="row">
+</div>
+<!--=================== Header Container ===================-->
+<header>
+    <!--=================== Header Top Section ===================-->
+    <section class="header-top margin-bottom-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-md-2 col-sm-2 col-xs-3 logo">
+                        <a href="@Url.Action("Index", "Home")" class="text-center font-size-18"><i class="fa fa-glass fa-2x"></i><em><br />E-Beverage</em></a>
+                    </div>
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <!--=================== Main Menu ===================-->
+                        <nav class="navbar navbar-default paira-mega-menu mega-menu">
+                            <div class="navbar-header">
+                                <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="width-com">
+                                <div id="navbar-collapse" class="navbar-collapse collapse ">
+                                    <ul class="nav navbar-nav">
+                                        <!--=================== Grid Mega Menu ===================-->
+                                        <li class="dropdown paira-dropdown mega-menu-fw width-li">
+                                            <a href="#">shop <i class="paira-angle-down angle-down fa fa-angle-down margin-left-5"></i></a>
+                                            <ul class="dropdown-menu paira-dropdown-menu list-unstyled padding-clear">
+                                                <li>
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            @foreach (var cat in Model.Categories.OrderBy(x=>x.Title))
+                                                            {
                                                                 <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","Beer")">Beers</a></h4>
+                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","ProductsView", new {category = cat.Title })">@cat.Title</a></h4>
                                                                     <ul class="list-unstyled mega-submenu-fix">
-                                                                        @foreach (var cat in Model.Beers)
+                                                                        @foreach (var prod in Model.Products.Where(x=>x.Category == cat))
                                                                         {
-                                                                            <li><a href="@Url.Action("Index", "Beer")?category=@cat.Kind">@cat.Kind</a></li>
+                                                                            <li><a href=@Url.Action("Index", "ProductsView",new {kind = prod.Kind, category = cat.Title})>@prod.Kind</a></li>
                                                                         }
+
                                                                     </ul>
                                                                 </div>
-                                                                <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","Spirit")">Spirits</a></h4>
-                                                                    <ul class="list-unstyled mega-submenu-fix">
-                                                                        @foreach (var cat in Model.Spirits)
-                                                                        {
-                                                                            <li><a href="@Url.Action("Index", "Spirit")?category=@cat.Kind">@cat.Kind</a></li>
-                                                                        }
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","Wine")">Wines</a></h4>
-                                                                    <ul class="list-unstyled mega-submenu-fix">
-                                                                        @foreach (var cat in Model.Wines)
-                                                                        {
-                                                                            <li><a href="@Url.Action("Index", "Wine")?category=@cat.Kind">@cat.Kind</a></li>
-                                                                        }
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","Whiskey")">Whiskeys</a></h4>
-                                                                    <ul class="list-unstyled mega-submenu-fix">
-                                                                        @foreach (var cat in Model.Whiskeys)
-                                                                        {
-                                                                            <li><a href="@Url.Action("Index", "Whiskey")?category=@cat.Kind">@cat.Kind</a></li>
-                                                                        }
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
+                                                            }
                                                         </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <!--=================== Single Menu ===================-->
-                                            <li class="width-li"><a href="@Url.Action("About", "Home")">About us</a></li>
-                                            <li class="width-li"><a href="@Url.Action("Contact", "Home")">Contact us</a></li>
-                                            <!--=================== Single Menu ===================-->
-                                            <li>@Html.Partial("_LoginPartial")</li>
-                                            @if (this.User.IsInRole("Admin"))
-                                            {
-                                                <li class="width-li"><a href="@Url.Action("Dashboard", "Admin")">Admin</a> </li>
-                                            }
-                                        </ul>
-                                    </div>
-                                </div>
-                            </nav>
-                        </div>
-                        <div class="col-md-2 col-sm-2 col-xs-3 cart">
-                            <ul class="list-inline pull-right">
-                                <li class="dropdown cart-menu-body">
-                                    <a href="#" class="cart-menu-body">
-                                        <img src="~/Content/images/cart.png" alt="" style="height:50px; width:50px; padding-top:12px;">
-                                        @{ int sum = 0;}
-                                        @if ((List<Item>)Session["cart"] != null)
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <!--=================== Single Menu ===================-->
+                                        <li class="width-li"><a href="@Url.Action("About", "Home")">About us</a></li>
+                                        <li class="width-li"><a href="@Url.Action("Contact", "Home")">Contact us</a></li>
+                                        <!--=================== Single Menu ===================-->
+                                        <li>@Html.Partial("_LoginPartial")</li>
+                                        @if (this.User.IsInRole("Admin"))
                                         {
-                                            foreach (Item item in (List<Item>)Session["cart"])
-                                            {
-                                                sum += item.Quantity;
-                                            }
+                                            <li class="width-li"><a href="@Url.Action("Dashboard", "Admin")">Admin</a> </li>
                                         }
-                                        <span class="font-size-12">@sum</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-3 cart">
+                        <ul class="list-inline pull-right">
+                            <li class="dropdown cart-menu-body">
+                                <a href="#" class="cart-menu-body">
+                                    <img src="~/Content/images/cart.png" alt="" style="height:50px; width:50px; padding-top:12px;">
+                                    @{ int sum = 0;}
+                                    @if ((List<Item>)Session["cart"] != null)
+                                    {
+                                        foreach (Item item in (List<Item>)Session["cart"])
+                                        {
+                                            sum += item.Quantity;
+                                        }
+                                    }
+                                    <span class="font-size-12">@sum</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
-    </header>
+        </div>
+    </section>
+</header>

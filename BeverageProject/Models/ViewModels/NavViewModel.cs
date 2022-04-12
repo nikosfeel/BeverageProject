@@ -8,10 +8,9 @@ namespace BeverageProject.Models.ViewModels
 {
     public class NavViewModel
     {
-        public List<Beer> Beers { get; set; }
-        public List<Wine> Wines { get; set; }
-        public List<Whiskey> Whiskeys { get; set; }
-        public List<Spirit> Spirits { get; set; }
+        public IEnumerable<Category> Categories { get; set; }
+        public IEnumerable<Product> Products { get; set; }
+        
 
     }
 }
