@@ -19,6 +19,7 @@ namespace BeverageProject.Controllers
         public ActionResult Index(string category, string kind, string searchProduct, int? page, int? pSize, string sortOrder)
         {
             ViewBag.Category = category;
+            ViewBag.Kind = kind;
             List<Product> products = Filtering(sortOrder);
             //Filtering
             products = Filter(searchProduct, products);
