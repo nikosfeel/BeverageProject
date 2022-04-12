@@ -1,11 +1,10 @@
-﻿@model Entities.Products.Whiskey
+﻿@model Entities.Products.Product
 
 @{
-    ViewBag.Title = "CreateWhiskey";
+    ViewBag.Title = "CreateProduct";
     Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
 }
-
-<h2>CreateWhiskey</h2>
+<h2>Create Product</h2>
 <section id="main-content">
 
     @using (Html.BeginForm())
@@ -13,7 +12,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-body" style="width:60%; margin:15rem auto;">
-            <h1 style="text-align:center">Add Whiskey</h1>
+            <h1 style="text-align:center">Add Product</h1>
 
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
