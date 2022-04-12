@@ -59,7 +59,7 @@
                                                 <li>
                                                     <div class="container">
                                                         <div class="row">
-                                                            @foreach (var cat in Model.Categories)
+                                                            @foreach (var cat in Model.Categories.OrderBy(x=>x.Title))
                                                             {
                                                                 <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
                                                                     <h4 class="margin-bottom-0"><a href="@Url.Action("Index","ProductsView", new {category = cat.Title })">@cat.Title</a></h4>
