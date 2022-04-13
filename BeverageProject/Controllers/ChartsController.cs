@@ -15,7 +15,7 @@ namespace BeverageProject.Controllers
         public ActionResult ProductChart()
         {
             return View();
-        }       
+        }
 
         public ActionResult GetProductChartData()
         {
@@ -25,5 +25,14 @@ namespace BeverageProject.Controllers
 
             return Json(dataforchart, JsonRequestBehavior.AllowGet);
         }
+
+        //public ActionResult TEST(string category, string kind)
+        //{
+        //    List<Product> products = db.Products.ToList();
+
+        //    var dataforchart = products.Select(x => new { name = x.Category.Title = category,  y = x.Kind = kind});
+
+        //    return Json(dataforchart, JsonRequestBehavior.AllowGet);
+        //}
     }
 }

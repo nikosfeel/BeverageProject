@@ -101,20 +101,7 @@
                         element.find(".delete-btn").click(DeleteRow);
                         element.find(".edit-btn").click(EditRow);
 
-
                         $("tbody").append(element);
-
-
-
-
-
-
-
-
-
-
-
-
                     }
                 }
             });
@@ -134,7 +121,7 @@
             $.ajax(settings).done(function (response) {
                 console.log(response);
                 let product = response;
-                let querry = "#" + product.Id;
+                let querry = "#" + product.ProductId;
 
                 $(querry).hide(500, removeRow);
                 function removeRow() {

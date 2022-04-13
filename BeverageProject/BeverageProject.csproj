@@ -1550,6 +1550,7 @@
     <Content Include="Views\ProductsView\Details.cshtml" />
     <Content Include="Views\ProductsView\Create.cshtml" />
     <Content Include="Views\ProductCreate\CreateProduct.cshtml" />
+    <Content Include="Views\Charts\ProductChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
