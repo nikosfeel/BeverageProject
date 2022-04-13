@@ -11,6 +11,10 @@ namespace Entities.Orders
 {
     public class Order
     {
+        public Order()
+        {
+            OrderProducts = new List<OrderProduct>();
+        }
         public int OrderId { get; set; }
 
         public DateTime OrderDate { get; set; }
@@ -55,7 +59,7 @@ namespace Entities.Orders
         //public ICollection<Whiskey> Whiskeys { get; set; } = new List<Whiskey>();
         //public ICollection<Spirit> Spirits { get; set; } = new List<Spirit>();
 
-        public string Products { get; set; }
+        public ICollection<OrderProduct> OrderProducts { get; set; }
 
     }
 }
