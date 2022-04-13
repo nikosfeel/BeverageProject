@@ -20,8 +20,6 @@
                             <table class="table table-bordered table-striped table-condensed">
                                 <thead>
                                     <tr>
-
-                                        <th class="numeric">User ID</th>
                                         <th class="numeric">Username</th>
                                         <th class="numeric">Email</th>
                                     </tr>
@@ -30,7 +28,6 @@
                                     @foreach (var user in Model)
                                     {
                                         <tr>
-                                            <td class="numeric">@Html.DisplayFor(modelItem => user.Id)</td>
                                             <td class="numeric">@Html.DisplayFor(modelItem => user.UserName)</td>
                                             <td class="numeric">@Html.DisplayFor(modelItem => user.Email)</td>
                                         </tr>
