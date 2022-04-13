@@ -4,12 +4,12 @@
     ViewBag.Title = "CreateProduct";
     Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
 }
-<h2>Create Product</h2>
-<section id="main-content">
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+<section id="main-content">
+    <section class="wrapper">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
         <div class="form-body" style="width:70%; margin:15rem auto;">
             <h1 style="text-align:center">Add Product</h1>
@@ -63,60 +63,6 @@
         </div>
 
     }
+
+
 </section>
-
-@section scripts{
-    <script>
-
-        $("#categoryChoice").on('change', function () {
-            $(".kind-select").remove();
-            let template;
-            switch (this.value) {
-                case "Beer": template = ` 
-                        <select name="Kind" required class="btn btn-white kind-select">
-                              <option style="text-align:center" value="Ale">Ale</option>
-                              <option style="text-align:center" value="Belgian">Belgian</option>
-                              <option style="text-align:center" value="Bock">Bock</option>
-                              <option style="text-align:center" value="Lager">Lager</option>
-                              <option style="text-align:center" value="Pilsner">Pilsner</option>
-                              <option style="text-align:center" value="Porter">Porter</option>
-                              <option style="text-align:center" value="Stout">Stout</option>
-                              <option style="text-align:center" value="Wheat">Wheat</option>
-                         </select>
-                                            `
-                    break;                    
-                case "Spirit": template = `
-                        <select name="Kind" required class="btn btn-white kind-select">
-                             <option style="text-align:center" value="Brandy">Brandy</option>
-                             <option style="text-align:center" value="Gin">Gin</option>
-                             <option style="text-align:center" value="Rum">Rum</option>
-                             <option style="text-align:center" value="Vodka">Vodka</option>
-                        </select> `
-                    break;
-                case "Whiskey": template = `
-                        <select name="Kind" required class="btn btn-white kind-select">
-                             <option style="text-align:center" value="Blended">Blended</option>
-                             <option style="text-align:center" value="Bourbon">Bourbon</option>
-                             <option style="text-align:center" value="Canadian">Canadian</option>
-                             <option style="text-align:center" value="Irish">Irish</option>
-                             <option style="text-align:center" value="Japanese">Japanese</option>
-                             <option style="text-align:center" value="Rye">Rye</option>
-                             <option style="text-align:center" value="Scotch">Scotch</option>
-                             <option style="text-align:center" value="Single Malt">Single Malt</option>
-                         </select> `
-                    break;
-                case "Wine": template = `
-                        <select name="Kind" required class="btn btn-white kind-select">
-                            <option style="text-align:center" value="Dessert">Dessert</option>
-                            <option style="text-align:center" value="Red">Red</option>
-                            <option style="text-align:center" value="Rose">Rose</option>
-                            <option style="text-align:center" value="Sparkling">Sparkling</option>
-                            <option style="text-align:center" value="Sweet">Sweet</option>
-                            <option style="text-align:center" value="White">White</option>
-                        </select> `
-                    break;
-            }
-            $(".input-submit").append(template);
-        })
-    </script>    
-}

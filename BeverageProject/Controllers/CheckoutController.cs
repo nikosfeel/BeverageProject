@@ -48,14 +48,13 @@ namespace BeverageProject.Controllers
             foreach (var item in cart)
             {
                 order.Total += Convert.ToDecimal(item.Product.Price);
-                order.Products = $"Name: {item.Product.Name} Price:{item.Product.Price} Quantity: {item.Quantity}";
+                db.OrderProducts.Add(new OrderProduct() { Order = order, Product = item.Product });
             }
-
+            
 
             db.Entry(order).State = EntityState.Added;
             db.SaveChanges();
             cart.Clear();
-
 
             return RedirectToAction("Success");
         }
@@ -68,11 +67,9 @@ namespace BeverageProject.Controllers
             var listItems = new ItemList()
             {
                 items = new List<PayPal.Api.Item>() 
-
             };
 
             List<Entities.Items.Item> listCarts = (List<Entities.Items.Item>)Session["cart"];
-
 
             foreach(var cart in listCarts)
             {
@@ -86,20 +83,16 @@ namespace BeverageProject.Controllers
                 }); 
             }
 
-
             var payer = new Payer() { payment_method = "paypal" };
 
             // configure RedirectUrls
-
             var redirect = new RedirectUrls()
             {
                 cancel_url = redirectUrl,
                 return_url = redirectUrl,
             };
 
-
             //details
-
             var details = new Details()
             {
                 tax = "1",
@@ -108,16 +101,14 @@ namespace BeverageProject.Controllers
             };
 
             //create amount
-
             var amount = new Amount()
             {
                 currency = "EUR",
-                total = (Convert.ToDouble(details.tax) + Convert.ToDouble(details.shipping) + Convert.ToDouble(details.subtotal)).ToString(),
+                total = (Convert.ToDouble(details.tax) + Convert.ToDouble(details.shipping) + Convert.ToDouble(details.subtotal)).ToString(),         
                 details = details
             };
 
             // creating Transaction
-
             var transactionList = new List<Transaction>();
 
             transactionList.Add(new Transaction()
@@ -126,9 +117,7 @@ namespace BeverageProject.Controllers
                 invoice_number = Convert.ToString(new Random().Next(100000)),
                 amount = amount,
                 item_list  = listItems
-
             });
-
 
             payment = new Payment()
             {
@@ -140,7 +129,6 @@ namespace BeverageProject.Controllers
             };
 
             return payment.Create(apiContext);
-
         }
 
 
@@ -163,7 +151,6 @@ namespace BeverageProject.Controllers
         public ActionResult PaymentWithPaypal()
         {
             APIContext apiContext = PaypalConfiguration.GetAPIContext();
-
 
             try
             {
