@@ -15,6 +15,7 @@ namespace Entities.Products
         public double Price { get; set; }
         public string PhotoUrl { get; set; }        
         public string Kind { get; set; }
+        public int Quantity { get; set; }
 
         public int CategoryId { get; set; }
         public Category Category { get; set; }

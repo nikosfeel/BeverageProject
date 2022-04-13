@@ -44,11 +44,14 @@ namespace BeverageProject.Controllers
             order.FullName = orderDto.FullName;
             order.Total = 0;
             order.OrderDate = orderDto.OrderDate;
+            order.Total = orderDto.Total;
                      
             foreach (var item in cart)
             {
                 order.Total += Convert.ToDecimal(item.Product.Price);
+                item.Product.Quantity = item.Quantity;
                 order.Products.Add(item.Product);
+
             }
             
 
