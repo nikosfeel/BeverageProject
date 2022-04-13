@@ -12,7 +12,7 @@ namespace BeverageProject.Controllers.AdminControllers
     public class ProductCreateController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
-       
+
         public ActionResult Index()
         {
             return View("~/Views/Admin/AllProducts.cshtml");
@@ -25,14 +25,23 @@ namespace BeverageProject.Controllers.AdminControllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreateProduct([Bind(Include = "Id,Name,Description,Price,PhotoUrl,Kind,Category")] Product product)
+        public ActionResult CreateProduct(string name, string description, string photoUrl, double price, string category, string kind)
         {
-            if (ModelState.IsValid)
+            var categories = db.Categories.ToList();
+
+            var product = new Product()
             {
-                db.Products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                Name = name,
+                Description = description,
+                PhotoUrl = photoUrl,
+                Price = price,
+                Category = categories.Where(x => x.Title == category).FirstOrDefault(),
+                Kind = kind
+            };
+
+            db.Products.Add(product);
+            db.SaveChanges();
+
             return View(product);
         }
     }
