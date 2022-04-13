@@ -479,6 +479,7 @@
     <Content Include="Content\images\slider\SpiritCasourel.png" />
     <Content Include="Content\images\slider\WhiskeyCasourel.png" />
     <Content Include="Content\images\wine-glass.png" />
+    <Content Include="Content\OrderForm.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\SortByStyle.css" />

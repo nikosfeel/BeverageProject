@@ -13,87 +13,7 @@
     <link rel="shortcut icon" href="~/Content/images/wine-glass.png" type="image/png" />
     <link href="~/Content/css/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <style>
-        body {
-            background-color: #D0D0D0;
-        }
-
-        .row {
-            display: -ms-flexbox; /* IE10 */
-            display: flex;
-            -ms-flex-wrap: wrap; /* IE10 */
-            flex-wrap: wrap;
-            margin: 0 -16px;
-        }
-
-        .col-25 {
-            -ms-flex: 25%; /* IE10 */
-            flex: 25%;
-        }
-
-        .col-50 {
-            -ms-flex: 50%; /* IE10 */
-            flex: 50%;
-        }
-
-        .col-75 {
-            -ms-flex: 75%; /* IE10 */
-            flex: 75%;
-        }
-
-        .col-25,
-        .col-50,
-        .col-75 {
-            padding: 0 16px;
-        }
-
-        .container {
-            background-color: #f2f2f2;
-            padding: 5px 20px 15px 20px;
-            border: 1px solid lightgrey;
-            border-radius: 3px;
-        }
-
-        input[type=text] {
-            width: 100%;
-            margin-bottom: 20px;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
-
-        label {
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .icon-container {
-            margin-bottom: 20px;
-            padding: 7px 0;
-            font-size: 24px;
-        }
-
-        .btn {
-            background-color: #04AA6D;
-            color: white;
-            padding: 12px;
-            margin: 10px 0;
-            border: none;
-            width: 100%;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 17px;
-        }
-
-            .btn:hover {
-                background-color: #45a049;
-            }
-
-        span.price {
-            float: right;
-            color: grey;
-        }
-    </style>
+    <link href="~/Content/OrderForm.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -119,14 +39,9 @@
                                 <input type="text" id="adr" name="address" placeholder="Papadiamanti 15, Monastiraki">
                                 <label for="city"><i class="fa fa-institution"></i> City</label>
                                 <input type="text" id="city" name="city" placeholder="Athens">
-
-                                <div class="row">
-                                    <div class="col-50">
-                                        <label for="zip"><i class="fa fa-map-marker"></i> Zip</label>
-                                        <input type="text" id="zip" name="postalcode" placeholder="10001">
-                                    </div>
-                                </div>
-                                <label for="phone"><i class="fa fa-mobile-phone"></i> Phone Number</label>
+                                <label for="zip"><i class="fa fa-map-marker"></i> Zip</label>
+                                <input type="text" id="zip" name="postalcode" placeholder="10001">
+                                <label for="phone"><i class="fa fa-phone"></i> Phone Number</label>
                                 <input type="text" id="phone" name="phone" placeholder="e.g 6912345678">
                             </div>
                         </div>
@@ -149,7 +64,7 @@
                     List<Item> cart = (List<Item>)Session["cart"];
                     var total = cart.Sum(item => item.Product.Price * item.Quantity);
                 }
-                <div class="container">
+                <div class="container" style="background: url(/Content/images/banner/parallax.jpg) no-repeat fixed;">
                     <h4>
                         Your Cart
                         <span class="price" style="color:black">
