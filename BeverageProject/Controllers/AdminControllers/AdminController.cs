@@ -22,7 +22,7 @@ namespace BeverageProject.Controllers.AdminControllers
         [Authorize(Roles = "Admin")]
         public ActionResult CustomerOrders()
         {
-            var orders = db.Orders.Include(x=>x.OrderProducts).ToList();
+            var orders = db.Orders.Include(x=>x.Products).ToList();
                        
             return View(orders);
         }

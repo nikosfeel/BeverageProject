@@ -19,7 +19,7 @@ namespace Entities.Products
         public int CategoryId { get; set; }
         public Category Category { get; set; }
 
-        public ICollection<OrderProduct> OrderProducts { get; set; }
+        public ICollection<Order> Orders { get; set; }
 
     }
 }

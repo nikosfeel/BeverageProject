@@ -13,7 +13,7 @@ namespace Entities.Orders
     {
         public Order()
         {
-            OrderProducts = new List<OrderProduct>();
+            Products = new List<Product>();
         }
         public int OrderId { get; set; }
 
@@ -59,7 +59,7 @@ namespace Entities.Orders
         //public ICollection<Whiskey> Whiskeys { get; set; } = new List<Whiskey>();
         //public ICollection<Spirit> Spirits { get; set; } = new List<Spirit>();
 
-        public ICollection<OrderProduct> OrderProducts { get; set; }
+        public ICollection<Product> Products { get; set; }
 
     }
 }

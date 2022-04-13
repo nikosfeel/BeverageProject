@@ -16,6 +16,5 @@ namespace Entities
         string PhotoUrl { get; set; }
         string Kind { get; set; }
 
-        ICollection<OrderProduct> OrderProducts { get; set; }
     }
 }

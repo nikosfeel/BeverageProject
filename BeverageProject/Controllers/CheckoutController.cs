@@ -48,7 +48,7 @@ namespace BeverageProject.Controllers
             foreach (var item in cart)
             {
                 order.Total += Convert.ToDecimal(item.Product.Price);
-                db.OrderProducts.Add(new OrderProduct() { Order = order, Product = item.Product });
+                order.Products.Add(item.Product);
             }
             
 

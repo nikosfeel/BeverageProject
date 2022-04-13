@@ -84,13 +84,11 @@
                                             </td>
                                             <td>
                                                 
-                                                <ul>
-                                                    
-                                                    @foreach (var item in order.OrderProducts)
+                                                <ul>                                                    
+                                                    @foreach (var item in order.Products)
                                                     {
-                                                        <li>@item.Product.Name</li>
+                                                        <li>Product Name :@item.Name</li>
                                                     }
-
                                                 </ul>
                                             </td>
                                         </tr>
