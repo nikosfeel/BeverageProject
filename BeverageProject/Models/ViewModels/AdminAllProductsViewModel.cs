@@ -8,6 +8,6 @@ namespace BeverageProject.Models.ViewModels
 {
     public class AdminAllProductsViewModel
     {
-        public List<Product> Products { get; set; }
+        public IEnumerable<Product> Products { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using Entities.Products;
 using MyDatabase;
 using PagedList;
+using PersistenceLayerGeneric.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,8 +15,18 @@ namespace BeverageProject.Controllers
 {
     public class ProductsViewController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-        private PaginationAndSorting helper = new PaginationAndSorting();
+        private ApplicationDbContext db;
+        private PaginationAndSorting helper;
+        private ProductService prodService;
+        
+
+        public ProductsViewController()
+        {
+            db = new ApplicationDbContext();
+            helper = new PaginationAndSorting();
+            prodService = new ProductService(db);
+            
+        }
 
         // GET: Product
         public ActionResult Index(string category, string kind, string searchProduct, int? page, int? pSize, string sortOrder)
@@ -78,7 +89,8 @@ namespace BeverageProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+
+            Product product = prodService.Get((int)id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -101,7 +113,7 @@ namespace BeverageProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
+                prodService.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -116,7 +128,7 @@ namespace BeverageProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = prodService.Get((int)id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -147,7 +159,7 @@ namespace BeverageProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Find(id);
+            Product product = prodService.Get((int)id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -160,9 +172,7 @@ namespace BeverageProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
+            prodService.Remove(id);            
             return RedirectToAction("Index");
         }
 

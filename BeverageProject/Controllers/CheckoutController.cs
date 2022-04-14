@@ -50,7 +50,6 @@ namespace BeverageProject.Controllers
             {
                 order.Total += Convert.ToDecimal(item.Product.Price);
                 order.Products.Add(item.Product);
-
             }
             //arxika find db.products.find ola ta products me vash ta id ths order.products
 

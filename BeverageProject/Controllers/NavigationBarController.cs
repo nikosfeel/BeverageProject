@@ -7,21 +7,31 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using Entities;
+using PersistenceLayerGeneric.Repositories;
+using Entities.Products;
 
 namespace BeverageProject.Controllers
 {
     public class NavigationBarController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db;
+        private ProductService prodService;
+        private CategoryService catService;
+        public NavigationBarController()
+        {
+            db = new ApplicationDbContext();
+            prodService = new ProductService(db);
+            catService = new CategoryService(db);
+        }
 
         // GET: NavigationBar
         public ActionResult NavBarCategories()
         {
-            
+
             NavViewModel viewModel = new NavViewModel();
-            viewModel.Products = db.Products.GroupBy(x=>x.Kind).Select(c=>c.FirstOrDefault()).ToList();
-            viewModel.Categories = db.Categories.ToList();
-            
+            viewModel.Products = prodService.GetAll().OrderBy(x => x.Kind).GroupBy(x => x.Kind).Select(c => c.FirstOrDefault()).ToList();
+            viewModel.Categories = catService.GetAll();
+
 
 
             return PartialView("ClientComponents/_NavigationBar", viewModel);

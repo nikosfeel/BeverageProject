@@ -12,18 +12,25 @@ using System.Web.Http.Description;
 using Entities;
 using Entities.Products;
 using System.Data.Entity.Infrastructure;
+using PersistenceLayerGeneric.Repositories;
 
 namespace BeverageProject.Controllers.Api
 {
     public class AllProductsController : ApiController
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db;
+        private ProductService prodService;
+        public AllProductsController()
+        {
+            db = new ApplicationDbContext();
+            prodService = new ProductService(db);
+        }
 
         // GET: api/AllProducts
         public IHttpActionResult Get()
         {
             AdminAllProductsViewModel vm = new AdminAllProductsViewModel();
-            vm.Products = db.Products.Include(x => x.Category).ToList();
+            vm.Products = prodService.GetAllProductsWithCategory();
 
             var products = vm.Products.Select(product => new
             {
@@ -56,7 +63,7 @@ namespace BeverageProject.Controllers.Api
         public IHttpActionResult Put(int id, Product product)
         {
             
-            var prod = db.Products.Find(id);
+            var prod = prodService.Get(id);
             prod.Name = product.Name;
             prod.Description = product.Description;
             prod.Price = product.Price;
@@ -91,7 +98,7 @@ namespace BeverageProject.Controllers.Api
         public IHttpActionResult DeleteProduct(string id)
         {
 
-            var Products = db.Products.ToList();
+            var Products = prodService.GetAll();
             var product = Products.Where(p => p.ProductId == Convert.ToInt32(id)).First();
 
             if (product == null)
