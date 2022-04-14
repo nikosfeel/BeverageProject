@@ -4,65 +4,66 @@
     ViewBag.Title = "CreateProduct";
     Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
 }
-<h2>Create Product</h2>
+
 <section id="main-content">
+    <section class="wrapper">       
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-body" style="width:70%; margin:15rem auto;">
+                    <h1 style="text-align:center">Add Product</h1>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group" style="padding-bottom:4rem;">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-1" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group" style="padding-bottom:4rem;">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-1" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group" style="padding-bottom:4rem;">
+                        @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-1" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group" style="padding-bottom:4rem;">
+                        @Html.LabelFor(model => model.PhotoUrl, htmlAttributes: new { @class = "control-label col-md-1" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.PhotoUrl, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PhotoUrl, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group input-submit col-md-10" style="padding-bottom:2rem;">
+                        <label class="control-label" for="categoryStart">Category</label>
+                        <form class="form-control" id="categoryStart">
+                            <select id="categoryChoice" name="Category" required class="btn btn-white" style="margin-left:35px;">
+                                <option selected style="text-align:center" disabled>Menu</option>
+                                <option style="text-align:center" value="Beer">Beer</option>
+                                <option style="text-align:center" value="Spirit">Spirit</option>
+                                <option style="text-align:center" value="Whiskey">Whiskey</option>
+                                <option style="text-align:center" value="Wine">Wine</option>
+                            </select>
+                        </form>
+                        <label class="control-label" style="margin-left:10px">Kind</label>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-1 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-body" style="width:70%; margin:15rem auto;">
-            <h1 style="text-align:center">Add Product</h1>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group" style="padding-bottom:4rem;">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-1" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group" style="padding-bottom:4rem;">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-1" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group" style="padding-bottom:4rem;">
-                @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-1" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group" style="padding-bottom:4rem;">
-                @Html.LabelFor(model => model.PhotoUrl, htmlAttributes: new { @class = "control-label col-md-1" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.PhotoUrl, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.PhotoUrl, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group input-submit" style="padding-bottom:2rem;">
-                <label class="control-label" for="categoryStart">Category-Kind</label>
-                <form class="form-control" id="categoryStart">
-                    <select id="categoryChoice" name="Category" required class="btn btn-white">
-                        <option selected style="text-align:center" disabled>Category:</option>
-                        <option style="text-align:center" value="Beer">Beer</option>
-                        <option style="text-align:center" value="Spirit">Spirit</option>
-                        <option style="text-align:center" value="Whiskey">Whiskey</option>
-                        <option style="text-align:center" value="Wine">Wine</option>
-                    </select>
-                </form>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-1 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
-        </div>
-
-    }
+            }
+    </section>
 </section>
 
 @section scripts{
@@ -73,47 +74,46 @@
             let template;
             switch (this.value) {
                 case "Beer": template = `
-                        <select name="Kind" required class="btn btn-white kind-select">
-                              <option style="text-align:center" value="Ale">Ale</option>
-                              <option style="text-align:center" value="Belgian">Belgian</option>
-                              <option style="text-align:center" value="Bock">Bock</option>
-                              <option style="text-align:center" value="Lager">Lager</option>
-                              <option style="text-align:center" value="Pilsner">Pilsner</option>
-                              <option style="text-align:center" value="Porter">Porter</option>
-                              <option style="text-align:center" value="Stout">Stout</option>
-                              <option style="text-align:center" value="Wheat">Wheat</option>
-                         </select>
-                                            `
+                                    <select name="Kind" required class="btn btn-white kind-select">
+                                          <option style="text-align:center" value="Ale">Ale</option>
+                                          <option style="text-align:center" value="Belgian">Belgian</option>
+                                          <option style="text-align:center" value="Bock">Bock</option>
+                                          <option style="text-align:center" value="Lager">Lager</option>
+                                          <option style="text-align:center" value="Pilsner">Pilsner</option>
+                                          <option style="text-align:center" value="Porter">Porter</option>
+                                          <option style="text-align:center" value="Stout">Stout</option>
+                                          <option style="text-align:center" value="Wheat">Wheat</option>
+                                     </select>`
                     break;
                 case "Spirit": template = `
-                        <select name="Kind" required class="btn btn-white kind-select">
-                             <option style="text-align:center" value="Brandy">Brandy</option>
-                             <option style="text-align:center" value="Gin">Gin</option>
-                             <option style="text-align:center" value="Rum">Rum</option>
-                             <option style="text-align:center" value="Vodka">Vodka</option>
-                        </select> `
+                                    <select name="Kind" required class="btn btn-white kind-select">
+                                         <option style="text-align:center" value="Brandy">Brandy</option>
+                                         <option style="text-align:center" value="Gin">Gin</option>
+                                         <option style="text-align:center" value="Rum">Rum</option>
+                                         <option style="text-align:center" value="Vodka">Vodka</option>
+                                    </select> `
                     break;
                 case "Whiskey": template = `
-                        <select name="Kind" required class="btn btn-white kind-select">
-                             <option style="text-align:center" value="Blended">Blended</option>
-                             <option style="text-align:center" value="Bourbon">Bourbon</option>
-                             <option style="text-align:center" value="Canadian">Canadian</option>
-                             <option style="text-align:center" value="Irish">Irish</option>
-                             <option style="text-align:center" value="Japanese">Japanese</option>
-                             <option style="text-align:center" value="Rye">Rye</option>
-                             <option style="text-align:center" value="Scotch">Scotch</option>
-                             <option style="text-align:center" value="Single Malt">Single Malt</option>
-                         </select> `
+                                    <select name="Kind" required class="btn btn-white kind-select">
+                                         <option style="text-align:center" value="Blended">Blended</option>
+                                         <option style="text-align:center" value="Bourbon">Bourbon</option>
+                                         <option style="text-align:center" value="Canadian">Canadian</option>
+                                         <option style="text-align:center" value="Irish">Irish</option>
+                                         <option style="text-align:center" value="Japanese">Japanese</option>
+                                         <option style="text-align:center" value="Rye">Rye</option>
+                                         <option style="text-align:center" value="Scotch">Scotch</option>
+                                         <option style="text-align:center" value="Single Malt">Single Malt</option>
+                                     </select> `
                     break;
                 case "Wine": template = `
-                        <select name="Kind" required class="btn btn-white kind-select">
-                            <option style="text-align:center" value="Dessert">Dessert</option>
-                            <option style="text-align:center" value="Red">Red</option>
-                            <option style="text-align:center" value="Rose">Rose</option>
-                            <option style="text-align:center" value="Sparkling">Sparkling</option>
-                            <option style="text-align:center" value="Sweet">Sweet</option>
-                            <option style="text-align:center" value="White">White</option>
-                        </select> `
+                                    <select name="Kind" required class="btn btn-white kind-select">
+                                        <option style="text-align:center" value="Dessert">Dessert</option>
+                                        <option style="text-align:center" value="Red">Red</option>
+                                        <option style="text-align:center" value="Rose">Rose</option>
+                                        <option style="text-align:center" value="Sparkling">Sparkling</option>
+                                        <option style="text-align:center" value="Sweet">Sweet</option>
+                                        <option style="text-align:center" value="White">White</option>
+                                    </select> `
                     break;
             }
             $(".input-submit").append(template);
