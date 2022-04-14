@@ -10,6 +10,8 @@ using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Http.Description;
 using Entities;
+using Entities.Products;
+using System.Data.Entity.Infrastructure;
 
 namespace BeverageProject.Controllers.Api
 {
@@ -21,7 +23,7 @@ namespace BeverageProject.Controllers.Api
         public IHttpActionResult Get()
         {
             AdminAllProductsViewModel vm = new AdminAllProductsViewModel();
-            vm.Products = db.Products.Include(x=>x.Category).ToList();
+            vm.Products = db.Products.Include(x => x.Category).ToList();
 
             var products = vm.Products.Select(product => new
             {
@@ -33,7 +35,7 @@ namespace BeverageProject.Controllers.Api
                 product.Kind,
                 Category = product.Category.Title,
             }).ToList();
-            
+
 
             return Json(new { products = products });
         }
@@ -50,8 +52,38 @@ namespace BeverageProject.Controllers.Api
         }
 
         // PUT: api/AllProducts/5
-        public void Put(int id, [FromBody] string value)
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Put(int id, Product product)
         {
+            
+            var prod = db.Products.Find(id);
+            prod.Name = product.Name;
+            prod.Description = product.Description;
+            prod.Price = product.Price;
+
+            db.Entry(prod).State = EntityState.Modified;
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ProductExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return StatusCode(HttpStatusCode.NoContent);
+
+        }
+
+        private bool ProductExists(int id)
+        {
+            throw new NotImplementedException();
         }
 
         // DELETE: api/AllProducts/5
