@@ -48,27 +48,26 @@
                                         <th>
                                             <strong>Products</strong>
                                         </th>
+                                        <th>
+                                            <strong>Total</strong>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var order in Model)
                                     {
                                         <tr>
-                                            <td>                                                
+                                            <td>
                                                 @Html.DisplayFor(modelItem => order.OrderId)
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => order.OrderDate)
                                             </td>
                                             <td>
-                                                <strong>
                                                     @Html.DisplayFor(modelItem => order.FullName)
-                                                </strong>
                                             </td>
                                             <td>
-                                                <strong>
                                                     @Html.DisplayFor(modelItem => order.Address)
-                                                </strong>
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => order.City)
@@ -82,14 +81,14 @@
                                             <td>
                                                 @Html.DisplayFor(modelItem => order.Email)
                                             </td>
-                                            <td>                                                
-                                                <ul>                                                    
-                                                    @foreach (var item in order.Products)
-                                                    {
-                                                        <li>Product Name :@item.Name</li>
-                                                    }
-                                                    <li>Total: @order.Total</li>
-                                                </ul>                                                
+                                            <td>
+                                                @foreach (var item in order.Products)
+                                                {
+                                                    <span style="display:flex">@item.Name</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @order.Total€
                                             </td>
                                         </tr>
                                     }
