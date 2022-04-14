@@ -13,7 +13,7 @@ namespace Entities.Orders
     {
         public Order()
         {
-            Products = new List<Product>();
+            Products = new HashSet<Product>();
         }
         public int OrderId { get; set; }
 
@@ -54,10 +54,7 @@ namespace Entities.Orders
 
         [ScaffoldColumn(false)]
         public bool HasBeenShipped { get; set; }
-        //public ICollection<Beer> Beers { get; set; } = new List<Beer>();
-        //public ICollection<Wine> Wines { get; set; } = new List<Wine>();
-        //public ICollection<Whiskey> Whiskeys { get; set; } = new List<Whiskey>();
-        //public ICollection<Spirit> Spirits { get; set; } = new List<Spirit>();
+
 
         public ICollection<Product> Products { get; set; }
 
