@@ -49,11 +49,18 @@ namespace BeverageProject.Controllers
             foreach (var item in cart)
             {
                 order.Total += Convert.ToDecimal(item.Product.Price);
-                item.Product.Quantity = item.Quantity;
                 order.Products.Add(item.Product);
 
             }
-            
+            //arxika find db.products.find ola ta products me vash ta id ths order.products
+
+            List<Product> tempProducts = new List<Product>();
+            foreach (var prod in order.Products)
+            {
+                var temp = db.Products.Find(prod.ProductId);
+                tempProducts.Add(temp);
+            }
+            order.Products = tempProducts;
 
             db.Entry(order).State = EntityState.Added;
             db.SaveChanges();

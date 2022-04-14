@@ -15,7 +15,5 @@ namespace BeverageProject.Models.Dtos
         public string Email { get; set; }
         public decimal Total { get; set; }
         public DateTime OrderDate { get; set; } = DateTime.Now;
-
-
     }
 }
