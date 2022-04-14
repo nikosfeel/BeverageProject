@@ -405,6 +405,7 @@
     <Content Include="Content\images\grabbing.png" />
     <Content Include="Content\images\hedding.png" />
     <Content Include="Content\images\image-zoom.jpg" />
+    <Content Include="Content\images\Logo.png" />
     <Content Include="Content\images\nav-expand.png" />
     <Content Include="Content\images\overlay1.png" />
     <Content Include="Content\images\overlay10.png" />

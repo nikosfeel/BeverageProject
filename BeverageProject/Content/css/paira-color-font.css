@@ -16,7 +16,7 @@ body {
 .product h1, .mega-menu .navbar-nav>li>a, .navbar-search a, .currencies button, .mega-menu-fw h4, .welcome-newsletter h1 span, .btn-default, .btn-default.disabled, .modal-content button.close, .product h1 a, .banner-small h1 a, .latest-collection h2 a, .instagram h3 a, .blog h3, .latest-product .see-more a, .btn-border, .welcome-newsletter-content h1, .team a p, .paira-success-message-title, .product-dtl h4, .raleway-sbold, .pagination .active span, b, strong, .footer-list-style li a , .footer-bottom p {
     font-weight: 600;
 }
-.mega-menu .navbar-nav>li>a , .navbar-search a, .currencies button , a, .cart-menu-body a span, .currencies button:hover, .cart-menu-body a span, .carousel-control, .btn-border, .big-banner h1, .sort-by, footer a, .footer-list-style li a , .footer-bottom p, .carousel-control .right:hover ,.carousel-control .left:hover, h1,h2,h3,h4,h5,h6 , p {
+.mega-menu .navbar-nav>li>a , .navbar-search a, .currencies button , a, .currencies button:hover, .carousel-control, .btn-border, .big-banner h1, .sort-by, footer a, .footer-list-style li a , .footer-bottom p, .carousel-control .right:hover ,.carousel-control .left:hover, h1,h2,h3,h4,h5,h6 , p {
     color: #000;
 }
 .list-grid button.active:hover {
@@ -79,7 +79,7 @@ a:focus, a:hover , footer a:hover , .product a p:hover, .left.carousel-control:h
     background: transparent;
     color: #7d7d7d;
 }
-.text-color-1 , .forget-password a , .welcome-newsletter h1 span, figcaption h4.panel-heading, .logo a, .cart-menu-body a span, a.boxclose, .navbar-form .dropdown-menu .form-group i , .box .form-control, .row-5 .remove:hover, .cart-table-inner,.cart-table-inner a,.quantity-fix .btn, .product .quick-view , .product .product-cart-con , .product-page .toggle-button .fa-angle-right, .product-page .toggle-button .fa-angle-left {
+.text-color-1 , .forget-password a , .welcome-newsletter h1 span, figcaption h4.panel-heading, .logo a, a.boxclose, .navbar-form .dropdown-menu .form-group i , .box .form-control, .row-5 .remove:hover, .cart-table-inner,.cart-table-inner a,.quantity-fix .btn, .product .quick-view , .product .product-cart-con , .product-page .toggle-button .fa-angle-right, .product-page .toggle-button .fa-angle-left {
     color: #fff;
 }
 .text-color-2, .cart-table-inner .remove, .row-2 p a:hover , .quantity-fix .btn-success:hover , .quantity-fix .btn-default:hover{
@@ -103,7 +103,7 @@ button, .carousel-indicators li, .btn-border, .form-control , .blog-post-tags li
 .blogs1, .blogs {
     background: rgba(255, 255, 255, 0.8);
 }
-.welcome-newsletter h1 span, figcaption, .logo, .cart-menu-body a span, .carousel-indicators li{
+.welcome-newsletter h1 span, figcaption, .logo, .carousel-indicators li{
     background: #000;
 }
 .breadcrumb, .pro-content, .home-page .banner-small .banner-small-back, .form-group .center-block label, .welcome-newsletter-content .modal-content {
