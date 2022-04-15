@@ -1546,13 +1546,14 @@
     <Content Include="Views\Home\Chat.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
-    <Content Include="Views\Charts\BeerChart.cshtml" />
-    <Content Include="Views\Charts\SpiritChart.cshtml" />
     <Content Include="Views\ProductsView\Index.cshtml" />
     <Content Include="Views\ProductsView\Details.cshtml" />
     <Content Include="Views\ProductsView\Create.cshtml" />
     <Content Include="Views\ProductCreate\CreateProduct.cshtml" />
-    <Content Include="Views\Charts\ProductChart.cshtml" />
+    <Content Include="Views\Charts\BeerCharts.cshtml" />
+    <Content Include="Views\Charts\SpiritCharts.cshtml" />
+    <Content Include="Views\Charts\WhiskeyCharts.cshtml" />
+    <Content Include="Views\Charts\WineCharts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

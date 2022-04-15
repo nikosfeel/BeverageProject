@@ -1,10 +1,29 @@
 ﻿@{
-    ViewBag.Title = "Chart";
+    ViewBag.Title = "BeerCharts";
     Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
 }
+
 <section id="main-content">
     <section class="wrapper">
-        <h3 style="text-align:center">Beers Prices</h3>
+        <h3 style="text-align:center">Beers</h3>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Area Chart
+                        <span class="tools pull-right">
+                            <a href="javascript:;" id="areachartbtn" class="fa fa-chevron-up"></a>
+                        </span>
+                    </header>
+                    <div class="row panel-body">
+                        <div class="col-md-12">
+                            <div id="areaChartArea"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-sm-12">
@@ -28,24 +47,6 @@
             <div class="col-sm-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        Line Chart
-                        <span class="tools pull-right">
-                            <a href="javascript:;" id="linechartbtn" class="fa fa-chevron-up"></a>
-                        </span>
-                    </header>
-                    <div class="row panel-body">
-                        <div class="col-md-12">
-                            <div id="LineChartArea"></div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <section class="panel">
-                    <header class="panel-heading">
                         Pie Chart
                         <span class="tools pull-right">
                             <a href="javascript:;" id="piechartbtn" class="fa fa-chevron-up"></a>
@@ -53,24 +54,24 @@
                     </header>
                     <div class="row panel-body">
                         <div class="col-md-12">
-                            <div id="PieChartArea"></div>
+                            <div id="pieChartArea"></div>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
+
     </section>
 </section>
-@section scripts{
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+@section scripts{
 
     <script>
         $(document).ready(function () {
             $('#columnchartbtn').click(function () {
                 $.ajax({
                     type: "GET",
-                    url: '@Url.Action("GetBeerChartData")',
+                    url: '@Url.Action("BeerAreaAndColumnChart")',
                     dataType: "json",
                     success: function (data) {
                         var series = [
@@ -79,95 +80,32 @@
                                 name: 'Price',
                                 data: data
                             }];
-                        createChart("#columnChartArea", "", series);
+                        createChart("#columnChartArea", "Beer Prices", series);
                     }
                 });
             });
         });
-
-        function createChart(chartcontainer, title, series) {
-            $(chartcontainer).highcharts({
-                charts: {
-                    type: 'column'
-                },
-                credits: {
-                    enabled: false
-                },
-                exporting: {
-                    enabled: false
-                },
-                plotOptions: {
-                    column: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor || 'black'),
-                            }
-                        }
-                    }
-                },
-                series: series,
-                title: {
-                    text: title
-                }
-            });
-        }
     </script>
-
 
     <script>
         $(document).ready(function () {
-            $('#linechartbtn').click(function () {
+            $('#areachartbtn').click(function () {
                 $.ajax({
                     type: "GET",
-                    url: '@Url.Action("GetBeerChartData")',
+                    url: '@Url.Action("BeerAreaAndColumnChart")',
                     dataType: "json",
                     success: function (data) {
                         var series = [
                             {
-                                type: 'line',
+                                type: 'area',
                                 name: 'Price',
                                 data: data
                             }];
-                        createChart("#LineChartArea", "", series);
+                        createChart("#areaChartArea", "Beer Prices", series);
                     }
                 });
             });
         });
-
-        function createChart(chartcontainer, title, series) {
-            $(chartcontainer).highcharts({
-                charts: {
-                    type: 'line'
-                },
-                credits: {
-                    enabled: false
-                },
-                exporting: {
-                    enabled: false
-                },
-                plotOptions: {
-                    line: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor || 'black'),
-                            }
-                        }
-                    }
-                },
-                series: series,
-                title: {
-                    text: title
-                }
-            });
-        }
     </script>
 
     <script>
@@ -175,16 +113,16 @@
             $('#piechartbtn').click(function () {
                 $.ajax({
                     type: "GET",
-                    url: '@Url.Action("GetBeerChartData")',
+                    url: '@Url.Action("BeerPieChart")',
                     dataType: "json",
                     success: function (data) {
                         var series = [
                             {
                                 type: 'pie',
-                                name: 'Price',
+                                name: 'Quantity',
                                 data: data
                             }];
-                        createChart("#PieChartArea", "", series);
+                        createChart("#pieChartArea", "Beer Kinds", series);
                     }
                 });
             });
@@ -221,5 +159,4 @@
             });
         }
     </script>
-
 }

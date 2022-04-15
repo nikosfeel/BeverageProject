@@ -1,10 +1,29 @@
 ﻿@{
-    ViewBag.Title = "Chart";
+    ViewBag.Title = "WineCharts";
     Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
 }
+
 <section id="main-content">
     <section class="wrapper">
-        <h3 style="text-align:center">Products Prices</h3>
+        <h3 style="text-align:center">Wines</h3>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Area Chart
+                        <span class="tools pull-right">
+                            <a href="javascript:;" id="areachartbtn" class="fa fa-chevron-up"></a>
+                        </span>
+                    </header>
+                    <div class="row panel-body">
+                        <div class="col-md-12">
+                            <div id="areaChartArea"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-sm-12">
@@ -18,24 +37,6 @@
                     <div class="row panel-body">
                         <div class="col-md-12">
                             <div id="columnChartArea"></div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <section class="panel">
-                    <header class="panel-heading">
-                        Area Chart
-                        <span class="tools pull-right">
-                            <a href="javascript:;" id="linechartbtn" class="fa fa-chevron-up"></a>
-                        </span>
-                    </header>
-                    <div class="row panel-body">
-                        <div class="col-md-12">
-                            <div id="areaChartArea"></div>
                         </div>
                     </div>
                 </section>
@@ -62,15 +63,15 @@
 
     </section>
 </section>
+
 @section scripts{
 
-    <script src="https://code.highcharts.com/highcharts.js"></script>
     <script>
         $(document).ready(function () {
             $('#columnchartbtn').click(function () {
                 $.ajax({
                     type: "GET",
-                    url: '@Url.Action("GetProductChartData")',
+                    url: '@Url.Action("WineAreaAndColumnChart")',
                     dataType: "json",
                     success: function (data) {
                         var series = [
@@ -79,51 +80,19 @@
                                 name: 'Price',
                                 data: data
                             }];
-                        createChart("#columnChartArea", "", series);
+                        createChart("#columnChartArea", "Wine Prices", series);
                     }
                 });
             });
         });
-
-        function createChart(chartcontainer, title, series) {
-            $(chartcontainer).highcharts({
-                charts: {
-                    type: 'column'
-                },
-                credits: {
-                    enabled: false
-                },
-                exporting: {
-                    enabled: false
-                },
-                plotOptions: {
-                    column: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor || 'black'),
-                            }
-                        }
-                    }
-                },
-                series: series,
-                title: {
-                    text: title
-                }
-            });
-        }
     </script>
-
 
     <script>
         $(document).ready(function () {
-            $('#linechartbtn').click(function () {
+            $('#areachartbtn').click(function () {
                 $.ajax({
                     type: "GET",
-                    url: '@Url.Action("GetProductChartData")',
+                    url: '@Url.Action("WineAreaAndColumnChart")',
                     dataType: "json",
                     success: function (data) {
                         var series = [
@@ -132,42 +101,11 @@
                                 name: 'Price',
                                 data: data
                             }];
-                        createChart("#areaChartArea", "", series);
+                        createChart("#areaChartArea", "Wine Prices", series);
                     }
                 });
             });
         });
-
-        function createChart(chartcontainer, title, series) {
-            $(chartcontainer).highcharts({
-                charts: {
-                    type: 'area'
-                },
-                credits: {
-                    enabled: false
-                },
-                exporting: {
-                    enabled: false
-                },
-                plotOptions: {
-                    area: {
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        dataLabels: {
-                            enabled: true,
-                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                            style: {
-                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor || 'black'),
-                            }
-                        }
-                    }
-                },
-                series: series,
-                title: {
-                    text: title
-                }
-            });
-        }
     </script>
 
     <script>
@@ -175,16 +113,16 @@
             $('#piechartbtn').click(function () {
                 $.ajax({
                     type: "GET",
-                    url: '@Url.Action("GetProductChartData")',
+                    url: '@Url.Action("WinePieChart")',
                     dataType: "json",
                     success: function (data) {
                         var series = [
                             {
                                 type: 'pie',
-                                name: 'Price',
+                                name: 'Quantity',
                                 data: data
                             }];
-                        createChart("#pieChartArea", "", series);
+                        createChart("#pieChartArea", "Wine Kinds", series);
                     }
                 });
             });
@@ -221,5 +159,4 @@
             });
         }
     </script>
-
 }
