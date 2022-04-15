@@ -48,7 +48,7 @@ namespace BeverageProject.Controllers
                      
             foreach (var item in cart)
             {
-                order.Total += Convert.ToDecimal(item.Product.Price);
+                order.Total += item.Product.Price;
                 order.Products.Add(item.Product);
             }
             //arxika find db.products.find ola ta products me vash ta id ths order.products
