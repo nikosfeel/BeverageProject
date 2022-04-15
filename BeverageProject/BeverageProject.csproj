@@ -337,6 +337,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\table-responsive.css" />
     <Content Include="Content\css\turquoise-theme.css" />
+    <Content Include="Content\error.png" />
     <Content Include="Content\images\about\about-banner.jpg" />
     <Content Include="Content\images\about\about-brand-1.jpg" />
     <Content Include="Content\images\about\about-brand-2.jpg" />
@@ -441,6 +442,7 @@
     <Content Include="Content\images\ProductsDummy\the-busker-triple-cask-triple-smooth-irish-whiskey-70cl.jpg" />
     <Content Include="Content\images\ProductsDummy\the-glendronach-12-year-whisky-70cl.jpg" />
     <Content Include="Content\images\ProductsDummy\trivento-reserve-malbec-red-wine-187ml.jpg" />
+    <Content Include="Content\images\Purchase_Success.png" />
     <Content Include="Content\images\slider\BeerCarousel.png" />
     <Content Include="Content\images\product\collection-1.png" />
     <Content Include="Content\images\product\collection-2.png" />
