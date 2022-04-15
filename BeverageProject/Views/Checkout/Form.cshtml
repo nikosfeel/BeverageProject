@@ -68,10 +68,32 @@
                 </div>
             </div>
             <div class="col-25">
+
                 @{
                     List<Item> cart = (List<Item>)Session["cart"];
                     var total = cart.Sum(item => item.Product.Price * item.Quantity);
+
+                    double discount = 0.9;
+
+                    if (total > 150)
+                    {
+                        discount = 0.85;
+                        total = total * discount;
+
+                    }
+                    else if (total > 100)
+                    {
+                        discount = 0.88;
+                        total = total * discount;
+                    }
+                    else if (total > 50)
+                    {
+                        discount = 0.9;
+                        total = total * discount;
+                    }
+
                 }
+
                 <div class="container" style="background: url(/Content/images/banner/parallax.jpg) no-repeat fixed;">
                     <h4>
                         Your Cart
