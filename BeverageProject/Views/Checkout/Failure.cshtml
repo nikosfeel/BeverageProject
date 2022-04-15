@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Failure";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <section class="margin-top-40 text-center">
+        <h1>Unfortunately an error occured during your payment</h1>
+        <br/>
+        <h2>Pleace place your order and try again</h2>
+        <a><img src="~/Content/images/error.png" alt="" /></a>
+
+        <hr />
+        <a href=@Url.Action("Index","Home")><strong>Back To Home</strong></a>
+    </section>
+</div>

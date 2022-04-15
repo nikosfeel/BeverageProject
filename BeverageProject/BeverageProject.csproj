@@ -337,6 +337,7 @@
     <Content Include="Content\css\style.css" />
     <Content Include="Content\css\table-responsive.css" />
     <Content Include="Content\css\turquoise-theme.css" />
+    <Content Include="Content\error.png" />
     <Content Include="Content\images\about\about-banner.jpg" />
     <Content Include="Content\images\about\about-brand-1.jpg" />
     <Content Include="Content\images\about\about-brand-2.jpg" />
@@ -1554,6 +1555,7 @@
     <Content Include="Views\ProductsView\Create.cshtml" />
     <Content Include="Views\ProductCreate\CreateProduct.cshtml" />
     <Content Include="Views\Charts\ProductChart.cshtml" />
+    <Content Include="Views\Checkout\Failure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
