@@ -38,29 +38,5 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             return View();
         }
-
-        [Authorize(Roles = "Admin")]
-        public ActionResult AllBeers()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "Admin")]
-        public ActionResult AllSpirits()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "Admin")]
-        public ActionResult AllWhiskeys()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "Admin")]
-        public ActionResult AllWines()
-        {
-            return View();
-        }
     }
 }
