@@ -24,7 +24,7 @@
                                         <th>Category</th>
                                         <th>PhotoUrl</th>
                                         <th>Name</th>
-                                        <th>Price</th>
+                                        <th>Price (€)</th>
                                         <th>Description</th>
                                         <th>Action</th>
                                     </tr>
@@ -52,12 +52,12 @@
             $('#example').DataTable(
                 {
                     stateSave: true,
-                    stateSaveCallback: function (settings, data) {
-                        localStorage.setItem('DataTables_' + settings.sInstance, JSON.stringify(data))
-                    },
-                    stateLoadCallback: function (settings) {
-                        return JSON.parse(localStorage.getItem('DataTables_' + settings.sInstance))
-                    },
+                    //stateSaveCallback: function (settings, data) {
+                    //    localStorage.setItem('DataTables_' + settings.sInstance, JSON.stringify(data))
+                    //},
+                    //stateLoadCallback: function (settings) {
+                    //    return JSON.parse(localStorage.getItem('DataTables_' + settings.sInstance))
+                    //},
                     paging: true,
                 }
             )
@@ -81,18 +81,13 @@
                                            <tr id="${prod.ProductId}">
                                                   <td>${prod.ProductId}</td>
                                                   <td>${prod.Category} > ${prod.Kind}</td>
-                                                  <td><img src="${prod.PhotoUrl}" alt=" " class="img-responsive" style="width:50px; height:50px;" /></td>
-                                                  <td class="Name">
-                                                      <span>${prod.Name}</span>
-                                                      <input type="text" value="${prod.Name}" style="display:none" />
-                                                  </td>
-                                                  <td>${prod.Price}€</td>
-                                                  <td style="width:40%">${prod.Description}</td>
-                                                  <td>
+                                                  <td><img src="${prod.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                                                  <td class="Name">${prod.Name}</td>
+                                                  <td class="Price">${prod.Price}</td>
+                                                  <td class="Description" style="width:40%">${prod.Description}</td>                   
+                                                  <td style="display: flex;flex-direction: column;">
                                                          <button class="btn btn-info edit-btn" href="javascript:;">Edit</button>
                                                          <button class="btn btn-danger delete-btn" href="javascript:;">Delete</button>
-                                                         <button class="btn btn-warning update-btn" href="javascript:;" style="display:none">Update</a>
-                                                         <button class="btn btn-danger cancel-btn" href="javascript:;" style="display:none">Cancel</a>
                                                   </td>
                                             </tr>
                                                     `
@@ -129,69 +124,48 @@
         }
 
         function EditRow() {
-            $("body").on("click", "#example .edit-btn", function () {
-                var row = $(this).closest("tr");
-                $("td", row).each(function () {
-                    if ($(this).find("input").length > 0) {
-                        $(this).find("input").show();
-                        $(this).find("span").hide();
-                    }
+            //  κρατάμε σε  μεταβλητές τα πεδία που θέλουμε να τροποποιήσουμε
+
+            let name = $(this).parent().siblings(".Name").text();
+            let desc = $(this).parent().siblings(".Description").text();
+            let price = $(this).parent().siblings(".Price").text();
+            console.log(price);
+            //  Τσεκάρουμε  το button σε ποια κατάσταση είναι και αναλόγως κάνουμε Editable το περιεχόμενο του.
+            if ($(this).text() == "Edit") {
+                $(this).text("Save");
+                $(this).parent().siblings(".Name").prop("contentEditable", true);
+                $(this).parent().siblings(".Description").prop("contentEditable", true);
+                $(this).parent().siblings(".Price").prop("contentEditable", true);
+            }
+            else {
+                $(this).text("Edit");
+                $(this).parent().siblings(".Name").prop("contentEditable", false);
+                $(this).parent().siblings(".Description").prop("contentEditable", false);
+                $(this).parent().siblings(".Price").prop("contentEditable", false);
+                ///////////    START AJAX PUT ///////////
+                // βρίσκουμε την εκάστοτε γραμμή που θέλουμε να τροποποιήσουμε
+                let rowId = $(this).parent().parent().attr("id");
+                var settings = {
+                    "url": "/api/AllProducts?id=" + rowId,
+                    "method": "PUT",
+                    "timeout": 0,
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "data": JSON.stringify({
+                        "Id": rowId,
+                        "Description": desc,
+                        "Name": name,
+                        "Price": price,
+                    }),
+                };
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
                 });
-                row.find(".update-btn").show();
-                row.find(".cancel-btn").show();
-                row.find(".delete-btn").hide();
-                $(this).hide();
-            });
-
-
-
-            //Update
-            $("body").on("click", "#example .update-btn", function () {
-                var row = $(this).closest("tr");
-                $("td", row).each(function () {
-                    if ($(this).find("input").length > 0) {
-                        var span = $(this).find("span");
-                        var input = $(this).find("input");
-                        span.html(input.val());
-                        span.show();
-                        input.hide();
-                    }
-                });
-                row.find(".edit-btn").show();
-                row.find(".delete-btn").show();
-                row.find(".cancel-btn").hide();
-                $(this).hide();
-
-
-
-                var product = {};
-                product.Name = row.find(".Name").find("span").html();
-                console.log(row);
-
-
-
-            });
-
-
-
-            //Cancel
-            $("body").on("click", "#example .cancel-btn", function () {
-                var row = $(this).closest("tr");
-                $("td", row).each(function () {
-                    if ($(this).find("input").length > 0) {
-                        var span = $(this).find("span");
-                        var input = $(this).find("input");
-                        input.val(span.html());
-                        span.show();
-                        input.hide();
-                    }
-                });
-                row.find(".edit-btn").show();
-                row.find(".delete-btn").show();
-                row.find(".update-btn").hide();
-                $(this).hide();
-            });
+                ////////// END AJAX PUT //////////
+            }
         }
+    
     </script>
     <script type="text/javascript">
 

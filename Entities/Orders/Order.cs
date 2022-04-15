@@ -47,7 +47,7 @@ namespace Entities.Orders
         public string Email { get; set; }
 
         [ScaffoldColumn(false)]
-        public decimal Total { get; set; }
+        public double Total { get; set; }
 
         [ScaffoldColumn(false)]
         public string PaymentTransactionId { get; set; }

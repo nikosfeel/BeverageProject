@@ -13,7 +13,7 @@ namespace BeverageProject.Models.Dtos
         public string PostalCode { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public decimal Total { get; set; }
+        public double Total { get; set; }
         public DateTime OrderDate { get; set; } = DateTime.Now;
     }
 }

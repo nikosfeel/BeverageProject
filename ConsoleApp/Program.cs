@@ -17,8 +17,6 @@ namespace ConsoleApp
         {
             ApplicationDbContext db = new ApplicationDbContext();
             var products = db.Products.ToList();
-
-
         }
 
         
