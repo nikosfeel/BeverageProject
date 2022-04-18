@@ -1552,7 +1552,6 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\ProductsView\Index.cshtml" />
     <Content Include="Views\ProductsView\Details.cshtml" />
-    <Content Include="Views\ProductsView\Create.cshtml" />
     <Content Include="Views\ProductCreate\CreateProduct.cshtml" />
     <Content Include="Views\Charts\BeerCharts.cshtml" />
     <Content Include="Views\Charts\SpiritCharts.cshtml" />
