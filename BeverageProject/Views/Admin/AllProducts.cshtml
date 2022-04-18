@@ -48,22 +48,6 @@
     <script type="text/javascript">
         LoadData();
 
-        setTimeout(function () {
-            $('#example').DataTable(
-                {
-                    stateSave: true,
-                    //stateSaveCallback: function (settings, data) {
-                    //    localStorage.setItem('DataTables_' + settings.sInstance, JSON.stringify(data))
-                    //},
-                    //stateLoadCallback: function (settings) {
-                    //    return JSON.parse(localStorage.getItem('DataTables_' + settings.sInstance))
-                    //},
-                    paging: true,
-                }
-            )
-        }, 1000);
-
-
         function LoadData() {
             var settings = {
                 "url": "/api/AllProducts",
@@ -73,7 +57,18 @@
 
             $.ajax(settings).done(function (response) {
                 LoadProducts();
-
+                $('#example').DataTable(
+                    {
+                        stateSave: true,
+                        stateSaveCallback: function (settings, data) {
+                            localStorage.setItem('DataTables_' + settings.sInstance, JSON.stringify(data))
+                        },
+                        stateLoadCallback: function (settings) {
+                            return JSON.parse(localStorage.getItem('DataTables_' + settings.sInstance))
+                        },
+                        paging: true,
+                    }
+                )
                 function LoadProducts() {
                     let products = response.products;
                     for (let prod of products) {
