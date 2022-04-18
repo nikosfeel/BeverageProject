@@ -39,6 +39,11 @@ namespace BeverageProject.Controllers
             return View();
         }
 
+        public ActionResult AllProductsCharts()
+        {
+            return View();
+        }
+
         public ActionResult BeerAreaAndColumnChart()
         {
             var products = service.GetAllProductsWithCategory();
@@ -107,6 +112,15 @@ namespace BeverageProject.Controllers
             var products = service.GetAllProductsWithCategory();
 
             var dataforchart = products.Where(x => x.Category.Title == "Wine").Select(x => new { name = x.Kind, y = x.Kind.Count() }).Distinct();
+
+            return Json(dataforchart, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult AllProductsChart()
+        {
+            var products = service.GetAllProductsWithCategory();
+
+            var dataforchart = products.GroupBy(x => x.Category.Title).Select(x => new { name = x.Key, y = x.Sum(y => y.Kind.Count()) });
 
             return Json(dataforchart, JsonRequestBehavior.AllowGet);
         }
