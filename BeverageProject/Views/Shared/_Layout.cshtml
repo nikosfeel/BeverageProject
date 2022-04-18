@@ -60,7 +60,12 @@
             @Html.Partial("~/Views/Shared/ClientComponents/_Footer.cshtml")
         </footer>
     </div>
-    <a href=@Url.Action("Chat","Home") class="chat fa fa-comment-o fa-3x"></a>
+    <button id="backToTop" class="fa fa-arrow-up fa-2x"></button>
+
+    @if (!this.User.IsInRole("Admin"))
+    {
+        <a href=@Url.Action("Chat", "Home") class="chat fa fa-commenting-o fa-3x"></a>
+    }
 
     <!--=================== BackToTopButton ===================-->
     <script src="~/Scripts/BackToTopButton.js"></script>

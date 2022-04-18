@@ -57,14 +57,20 @@
             using (Html.BeginForm("LinkLogin", "Manage"))
             {
                 @Html.AntiForgeryToken()
-                <div id="socialLoginList">
-                    <p>
-                        @foreach (AuthenticationDescription p in Model.OtherLogins)
-                        {
-                            <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
-                        }
-                    </p>
-                </div>
+                <section class="login-content paira-padding-bottom-1">
+                    <div class="container">
+                        <div class="row">
+                            <div id="socialLoginList">
+                                <p style="text-align:center; margin-top:70px; margin-bottom:200px;">
+                                    @foreach (AuthenticationDescription p in Model.OtherLogins)
+                                    {
+                                        <button type="submit" class="btn btn-default" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">@p.AuthenticationType</button>
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             }
         }
     }
