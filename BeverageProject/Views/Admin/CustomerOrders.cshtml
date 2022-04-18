@@ -49,7 +49,7 @@
                                             <strong>Products</strong>
                                         </th>
                                         <th>
-                                            <strong>Total</strong>
+                                            <strong>Price</strong>
                                         </th>
                                     </tr>
                                 </thead>
@@ -64,10 +64,10 @@
                                                 @Html.DisplayFor(modelItem => order.OrderDate)
                                             </td>
                                             <td>
-                                                    @Html.DisplayFor(modelItem => order.FullName)
+                                                @Html.DisplayFor(modelItem => order.FullName)
                                             </td>
                                             <td>
-                                                    @Html.DisplayFor(modelItem => order.Address)
+                                                @Html.DisplayFor(modelItem => order.Address)
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => order.City)
@@ -88,7 +88,14 @@
                                                 }
                                             </td>
                                             <td>
-                                                @order.Total€
+                                                @foreach (var item in order.Products)
+                                                {
+                                                    <span style="display:flex">@item.Price</span>
+                                                }
+                                                <hr />
+                                                <span><b>Total: @order.Total€</b></span>
+                                                @*}*@
+
                                             </td>
                                         </tr>
                                     }
