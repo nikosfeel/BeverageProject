@@ -307,6 +307,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chat-and-backToTop.css" />
     <Content Include="Content\css\animate.min.css" />
     <Content Include="Content\css\blue-theme.css" />
     <Content Include="Content\css\bootstrap-reset.css" />
@@ -533,6 +534,7 @@
     <Content Include="Scripts\AdminJs\bs3\js\bootstrap.js" />
     <Content Include="Scripts\AdminJs\bs3\js\bootstrap.min.js" />
     <Content Include="Scripts\AdminJs\bs3\js\npm.js" />
+    <Content Include="Scripts\BackToTopButton.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\CalculateSubtotal.js" />
     <Content Include="Scripts\ClockDashboard.js" />
