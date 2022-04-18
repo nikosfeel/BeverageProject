@@ -6,12 +6,17 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
+using PersistenceLayerGeneric.Repositories;
 
 namespace BeverageProject.Controllers.AdminControllers
 {
     public class AdminController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db;
+        public AdminController()
+        {
+            db = new ApplicationDbContext();
+        }
 
         [Authorize(Roles = "Admin")]
         public ActionResult Dashboard()

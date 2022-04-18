@@ -110,5 +110,14 @@ namespace BeverageProject.Controllers
 
             return Json(dataforchart, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult AllProductsChart()
+        {
+            var products = service.GetAllProductsWithCategory();
+
+            var dataforchart = products.GroupBy(x => x.Category.Title).Select(x => new { name = x.Key, y = x.Sum(y => y.Kind.Count()) });
+
+            return Json(dataforchart, JsonRequestBehavior.AllowGet);
+        }
     }
 }

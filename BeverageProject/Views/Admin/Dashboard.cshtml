@@ -57,18 +57,17 @@
             <div class="col-md-8">
                 <section class="panel">
                     <header class="panel-heading">
-                        Sales
+                        Pie Chart
                         <span class="tools pull-right">
-                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            <a href="javascript:;" id="piechartbtn" class="fa fa-chevron-up"></a>
                         </span>
                     </header>
-                    <div class="panel-body">
-                        <div class="chartJS">
-                            <canvas id="bar-chart-js" height="257" width="800"></canvas>
+                    <div class="row panel-body">
+                        <div class="col-md-12">
+                            <div id="pieChartArea"></div>
                         </div>
                     </div>
                 </section>
-
             </div>
 
             <div class="col-md-4">
@@ -174,3 +173,57 @@
     </section>
 </section>
 <!--main content end-->
+
+@section scripts{
+     <script>
+        $(document).ready(function () {
+            $('#piechartbtn').click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("AllProductsChart")',
+                    dataType: "json",
+                    success: function (data) {
+                        var series = [
+                            {
+                                type: 'pie',
+                                name: 'Quantity',
+                                data: data
+                            }];
+                        createChart("#pieChartArea", "All Product Kinds", series);
+                    }
+                });
+            });
+        });
+
+        function createChart(chartcontainer, title, series) {
+            $(chartcontainer).highcharts({
+                charts: {
+                    type: 'pie'
+                },
+                credits: {
+                    enabled: false
+                },
+                exporting: {
+                    enabled: false
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor || 'black'),
+                            }
+                        }
+                    }
+                },
+                series: series,
+                title: {
+                    text: title
+                }
+            });
+        }
+    </script>
+    }

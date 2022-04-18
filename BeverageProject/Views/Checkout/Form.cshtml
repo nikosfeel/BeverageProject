@@ -18,12 +18,36 @@
 </head>
 <body>
 
+    @{
+        List<Item> cart = (List<Item>)Session["cart"];
+        var total = cart.Sum(item => item.Product.Price * item.Quantity);
+
+        double discount = 0.9;
+
+        if (total > 150)
+        {
+            discount = 0.85;
+            total = total * discount;
+
+        }
+        else if (total > 100)
+        {
+            discount = 0.88;
+            total = total * discount;
+        }
+        else if (total > 50)
+        {
+            discount = 0.9;
+            total = total * discount;
+        }
+
+    }
     <div class="container-fluid">
         <!--=================== Main Slider Section ===================-->
         <div class="row">
             <div class="col-75">
                 <div class="container" style="background: url(/Content/images/banner/parallax.jpg) no-repeat fixed;">
-                    <form action="@Url.Action("CreateOrder","CheckOut")" method="post">
+                    <form action="@Url.Action("CreateOrder","CheckOut",new {total = total},null)" method="post">
                         <div class="row">
                             <div class="col-50">
                                 <div class="row pull-right">
@@ -34,7 +58,7 @@
                                 <h3>Billing Address</h3>
                                 <label for="fname"><i class="fa fa-user"></i> Full Name</label>
                                 @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
-                                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Giannis Dimitriou", id = "fname", name = "fullname",required = true })
+                                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Giannis Dimitriou", id = "fname", name = "fullname", required = true })
                                 <label for="email"><i class="fa fa-envelope-o"></i> Email</label>
                                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "email", name = "email", placeholder = "john@example.com", required = true })
@@ -50,7 +74,7 @@
                                 <label for="phone"><i class="fa fa-phone"></i> Phone Number</label>
                                 @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
                                 @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", id = "phone", name = "phone", placeholder = "e.g 6912345678", required = true })
-                                
+
                             </div>
                         </div>
                         <label>
@@ -69,30 +93,6 @@
             </div>
             <div class="col-25">
 
-                @{
-                    List<Item> cart = (List<Item>)Session["cart"];
-                    var total = cart.Sum(item => item.Product.Price * item.Quantity);
-
-                    double discount = 0.9;
-
-                    if (total > 150)
-                    {
-                        discount = 0.85;
-                        total = total * discount;
-
-                    }
-                    else if (total > 100)
-                    {
-                        discount = 0.88;
-                        total = total * discount;
-                    }
-                    else if (total > 50)
-                    {
-                        discount = 0.9;
-                        total = total * discount;
-                    }
-
-                }
 
                 <div class="container" style="background: url(/Content/images/banner/parallax.jpg) no-repeat fixed;">
                     <h4>

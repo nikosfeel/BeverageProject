@@ -11,67 +11,6 @@
         </div>
     </div>
     <!--logo end-->
-
-    <div class="nav notify-row" id="top_menu">
-        <!--  notification start -->
-        <ul class="nav top-menu">
-            <!-- settings start -->
-            <li class="dropdown">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <i class="fa fa-tasks"></i>
-                    <span class="badge bg-important">0</span>
-                </a>
-                <ul class="dropdown-menu extended tasks-bar">
-                    <li>
-                        <p class="">You have no pending tasks</p>
-                    </li>
-                    <li class="external">
-                        <a href="#">See All Tasks</a>
-                    </li>
-                </ul>
-            </li>
-            <!-- settings end -->
-            <!-- inbox dropdown start-->
-            <li id="header_inbox_bar" class="dropdown">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <i class="fa fa-envelope-o"></i>
-                    <span class="badge bg-important">0</span>
-                </a>
-                <ul class="dropdown-menu extended inbox">
-                    <li>
-                        <p class="red">You have no mails</p>
-                    </li>
-                    <li>
-                        <a href="#">See all messages</a>
-                    </li>
-                </ul>
-            </li>
-            <!-- inbox dropdown end -->
-            <!-- notification dropdown start-->
-            <li id="header_notification_bar" class="dropdown">
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-
-                    <i class="fa fa-bell-o"></i>
-                    <span class="badge bg-success">1</span>
-                </a>
-                <ul class="dropdown-menu extended notification">
-                    <li>
-                        <p>Notifications</p>
-                    </li>
-                    <li>
-                        <div class="alert alert-success clearfix">
-                            <span class="alert-icon"><i class="fa fa-book"></i></span>
-                            <div class="noti-info">
-                                <a href="@Url.Action("CustomerOrders", "Admin")"> You have a new order.</a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-            <!-- notification dropdown end -->
-        </ul>
-        <!--  notification end -->
-    </div>
     <div class="top-nav clearfix">
         <!--search & user info start-->
         <ul class="nav pull-right top-menu">
@@ -82,7 +21,7 @@
                     <span class="username">@this.User.Identity.Name</span>
                 </a>
                 <ul class="dropdown-menu extended logout">
-                    <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                    <li><a href="@Url.Action("CustomerInformation", "Admin")"><i class="fa fa-cog"></i>Admin Info</a></li>
                 </ul>
             </li>
             <!-- user login dropdown end -->
