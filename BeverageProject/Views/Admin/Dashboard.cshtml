@@ -180,7 +180,7 @@
             $('#piechartbtn').click(function () {
                 $.ajax({
                     type: "GET",
-                    url: '@Url.Action("AllProductsChart")',
+                    url: '@Url.Action("AllProductsChart", "Charts")',
                     dataType: "json",
                     success: function (data) {
                         var series = [
