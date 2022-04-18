@@ -32,8 +32,9 @@ namespace BeverageProject.Controllers
         {
             return View();
         }
-        public ActionResult CreateOrder(OrderDto orderDto)
+        public ActionResult CreateOrder(OrderDto orderDto,double? total)
         {
+            
             List<Entities.Items.Item> cart = (List<Entities.Items.Item>)Session["cart"];
             Entities.Orders.Order order = new Entities.Orders.Order();
             order.Address = orderDto.Address;
@@ -44,11 +45,10 @@ namespace BeverageProject.Controllers
             order.FullName = orderDto.FullName;
             order.Total = 0;
             order.OrderDate = orderDto.OrderDate;
-            order.Total = orderDto.Total;
+            order.Total = (double)total;
                      
             foreach (var item in cart)
             {
-                order.Total += item.Product.Price;
                 order.Products.Add(item.Product);
             }
             //arxika find db.products.find ola ta products me vash ta id ths order.products
