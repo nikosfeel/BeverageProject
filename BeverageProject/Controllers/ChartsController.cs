@@ -39,11 +39,6 @@ namespace BeverageProject.Controllers
             return View();
         }
 
-        public ActionResult AllProductsCharts()
-        {
-            return View();
-        }
-
         public ActionResult BeerAreaAndColumnChart()
         {
             var products = service.GetAllProductsWithCategory();
