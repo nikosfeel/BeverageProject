@@ -48,8 +48,8 @@
                                         <th>
                                             <strong>Products</strong>
                                         </th>
-                                        <th>
-                                            <strong>Total</strong>
+                                        <th style="width:8px;">
+                                            <strong>Price</strong>
                                         </th>
                                     </tr>
                                 </thead>
@@ -64,10 +64,10 @@
                                                 @Html.DisplayFor(modelItem => order.OrderDate)
                                             </td>
                                             <td>
-                                                    @Html.DisplayFor(modelItem => order.FullName)
+                                                @Html.DisplayFor(modelItem => order.FullName)
                                             </td>
                                             <td>
-                                                    @Html.DisplayFor(modelItem => order.Address)
+                                                @Html.DisplayFor(modelItem => order.Address)
                                             </td>
                                             <td>
                                                 @Html.DisplayFor(modelItem => order.City)
@@ -87,8 +87,15 @@
                                                     <span style="display:flex">@item.Name</span>
                                                 }
                                             </td>
-                                            <td>
-                                                @order.Total€
+                                            <td style="width:8px;">
+                                                @foreach (var item in order.Products)
+                                                {
+                                                    <span style="display:flex">@item.Price</span>
+                                                }
+                                                <hr />
+                                                <span><b>Total: @order.Total€</b></span>
+                                                @*}*@
+
                                             </td>
                                         </tr>
                                     }

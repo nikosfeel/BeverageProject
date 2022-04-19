@@ -57,7 +57,7 @@
             <div class="col-md-8">
                 <section class="panel">
                     <header class="panel-heading">
-                        Pie Chart
+                        Product Categories - Pie Chart
                         <span class="tools pull-right">
                             <a href="javascript:;" id="piechartbtn" class="fa fa-chevron-up"></a>
                         </span>
@@ -180,7 +180,7 @@
             $('#piechartbtn').click(function () {
                 $.ajax({
                     type: "GET",
-                    url: '@Url.Action("AllProductsChart")',
+                    url: '@Url.Action("AllProductsChart", "Charts")',
                     dataType: "json",
                     success: function (data) {
                         var series = [
@@ -189,7 +189,7 @@
                                 name: 'Quantity',
                                 data: data
                             }];
-                        createChart("#pieChartArea", "All Product Kinds", series);
+                        createChart("#pieChartArea", "All Product Categories", series);
                     }
                 });
             });

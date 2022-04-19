@@ -3,13 +3,13 @@
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li style=" display: inline-flex; justify-content: start; white-space: nowrap; ">
-            @Html.ActionLink("Hello " + User.Identity.GetUserName().Split('@')[0] + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" }) <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
-        </li>
-    </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li style=" display: inline-flex; justify-content: start; white-space: nowrap; ">
+                @Html.ActionLink("User settings", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" }) <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+            </li>
+        </ul>
     }
 }
 else
@@ -18,3 +18,5 @@ else
         <li style=" display: inline-flex; justify-content: end; ">@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" }) @Html.ActionLink("Login", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
+
+@*@Html.ActionLink("Hello " + User.Identity.GetUserName().Split('@')[0] + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" }) <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>*@

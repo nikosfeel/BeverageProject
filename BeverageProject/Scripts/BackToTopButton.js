@@ -3,7 +3,7 @@
 window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
         backToTop.style.display = "block";
     }
     else {
