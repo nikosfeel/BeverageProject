@@ -219,12 +219,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\HelperMethods\PaginationAndSorting.cs" />
-    <Compile Include="Controllers\ProductsViewController.cs" />
+    <Compile Include="Controllers\AdminControllers\CustomersController.cs" />
+    <Compile Include="Helpers\PaginationAndSorting.cs" />
+    <Compile Include="Controllers\ClientProductsController.cs" />
+    <Compile Include="Models\ViewModels\ProductCreateModel.cs" />
     <Compile Include="SignalR\hubs\ChatHub.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminControllers\AdminController.cs" />
-    <Compile Include="Controllers\AdminControllers\ProductCreateController.cs" />
+    <Compile Include="Controllers\AdminControllers\DashboardController.cs" />
+    <Compile Include="Controllers\AdminControllers\ProductsController.cs" />
     <Compile Include="Controllers\Api\AllProductsController.cs" />
     <Compile Include="Controllers\ApplicationUserController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -233,7 +235,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NavigationBarController.cs" />
-    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1535,15 +1536,15 @@
     <Content Include="Scripts\AdminJs\select2\select2_locale_en.js.template" />
     <Content Include="Scripts\AdminJs\skycons\.gitignore" />
     <Content Include="Scripts\AdminJs\skycons\README.md" />
-    <Content Include="Views\Admin\Dashboard.cshtml" />
-    <Content Include="Views\Admin\CustomerOrders.cshtml" />
-    <Content Include="Views\Admin\AllProducts.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Customers\Orders.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_RightSideBar.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_NavigationBar.cshtml" />
     <Content Include="Views\Shared\AdminComponents\_SideBar.cshtml" />
-    <Content Include="Views\Admin\CustomerInformation.cshtml" />
+    <Content Include="Views\Customers\Users.cshtml" />
     <Content Include="Views\Shared\ClientComponents\_CartView.cshtml" />
-    <Content Include="Views\ProductsView\IndexCollection.cshtml" />
+    <Content Include="Views\ClientProducts\IndexCollection.cshtml" />
     <Content Include="Views\Home\Blog.cshtml" />
     <Content Include="Views\Home\BlogDetails.cshtml" />
     <Content Include="Views\Checkout\Success.cshtml" />
@@ -1551,9 +1552,9 @@
     <Content Include="Views\Home\Chat.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
-    <Content Include="Views\ProductsView\Index.cshtml" />
-    <Content Include="Views\ProductsView\Details.cshtml" />
-    <Content Include="Views\ProductCreate\CreateProduct.cshtml" />
+    <Content Include="Views\ClientProducts\Index.cshtml" />
+    <Content Include="Views\ClientProducts\Details.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Charts\BeerCharts.cshtml" />
     <Content Include="Views\Charts\SpiritCharts.cshtml" />
     <Content Include="Views\Charts\WhiskeyCharts.cshtml" />
@@ -1561,9 +1562,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Paypal\" />
-    <Folder Include="Views\Payment\" />
-    <Folder Include="Views\Paypal\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -26,7 +26,7 @@
                                         <th>Name</th>
                                         <th>Price (€)</th>
                                         <th>Description</th>
-                                        <th>Action</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -73,19 +73,19 @@
                     let products = response.products;
                     for (let prod of products) {
                         let template = `
-                                           <tr id="${prod.ProductId}">
-                                                  <td>${prod.ProductId}</td>
-                                                  <td>${prod.Category} > ${prod.Kind}</td>
-                                                  <td><img src="${prod.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                                                  <td class="Name">${prod.Name}</td>
-                                                  <td class="Price">${prod.Price}</td>
-                                                  <td class="Description" style="width:40%">${prod.Description}</td>                   
-                                                  <td style="display: flex;flex-direction: column;">
-                                                         <button class="btn btn-info edit-btn" href="javascript:;">Edit</button>
-                                                         <button class="btn btn-danger delete-btn" href="javascript:;">Delete</button>
-                                                  </td>
-                                            </tr>
-                                                    `
+                                               <tr id="${prod.ProductId}">
+                                                      <td>${prod.ProductId}</td>
+                                                      <td>${prod.Category} > ${prod.Kind}</td>
+                                                      <td><img src="${prod.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
+                                                      <td class="Name">${prod.Name}</td>
+                                                      <td class="Price">${prod.Price}</td>
+                                                      <td class="Description" style="width:40%">${prod.Description}</td>
+                                                      <td style="display: flex;flex-direction: column;">
+                                                             <button class="btn btn-info edit-btn" href="javascript:;">Edit</button>
+                                                             <button class="btn btn-danger delete-btn" href="javascript:;">Delete</button>
+                                                      </td>
+                                                </tr>
+                                                        `
                         let element = $(template);
 
                         element.find(".delete-btn").click(DeleteRow);
@@ -160,7 +160,7 @@
                 ////////// END AJAX PUT //////////
             }
         }
-    
+
     </script>
     <script type="text/javascript">
 

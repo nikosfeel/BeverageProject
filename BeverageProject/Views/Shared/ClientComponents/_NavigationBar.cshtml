@@ -64,11 +64,11 @@
                                                             @foreach (var cat in Model.Categories.OrderBy(x => x.Title))
                                                             {
                                                                 <div class="col-md-3 col-sm-3 col-xs-12 clearfix">
-                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","ProductsView", new {category = cat.Title })">@cat.Title</a></h4>
+                                                                    <h4 class="margin-bottom-0"><a href="@Url.Action("Index","ClientProducts", new {category = cat.Title })">@cat.Title</a></h4>
                                                                     <ul class="list-unstyled mega-submenu-fix">
                                                                         @foreach (var prod in Model.Products.Where(x => x.Category == cat))
                                                                         {
-                                                                            <li><a href=@Url.Action("Index", "ProductsView",new {kind = prod.Kind, category = cat.Title})>@prod.Kind</a></li>
+                                                                            <li><a href=@Url.Action("Index", "ClientProducts",new {kind = prod.Kind, category = cat.Title})>@prod.Kind</a></li>
                                                                         }
 
                                                                     </ul>
@@ -86,7 +86,7 @@
                                         <li>@Html.Partial("_LoginPartial")</li>
                                         @if (this.User.IsInRole("Admin"))
                                         {
-                                            <li class="width-li"><a href="@Url.Action("Dashboard", "Admin")">Admin</a> </li>
+                                            <li class="width-li"><a href="@Url.Action("Index", "Dashboard")">Administrator</a> </li>
                                         }
                                     </ul>
                                 </div>

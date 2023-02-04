@@ -1,4 +1,4 @@
-﻿using BeverageProject.Controllers.HelperMethods;
+﻿using BeverageProject.Helpers;
 using Entities.Products;
 using MyDatabase;
 using PagedList;
@@ -13,14 +13,14 @@ using System.Web.Mvc;
 
 namespace BeverageProject.Controllers
 {
-    public class ProductsViewController : Controller
+    public class ClientProductsController : Controller
     {
         private ApplicationDbContext db;
         private PaginationAndSorting helper;
         private ProductService prodService;
         
 
-        public ProductsViewController()
+        public ClientProductsController()
         {
             db = new ApplicationDbContext();
             helper = new PaginationAndSorting();
@@ -66,9 +66,9 @@ namespace BeverageProject.Controllers
             ViewBag.Category = category;
             ViewBag.Kind = kind;
             List<Product> products = Filtering(sortOrder);
-            //Filtering
+
             products = helper.Filter(searchProduct, products);
-            //Sorting
+
             products = helper.Sorting(sortOrder, products);
 
             int pageSize, pageNumber;
@@ -82,7 +82,6 @@ namespace BeverageProject.Controllers
             return View(products.Where(x => x.Category.Title == category && x.Kind == kind).ToPagedList(pageNumber, pageSize));
         }
 
-        // GET: Product/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)

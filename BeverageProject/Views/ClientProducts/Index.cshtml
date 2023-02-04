@@ -54,8 +54,8 @@
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
                                 <ul class="list-group list-group-horizontal pull-left">
                                     <li class="list-group-item" style="font-size:18px; border-style:none">SORT BY: </li>
-                                    <li class="list-group-item"><a href="@Url.Action("Index","ProductsView",new {sortOrder=ViewBag.ND,category = ViewBag.Category,kind = ViewBag.Kind },null)">Name ↓↑</a></li>
-                                    <li class="list-group-item"><a href="@Url.Action("Index","ProductsView",new {sortOrder=ViewBag.PD,category = ViewBag.Category,kind = ViewBag.Kind },null)">Price ↓↑</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","ClientProducts",new {sortOrder=ViewBag.ND,category = ViewBag.Category,kind = ViewBag.Kind },null)">Name ↓↑</a></li>
+                                    <li class="list-group-item"><a href="@Url.Action("Index","ClientProducts",new {sortOrder=ViewBag.PD,category = ViewBag.Category,kind = ViewBag.Kind },null)">Price ↓↑</a></li>
                                 </ul>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
@@ -68,7 +68,7 @@
                                 <div class="form-group margin-clear pull-right list-grid margin-top-10 float-0">
                                     <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>View :</b></label></h4>
                                     <button data-value="list"><i class="fa fa-th-list fa-2x"></i></button>
-                                    <button data-value="grid" class="active list" onclick="location.href='@Url.Action("IndexCollection","ProductsView", new {category=ViewBag.Category,kind= ViewBag.Kind},null)'"><i class="fa fa-th fa-2x"></i></button>
+                                    <button data-value="grid" class="active list" onclick="location.href='@Url.Action("IndexCollection","ClientProducts", new {category=ViewBag.Category,kind= ViewBag.Kind},null)'"><i class="fa fa-th fa-2x"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -81,19 +81,19 @@
                             <div class="col-sm-3 col-md-3 col-xs-6 paira-margin-top-1">
                                 <div class="product text-center">
                                     <div class="block-image position-rela">
-                                        <a href="@Url.Action("Details","ProductsView",new { id = product.ProductId })">
+                                        <a href="@Url.Action("Details","ClientProducts",new { id = product.ProductId })">
                                             <div class="background-overlay"></div>
                                             <img src=@Html.DisplayFor(modelItem => product.PhotoUrl) alt="" class="img-responsive" width='300' style="height: 260px;">
                                         </a>
                                     </div>
-                                    <h1 class="font-size-18 paira-margin-top-4 margin-bottom-10"><a href="@Url.Action("Details","ProductsView",new {id = product.ProductId})">@Html.DisplayFor(modelItem => product.Name)</a></h1>
+                                    <h1 class="font-size-18 paira-margin-top-4 margin-bottom-10"><a href="@Url.Action("Details","ClientProducts",new {id = product.ProductId})">@Html.DisplayFor(modelItem => product.Name)</a></h1>
                                     <span class="money font-size-18"><b class="">@Html.DisplayFor(modelItem => product.Price)€</b></span>
                                     <p class="text-capitalize margin-top-15 letter-spacing-2">
                                         @Html.DisplayFor(modelItem => product.Description)
                                     </p>
                                     <div class="product-hover">
                                         <div class="paira-wish-compare-con wish-compare-view-cart paira-margin-top-4">
-                                            <a href="@Url.Action("Details", "ProductsView", new { id = product.ProductId })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
+                                            <a href="@Url.Action("Details", "ClientProducts", new { id = product.ProductId })" class="paira-quick-view quick-view  btn color-scheme-2 font-size-18"><i class="fa fa-eye"></i></a>
                                             <a href="@Url.Action("Buy", "Cart", new { id = product.ProductId })" class="product-cart-con margin-left-5  btn color-scheme-2"><img src="~/Content/images/cart-2.png" alt=""></a>
                                         </div>
                                         <br />
@@ -113,7 +113,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12" style="text-align:center">
-                    @Html.PagedListPager(Model, x => Url.Action("Index", "ProductsView", new { page = x, category = ViewBag.Category, kind = ViewBag.Kind }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                    @Html.PagedListPager(Model, x => Url.Action("Index", "ClientProducts", new { page = x, category = ViewBag.Category, kind = ViewBag.Kind }), PagedListRenderOptions.ClassicPlusFirstAndLast)
                 </div>
             </div>
         </div>

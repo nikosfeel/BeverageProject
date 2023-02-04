@@ -64,6 +64,10 @@ namespace BeverageProject.Controllers
                 : "";
 
             var userId = User.Identity.GetUserId();
+            if (userId == null)
+            {
+                return View("/Shared/Error.cshtml");
+            }
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),

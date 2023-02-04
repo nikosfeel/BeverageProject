@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace BeverageProject.Controllers.HelperMethods
+namespace BeverageProject.Helpers
 {
     public class PaginationAndSorting
     {

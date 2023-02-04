@@ -1,6 +1,7 @@
 ﻿using Entities.Orders;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace Entities.Products
         public int Quantity { get; set; }
 
         public int CategoryId { get; set; }
+        [Required]
         public Category Category { get; set; }
 
         public ICollection<Order> Orders { get; set; }

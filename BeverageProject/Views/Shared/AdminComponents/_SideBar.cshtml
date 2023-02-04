@@ -3,7 +3,7 @@
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a href="@Url.Action("Dashboard", "Admin")">
+                    <a href="@Url.Action("Index", "Dashboard")">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -14,37 +14,24 @@
                         <span>Customers</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="@Url.Action("CustomerOrders", "Admin")">Orders</a></li>
-                    </ul>
-                    <ul class="sub">
-                        <li><a href="@Url.Action("CustomerInformation", "Admin")">Users Informations</a></li>
+                        <li><a href="@Url.Action("Orders", "Customers")">Orders</a></li>
+                        <li><a href="@Url.Action("Users", "Customers")">Users</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-glass"></i>
-                        <span>Categories</span>
+                        <span>Boozes</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="@Url.Action("AllProducts", "Admin")">Products</a></li>                        
-                    </ul>
-                    <ul class="sub">
-                        <li><a href="http://localhost:4200/">Angular All Products</a></li>                        
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-plus"></i>
-                        <span>Create</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="@Url.Action("CreateProduct", "ProductCreate")">Product</a></li>                        
+                        <li><a href="@Url.Action("Index", "Products")">Products</a></li>
+                        <li><a href="@Url.Action("Create", "Products")">Create</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="@Url.Action("Index", "Home")">
                         <i class="fa fa-home"></i>
-                        <span>Home Page</span>
+                        <span>Go to user page</span>
                     </a>
                 </li>
             </ul>
