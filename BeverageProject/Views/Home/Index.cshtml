@@ -138,16 +138,20 @@
                             <div class="banner-small-back">
                                 <img alt="" src="~/Content/images/banner/banner-3.png" class="pull-left">
                                 <div class="paira-margin-top-3 pull-left wine-con">
-                                    <h1 class="margin-bottom-10 paira-margin-top-1 text-uppercase"><strong>White wine</strong></h1>
-                                    <h4 class="paira-margin-bottom-1 text-uppercase">most popular</h4>
+                                    <a href="@Url.Action("Index" , "ProductsView", new {category = "Wine" })">
+                                        <h1 class="margin-bottom-10 paira-margin-top-1 text-uppercase"><strong>White wine</strong></h1>
+                                        <h4 class="paira-margin-bottom-1 text-uppercase">most popular</h4>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
                             <div class="banner-small-back">
                                 <div class="paira-margin-top-3 pull-left wine-con wine-con1">
-                                    <h1 class="margin-bottom-10 paira-margin-top-1 text-uppercase"><strong>red wine</strong></h1>
-                                    <h4 class="paira-margin-bottom-1 text-uppercase">all customer</h4>
+                                    <a href="@Url.Action("Index" , "ProductsView", new {category = "Wine" })">
+                                        <h1 class="margin-bottom-10 paira-margin-top-1 text-uppercase"><strong>red wine</strong></h1>
+                                        <h4 class="paira-margin-bottom-1 text-uppercase">Our recomendation</h4>
+                                    </a>
                                 </div>
                                 <img alt="" src="~/Content/images/banner/banner-2.png" class="pull-right">
                             </div>
