@@ -8,11 +8,9 @@ using System.Data.Entity;
 
 namespace BeverageProject.Helpers
 {
-    public class PaginationAndSorting
+    public static class PaginationAndSorting
     {
-
-        private ApplicationDbContext db = new ApplicationDbContext();
-        public List<Product> Sorting(string sortOrder, List<Product> products)
+        public static List<Product> Sorting(this List<Product> products, string sortOrder)
         {
             switch (sortOrder)
             {
@@ -26,19 +24,19 @@ namespace BeverageProject.Helpers
             return products;
         }
 
-        public void Pagination(int? pSize, int? page, out int pageSize, out int pageNumber)
+        public static void Pagination(int? pSize, int? page, out int pageSize, out int pageNumber)
         {
             pageNumber = page ?? 1;
             pageSize = pSize ?? 10;
         }
 
-        public void PaginationSecondView(int? pSize, int? page, out int pageSize, out int pageNumber)
+        public static void PaginationSecondView(int? pSize, int? page, out int pageSize, out int pageNumber)
         {
             pageNumber = page ?? 1;
             pageSize = pSize ?? 12;
         }
 
-        public List<Product> Filter(string searchProduct, List<Product> products)
+        public static List<Product> Filter(this List<Product> products, string searchProduct)
         {
             if (!string.IsNullOrEmpty(searchProduct))
             {

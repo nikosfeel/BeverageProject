@@ -16,16 +16,13 @@ namespace BeverageProject.Controllers
     public class ClientProductsController : Controller
     {
         private ApplicationDbContext db;
-        private PaginationAndSorting helper;
         private ProductService prodService;
         
 
         public ClientProductsController()
         {
             db = new ApplicationDbContext();
-            helper = new PaginationAndSorting();
-            prodService = new ProductService(db);
-            
+            prodService = new ProductService(db);            
         }
 
         // GET: Product
@@ -35,12 +32,12 @@ namespace BeverageProject.Controllers
             ViewBag.Kind = kind;
             List<Product> products = Filtering(sortOrder);
             //Filtering
-            products = helper.Filter(searchProduct, products);
+            products = products.Filter(searchProduct);
             //Sorting
-            products = helper.Sorting(sortOrder, products);
+            products = products.Sorting(sortOrder);
 
             int pageSize, pageNumber;
-            helper.Pagination(pSize, page, out pageSize, out pageNumber);
+            PaginationAndSorting.Pagination(pSize, page, out pageSize, out pageNumber);
 
             if (kind is null)
             {
@@ -67,12 +64,12 @@ namespace BeverageProject.Controllers
             ViewBag.Kind = kind;
             List<Product> products = Filtering(sortOrder);
 
-            products = helper.Filter(searchProduct, products);
+            products = products.Filter(searchProduct);
 
-            products = helper.Sorting(sortOrder, products);
+            products = products.Sorting(sortOrder);
 
             int pageSize, pageNumber;
-            helper.PaginationSecondView(pSize, page, out pageSize, out pageNumber);
+            PaginationAndSorting.PaginationSecondView(pSize, page, out pageSize, out pageNumber);
 
             if (kind is null)
             {
