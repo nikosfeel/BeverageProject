@@ -23,16 +23,16 @@ namespace BeverageProject.Controllers
         {
             return View();
         }
-        
-        public ActionResult Form()
-        {
-            return View();
-        }
         public ActionResult Success()
         {
             return View();
         }
-        public ActionResult CreateOrder(OrderDto orderDto,double? total)
+        public ActionResult CreateOrder()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateOrder(OrderDto orderDto, double? total)
         {
             
             List<Entities.Items.Item> cart = (List<Entities.Items.Item>)Session["cart"];
@@ -60,12 +60,16 @@ namespace BeverageProject.Controllers
                 tempProducts.Add(temp);
             }
             order.Products = tempProducts;
+            if (ModelState.IsValid)
+            {
+                db.Entry(order).State = EntityState.Added;
+                db.SaveChanges();
+                cart.Clear();
 
-            db.Entry(order).State = EntityState.Added;
-            db.SaveChanges();
-            cart.Clear();
+                return RedirectToAction("Success");
+            }
 
-            return RedirectToAction("Success");
+            return View();
         }
 
         // paypal payments

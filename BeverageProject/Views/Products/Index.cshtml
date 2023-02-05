@@ -70,7 +70,7 @@
                     }
                 )
                 function LoadProducts() {
-                    let products = response.products;
+                    let products = response;
                     for (let prod of products) {
                         let template = `
                                                <tr id="${prod.ProductId}">
@@ -98,7 +98,6 @@
         }
         function DeleteRow() {
             let rowId = $(this).parent().parent().attr('id');
-            console.log(rowId);
 
             var settings = {
                 "url": "/api/AllProducts?id=" + rowId,
@@ -107,7 +106,6 @@
             };
 
             $.ajax(settings).done(function (response) {
-                console.log(response);
                 let product = response;
                 let querry = "#" + product.ProductId;
 
@@ -124,7 +122,6 @@
             let name = $(this).parent().siblings(".Name").text();
             let desc = $(this).parent().siblings(".Description").text();
             let price = $(this).parent().siblings(".Price").text();
-            console.log(price);
             //  Τσεκάρουμε  το button σε ποια κατάσταση είναι και αναλόγως κάνουμε Editable το περιεχόμενο του.
             if ($(this).text() == "Edit") {
                 $(this).text("Save");
@@ -155,7 +152,6 @@
                     }),
                 };
                 $.ajax(settings).done(function (response) {
-                    console.log(response);
                 });
                 ////////// END AJAX PUT //////////
             }
