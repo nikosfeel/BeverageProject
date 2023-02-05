@@ -19,7 +19,7 @@ namespace BeverageProject.Controllers
             @ViewBag.searchΑllProducts = searchΑllProducts;
             var products = db.Products.OrderByDescending(x => x.ProductId).Take(4).ToList();
 
-            
+            ViewBag.ConfirmationCookie = Request.Cookies.AllKeys.Contains("Confirmation");
 
             if (!string.IsNullOrEmpty(searchΑllProducts))
             {
@@ -60,6 +60,11 @@ namespace BeverageProject.Controllers
             ViewBag.Message = "Your blog-details page.";
 
             return View();
+        }
+        public ActionResult Confirm()
+        {
+            Response.Cookies.Add(new HttpCookie("Confirmation"));
+            return RedirectToAction("Index");
         }
     }
 }

@@ -283,7 +283,7 @@
 </main>
 
 
-@if (!this.User.IsInRole("Admin"))
+@if (!ViewBag.ConfirmationCookie)
 {
     <!--=================== Welcome Newsletter Dialog ===================-->
     <div class="modal fade welcome-newsletter-content" id="paira-welcome-newsletter" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static" data-keyboard="false" style="display: none">
@@ -297,7 +297,7 @@
                             <h2 class="paira-margin-bottom-1 padding-clear paira-margin-top-3"><b>ARE YOU 18+?</b></h2>
                             <div class="paira-margin-bottom-1">
                                 <a href="#" class="color-scheme-1" data-toggle="modal" data-target="#paira-common-message">No</a>
-                                <a href="#" class="color-scheme-2 margin-left-25" data-dismiss="modal" aria-label="Close">Yes</a>
+                                <a href="@Url.Action("Confirm", "Home")" class="color-scheme-2 margin-left-25">Yes</a>
                             </div>
                             <h4 class="paira-margin-top-3 cont-p">You must be of legal drinking age to enter, use this site.</h4>
                             <h4><b>&copy; @DateTime.Now.Year | E-Beverage</b></h4>

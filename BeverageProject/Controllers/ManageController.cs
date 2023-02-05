@@ -66,7 +66,7 @@ namespace BeverageProject.Controllers
             var userId = User.Identity.GetUserId();
             if (userId == null)
             {
-                return View("/Shared/Error.cshtml");
+                return View("/Error/NotFound");
             }
             var model = new IndexViewModel
             {

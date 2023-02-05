@@ -81,16 +81,14 @@ namespace BeverageProject.Controllers
 
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            if (id == null)            
+                return View("Error/Index.cshtml");
 
             Product product = prodService.Get((int)id);
+
             if (product == null)
-            {
-                return HttpNotFound();
-            }
+                return View("Error/Index.cshtml");
+
             return View(product);
         }       
 

@@ -220,6 +220,7 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminControllers\CustomersController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Helpers\PaginationAndSorting.cs" />
     <Compile Include="Controllers\ClientProductsController.cs" />
     <Compile Include="Models\ViewModels\ProductCreateModel.cs" />
@@ -1462,7 +1463,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\ClientComponents\_Footer.cshtml" />
     <Content Include="Views\Shared\ClientComponents\_NavigationBar.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
@@ -1559,6 +1560,7 @@
     <Content Include="Views\Charts\SpiritCharts.cshtml" />
     <Content Include="Views\Charts\WhiskeyCharts.cshtml" />
     <Content Include="Views\Charts\WineCharts.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
