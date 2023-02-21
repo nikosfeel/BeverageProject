@@ -1434,11 +1434,6 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\zoomico.png" />
     <Content Include="vue\.gitignore" />
-    <Content Include="vue\.parcel-cache\bec9db30e4b410d0.txt" />
-    <Content Include="vue\.parcel-cache\data.mdb" />
-    <Content Include="vue\.parcel-cache\lock.mdb" />
-    <Content Include="vue\dist\AboutView.b87cd109.js" />
-    <Content Include="vue\dist\logo.c24dc56e.png" />
     <Content Include="vue\dist\main.css" />
     <Content Include="vue\dist\main.js" />
     <Content Include="vue\node_modules\%40achrinza\node-ipc\dao\client.js" />
@@ -16149,13 +16144,6 @@
     <Content Include="Views\Charts\WhiskeyCharts.cshtml" />
     <Content Include="Views\Charts\WineCharts.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
-    <Content Include="vue\.parcel-cache\55bec7547958d6f2" />
-    <Content Include="vue\.parcel-cache\8db0a1a1a06fba43" />
-    <Content Include="vue\.parcel-cache\9a7a8f44b0e01d34" />
-    <Content Include="vue\.parcel-cache\a45ddd104b336d4c" />
-    <Content Include="vue\dist\AboutView.b87cd109.js.map" />
-    <Content Include="vue\dist\main.css.map" />
-    <Content Include="vue\dist\main.js.map" />
     <Content Include="vue\jsconfig.json" />
     <Content Include="vue\node_modules\%40achrinza\node-ipc\licence" />
     <Content Include="vue\node_modules\%40achrinza\node-ipc\local-node-ipc-certs\client.pub" />
