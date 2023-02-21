@@ -9,13 +9,13 @@ html {
     -webkit-font-smoothing: antialiased !important;
 }
 body {
-    color:#767676;
-    background:#f1f2f7;
-    font-family:'Open Sans',sans-serif;
-    padding:0px !important;
-    margin:0px !important;
-    font-size:13px;
-    text-rendering:optimizeLegibility;
+    color: #767676;
+    background: #D0D0D0;
+    font-family: 'Open Sans',sans-serif;
+    padding: 0px !important;
+    margin: 0px !important;
+    font-size: 13px;
+    text-rendering: optimizeLegibility;
 }
 ul, .list-unstyled {
     padding-left: 30px;
@@ -312,14 +312,14 @@ ul.sidebar-menu li a.active i {
     padding:0 15px;
 }
 .header {
-    left:0;
-    right:0;
-    z-index:1002;
-    background:#fff;
-    -webkit-transition:all .3s ease-in-out;
-    -moz-transition:all .3s ease-in-out;
-    -o-transition:all .3s ease-in-out;
-    transition:all .3s ease-in-out;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+    background: #32323a;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 .merge-header {
     margin-right:240px;
@@ -336,15 +336,15 @@ ul.sidebar-menu li a.active i {
 
 }
 .brand {
-    background:#1fb5ad;
-    float:left;
-    width:240px;
-    height:80px;
-    position:relative;
+    background: #32323a;
+    float: left;
+    width: 240px;
+    height: 80px;
+    position: relative;
 }
 a.logo {
     font-size:21px;
-    color:#2e2e2e;
+    color:#fff;
     float:left;
     margin:20px 0 0 25px;
     text-transform:uppercase;
@@ -693,27 +693,27 @@ ul.top-menu>li>a:hover,ul.top-menu>li>a:focus {
 }
 /*--sidebar toggle---*/
 .sidebar-toggle-box {
-    float:left;
-    margin-top:23px;
-    margin-left:-15px;
-    background:#32d2c9;
-    border-radius:50%;
-    -webkit-border-radius:50%;
-    width:32px;
-    height:32px;
-    position:absolute;
-    right:-15px;
+    float: left;
+    margin-top: 23px;
+    margin-left: -15px;
+    background: #7A7A7A;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: -15px;
 }
 .sidebar-toggle-box .fa-bars {
     cursor:pointer;
     display:inline-block;
     font-size:15px;
     padding:8px 8px 8px 9px;
-    color:rgba(0,0,0,.3);
+    color:white;
 }
-.sidebar-toggle-box:hover {
-    background:#F6F6F6;
-}
+    .sidebar-toggle-box:hover {
+        background: #C6C6C6;
+    }
 .hide-left-bar {
     margin-left:-240px !important;
     -webkit-transition:all .3s ease-in-out;

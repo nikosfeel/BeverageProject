@@ -1439,6 +1439,7 @@
     <Content Include="vue\public\favicon.ico" />
     <Content Include="vue\public\index.html" />
     <Content Include="vue\src\main.js" />
+    <Content Include="vue\src\router.js" />
     <Content Include="vue\src\services\mainService.js" />
     <Content Include="vue\src\store\index.js" />
     <Content Include="vue\vue.config.js" />
