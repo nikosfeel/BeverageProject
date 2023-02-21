@@ -19,6 +19,10 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             return View();
         }
+        public ActionResult VueTable()
+        {
+            return View();
+        }
         public ActionResult Create()
         {
             return View();
