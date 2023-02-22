@@ -22,7 +22,7 @@ namespace BeverageProject.Models
             Products = products;
         }
 
-        public IEnumerable<Product> findAllProducts()
+        public IEnumerable<Product> FindAllProducts()
         {
             return this.Products;
         }

@@ -17,7 +17,10 @@ namespace BeverageProject.Controllers
         {
             return Redirect(Request.UrlReferrer.ToString());
         }
-
+        public JsonResult GetCartItems()
+        {
+            return Json(Session["cart"], JsonRequestBehavior.AllowGet);
+        }
         public ActionResult Buy(int? id)
         {
             ItemModel itemModel = new ItemModel();
@@ -41,25 +44,36 @@ namespace BeverageProject.Controllers
 
             return RedirectToAction("Index");
         }
-
-        public ActionResult Remove(int? id)
+        [HttpPost]
+        public JsonResult Remove(int? id)
         {
+            if (id == null)
+                return Json("", JsonRequestBehavior.AllowGet);
+
             List<Item> cart = (List<Item>)Session["cart"];
             int index = isExist(id);
             cart.RemoveAt(index);
             Session["cart"] = cart;
-            return RedirectToAction("Index");
+            return Json("", JsonRequestBehavior.AllowGet);
         }
-        public ActionResult ButtonUp(int? id)
+        [HttpPost]
+        public JsonResult ButtonUp(int? id)
         {
+            if (id == null) 
+                return Json("", JsonRequestBehavior.AllowGet);
+            
             List<Item> cart = (List<Item>)Session["cart"];
             int index = isExist(id);
             cart[index].Quantity++;
             Session["cart"] = cart;
-            return RedirectToAction("Index");
+            return Json("", JsonRequestBehavior.AllowGet);
         }
-        public ActionResult ButtonDown(int? id)
+        [HttpPost]
+        public JsonResult ButtonDown(int? id)
         {
+            if (id == null)
+                return Json("", JsonRequestBehavior.AllowGet);
+
             List<Item> cart = (List<Item>)Session["cart"];
             int index = isExist(id);
             if (cart[index].Quantity > 1)
@@ -67,7 +81,7 @@ namespace BeverageProject.Controllers
                 cart[index].Quantity--;                
             }            
             Session["cart"] = cart;
-            return RedirectToAction("Index");
+            return Json("", JsonRequestBehavior.AllowGet);
         }
 
         private int isExist(int? id)
