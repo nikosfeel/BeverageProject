@@ -40,7 +40,6 @@
             this.initIE10ViewPortHack();
             this.initWindowLoadClass();
             this.initOwlCarousel();
-            this.initGoogleMap();
             this.initBxCarousel();
         },
         /*******************************************************************************
