@@ -1433,15 +1433,6 @@
     <Content Include="Scripts\paira.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\zoomico.png" />
-    <Content Include="vue\dist\main.css" />
-    <Content Include="vue\dist\main.js" />
-    <Content Include="vue\public\favicon.ico" />
-    <Content Include="vue\public\index.html" />
-    <Content Include="vue\src\main.js" />
-    <Content Include="vue\src\router.js" />
-    <Content Include="vue\src\services\mainService.js" />
-    <Content Include="vue\src\store\index.js" />
-    <Content Include="vue\vue.config.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1570,19 +1561,10 @@
     <Content Include="Views\Charts\WhiskeyCharts.cshtml" />
     <Content Include="Views\Charts\WineCharts.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
-    <Content Include="vue\jsconfig.json" />
-    <Content Include="vue\package-lock.json" />
-    <Content Include="vue\package.json" />
-    <Content Include="vue\README.md" />
-    <Content Include="vue\src\App.vue" />
     <Content Include="Views\Products\VueTable.cshtml" />
-    <Content Include="vue\src\components\Products\Products.vue" />
-    <Content Include="vue\src\components\Products\ProductsTable.vue" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="vue\src\assets\" />
-    <Folder Include="vue\src\views\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
