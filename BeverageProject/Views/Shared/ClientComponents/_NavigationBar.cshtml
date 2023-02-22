@@ -2,6 +2,12 @@
 @using Entities.Items
 @using System.Linq;
 
+<style>
+    .cart-image {
+        height: 40px;
+        width: 40px;
+    }
+</style>
 <!--=================== Login Dialog ===================-->
 <div class="modal fade paira-login-popup" id="paira-login" tabindex="-1" role="dialog" aria-hidden="false" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-lg">
@@ -41,7 +47,7 @@
                             <img src="~/Content/images/Logo.png" alt="" class="img-responsive img-circle" style="height:90px; width:90px; margin-top:5px;">
                         </a>
                     </div>
-                    <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="col-md-9">
                         <!--=================== Main Menu ===================-->
                         <nav class="navbar navbar-default paira-mega-menu mega-menu">
                             <div class="navbar-header">
@@ -83,10 +89,10 @@
                                         <li class="width-li"><a href="@Url.Action("About", "Home")">About us</a></li>
                                         <li class="width-li"><a href="@Url.Action("Contact", "Home")">Contact us</a></li>
                                         <!--=================== Single Menu ===================-->
-                                        <li>@Html.Partial("_LoginPartial")</li>
+                                        @Html.Partial("_LoginPartial")
                                         @if (this.User.IsInRole("Admin"))
                                         {
-                                            <li class="width-li"><a href="@Url.Action("Index", "Dashboard")">Administrator</a> </li>
+                                            <li class="width-li"><a href="@Url.Action("Index", "Dashboard")">Administrator</a></li>
                                         }
                                     </ul>
                                 </div>
@@ -97,16 +103,15 @@
                         <li class="dropdown cart-menu-body">
                             <a href="#" class="cart-menu-body">
                                 @{ int sum = 0;}
-                                @if ((List<Item>)Session["cart"] != null)
+                                @foreach (Item item in (List<Item>)Session["cart"])
                                 {
-                                    foreach (Item item in (List<Item>)Session["cart"])
-                                    {
-                                        sum += item.Quantity;
-                                    }
-                                    if (sum != 0)
-
-                                    {<img src="~/Content/images/cart.png" alt="" style="height:40px; width:40px;"> <span id="cartSum" class="badge bg-important" style="height: 20px; width: 20px; vertical-align:top; padding:0px;">@sum</span>}
-                            }
+                                    sum += item.Quantity;
+                                }
+                                @if (sum != 0)
+                                {
+                                    <i class="fa fa-shopping-cart cart-image fa-3x"></i> 
+                                    <span id="cartSum" class="badge cart-summary">@sum</span>
+                                }
                             </a>
                         </li>     
                     </ul>

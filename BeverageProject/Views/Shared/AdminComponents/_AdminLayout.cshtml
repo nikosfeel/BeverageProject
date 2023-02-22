@@ -24,13 +24,13 @@
 <body>
     <section id="container">
         @Html.Partial("~/Views/Shared/AdminComponents/_NavigationBar.cshtml")
+        @Html.Partial("~/Views/Shared/AdminComponents/_RightSideBar.cshtml")
         @Html.Partial("~/Views/Shared/AdminComponents/_SideBar.cshtml")
 
         @RenderBody()
-
-        @Html.Partial("~/Views/Shared/AdminComponents/_RightSideBar.cshtml")
-
     </section>
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="~/Scripts/AdminJs/gritter.js" type="text/javascript"></script>
     <script src="~/Scripts/AdminJs/jquery.js"></script>

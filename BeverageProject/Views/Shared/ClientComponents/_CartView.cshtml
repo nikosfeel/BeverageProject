@@ -6,15 +6,18 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <div class="row">
+                    @
+
+
+
+
                     @if ((List<Item>)Session["cart"] != null)
                     {
                         <div class="col-md-12 col-sm-12 col-xs-12 cart-table">
                             <h3 class="margin-bottom-20 text-capitalize text-color-1">Shopping Cart</h3>
                             <div class="cart-table-inner text-center">
 
-                                <!--Items Start-->
                                 @foreach (Item item in (List<Item>)Session["cart"])
                                 {
                                     <div class="column full-width overflow paira-margin-bottom-4">
@@ -48,6 +51,7 @@
                                         </div>
                                     </div>
                                 }
+
                                 @{
                                     List<Item> cart = (List<Item>)Session["cart"];
                                     var total = cart.Sum(item => item.Product.Price * item.Quantity);
@@ -89,25 +93,6 @@
                                 <p class="margin-top-10 text-color-1">Shipping & tax calculate at checkout</p>
                                 <a href="@Url.Action("Index", "Cart")" class="btn btn-success updat btn-lg text-uppercase margin-top-20 margin-left-20">CONTINUE SHOPPING</a>
                                 <a href="@Url.Action("CreateOrder", "Checkout")" class="btn btn-default btn-lg text-uppercase checkout margin-top-20 margin-left-20">checkout</a>
-                            </div>
-                        </div>
-                    }
-                    @if ((List<Item>)Session["cart"] == null)
-                    {
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-xs-12 cart-table">
-                                <h3 class="margin-bottom-20 text-capitalize text-color-1">Shopping Cart</h3>
-                                <div class="cart-table-inner text-center">
-                                </div>
-                                <div class="col-md-12 col-sm-12 col-xs-12 pull-right text-right">
-                                    <div>
-                                        <h3 class="text-color-1">Subtotal : <span><b>0</b></span></h3>
-                                        <p class="margin-top-10 text-color-1">Shipping & tax calculate at checkout</p>
-                                        <a href="@Url.Action("Index", "Beer")" class="btn-border text-color-1 text-uppercase margin-top-20">CONTINUE SHOPPING</a>
-                                        <a href="#" class="btn btn-success updat btn-lg text-uppercase margin-top-20 margin-left-20">update</a>
-                                        <a href="#" class="btn btn-default btn-lg text-uppercase checkout margin-top-20 margin-left-20">checkout</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     }

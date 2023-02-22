@@ -1,8 +1,23 @@
-﻿
-<header class="header fixed-top clearfix">
-    <!--logo start-->
-    <div class="brand">
+﻿<style>
 
+    .username {
+        padding: 7px 7px 8px 15px;
+        display: block;
+    }
+
+    .noty {
+        position: relative;
+        cursor: pointer;
+    }
+
+    .noty-icon {
+        position: absolute;
+        top: 11px;
+        left: 11px;
+    }
+</style>
+<header class="header fixed-top clearfix">
+    <div class="brand">
         <a href="@Url.Action("Index", "Dashboard")" class="logo">
             <strong><i class="fa fa-glass"></i>E-Beverage</strong>
         </a>
@@ -10,27 +25,30 @@
             <div class="fa fa-bars"></div>
         </div>
     </div>
-    <!--logo end-->
     <div class="top-nav clearfix">
-        <!--search & user info start-->
         <ul class="nav pull-right top-menu">
-            <!-- user login dropdown start-->
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <img alt="" src="~/Content/adminImages/avatar-mini-3.jpg">
-                    <span class="username">@this.User.Identity.Name</span>
+                    <span class="username"><i class="fa fa-user"></i> @this.User.Identity.Name</span>
                 </a>
                 <ul class="dropdown-menu extended logout">
-                    <li><a href="@Url.Action("CustomerInformation", "Admin")"><i class="fa fa-cog"></i>Admin Info</a></li>
+                    <li>
+                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm"}))
+                        {
+                            @Html.AntiForgeryToken()
+                            
+                            <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-circle"></i> Logout</a>
+                        }
+                    </li>
                 </ul>
             </li>
-            <!-- user login dropdown end -->
-            <li>
-                <div class="toggle-right-box">
-                    <div class="fa fa-bars"></div>
-                </div>
-            </li>
+        <li>
+            <div class="toggle-right-box noty">
+                <div class="fa fa-bell noty-icon"></div>
+            </div>
+        </li>
         </ul>
-        <!--search & user info end-->
     </div>
+
+
 </header>

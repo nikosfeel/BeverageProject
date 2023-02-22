@@ -43,11 +43,7 @@ Version -> 1.0
     .logo a {
         font-size: 32px;
     }
-    .cart-menu-body a span {
-        padding: 6px;
-        height: 38px;
-        width: 38px;
-    }
+    
     .carousel-caption h1 {
         font-size: 55px;
     }
@@ -139,13 +135,6 @@ Version -> 1.0
     }
     .logo a {
         font-size: 25px;
-    }
-    .cart-menu-body a span {
-        padding: 6px;
-        font-size: 14px !important;
-        margin-left: 0;
-        height: 35px;
-        width: 35px;
     }
     .cart{
         padding: 12px 0;

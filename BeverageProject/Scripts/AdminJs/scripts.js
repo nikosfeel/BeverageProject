@@ -235,7 +235,7 @@
 
 
         });
-        $('.toggle-right-box .fa-bars').click(function (e) {
+        $('.toggle-right-box .fa-bell').click(function (e) {
             $('#container').toggleClass('open-right-panel');
             $('.right-sidebar').toggleClass('open-right-bar');
             $('.header').toggleClass('merge-header');

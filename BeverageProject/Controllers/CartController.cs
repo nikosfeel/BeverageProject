@@ -13,8 +13,6 @@ namespace BeverageProject.Controllers
 {
     public class CartController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
         public ActionResult Index()
         {
             return Redirect(Request.UrlReferrer.ToString());
@@ -22,40 +20,25 @@ namespace BeverageProject.Controllers
 
         public ActionResult Buy(int? id)
         {
-            var products = db.Products;            
-
             ItemModel itemModel = new ItemModel();
 
-            if (Session["cart"] == null)
+            List<Item> cart = (List<Item>)Session["cart"];
+            int index = isExist(id);
+            if (index != -1)
             {
-                List<Item> cart = new List<Item>();
-                cart.Add(new Item
-                {
-                    Product = itemModel.FindProduct(id),
-                    
-                    Quantity = 1
-                });
-                Session["cart"] = cart;
+                cart[index].Quantity++;
             }
             else
             {
-                List<Item> cart = (List<Item>)Session["cart"];
-                int index = isExist(id);
-                if (index != -1)
+                cart.Add(new Item
                 {
-                    cart[index].Quantity++;
-                }
-                else
-                {
-                    cart.Add(new Item
-                    {
-                        Product = itemModel.FindProduct(id),
+                    Product = itemModel.FindProduct(id),
 
-                        Quantity = 1
-                    });
-                }
-                Session["cart"] = cart;
+                    Quantity = 1
+                });
             }
+            Session["cart"] = cart;
+
             return RedirectToAction("Index");
         }
 
