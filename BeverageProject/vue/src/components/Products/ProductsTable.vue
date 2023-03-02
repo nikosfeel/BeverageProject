@@ -101,7 +101,7 @@ export default {
       }
     },
     onDetails(id){
-      this.$router.push('api/ClientProducts/Details/' + id);
+      this.$router.replace('/ClientProducts/Details/' + id);
       location.reload();
     },
     onEdit(id){
