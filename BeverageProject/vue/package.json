@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "parcel watch src/main.js --no-source-maps",
     "lint": "vue-cli-service lint",
     "main": "parcel watch src/main.js --no-source-maps"
   },

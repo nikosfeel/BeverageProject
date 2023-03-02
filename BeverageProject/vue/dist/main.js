@@ -8696,14 +8696,14 @@ function patchScopedSlots (instance) {
 
 },{}],"App.vue":[function(require,module,exports) {
 
-        var $8ca6fd = exports.default || module.exports;
+        var $29066c = exports.default || module.exports;
       
-      if (typeof $8ca6fd === 'function') {
-        $8ca6fd = $8ca6fd.options;
+      if (typeof $29066c === 'function') {
+        $29066c = $29066c.options;
       }
     
         /* template */
-        Object.assign($8ca6fd, (function () {
+        Object.assign($29066c, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -8738,9 +8738,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$8ca6fd', $8ca6fd);
+            api.createRecord('$29066c', $29066c);
           } else {
-            api.reload('$8ca6fd', $8ca6fd);
+            api.reload('$29066c', $29066c);
           }
         }
 
@@ -26295,14 +26295,14 @@ exports.default = void 0;
 //
 var _default = {};
 exports.default = _default;
-        var $d25748 = exports.default || module.exports;
+        var $d34cb8 = exports.default || module.exports;
       
-      if (typeof $d25748 === 'function') {
-        $d25748 = $d25748.options;
+      if (typeof $d34cb8 === 'function') {
+        $d34cb8 = $d34cb8.options;
       }
     
         /* template */
-        Object.assign($d25748, (function () {
+        Object.assign($d34cb8, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -26329,9 +26329,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$d25748', $d25748);
+            api.createRecord('$d34cb8', $d34cb8);
           } else {
-            api.reload('$d25748', $d25748);
+            api.reload('$d34cb8', $d34cb8);
           }
         }
 
@@ -26498,14 +26498,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $00aae8 = exports.default || module.exports;
+        var $ea55c4 = exports.default || module.exports;
       
-      if (typeof $00aae8 === 'function') {
-        $00aae8 = $00aae8.options;
+      if (typeof $ea55c4 === 'function') {
+        $ea55c4 = $ea55c4.options;
       }
     
         /* template */
-        Object.assign($00aae8, (function () {
+        Object.assign($ea55c4, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -26611,7 +26611,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-00aae8",
+            _scopeId: "data-v-ea55c4",
             functional: undefined
           };
         })());
@@ -26624,9 +26624,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$00aae8', $00aae8);
+            api.createRecord('$ea55c4', $ea55c4);
           } else {
-            api.reload('$00aae8', $00aae8);
+            api.reload('$ea55c4', $ea55c4);
           }
         }
 
@@ -26656,14 +26656,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $19becf = exports.default || module.exports;
+        var $8b2631 = exports.default || module.exports;
       
-      if (typeof $19becf === 'function') {
-        $19becf = $19becf.options;
+      if (typeof $8b2631 === 'function') {
+        $8b2631 = $8b2631.options;
       }
     
         /* template */
-        Object.assign($19becf, (function () {
+        Object.assign($8b2631, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -26690,9 +26690,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$19becf', $19becf);
+            api.createRecord('$8b2631', $8b2631);
           } else {
-            api.reload('$19becf', $19becf);
+            api.reload('$8b2631', $8b2631);
           }
         }
 
@@ -29466,14 +29466,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $4a236b = exports.default || module.exports;
+        var $00eff3 = exports.default || module.exports;
       
-      if (typeof $4a236b === 'function') {
-        $4a236b = $4a236b.options;
+      if (typeof $00eff3 === 'function') {
+        $00eff3 = $00eff3.options;
       }
     
         /* template */
-        Object.assign($4a236b, (function () {
+        Object.assign($00eff3, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -29606,7 +29606,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-4a236b",
+            _scopeId: "data-v-00eff3",
             functional: undefined
           };
         })());
@@ -29619,9 +29619,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$4a236b', $4a236b);
+            api.createRecord('$00eff3', $00eff3);
           } else {
-            api.reload('$4a236b', $4a236b);
+            api.reload('$00eff3', $00eff3);
           }
         }
 
@@ -29689,7 +29689,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57215" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63344" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
