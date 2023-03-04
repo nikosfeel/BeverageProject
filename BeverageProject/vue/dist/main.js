@@ -27276,7 +27276,11 @@ var _default = {
   },
   async mounted() {
     var result = await _mainService.default.get("api/Orders/" + this.$route.query.id);
-    this.rows = result.data.Products;
+    this.rows = result.data.Products.map(x => {
+      x.Product.Price = x.Product.Price * x.Quantity;
+      return x;
+    });
+    ;
     this.order = result.data.Order;
     console.log(result);
   }
@@ -31081,7 +31085,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53712" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49254" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

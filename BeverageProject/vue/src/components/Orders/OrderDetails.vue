@@ -98,7 +98,10 @@ export default {
   },
   async mounted() {
     var result = await mainService.get("api/Orders/" + this.$route.query.id);
-    this.rows = result.data.Products;
+    this.rows = result.data.Products.map((x) => {
+        x.Product.Price = x.Product.Price * x.Quantity;
+        return x;
+      });;
     this.order = result.data.Order;
     console.log(result);
   },
