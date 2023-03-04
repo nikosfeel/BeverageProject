@@ -11,10 +11,6 @@ namespace Entities.Orders
 {
     public class Order
     {
-        public Order()
-        {
-            Products = new HashSet<Product>();
-        }
         public int OrderId { get; set; }
 
         public DateTime OrderDate { get; set; }
@@ -54,9 +50,5 @@ namespace Entities.Orders
 
         [ScaffoldColumn(false)]
         public bool HasBeenShipped { get; set; }
-
-
-        public ICollection<Product> Products { get; set; }
-
     }
 }

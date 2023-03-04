@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Linq;
 using System.Web;
+using Entities.Orders;
 
 namespace BeverageProject.Models.Dtos
 {
@@ -13,12 +14,15 @@ namespace BeverageProject.Models.Dtos
         [DisplayName("First Name")]
         [StringLength(160)]
         public string FullName { get; set; }
+
         [Required(ErrorMessage = "Address is required")]
         [StringLength(70)]
         public string Address { get; set; }
+
         [Required(ErrorMessage = "City is required")]
         [StringLength(40)]
         public string City { get; set; }
+
         [Required(ErrorMessage = "Postal Code is required")]
         [DisplayName("Postal Code")]
         [StringLength(10)]

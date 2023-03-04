@@ -65,7 +65,7 @@
   <ItemGroup>
     <Compile Include="Orders\Order.cs" />
     <Compile Include="Items\Item.cs" />
-    <Compile Include="Orders\OrderDetail.cs" />
+    <Compile Include="Orders\OrderProduct.cs" />
     <Compile Include="Products\Category.cs" />
     <Compile Include="Products\Product.cs" />
     <Compile Include="IdentityUsers\ApplicationUser.cs" />

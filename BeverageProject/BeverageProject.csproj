@@ -220,6 +220,7 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminControllers\CustomersController.cs" />
+    <Compile Include="Controllers\Api\OrdersController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Helpers\PaginationAndSorting.cs" />
     <Compile Include="Controllers\ClientProductsController.cs" />
@@ -38515,6 +38516,7 @@
     <Content Include="vue\src\components\Products\ProductEdit.vue" />
     <Content Include="vue\src\components\Products\Products.vue" />
     <Content Include="vue\src\components\Products\ProductsTable.vue" />
+    <Content Include="Views\Customers\OrderDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

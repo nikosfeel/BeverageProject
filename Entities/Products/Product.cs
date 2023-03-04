@@ -20,9 +20,6 @@ namespace Entities.Products
 
         public int CategoryId { get; set; }
         [Required]
-        public Category Category { get; set; }
-
-        public ICollection<Order> Orders { get; set; }
-
+        public virtual Category Category { get; set; }
     }
 }

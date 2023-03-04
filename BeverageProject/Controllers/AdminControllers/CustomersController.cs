@@ -14,11 +14,12 @@ namespace BeverageProject.Controllers.AdminControllers
         }
         public ActionResult Orders()
         {
-            var orders = _db.Orders.Include(x => x.Products).ToList();
-
-            return View(orders);
+            return View();
         }
-
+        public ActionResult OrderDetails(int id)
+        {
+            return View();
+        }
         public ActionResult Users()
         {
             return View(_db.Users.ToList());

@@ -26934,7 +26934,514 @@ render._withStripped = true
         
       }
     })();
-},{"./ProductsTable.vue":"components/Products/ProductsTable.vue","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"router.js":[function(require,module,exports) {
+},{"./ProductsTable.vue":"components/Products/ProductsTable.vue","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Orders/OrdersTable.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _vueGoodTable = require("vue-good-table");
+var _mainService = _interopRequireDefault(require("../../services/mainService.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  components: {
+    VueGoodTable: _vueGoodTable.VueGoodTable
+  },
+  data() {
+    return {
+      columns: [{
+        label: "ID",
+        field: "OrderId",
+        type: "number"
+      }, {
+        label: "FullName",
+        field: "FullName"
+      }, {
+        label: "Email",
+        field: "Email",
+        sortable: false
+      }, {
+        label: "OrderDate",
+        field: "OrderDate"
+      }, {
+        label: "Total",
+        field: "Total",
+        width: "120px",
+        type: "number"
+      }, {
+        label: "Actions",
+        field: "Actions",
+        width: "200px",
+        sortable: false
+      }],
+      rows: []
+    };
+  },
+  async mounted() {
+    var result = await _mainService.default.get("api/Orders");
+    if (result.status == 200) this.rows = result.data.map(x => {
+      x.OrderDate = `${new Date(x.OrderDate).toLocaleDateString()} ${new Date(x.OrderDate).toLocaleTimeString()}`;
+      return x;
+    });else this.$snotify.error(`Something went Wrong`, "Error!");
+  }
+};
+exports.default = _default;
+        var $34b2a0 = exports.default || module.exports;
+      
+      if (typeof $34b2a0 === 'function') {
+        $34b2a0 = $34b2a0.options;
+      }
+    
+        /* template */
+        Object.assign($34b2a0, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("VueGoodTable", {
+        attrs: {
+          styleClass: "vgt-table table-hover table-bordered",
+          columns: _vm.columns,
+          rows: _vm.rows,
+          "search-options": {
+            enabled: true,
+            trigger: "keyup",
+          },
+          "pagination-options": {
+            enabled: true,
+            mode: "records",
+            perPage: 10,
+          },
+          "sort-options": {
+            enabled: true,
+            initialSortBy: { field: "OrderId", type: "desc" },
+          },
+        },
+        scopedSlots: _vm._u([
+          {
+            key: "table-row",
+            fn: function (props) {
+              return [
+                props.column.field == "Actions"
+                  ? _c("div", { staticClass: "text-center" }, [
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: {
+                            href:
+                              "/Customers/OrderDetails?id=" + props.row.OrderId,
+                          },
+                        },
+                        [_c("i", { staticClass: "fa fa-eye" })]
+                      ),
+                    ])
+                  : _vm._e(),
+              ]
+            },
+          },
+        ]),
+      }),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$34b2a0', $34b2a0);
+          } else {
+            api.reload('$34b2a0', $34b2a0);
+          }
+        }
+
+        
+      }
+    })();
+},{"vue-good-table":"../node_modules/vue-good-table/dist/vue-good-table.esm.js","../../services/mainService.js":"services/mainService.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Orders/Orders.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _OrdersTable = _interopRequireDefault(require("./OrdersTable.vue"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//
+//
+//
+//
+//
+var _default = {
+  name: 'Orders',
+  components: {
+    OrdersTable: _OrdersTable.default
+  }
+};
+exports.default = _default;
+        var $5fcb3c = exports.default || module.exports;
+      
+      if (typeof $5fcb3c === 'function') {
+        $5fcb3c = $5fcb3c.options;
+      }
+    
+        /* template */
+        Object.assign($5fcb3c, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_c("OrdersTable")], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$5fcb3c', $5fcb3c);
+          } else {
+            api.reload('$5fcb3c', $5fcb3c);
+          }
+        }
+
+        
+      }
+    })();
+},{"./OrdersTable.vue":"components/Orders/OrdersTable.vue","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Orders/OrderDetails.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _mainService = _interopRequireDefault(require("../../services/mainService.js"));
+var _vueGoodTable = require("vue-good-table");
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  components: {
+    VueGoodTable: _vueGoodTable.VueGoodTable
+  },
+  data() {
+    return {
+      order: {},
+      columns: [{
+        label: "PhotoUrl",
+        field: "Product.PhotoUrl",
+        width: "10px",
+        sortable: false
+      }, {
+        label: "Name",
+        field: "Product.Name"
+      }, {
+        label: "Category",
+        field: "Product.Category.Title"
+      }, {
+        label: "Quantity",
+        field: "Quantity",
+        type: "number"
+      }, {
+        label: "Price (€)",
+        field: "Product.Price",
+        width: "120px",
+        type: "number"
+      }],
+      rows: []
+    };
+  },
+  async mounted() {
+    var result = await _mainService.default.get("api/Orders/" + this.$route.query.id);
+    this.rows = result.data.Products;
+    this.order = result.data.Order;
+    console.log(result);
+  }
+};
+exports.default = _default;
+        var $bfe71a = exports.default || module.exports;
+      
+      if (typeof $bfe71a === 'function') {
+        $bfe71a = $bfe71a.options;
+      }
+    
+        /* template */
+        Object.assign($bfe71a, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-3" }, [
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "panel-heading" }, [
+            _vm._v("Order #" + _vm._s(_vm.order.OrderId)),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" }, [
+            _c("h5", [
+              _c("p", [
+                _c("strong", [_vm._v("Name:")]),
+                _vm._v(" " + _vm._s(_vm.order.FullName)),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _c("strong", [_vm._v("Address:")]),
+                _vm._v(" " + _vm._s(_vm.order.Address)),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _c("strong", [_vm._v("City:")]),
+                _vm._v(" " + _vm._s(_vm.order.City)),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _c("strong", [_vm._v("Postal Code:")]),
+                _vm._v(" " + _vm._s(_vm.order.PostalCode)),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _c("strong", [_vm._v("E-Mail:")]),
+                _vm._v(" " + _vm._s(_vm.order.Email)),
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _c("strong", [_vm._v("Phone:")]),
+                _vm._v(" " + _vm._s(_vm.order.Phone)),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "col-md-9 pull-right" },
+        [
+          _c("VueGoodTable", {
+            attrs: {
+              styleClass: "vgt-table table-hover table-bordered",
+              columns: _vm.columns,
+              rows: _vm.rows,
+              "search-options": {
+                enabled: true,
+                trigger: "keyup",
+              },
+            },
+            scopedSlots: _vm._u([
+              {
+                key: "table-row",
+                fn: function (props) {
+                  return [
+                    props.column.field == "Product.Price"
+                      ? _c("div", [
+                          _c("strong", [
+                            _vm._v(
+                              _vm._s(props.row.Product.Price.toFixed(2)) + " €"
+                            ),
+                          ]),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    props.column.field == "Product.PhotoUrl"
+                      ? _c("div", [
+                          _c("img", {
+                            attrs: {
+                              width: "100px",
+                              src: props.row.Product.PhotoUrl,
+                              alt: "",
+                            },
+                          }),
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    !(
+                      props.column.field == "Product.PhotoUrl" ||
+                      props.column.field == "Product.Price"
+                    )
+                      ? _c("span", [
+                          _vm._v(
+                            "\n            " +
+                              _vm._s(props.formattedRow[props.column.field]) +
+                              "\n          "
+                          ),
+                        ])
+                      : _vm._e(),
+                  ]
+                },
+              },
+            ]),
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "vgt-wrap__footer vgt-clearfix" }, [
+            _c("h3", [
+              _c("strong", [_vm._v("Total")]),
+              _vm._v(" "),
+              _c("span", { staticClass: "pull-right" }, [
+                _vm._v(_vm._s(_vm.order.Total.toFixed(2)) + " €"),
+              ]),
+            ]),
+          ]),
+        ],
+        1
+      ),
+    ]),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$bfe71a', $bfe71a);
+          } else {
+            api.reload('$bfe71a', $bfe71a);
+          }
+        }
+
+        
+      }
+    })();
+},{"../../services/mainService.js":"services/mainService.js","vue-good-table":"../node_modules/vue-good-table/dist/vue-good-table.esm.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"router.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -26944,18 +27451,26 @@ exports.default = void 0;
 var _vue = _interopRequireDefault(require("vue"));
 var _vueRouter = _interopRequireDefault(require("vue-router"));
 var _Products = _interopRequireDefault(require("./components/Products/Products.vue"));
+var _Orders = _interopRequireDefault(require("./components/Orders/Orders.vue"));
+var _OrderDetails = _interopRequireDefault(require("./components/Orders/OrderDetails.vue"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 _vue.default.use(_vueRouter.default);
 const routes = [{
   path: "/Products/VueTable",
   component: _Products.default
+}, {
+  path: "/Customers/Orders",
+  component: _Orders.default
+}, {
+  path: "/Customers/OrderDetails",
+  component: _OrderDetails.default
 }];
 var _default = new _vueRouter.default({
   mode: 'history',
   routes
 });
 exports.default = _default;
-},{"vue":"../node_modules/vue/dist/vue.runtime.esm.js","vue-router":"../node_modules/vue-router/dist/vue-router.esm.js","./components/Products/Products.vue":"components/Products/Products.vue"}],"../node_modules/vuex/dist/vuex.esm.js":[function(require,module,exports) {
+},{"vue":"../node_modules/vue/dist/vue.runtime.esm.js","vue-router":"../node_modules/vue-router/dist/vue-router.esm.js","./components/Products/Products.vue":"components/Products/Products.vue","./components/Orders/Orders.vue":"components/Orders/Orders.vue","./components/Orders/OrderDetails.vue":"components/Orders/OrderDetails.vue"}],"../node_modules/vuex/dist/vuex.esm.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
 
@@ -30566,7 +31081,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59843" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53712" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

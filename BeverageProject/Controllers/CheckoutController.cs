@@ -32,7 +32,7 @@ namespace BeverageProject.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CreateOrder(OrderDto orderDto, double? total)
+        public ActionResult CreateOrder(OrderDto orderDto)
         {
             
             List<Entities.Items.Item> cart = (List<Entities.Items.Item>)Session["cart"];
@@ -45,24 +45,25 @@ namespace BeverageProject.Controllers
             order.FullName = orderDto.FullName;
             order.Total = 0;
             order.OrderDate = orderDto.OrderDate;
-            order.Total = (double)total;
-                     
-            foreach (var item in cart)
-            {
-                order.Products.Add(item.Product);
-            }
-            //arxika find db.products.find ola ta products me vash ta id ths order.products
-
-            List<Product> tempProducts = new List<Product>();
-            foreach (var prod in order.Products)
-            {
-                var temp = db.Products.Find(prod.ProductId);
-                tempProducts.Add(temp);
-            }
-            order.Products = tempProducts;
+            order.Total = orderDto.Total;
+            
             if (ModelState.IsValid)
             {
-                db.Entry(order).State = EntityState.Added;
+                db.Orders.Add(order);
+                db.SaveChanges();
+
+                var orderProducts = new List<OrderProduct>();
+                foreach (var product in cart)
+                {
+                    orderProducts.Add(new OrderProduct
+                    {
+                        OrderId = order.OrderId,
+                        ProductId = product.Product.ProductId,
+                        Quantity = product.Quantity,
+                    });
+                }
+
+                db.OrderProducts.AddRange(orderProducts);
                 db.SaveChanges();
                 cart.Clear();
 
