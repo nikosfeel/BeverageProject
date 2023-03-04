@@ -26785,13 +26785,13 @@ exports.default = _default;
                 props.column.field == "Actions"
                   ? _c("div", { staticClass: "text-center" }, [
                       _c(
-                        "button",
+                        "a",
                         {
                           staticClass: "btn btn-primary",
-                          on: {
-                            click: function ($event) {
-                              return _vm.onDetails(props.row.ProductId)
-                            },
+                          attrs: {
+                            target: "_blank",
+                            href:
+                              "/ClientProducts/Details/" + props.row.ProductId,
                           },
                         },
                         [_c("i", { staticClass: "fa fa-eye" })]
@@ -30527,7 +30527,7 @@ _vue.default.use(_vueGoodTable.default);
 _vue.default.use(_vueSnotify.default, {
   toast: {
     timeout: 1000,
-    position: "centerTop"
+    position: "rightTop"
   }
 });
 _vue.default.config.productionTip = false;
@@ -30566,7 +30566,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55213" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59843" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

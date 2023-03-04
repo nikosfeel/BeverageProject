@@ -21,7 +21,7 @@
           {{props.formattedRow[props.column.field]}}
         </span>
         <div class="text-center" v-if="props.column.field == 'Actions'">
-          <button class="btn btn-primary" @click="onDetails(props.row.ProductId)"><i class="fa fa-eye"></i></button>
+          <a class="btn btn-primary" target="_blank" :href="`/ClientProducts/Details/${props.row.ProductId}`"><i class="fa fa-eye"></i></a>
           <button class="btn btn-warning" @click="onEdit(props.row.ProductId)"><i class="fa fa-edit"></i></button>
           <button class="btn btn-danger" @click="onDelete(props.row.ProductId)"><i class="fa fa-trash"></i></button>
         </div>

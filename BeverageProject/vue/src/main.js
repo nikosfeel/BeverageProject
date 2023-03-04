@@ -16,7 +16,7 @@ Vue.use(VueGoodTablePlugin);
 Vue.use(Snotify,{
   toast:{
     timeout: 1000,
-    position: "centerTop"
+    position: "rightTop"
   },
 });
 Vue.config.productionTip = false;
