@@ -41,10 +41,14 @@ namespace BeverageProject.Controllers.Api
 
             return Ok(products);
         }
-
-        public IHttpActionResult Put(int id, Product product)
+        public IHttpActionResult GetById(int id)
         {
-            product.ProductId = id;
+            var products = prodService.Get(id);
+
+            return Ok(products);
+        }
+        public IHttpActionResult Put(Product product)
+        {
             var prod = prodService.Edit(product);
 
             return Ok(prod);

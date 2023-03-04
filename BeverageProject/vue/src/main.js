@@ -8,7 +8,10 @@ import Snotify from 'vue-snotify';
 import 'vue-snotify/styles/material.css';
 import 'vue-good-table/dist/vue-good-table.css';
 import Cart from './components/Cart/Cart.vue';
+import VueModal from '@kouts/vue-modal'
+import '@kouts/vue-modal/dist/vue-modal.css'
 
+Vue.component('Modal', VueModal)
 Vue.use(VueGoodTablePlugin);
 Vue.use(Snotify,{
   toast:{

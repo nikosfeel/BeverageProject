@@ -27,7 +27,7 @@
         </div>
       </template>
     </VueGoodTable>
-    <ProductEdit v-if="triggerProductEdit"/>
+    <ProductEdit v-if="editData.showDrawer" :editData="editData" :init="init"  />
   </div>
 </template>
 
@@ -43,12 +43,15 @@ export default {
     ProductEdit
   },
   async mounted(){
-    var result = await mainService.get('/api/allProducts');
-    this.rows = result.data;
+    await this.init();
   },
   data(){
     return {
-      triggerProductEdit: true,
+      
+      editData: {
+        showDrawer:false,
+        id:0
+      },
       columns: [
         {
           label: 'ID',
@@ -90,6 +93,13 @@ export default {
     };
   },
   methods:{
+    async init(){
+      var result = await mainService.get('/api/allProducts');
+      if(result.status == 200)
+        this.rows = result.data;
+      else
+        this.$snotify.error(`Something went Wrong`,'Error!');
+    },
     async onDelete(id){
       this.rows = this.rows.filter(x=>x.ProductId != id)
       var result = await mainService.delete('api/AllProducts?id=' + id);
@@ -105,7 +115,8 @@ export default {
       location.reload();
     },
     onEdit(id){
-      this.triggerProductEdit = !this.triggerProductEdit
+      this.editData.id = id;
+      this.editData.showDrawer = !this.editData.showDrawer;
     }
   }
 };

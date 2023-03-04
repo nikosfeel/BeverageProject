@@ -35,6 +35,7 @@ namespace PersistenceLayerGeneric.Repositories
             prod.Name = product.Name;
             prod.Description = product.Description;
             prod.Price = product.Price;
+            prod.PhotoUrl= product.PhotoUrl;
 
             Context.Entry(prod).State = EntityState.Modified;
             Context.SaveChanges();
