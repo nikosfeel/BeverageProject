@@ -20,12 +20,12 @@
       >
       <template slot="table-row" slot-scope="props">
         <div class="text-center" v-if="props.column.field == 'Actions'">
-          <a
+          <button
             class="btn btn-primary"
-            :href="`/Customers/OrderDetails?id=${props.row.OrderId}`"
+            @click="$router.replace(`/Customers/OrderDetails?id=${props.row.OrderId}`)"
           >
             <i class="fa fa-eye"></i>
-          </a>
+          </button>
         </div>
       </template>
     </VueGoodTable>
@@ -61,6 +61,10 @@ export default {
           field: "OrderDate",
         },
         {
+          label: "Status",
+          field: "HasBeenShipped",
+        },
+        {
           label: "Total",
           field: "Total",
           width: "120px",
@@ -69,7 +73,7 @@ export default {
         {
           label: "Actions",
           field: "Actions",
-          width: "200px",
+          width: "100px",
           sortable: false,
         },
       ],
@@ -80,6 +84,7 @@ export default {
     var result = await mainService.get("api/Orders");
     if (result.status == 200)
       this.rows = result.data.map((x) => {
+        x.HasBeenShipped = x.HasBeenShipped ? 'Shipped' : 'Not Shipped'
         x.OrderDate = `${new Date(x.OrderDate).toLocaleDateString()} ${new Date(
           x.OrderDate
         ).toLocaleTimeString()}`;

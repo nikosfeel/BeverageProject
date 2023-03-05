@@ -30,5 +30,12 @@ namespace BeverageProject.Controllers.Api
             var order = _OrderProductsRepo.GetOrderProducts(id);
             return Ok(order);
         }
+        [HttpPut]
+        public IHttpActionResult MarkAsShipped(int id)
+        {
+            var order = _OrdersRepo.MarkAsShipped(id);
+            return Ok();
+        }
+
     }
 }

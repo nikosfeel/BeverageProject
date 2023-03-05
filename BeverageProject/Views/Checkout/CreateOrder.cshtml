@@ -86,7 +86,7 @@
                     {
                         <span><b>@item.Product.Name</b></span> <span class="text-muted pull-right"><b> Price: @item.Product.Price€</b></span>
                         <br />
-                        <b class="text-muted">Kind : @item.Product.GetType().Name</b>
+                        <b class="text-muted">Kind : @item.Product.Kind</b>
                         <a href="@Url.Action("Remove", "Cart", new { id = item.Product.ProductId })" class="remove"><i class="fa fa-trash-o fa-2x pull-right"></i></a>
                         <br />
                         <b class="text-muted">Quantity : @item.Quantity</b>

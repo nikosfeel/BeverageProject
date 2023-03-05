@@ -4085,6 +4085,21 @@
   border-top: 1px solid #e5e5e5;
   margin-left: -14px;
   margin-right: -14px;
+}.panel-heading h4 .ship-status[data-v-54abdf] {
+  position: absolute;
+  top: 15px;
+  right: 160px;
+}
+.back-to-list[data-v-54abdf] {
+  background: #8b8b8b;
+  color: white;
+  position: absolute;
+  top: 15px;
+  right: 28px;
+}
+.back-to-list[data-v-54abdf]:hover {
+  background: #4e4e4e;
+  color: white;
 }.snotifyToast {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }

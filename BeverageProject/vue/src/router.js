@@ -2,7 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Products from "./components/Products/Products.vue";
 import Orders from './components/Orders/Orders.vue';
-import OrderDetails from './components/Orders/OrderDetails.vue';
+import OrderDetails from './components/Orders/Details/OrderDetails.vue';
 
 Vue.use(VueRouter);
 
