@@ -1,126 +1,96 @@
 ﻿@model Entities.Orders.Order
 @{
     ViewBag.Title = "Form";
-    Layout = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using Entities.Items
-@*@Html.Partial("~/Views/Checkout/_PayPal.cshtml")*@
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@ViewBag.Title</title>
-    <link rel="shortcut icon" href="~/Content/images/wine-glass.png" type="image/png" />
-    <link href="~/Content/css/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/OrderForm.css" rel="stylesheet" />
-</head>
-<body>
-
-    @{
-        List<Item> cart = (List<Item>)Session["cart"];
-        var total = cart.Sum(item => item.Product.Price * item.Quantity);
+<style>
+    .billing-inputs {
+        padding: 40px;
+        border: 1px solid #898989;
+        border-radius: 10px;
+        box-shadow: 0px 0px 6px 0px #403e3e;
+        margin:24px;
     }
-    <div class="container-fluid">
-        <!--=================== Main Slider Section ===================-->
-        <div class="row">
-            <div class="col-75">
-                <div class="container" style="background: url(/Content/images/banner/parallax.jpg) no-repeat fixed;">
-                    <form action="@Url.Action("CreateOrder","CheckOut",new {total = total},null)" method="post">
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="row pull-right">
-                                    <div class="col-25">
-                                        <a href="@Url.Action("Index","Home")" style="color:black; font-size:20px;"><i class="fa fa-backward"></i> Back to home</a>
-                                    </div>
-                                </div>
-                                <h3>Billing Address</h3>
-                                <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                                @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
-                                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Giannis Dimitriou", id = "fname", name = "fullname", required = true })
-                                <label for="email"><i class="fa fa-envelope-o"></i> Email</label>
-                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "email", name = "email", placeholder = "john@example.com", required = true })
-                                <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
-                                @Html.TextBoxFor(m => m.Address, new { @class = "form-control", id = "adr", name = "address", placeholder = "Papadiamanti 15, Monastiraki", required = true })
-                                <label for="city"><i class="fa fa-institution"></i> City</label>
-                                @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
-                                @Html.TextBoxFor(m => m.City, new { @class = "form-control", id = "city", name = "city", placeholder = "Athens", required = true })
-                                <label for="zip"><i class="fa fa-map-marker"></i> Zip</label>
-                                @Html.ValidationMessageFor(m => m.PostalCode, "", new { @class = "text-danger" })
-                                @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control", id = "zip", name = "postalcode", placeholder = "10001", required = true })
-                                <label for="phone"><i class="fa fa-phone"></i> Phone Number</label>
-                                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
-                                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", id = "phone", name = "phone", placeholder = "e.g 6912345678", required = true })
 
-                            </div>
-                        </div>
-                        <label>
-                            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-                        </label>
-                        <div class="row">
-                            <div class="col-25">
-                                <a href="@Url.Action("PaymentWithPaypal", "Checkout")" class="btn" style="background-color:cornflowerblue">PayPal / Credit Card</a>
-                            </div>
-                            <div class="col-25">
-                                <input type="submit" value="Continue to checkout" class="btn">
-                            </div>
-                        </div>
-                    </form>
+        .billing-inputs input {
+            margin-bottom: 20px;
+        }
+</style>
+@if (((List<Item>)Session["cart"]).Any())
+{
+    var total = ((List<Item>)Session["cart"]).Sum(item => item.Product.Price * item.Quantity);
+
+    <div class="container">
+        <form action="@Url.Action("CreateOrder","CheckOut",new {total = total},null)" method="post" class="form-group">
+            <div class="row margin-bottom-40 ">
+                <div class="col-md-5 billing-inputs">
+                    <h2 class="margin-bottom-20 text-center">Billing Address</h2>
+                    <hr />
+                    <label for="fname"><i class="fa fa-user"></i> Full Name<span class="text-danger font-size-18">*</span></label>
+                    @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Giannis Dimitriou", id = "fname" })
+                    <label for="email"><i class="fa fa-envelope-o"></i> Email<span class="text-danger font-size-18">*</span></label>
+                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", id = "email", placeholder = "john@example.com" })
+                    <label for="adr"><i class="fa fa-address-card-o"></i> Address<span class="text-danger font-size-18">*</span></label>
+                    @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control", id = "adr", placeholder = "Papadiamanti 15, Monastiraki" })
+                    <label for="city"><i class="fa fa-institution"></i> City<span class="text-danger font-size-18">*</span></label>
+                    @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.City, new { @class = "form-control", id = "city", placeholder = "Athens" })
+                    <label for="zip"><i class="fa fa-map-marker"></i> Zip<span class="text-danger font-size-18">*</span></label>
+                    @Html.ValidationMessageFor(m => m.PostalCode, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.PostalCode, new { @class = "form-control", id = "zip", placeholder = "10001" })
+                    <label for="phone"><i class="fa fa-phone"></i> Phone Number<span class="text-danger font-size-18">*</span></label>
+                    @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", id = "phone", placeholder = "e.g 6912345678" })
+                    <label for="same">Shipping address same as billing</label>
+                    <input id="same" type="checkbox" checked="checked" class="checkbox-light">
                 </div>
-            </div>
-            <div class="col-25">
-
-
-                <div class="container" style="background: url(/Content/images/banner/parallax.jpg) no-repeat fixed;">
-                    <h4>
-                        Your Cart
-                        <span class="price" style="color:black">
-                            <b>Items: @cart.Count()</b>
-                            <i class="fa fa-shopping-cart"></i>
-                        </span>
-                    </h4>
+                <div class="col-md-6 billing-inputs">
+                    <h2 class="margin-bottom-20 text-center">Products</h2>
+                    <hr />
                     @foreach (Item item in (List<Item>)Session["cart"])
                     {
-                        <span><b>@item.Product.Name</b></span> <span class="text-muted pull-right"><b> Price: @item.Product.Price€</b></span>
-                        <br />
-                        <b class="text-muted">Kind : @item.Product.Kind</b>
-                        <a href="@Url.Action("Remove", "Cart", new { id = item.Product.ProductId })" class="remove"><i class="fa fa-trash-o fa-2x pull-right"></i></a>
-                        <br />
-                        <b class="text-muted">Quantity : @item.Quantity</b>
+                        <div class="row">
+
+                            <div class="col-md-2">
+                                <img src="@item.Product.PhotoUrl" alt="item photo" width="100" />
+                            </div>
+                            <div class="col-md-6">
+                                <p>@item.Product.Name</p>
+                                <p>Kind : @item.Product.Kind</p>
+                                <strong class="text-muted">Quantity : @item.Quantity</strong>
+                            </div>
+                            <div class="col-md-4">
+                                <p class="font-size-18">Price: @item.Product.Price€</p>
+                            </div>
+                        </div>
                         <hr />
                     }
-                    <span class="price" style="color:black"><b name="total">Total: @total€</b></span>
+
+                    <div class="row">
+                        <h3 name="total" class="text-center margin-bottom-15 margin-top-15">Total: @total€</h3>
+                    </div>
+                    <div class="text-center">
+                        <a href="@Url.Action("PaymentWithPaypal", "Checkout")" class="btn btn-primary pull-left">Pay with PayPal</a>
+                        <input type="submit" value="Pay in Cash" class="btn btn-success pull-right">
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-
-</body>
-</html>
-
-@section scripts{
-    <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function () {
-            'use strict'
-            window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation')
-
-                // Loop over them and prevent submission
-                Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault()
-                            event.stopPropagation()
-                        }
-                        form.classList.add('was-validated')
-                    }, false)
-                })
-            }, false)
-        }())
-    </script>
 }
+else
+{
+    <div class="container">
+        <section class="margin-top-40 text-center">
+            <h1>There are no items in the cart!</h1>
+            <hr />
+            <a href=@Url.Action("Index","Home")><strong>Back To Home</strong></a>
+        </section>
+    </div>
+}
+

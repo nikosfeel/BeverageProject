@@ -41,14 +41,13 @@
     <section class="header-top margin-bottom-20">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="col-md-2 col-sm-2 col-xs-3">
+                <div class="col-md-12">
+                    <div class="col-md-2">
                         <a href="@Url.Action("Index","Home")">
-                            <img src="~/Content/images/Logo.png" alt="" class="img-responsive img-circle" style="height:90px; width:90px; margin-top:5px;">
+                            <img src="~/Content/images/Logo.png" alt="" class="img-responsive img-circle" style="height:120px; width:120px; margin-top:5px;">
                         </a>
                     </div>
                     <div class="col-md-9">
-                        <!--=================== Main Menu ===================-->
                         <nav class="navbar navbar-default paira-mega-menu mega-menu">
                             <div class="navbar-header">
                                 <button type="button" data-toggle="collapse" data-target="#navbar-collapse" class="navbar-toggle">
@@ -60,7 +59,6 @@
                             <div class="width-com">
                                 <div id="navbar-collapse" class="navbar-collapse collapse ">
                                     <ul class="nav navbar-nav">
-                                        <!--=================== Grid Mega Menu ===================-->
                                         <li class="dropdown paira-dropdown mega-menu-fw width-li">
                                             <a href="#">shop <i class="paira-angle-down angle-down fa fa-angle-down margin-left-5"></i></a>
                                             <ul class="dropdown-menu paira-dropdown-menu list-unstyled padding-clear">
@@ -85,10 +83,8 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        <!--=================== Single Menu ===================-->
                                         <li class="width-li"><a href="@Url.Action("About", "Home")">About us</a></li>
                                         <li class="width-li"><a href="@Url.Action("Contact", "Home")">Contact us</a></li>
-                                        <!--=================== Single Menu ===================-->
                                         @Html.Partial("_LoginPartial")
                                         @if (this.User.IsInRole("Admin"))
                                         {

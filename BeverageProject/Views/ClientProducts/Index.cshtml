@@ -45,20 +45,20 @@
                 <div class="synconis paira-margin-bottom-1">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
+                            <div class="col-md-4 text-center paira-margin-top-1">
                                 <ul class="list-group list-group-horizontal pull-left">
-                                    <li class="list-group-item" style="font-size:18px; border-style:none">SORT BY: </li>
+                                    <li class="list-group-item" style="font-size:18px; border-style:none"></li>
                                     <li class="list-group-item"><a href="@Url.Action("Index","ClientProducts",new {sortOrder=ViewBag.ND,category = ViewBag.Category,kind = ViewBag.Kind },null)">Name ↓↑</a></li>
                                     <li class="list-group-item"><a href="@Url.Action("Index","ClientProducts",new {sortOrder=ViewBag.PD,category = ViewBag.Category,kind = ViewBag.Kind },null)">Price ↓↑</a></li>
                                 </ul>
                             </div>
-                            <div class="col-md-4 col-sm-4 col-xs-4 text-center paira-margin-top-1">
-                                <form style="margin-left:140px; margin-top:5px;" class="form-inline" action="/ClientProducts/Index?category=@ViewBag.Category" method="post">
-                                    <i class="fa fa-search input-group" style="font-size:2rem;"></i>
+                            <div class="col-md-4 text-center paira-margin-top-1">
+                                <form  class="form-inline" action="/ClientProducts/Index?category=@ViewBag.Category" method="post">
+                                    <i class="fa fa-search input-group font-size-18"></i>
                                     <input class="form-control mr-sm-2" id="searchProduct" type="text" name="searchProduct" value="@ViewBag.searchProduct" placeholder="Search" style="background-color:white; border-radius:30px" />
                                 </form>
                             </div>
-                            <div class="col-md-4 col-sm-4 col-xs-4 paira-margin-top-1 pull-right">
+                            <div class="col-md-4 paira-margin-top-1 pull-right">
                                 <div class="form-group margin-clear pull-right list-grid margin-top-10 float-0">
                                     <h4 class="font-size-18 bold-font pull-left"><label class="text-uppercase"><b>View :</b></label></h4>
                                     <button data-value="list"><i class="fa fa-th-list fa-2x"></i></button>
