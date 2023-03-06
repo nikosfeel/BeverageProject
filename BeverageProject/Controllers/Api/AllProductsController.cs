@@ -13,17 +13,16 @@ using PersistenceLayerGeneric.Repositories;
 
 namespace BeverageProject.Controllers.Api
 {
+    [Authorize(Roles = "Admin")]
     public class AllProductsController : ApiController
     {
-        private ApplicationDbContext db;
-        private ProductService prodService;
+        private readonly ApplicationDbContext _db;
+        private readonly ProductService prodService;
         public AllProductsController()
         {
-            db = new ApplicationDbContext();
-            prodService = new ProductService(db);
+            _db = new ApplicationDbContext();
+            prodService = new ProductService(_db);
         }
-
-        // GET: api/AllProducts
         public IHttpActionResult Get()
         {
             var products = prodService

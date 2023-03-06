@@ -12,8 +12,11 @@ namespace BeverageProject.Controllers
 {
     public class RoleController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-        // GET: Role
+        private readonly ApplicationDbContext db;
+        public RoleController(ApplicationDbContext context)
+        {
+            db = context;
+        }
         public ActionResult Index()
         {
             if (User.Identity.IsAuthenticated)

@@ -13,13 +13,13 @@ namespace BeverageProject.Controllers.AdminControllers
     [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext _db;
+        public ProductsController(ApplicationDbContext db)
+        {
+            _db = db;
+        }
 
         public ActionResult Index()
-        {
-            return View();
-        }
-        public ActionResult VueTable()
         {
             return View();
         }
@@ -27,7 +27,6 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult Create(ProductCreateModel product)
         {
@@ -39,12 +38,12 @@ namespace BeverageProject.Controllers.AdminControllers
                     Description = product.Description,
                     PhotoUrl = product.PhotoUrl,
                     Price = product.Price,
-                    Category = db.Categories.Where(x => x.Title == product.Category).FirstOrDefault(),
+                    Category = _db.Categories.Where(x => x.Title == product.Category).FirstOrDefault(),
                     Kind = product.Kind
                 };
 
-                db.Products.Add(model);
-                db.SaveChanges();
+                _db.Products.Add(model);
+                _db.SaveChanges();
 
                 return RedirectToAction("Index");
             }

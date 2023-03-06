@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace BeverageProject.Controllers.Api
 {
+    [Authorize(Roles = "Admin")]
     public class OrdersController : ApiController
     {
         private ApplicationDbContext db;

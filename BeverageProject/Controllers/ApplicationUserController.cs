@@ -13,8 +13,12 @@ namespace BeverageProject.Controllers
 {
     public class ApplicationUserController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext db;
 
+        public ApplicationUserController(ApplicationDbContext context)
+        {
+            db = context;
+        }
         // GET: ApplicationUser
         public ActionResult Index()
         {

@@ -11,11 +11,11 @@ namespace BeverageProject.Controllers
 {
     public class ChartsController : Controller
     {
-        private ApplicationDbContext db;
-        private ProductService service;
-        public ChartsController()
+        private readonly ApplicationDbContext db;
+        private readonly ProductService service;
+        public ChartsController(ApplicationDbContext context)
         {
-            db = new ApplicationDbContext();
+            db = context;
             service = new ProductService(db);
         }
 

@@ -5,12 +5,13 @@ using System.Web.Mvc;
 
 namespace BeverageProject.Controllers.AdminControllers
 {
+    [Authorize(Roles = "Admin")]
     public class CustomersController : Controller
     {
         private readonly ApplicationDbContext _db;
-        public CustomersController()
+        public CustomersController(ApplicationDbContext db)
         {
-            _db = new ApplicationDbContext();
+            _db = db;
         }
         public ActionResult Orders()
         {

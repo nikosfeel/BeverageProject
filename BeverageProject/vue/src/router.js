@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/Products/VueTable",
+    path: "/Products",
     component: Products,
   },
   {

@@ -13,7 +13,11 @@ namespace BeverageProject.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private readonly ApplicationDbContext db;
+        public HomeController(ApplicationDbContext context)
+        {
+            db = context;
+        }
         public ActionResult Index(string searchΑllProducts)
         {
             @ViewBag.searchΑllProducts = searchΑllProducts;

@@ -10,12 +10,12 @@ namespace BeverageProject.Controllers
 {
     public class NavigationBarController : Controller
     {
-        private ApplicationDbContext db;
+        private readonly ApplicationDbContext db;
         private ProductService prodService;
         private CategoryService catService;
-        public NavigationBarController()
+        public NavigationBarController(ApplicationDbContext context)
         {
-            db = new ApplicationDbContext();
+            db = context;
             prodService = new ProductService(db);
             catService = new CategoryService(db);
         }

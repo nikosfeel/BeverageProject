@@ -17,8 +17,11 @@ namespace BeverageProject.Controllers
 {
     public class CheckoutController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext();
-        // GET: Checkout
+        private readonly ApplicationDbContext db;
+        public CheckoutController(ApplicationDbContext context)
+        {
+            db = context;
+        }
         public ActionResult Index()
         {
             return View();

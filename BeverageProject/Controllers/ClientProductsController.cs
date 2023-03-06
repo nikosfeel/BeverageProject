@@ -15,13 +15,13 @@ namespace BeverageProject.Controllers
 {
     public class ClientProductsController : Controller
     {
-        private ApplicationDbContext db;
-        private ProductService prodService;
+        private readonly ApplicationDbContext db;
+        private readonly ProductService prodService;
         
 
-        public ClientProductsController()
+        public ClientProductsController(ApplicationDbContext context)
         {
-            db = new ApplicationDbContext();
+            db = context;
             prodService = new ProductService(db);            
         }
 

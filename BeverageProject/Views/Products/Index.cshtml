@@ -1,165 +1,24 @@
-﻿@model IEnumerable<Entities.IProduct>
-@{
-    ViewBag.Title = "AllProducts";
+﻿@{
+    ViewBag.Title = "Products";
     Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
 }
 
 <section id="main-content">
     <section class="wrapper">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-md-12">
                 <section class="panel">
                     <header class="panel-heading">
-                        All Products
+                        Products
                         <span class="tools pull-right">
                             <a href="javascript:;" class="fa fa-chevron-down"></a>
                         </span>
                     </header>
                     <div class="panel-body">
-                        <section id="unseen">
-                            <table class="table" id="example">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Category</th>
-                                        <th>PhotoUrl</th>
-                                        <th>Name</th>
-                                        <th>Price (€)</th>
-                                        <th>Description</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </section>
+                        <div id="app"></div>
                     </div>
                 </section>
             </div>
         </div>
     </section>
 </section>
-
-
-@section scripts{
-
-    
-
-    <script type="text/javascript">
-        LoadData();
-
-        function LoadData() {
-            var settings = {
-                "url": "/api/AllProducts",
-                "method": "GET",
-                "timeout": 0,
-            };
-
-            $.ajax(settings).done(function (response) {
-                LoadProducts();
-                $('#example').DataTable(
-                    {
-                        stateSave: true,
-                        stateSaveCallback: function (settings, data) {
-                            localStorage.setItem('DataTables_' + settings.sInstance, JSON.stringify(data))
-                        },
-                        stateLoadCallback: function (settings) {
-                            return JSON.parse(localStorage.getItem('DataTables_' + settings.sInstance))
-                        },
-                        paging: true,
-                    }
-                )
-                function LoadProducts() {
-                    let products = response;
-                    for (let prod of products) {
-                        let template = `
-                                               <tr id="${prod.ProductId}">
-                                                      <td>${prod.ProductId}</td>
-                                                      <td>${prod.Category} > ${prod.Kind}</td>
-                                                      <td><img src="${prod.PhotoUrl}" alt=" " class="img-responsive" style="width:50px;" /></td>
-                                                      <td class="Name">${prod.Name}</td>
-                                                      <td class="Price">${prod.Price}</td>
-                                                      <td class="Description" style="width:40%">${prod.Description}</td>
-                                                      <td style="display: flex;flex-direction: column;">
-                                                             <button class="btn btn-info edit-btn" href="javascript:;">Edit</button>
-                                                             <button class="btn btn-danger delete-btn" href="javascript:;">Delete</button>
-                                                      </td>
-                                                </tr>
-                                                        `
-                        let element = $(template);
-
-                        element.find(".delete-btn").click(DeleteRow);
-                        element.find(".edit-btn").click(EditRow);
-
-                        $("tbody").append(element);
-                    }
-                }
-            });
-        }
-        function DeleteRow() {
-            let rowId = $(this).parent().parent().attr('id');
-
-            var settings = {
-                "url": "/api/AllProducts?id=" + rowId,
-                "method": "DELETE",
-                "timeout": 0,
-            };
-
-            $.ajax(settings).done(function (response) {
-                let product = response;
-                let querry = "#" + product.ProductId;
-
-                $(querry).hide(500, removeRow);
-                function removeRow() {
-                    $(querry).remove();
-                }
-            });
-        }
-
-        function EditRow() {
-            //  κρατάμε σε  μεταβλητές τα πεδία που θέλουμε να τροποποιήσουμε
-
-            let name = $(this).parent().siblings(".Name").text();
-            let desc = $(this).parent().siblings(".Description").text();
-            let price = $(this).parent().siblings(".Price").text();
-            //  Τσεκάρουμε  το button σε ποια κατάσταση είναι και αναλόγως κάνουμε Editable το περιεχόμενο του.
-            if ($(this).text() == "Edit") {
-                $(this).text("Save");
-                $(this).parent().siblings(".Name").prop("contentEditable", true);
-                $(this).parent().siblings(".Description").prop("contentEditable", true);
-                $(this).parent().siblings(".Price").prop("contentEditable", true);
-            }
-            else {
-                $(this).text("Edit");
-                $(this).parent().siblings(".Name").prop("contentEditable", false);
-                $(this).parent().siblings(".Description").prop("contentEditable", false);
-                $(this).parent().siblings(".Price").prop("contentEditable", false);
-                ///////////    START AJAX PUT ///////////
-                // βρίσκουμε την εκάστοτε γραμμή που θέλουμε να τροποποιήσουμε
-                let rowId = $(this).parent().parent().attr("id");
-                var settings = {
-                    "url": "/api/AllProducts?id=" + rowId,
-                    "method": "PUT",
-                    "timeout": 0,
-                    "headers": {
-                        "Content-Type": "application/json"
-                    },
-                    "data": JSON.stringify({
-                        "Id": rowId,
-                        "Description": desc,
-                        "Name": name,
-                        "Price": price,
-                    }),
-                };
-                $.ajax(settings).done(function (response) {
-                });
-                ////////// END AJAX PUT //////////
-            }
-        }
-
-    </script>
-    <script type="text/javascript">
-
-    </script>
-
-}

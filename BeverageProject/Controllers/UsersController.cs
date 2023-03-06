@@ -12,6 +12,11 @@ namespace BeverageProject.Controllers
 {
     public class UsersController : Controller
     {
+        private readonly ApplicationDbContext _db;
+        public UsersController(ApplicationDbContext db)
+        {
+            _db = db; 
+        }
         // GET: Users
         public ActionResult Index()
         {
@@ -40,8 +45,7 @@ namespace BeverageProject.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var user = User.Identity;
-                ApplicationDbContext context = new ApplicationDbContext();
-                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_db));
                 var s = UserManager.GetRoles(user.GetUserId());
                 if (s[0].ToString() == "Admin")
                 {
