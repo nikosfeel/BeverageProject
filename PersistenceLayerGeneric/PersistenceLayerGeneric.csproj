@@ -113,18 +113,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\MessageDto.cs" />
     <Compile Include="Dtos\OrderProductsDto.cs" />
+    <Compile Include="Dtos\ReplyDto.cs" />
     <Compile Include="IGenericRepository.cs" />
+    <Compile Include="IRepositories\IMessageRepository.cs" />
+    <Compile Include="IRepositories\IReplyRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\MessageRepository.cs" />
     <Compile Include="Repositories\OrderProductsRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\ReplyRepository.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="IRepositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

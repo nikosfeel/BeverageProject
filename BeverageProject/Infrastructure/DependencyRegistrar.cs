@@ -3,6 +3,9 @@ using Autofac.Integration.Mvc;
 using MyDatabase;
 using System.Web.Http;
 using System.Reflection;
+using PersistenceLayerGeneric.IRepositories;
+using PersistenceLayerGeneric.Repositories;
+using Autofac.Integration.WebApi;
 
 namespace BeverageProject.Infrastructure
 {
@@ -14,16 +17,12 @@ namespace BeverageProject.Infrastructure
         }
         public void Register(ContainerBuilder builder)
         {
-            var config = GlobalConfiguration.Configuration;
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            builder.RegisterModelBinders(typeof(MvcApplication).Assembly);
-            builder.RegisterModelBinderProvider();
-            builder.RegisterModule<AutofacWebTypesModule>();
-            builder.RegisterSource(new ViewRegistrationSource());
-            builder.RegisterFilterProvider();
-
-            builder.RegisterType<ApplicationDbContext>().InstancePerLifetimeScope();
-
+            builder.RegisterType<ApplicationDbContext>().AsSelf().InstancePerLifetimeScope();
+            
+            builder.RegisterType<MessageRepository>().As<IMessageRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<ReplyRepository>().As<IReplyRepository>().InstancePerLifetimeScope();
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
         }
     }
 }

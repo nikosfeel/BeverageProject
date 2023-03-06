@@ -15,9 +15,9 @@ namespace BeverageProject.Controllers.Api
         private OrderProductsRepository _OrderProductsRepo;
         private OrderRepository _OrdersRepo;
 
-        public OrdersController()
+        public OrdersController(ApplicationDbContext context)
         {
-            db = new ApplicationDbContext();
+            db = context;
             _OrderProductsRepo = new OrderProductsRepository(db);
             _OrdersRepo = new OrderRepository(db);
         }

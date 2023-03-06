@@ -18,9 +18,9 @@ namespace BeverageProject.Controllers.Api
     {
         private readonly ApplicationDbContext _db;
         private readonly ProductService prodService;
-        public AllProductsController()
+        public AllProductsController(ApplicationDbContext context)
         {
-            _db = new ApplicationDbContext();
+            _db = context;
             prodService = new ProductService(_db);
         }
         public IHttpActionResult Get()

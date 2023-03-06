@@ -7,8 +7,8 @@ using BeverageProject.App_Start;
 using System.Web;
 using Autofac;
 using BeverageProject.Infrastructure;
-using System.Collections.Generic;
 using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 
 namespace BeverageProject
 {
@@ -25,8 +25,10 @@ namespace BeverageProject
 
             var builder = new ContainerBuilder();
             var registrar = new DependencyRegistrar(builder);
+            var config = GlobalConfiguration.Configuration;
             var container = builder.Build();
 
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }

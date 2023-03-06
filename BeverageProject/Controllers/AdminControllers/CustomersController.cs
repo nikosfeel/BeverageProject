@@ -25,5 +25,9 @@ namespace BeverageProject.Controllers.AdminControllers
         {
             return View(_db.Users.ToList());
         }
+        public ActionResult Messages()
+        {
+            return View();
+        }
     }
 }
