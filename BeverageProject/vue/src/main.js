@@ -10,6 +10,7 @@ import 'vue-good-table/dist/vue-good-table.css';
 import Cart from './components/Cart/Cart.vue';
 import VueModal from '@kouts/vue-modal'
 import '@kouts/vue-modal/dist/vue-modal.css'
+import 'animate.css/animate.css';
 
 Vue.component('Modal', VueModal)
 Vue.use(VueGoodTablePlugin);

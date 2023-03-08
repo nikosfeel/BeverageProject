@@ -66,7 +66,6 @@ export default {
 };
 </script>
 <style>
-@import 'animate.css/animate.css';
 .vm.drawer {
   top: 0px;
   margin: 0px 0px 0px auto;
