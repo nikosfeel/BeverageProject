@@ -346,6 +346,7 @@
     <Content Include="Content\css\css\font-awesome.min.css" />
     <Content Include="Content\css\css\FONTS.css" />
     <Content Include="Content\css\default-theme.css" />
+    <Content Include="Content\css\element-icons.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\font-awesome\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome\css\font-awesome.min.css" />
@@ -609,6 +610,8 @@
     <Content Include="Content\adminImages\ico-moon icon font\fonts\bucket-ico-font.ttf" />
     <Content Include="Content\adminImages\ico-moon icon font\fonts\bucket-ico-font.woff" />
     <Content Include="Content\adminImages\ico-moon icon font\selection.json" />
+    <Content Include="fonts\element-icons.ttf" />
+    <Content Include="fonts\element-icons.woff" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -38541,6 +38544,8 @@
     <Content Include="vue\src\components\Products\ProductsTable.vue" />
     <Content Include="Views\Customers\OrderDetails.cshtml" />
     <Content Include="Views\Customers\Messages.cshtml" />
+    <Content Include="vue\dist\element-icons.39b714b4.ttf" />
+    <Content Include="vue\dist\element-icons.c70069ac.woff" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
