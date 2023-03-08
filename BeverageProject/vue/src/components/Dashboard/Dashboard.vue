@@ -2,8 +2,8 @@
     <div class="row">
         <div class="col-md-12">
             <el-tabs type="border-card">
-                <el-tab-pane label="Products"><Products /></el-tab-pane>
-                <el-tab-pane label="Orders"><Orders /></el-tab-pane>
+                <el-tab-pane label="???">Not yet implemented, give me ideas</el-tab-pane>
+                <el-tab-pane label="???">Not yet implemented, give me ideas</el-tab-pane>
             </el-tabs>
         </div>
 

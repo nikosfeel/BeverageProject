@@ -26658,6 +26658,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   name: "ProductsTable",
   components: {
@@ -26669,6 +26674,7 @@ var _default = {
   },
   data() {
     return {
+      productsReady: false,
       editData: {
         showDrawer: false,
         id: 0
@@ -26707,8 +26713,12 @@ var _default = {
   },
   methods: {
     async init() {
+      this.productsReady = false;
       var result = await _mainService.default.get('/api/allProducts');
-      if (result.status == 200) this.rows = result.data;else this.$snotify.error(`Something went Wrong`, 'Error!');
+      if (result.status == 200) {
+        this.rows = result.data;
+        this.productsReady = true;
+      } else this.$snotify.error(`Something went Wrong`, 'Error!');
     },
     async onDelete(id) {
       this.$confirm('This will permanently delete the file. Continue?', 'Warning', {
@@ -26755,99 +26765,113 @@ exports.default = _default;
   return _c(
     "div",
     [
-      _c("VueGoodTable", {
-        attrs: {
-          styleClass: "vgt-table table-hover table-bordered",
-          columns: _vm.columns,
-          rows: _vm.rows,
-          "search-options": {
-            enabled: true,
-            trigger: "keyup",
-          },
-          "pagination-options": {
-            enabled: true,
-            mode: "records",
-            perPage: 10,
-          },
-        },
-        scopedSlots: _vm._u([
-          {
-            key: "table-row",
-            fn: function (props) {
-              return [
-                props.column.field == "PhotoUrl"
-                  ? _c("div", [
-                      _c("img", {
-                        attrs: {
-                          width: "50px",
-                          src: props.row.PhotoUrl,
-                          alt: "",
-                        },
-                      }),
-                    ])
-                  : _c("span", [
-                      _vm._v(
-                        "\n                " +
-                          _vm._s(props.formattedRow[props.column.field]) +
-                          "\n            "
-                      ),
-                    ]),
-                _vm._v(" "),
-                props.column.field == "Actions"
-                  ? _c(
-                      "div",
-                      { staticClass: "text-center" },
-                      [
-                        _c(
-                          "el-row",
-                          [
-                            _c("el-button", {
-                              staticClass: "fa fa-eye",
-                              attrs: { type: "info", circle: "" },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.onDetails(props.row.ProductId)
+      !_vm.productsReady
+        ? _c("el-empty", { attrs: { description: "No Products" } })
+        : _c(
+            "div",
+            [
+              _c("VueGoodTable", {
+                attrs: {
+                  styleClass: "vgt-table table-hover table-bordered",
+                  columns: _vm.columns,
+                  rows: _vm.rows,
+                  "search-options": {
+                    enabled: true,
+                    trigger: "keyup",
+                  },
+                  "pagination-options": {
+                    enabled: true,
+                    mode: "records",
+                    perPage: 10,
+                  },
+                },
+                scopedSlots: _vm._u([
+                  {
+                    key: "table-row",
+                    fn: function (props) {
+                      return [
+                        props.column.field == "PhotoUrl"
+                          ? _c("div", [
+                              _c("img", {
+                                attrs: {
+                                  width: "50px",
+                                  src: props.row.PhotoUrl,
+                                  alt: "",
                                 },
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("el-button", {
-                              staticClass: "fa fa-edit",
-                              attrs: { type: "primary", circle: "" },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.onEdit(props.row.ProductId)
-                                },
-                              },
-                            }),
-                            _vm._v(" "),
-                            _c("el-button", {
-                              staticClass: "fa fa-trash",
-                              attrs: { type: "danger", circle: "" },
-                              on: {
-                                click: function ($event) {
-                                  return _vm.onDelete(props.row.ProductId)
-                                },
-                              },
-                            }),
-                          ],
-                          1
-                        ),
-                      ],
-                      1
-                    )
-                  : _vm._e(),
-              ]
-            },
-          },
-        ]),
-      }),
-      _vm._v(" "),
-      _vm.editData.showDrawer
-        ? _c("ProductEdit", {
-            attrs: { editData: _vm.editData, init: _vm.init },
-          })
-        : _vm._e(),
+                              }),
+                            ])
+                          : _c("span", [
+                              _vm._v(
+                                "\n                    " +
+                                  _vm._s(
+                                    props.formattedRow[props.column.field]
+                                  ) +
+                                  "\n                "
+                              ),
+                            ]),
+                        _vm._v(" "),
+                        props.column.field == "Actions"
+                          ? _c(
+                              "div",
+                              { staticClass: "text-center" },
+                              [
+                                _c(
+                                  "el-row",
+                                  [
+                                    _c("el-button", {
+                                      staticClass: "fa fa-eye",
+                                      attrs: { type: "info", circle: "" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.onDetails(
+                                            props.row.ProductId
+                                          )
+                                        },
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("el-button", {
+                                      staticClass: "fa fa-edit",
+                                      attrs: { type: "primary", circle: "" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.onEdit(props.row.ProductId)
+                                        },
+                                      },
+                                    }),
+                                    _vm._v(" "),
+                                    _c("el-button", {
+                                      staticClass: "fa fa-trash",
+                                      attrs: { type: "danger", circle: "" },
+                                      on: {
+                                        click: function ($event) {
+                                          return _vm.onDelete(
+                                            props.row.ProductId
+                                          )
+                                        },
+                                      },
+                                    }),
+                                  ],
+                                  1
+                                ),
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                      ]
+                    },
+                  },
+                ]),
+              }),
+              _vm._v(" "),
+              _vm.editData.showDrawer
+                ? _c("ProductEdit", {
+                    attrs: { editData: _vm.editData, init: _vm.init },
+                  })
+                : _vm._e(),
+            ],
+            1
+          ),
     ],
     1
   )
@@ -27737,19 +27761,13 @@ exports.default = _default;
           "el-tabs",
           { attrs: { type: "border-card" } },
           [
-            _c(
-              "el-tab-pane",
-              { attrs: { label: "Products" } },
-              [_c("Products")],
-              1
-            ),
+            _c("el-tab-pane", { attrs: { label: "???" } }, [
+              _vm._v("Not yet implemented, give me ideas"),
+            ]),
             _vm._v(" "),
-            _c(
-              "el-tab-pane",
-              { attrs: { label: "Orders" } },
-              [_c("Orders")],
-              1
-            ),
+            _c("el-tab-pane", { attrs: { label: "???" } }, [
+              _vm._v("Not yet implemented, give me ideas"),
+            ]),
           ],
           1
         ),
@@ -103585,7 +103603,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61246" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53816" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

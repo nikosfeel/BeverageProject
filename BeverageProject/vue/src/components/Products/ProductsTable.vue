@@ -1,32 +1,37 @@
 <template>
     <div>
-        <VueGoodTable styleClass="vgt-table table-hover table-bordered" :columns="columns" :rows="rows" :search-options="{
-            enabled: true,
-            trigger: 'keyup'
-        }" :pagination-options="{
+        <el-empty v-if="!productsReady" description="No Products"></el-empty>
+        <div v-else>
+            <VueGoodTable styleClass="vgt-table table-hover table-bordered" :columns="columns" :rows="rows" :search-options="{
+                enabled: true,
+                trigger: 'keyup'
+            }" :pagination-options="{
                 enabled: true,
                 mode: 'records',
                 perPage: 10,
             }">
-            <template slot="table-row" slot-scope="props">
-                <div v-if="props.column.field == 'PhotoUrl'">
-                    <img width="50px" :src="props.row.PhotoUrl" alt="">
-                </div>
-                <span v-else>
-                    {{ props.formattedRow[props.column.field] }}
-                </span>
-                <div class="text-center" v-if="props.column.field == 'Actions'">
-                    <el-row>
-                        <el-button type="info" class="fa fa-eye" circle @click="onDetails(props.row.ProductId)"></el-button>
-                        <el-button type="primary" class="fa fa-edit" circle
-                            @click="onEdit(props.row.ProductId)"></el-button>
-                        <el-button type="danger" class="fa fa-trash" circle
-                            @click="onDelete(props.row.ProductId)"></el-button>
-                    </el-row>
-                </div>
-            </template>
-        </VueGoodTable>
-        <ProductEdit v-if="editData.showDrawer" :editData="editData" :init="init" />
+                <template slot="table-row" slot-scope="props">
+                    <div v-if="props.column.field == 'PhotoUrl'">
+                        <img width="50px" :src="props.row.PhotoUrl" alt="">
+                    </div>
+                    <span v-else>
+                        {{ props.formattedRow[props.column.field] }}
+                    </span>
+                    <div class="text-center" v-if="props.column.field == 'Actions'">
+                        <el-row>
+                            <el-button type="info" class="fa fa-eye" circle
+                                @click="onDetails(props.row.ProductId)"></el-button>
+                            <el-button type="primary" class="fa fa-edit" circle
+                                @click="onEdit(props.row.ProductId)"></el-button>
+                            <el-button type="danger" class="fa fa-trash" circle
+                                @click="onDelete(props.row.ProductId)"></el-button>
+                        </el-row>
+                    </div>
+                </template>
+            </VueGoodTable>
+            <ProductEdit v-if="editData.showDrawer" :editData="editData" :init="init" />
+        </div>
+
     </div>
 </template>
 
@@ -46,7 +51,7 @@ export default {
     },
     data() {
         return {
-
+            productsReady: false,
             editData: {
                 showDrawer: false,
                 id: 0
@@ -93,11 +98,15 @@ export default {
     },
     methods: {
         async init() {
+            this.productsReady = false;
             var result = await mainService.get('/api/allProducts');
-            if (result.status == 200)
+            if (result.status == 200) {
                 this.rows = result.data;
+                this.productsReady = true;
+            }
             else
                 this.$snotify.error(`Something went Wrong`, 'Error!');
+
         },
         async onDelete(id) {
             this.$confirm('This will permanently delete the file. Continue?', 'Warning', {
