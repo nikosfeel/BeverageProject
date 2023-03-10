@@ -1,4 +1,6 @@
-﻿@{
+﻿@using System.Security.Cryptography
+@using System.Web.UI.WebControls
+@{
     ViewBag.Title = "Contact";
 }
 
@@ -47,33 +49,25 @@
                         <h3 class="text-uppercase raleway-sbold">Drop us a line</h3>
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12">
-                                <!--=================== Contact Us Form Section ===================-->
-                                <form accept-charset="UTF-8" action="#" class="contact-form" method="post">
-                                    <div class="row">
-                                        <input name="form_type" type="hidden" value="contact">
-                                        <input name="utf8" type="hidden" value="✓">
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-                                            <input type="text" class="form-control" name="contact[name]">
-                                            <span class="center-block"><label>Name</label></span>
-                                        </div>
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-                                            <input type="email" class="form-control" name="contact[email]">
-                                            <span class="center-block"><label>Email</label></span>
-                                        </div>
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-                                            <input type="text" class="form-control" name="contact[phone]">
-                                            <span class="center-block"><label>Phone</label></span>
-                                        </div>
-                                        <div class="form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0">
-                                            <textarea rows="8" name="contact[body]" class="form-control"></textarea>
-                                        </div>
+                                @if (Request.IsAuthenticated) {
+                                    <div id="app"></div>
+                                }
+                                else {
+                                    <div class="margin-top-40 text-center">
+                                        <h1>You must be logged in to send us a message!</h1>
+                                        <a href="/Account/Login"
+                                           class="btn btn-default btn-lg color-scheme-2 text-uppercase paira-margin-top-1 raleway-light">
+                                            Login
+                                        </a>
                                     </div>
-                                    <a href="#" class="btn btn-default btn-lg color-scheme-2 pull-right text-uppercase paira-margin-top-1 raleway-light">Send Message</a>
-                                </form>
+                                    
+                                }
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                
             </div>
         </div>
     </section>

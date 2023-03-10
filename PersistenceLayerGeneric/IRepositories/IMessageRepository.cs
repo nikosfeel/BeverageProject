@@ -8,5 +8,6 @@ namespace PersistenceLayerGeneric.IRepositories
     public interface IMessageRepository
     {
         Task<IList<MessageDto>> GetAll();
+        Task<MessageDto> PostMessage(MessageDto messageDto);
     }
 }

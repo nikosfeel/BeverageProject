@@ -18,14 +18,11 @@ namespace BeverageProject.Controllers
     public class CheckoutController : Controller
     {
         private readonly ApplicationDbContext db;
-        public CheckoutController(ApplicationDbContext context)
-        {
+
+        public CheckoutController(ApplicationDbContext context) {
             db = context;
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
+
         public ActionResult Success()
         {
             return View();
@@ -201,16 +198,15 @@ namespace BeverageProject.Controllers
                     var guid = Request.Params["guid"];
                     var executedPayment = ExecutePayment(apiContext, payerId, Session["guid"] as string);
 
-                    if (executedPayment.state.ToLower() !="approved")
-                    {
-                        return View("Failure");
+                    if (executedPayment.state.ToLower() !="approved") {
+                        return View("/Views/Error/Index.cshtml");
                     }
                 }
             }
             catch(Exception ex)
             {
                 PaypalLogger.Log("Error" + ex.Message);
-                return View("Failure");
+                return View("/Views/Error/Index.cshtml");
             }
 
             return View("Success");

@@ -117,64 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
-  return bundleURL;
-}
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
-  return '/';
-}
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-function updateLink(link) {
-  var newLink = link.cloneNode();
-  newLink.onload = function () {
-    link.remove();
-  };
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-var cssTimeout = null;
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
-      }
-    }
-    cssTimeout = null;
-  }, 50);
-}
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/element-ui/lib/theme-chalk/index.css":[function(require,module,exports) {
-
-        var reloadCSS = require('_css_loader');
-        module.hot.dispose(reloadCSS);
-        module.hot.accept(reloadCSS);
-      
-},{"./fonts\\element-icons.woff":[["element-icons.c70069ac.woff","../node_modules/element-ui/lib/theme-chalk/fonts/element-icons.woff"],"../node_modules/element-ui/lib/theme-chalk/fonts/element-icons.woff"],"./fonts\\element-icons.ttf":[["element-icons.39b714b4.ttf","../node_modules/element-ui/lib/theme-chalk/fonts/element-icons.ttf"],"../node_modules/element-ui/lib/theme-chalk/fonts/element-icons.ttf"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/vue/dist/vue.runtime.esm.js":[function(require,module,exports) {
+})({"../node_modules/vue/dist/vue.runtime.esm.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
 
@@ -26340,7 +26283,58 @@ const instance = _axios.default.create({
 });
 var _default = instance;
 exports.default = _default;
-},{"axios":"../node_modules/axios/index.js","../router":"router.js"}],"components/Products/ProductEdit.vue":[function(require,module,exports) {
+},{"axios":"../node_modules/axios/index.js","../router":"router.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
+  return bundleURL;
+}
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
+  }
+  return '/';
+}
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+function updateLink(link) {
+  var newLink = link.cloneNode();
+  newLink.onload = function () {
+    link.remove();
+  };
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+var cssTimeout = null;
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+    cssTimeout = null;
+  }, 50);
+}
+module.exports = reloadCSS;
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"components/Products/ProductEdit.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27711,7 +27705,165 @@ render._withStripped = true
         
       }
     })();
-},{"../../../services/mainService.js":"services/mainService.js","./OrderDetailsProducts.vue":"components/Orders/Details/OrderDetailsProducts.vue","./OrderPanel.vue":"components/Orders/Details/OrderPanel.vue","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Dashboard/Dashboard.vue":[function(require,module,exports) {
+},{"../../../services/mainService.js":"services/mainService.js","./OrderDetailsProducts.vue":"components/Orders/Details/OrderDetailsProducts.vue","./OrderPanel.vue":"components/Orders/Details/OrderPanel.vue","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Messages/Admin/MessagesTable.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _mainService = _interopRequireDefault(require("../../../services/mainService.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  data() {
+    return {
+      tableData: [{
+        name: 'Tom',
+        email: 'admin@gmail.com',
+        title: 'Los Angeles'
+      }]
+    };
+  },
+  async mounted() {
+    await this.init();
+  },
+  methods: {
+    deleteRow(index, rows) {
+      rows.splice(index, 1);
+    },
+    async init() {
+      var response = await _mainService.default.get('/api/Message');
+      console.log(response.data);
+      this.tableData = response.data;
+    }
+  }
+};
+exports.default = _default;
+        var $944445 = exports.default || module.exports;
+      
+      if (typeof $944445 === 'function') {
+        $944445 = $944445.options;
+      }
+    
+        /* template */
+        Object.assign($944445, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "el-table",
+    {
+      staticStyle: { width: "100%" },
+      attrs: { data: _vm.tableData, "max-height": "250" },
+    },
+    [
+      _c("el-table-column", {
+        attrs: { prop: "Name", label: "Name", width: "120" },
+      }),
+      _vm._v(" "),
+      _c("el-table-column", {
+        attrs: { prop: "Email", label: "Email", width: "250" },
+      }),
+      _vm._v(" "),
+      _c("el-table-column", {
+        attrs: { prop: "Theme", label: "Theme", width: "300" },
+      }),
+      _vm._v(" "),
+      _c("el-table-column", {
+        attrs: { label: "Operations", width: "120" },
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function (scope) {
+              return [
+                _c(
+                  "el-button",
+                  {
+                    attrs: { type: "text", size: "small" },
+                    nativeOn: {
+                      click: function ($event) {
+                        $event.preventDefault()
+                        return _vm.deleteRow(scope.$index, _vm.tableData)
+                      },
+                    },
+                  },
+                  [_vm._v("\n        See Details\n      ")]
+                ),
+              ]
+            },
+          },
+        ]),
+      }),
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$944445', $944445);
+          } else {
+            api.reload('$944445', $944445);
+          }
+        }
+
+        
+      }
+    })();
+},{"../../../services/mainService.js":"services/mainService.js","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Dashboard/Dashboard.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27720,7 +27872,16 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _Products = _interopRequireDefault(require("../Products/Products.vue"));
 var _Orders = _interopRequireDefault(require("../Orders/Orders.vue"));
+var _MessagesTable = _interopRequireDefault(require("../Messages/Admin/MessagesTable.vue"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -27735,9 +27896,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = {
   components: {
     Products: _Products.default,
-    Orders: _Orders.default
+    Orders: _Orders.default,
+    MessagesTable: _MessagesTable.default
   },
-  name: 'Daskboard'
+  name: 'Dashboard'
 };
 exports.default = _default;
         var $075291 = exports.default || module.exports;
@@ -27761,8 +27923,17 @@ exports.default = _default;
           "el-tabs",
           { attrs: { type: "border-card" } },
           [
-            _c("el-tab-pane", { attrs: { label: "???" } }, [
-              _vm._v("Not yet implemented, give me ideas"),
+            _c("el-tab-pane", { attrs: { label: "Messages" } }, [
+              _c("div", { staticClass: "row" }, [
+                _c(
+                  "div",
+                  { staticClass: "col-md-6" },
+                  [_c("MessagesTable")],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }),
+              ]),
             ]),
             _vm._v(" "),
             _c("el-tab-pane", { attrs: { label: "???" } }, [
@@ -27805,7 +27976,344 @@ render._withStripped = true
         
       }
     })();
-},{"../Products/Products.vue":"components/Products/Products.vue","../Orders/Orders.vue":"components/Orders/Orders.vue","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"router.js":[function(require,module,exports) {
+},{"../Products/Products.vue":"components/Products/Products.vue","../Orders/Orders.vue":"components/Orders/Orders.vue","../Messages/Admin/MessagesTable.vue":"components/Messages/Admin/MessagesTable.vue","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Messages/Client/Create.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _mainService = _interopRequireDefault(require("../../../services/mainService.js"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'ClientMessageCreate',
+  async mounted() {
+    await this.buildMessage();
+  },
+  data() {
+    return {
+      message: {
+        Name: '',
+        Email: '',
+        Phone: '',
+        Theme: '',
+        Description: ''
+      }
+    };
+  },
+  methods: {
+    async getUser() {
+      var response = await _mainService.default.get('/api/Users');
+      this.message.Name = response.data.UserName;
+      this.message.Email = response.data.Email;
+      return response.data;
+    },
+    async buildMessage() {
+      var user = await this.getUser();
+      this.message.Phone = user.PhoneNumber;
+      this.message.Theme = '';
+      this.message.Description = '';
+    },
+    async sendMessage() {
+      if (this.hasValidationErrors()) {
+        this.$snotify.error(`You must enter all the fields`, 'Error!!');
+        return;
+      }
+      this.getUser();
+      var response = await _mainService.default.post('api/Message', this.message);
+      if (response.status == 200) {
+        this.$snotify.success(`Thank you for your message!`, 'Success!');
+        this.$router.replace('/Home');
+        this.$router.go();
+      }
+    },
+    hasValidationErrors() {
+      return this.message.Email == '' || this.message.Theme == '' || this.message.Description == '' || this.message.PhoneNumber == '' || this.message.UserName == '';
+    }
+  }
+};
+exports.default = _default;
+        var $c0907b = exports.default || module.exports;
+      
+      if (typeof $c0907b === 'function') {
+        $c0907b = $c0907b.options;
+      }
+    
+        /* template */
+        Object.assign($c0907b, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "contact-form" }, [
+    _c("div", { staticClass: "row" }, [
+      _c(
+        "div",
+        {
+          staticClass:
+            "form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0",
+        },
+        [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.message.Name,
+                expression: "message.Name",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "contact[name]", disabled: "" },
+            domProps: { value: _vm.message.Name },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.message, "Name", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _vm._m(0),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0",
+        },
+        [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.message.Email,
+                expression: "message.Email",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "email", name: "contact[email]", disabled: "" },
+            domProps: { value: _vm.message.Email },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.message, "Email", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _vm._m(1),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0",
+        },
+        [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.message.Phone,
+                expression: "message.Phone",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "contact[phone]" },
+            domProps: { value: _vm.message.Phone },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.message, "Phone", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _vm._m(2),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0",
+        },
+        [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.message.Theme,
+                expression: "message.Theme",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "contact[phone]" },
+            domProps: { value: _vm.message.Theme },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.message, "Theme", $event.target.value)
+              },
+            },
+          }),
+          _vm._v(" "),
+          _vm._m(3),
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "form-group col-md-12 col-sm-12 col-xs-12 paira-margin-top-1 margin-bottom-0",
+        },
+        [
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.message.Description,
+                expression: "message.Description",
+              },
+            ],
+            staticClass: "form-control",
+            attrs: { rows: "8", name: "contact[body]" },
+            domProps: { value: _vm.message.Description },
+            on: {
+              input: function ($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.message, "Description", $event.target.value)
+              },
+            },
+          }),
+        ]
+      ),
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass:
+          "btn btn-default btn-lg color-scheme-2 pull-right text-uppercase paira-margin-top-1 raleway-light",
+        on: { click: _vm.sendMessage },
+      },
+      [_vm._v("Send\n        Message")]
+    ),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "center-block" }, [
+      _c("label", [_vm._v("Name")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "center-block" }, [
+      _c("label", [_vm._v("Email")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "center-block" }, [
+      _c("label", [_vm._v("Phone")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "center-block" }, [
+      _c("label", [_vm._v("Theme")]),
+    ])
+  },
+]
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$c0907b', $c0907b);
+          } else {
+            api.reload('$c0907b', $c0907b);
+          }
+        }
+
+        
+      }
+    })();
+},{"../../../services/mainService.js":"services/mainService.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"router.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27818,6 +28326,7 @@ var _Products = _interopRequireDefault(require("./components/Products/Products.v
 var _Orders = _interopRequireDefault(require("./components/Orders/Orders.vue"));
 var _OrderDetails = _interopRequireDefault(require("./components/Orders/Details/OrderDetails.vue"));
 var _Dashboard = _interopRequireDefault(require("./components/Dashboard/Dashboard.vue"));
+var _Create = _interopRequireDefault(require("./components/Messages/Client/Create.vue"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 _vue.default.use(_vueRouter.default);
 const routes = [{
@@ -27832,13 +28341,16 @@ const routes = [{
 }, {
   path: '/Dashboard',
   component: _Dashboard.default
+}, {
+  path: '/Home/Contact',
+  component: _Create.default
 }];
 var _default = new _vueRouter.default({
   mode: 'history',
   routes
 });
 exports.default = _default;
-},{"vue":"../node_modules/vue/dist/vue.runtime.esm.js","vue-router":"../node_modules/vue-router/dist/vue-router.esm.js","./components/Products/Products.vue":"components/Products/Products.vue","./components/Orders/Orders.vue":"components/Orders/Orders.vue","./components/Orders/Details/OrderDetails.vue":"components/Orders/Details/OrderDetails.vue","./components/Dashboard/Dashboard.vue":"components/Dashboard/Dashboard.vue"}],"../node_modules/vuex/dist/vuex.esm.js":[function(require,module,exports) {
+},{"vue":"../node_modules/vue/dist/vue.runtime.esm.js","vue-router":"../node_modules/vue-router/dist/vue-router.esm.js","./components/Products/Products.vue":"components/Products/Products.vue","./components/Orders/Orders.vue":"components/Orders/Orders.vue","./components/Orders/Details/OrderDetails.vue":"components/Orders/Details/OrderDetails.vue","./components/Dashboard/Dashboard.vue":"components/Dashboard/Dashboard.vue","./components/Messages/Client/Create.vue":"components/Messages/Client/Create.vue"}],"../node_modules/vuex/dist/vuex.esm.js":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
 
@@ -103539,10 +104051,15 @@ module.hot.accept(reloadCSS);
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"main.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/element-ui/lib/theme-chalk/index.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"./fonts\\element-icons.woff":[["element-icons.c70069ac.woff","../node_modules/element-ui/lib/theme-chalk/fonts/element-icons.woff"],"../node_modules/element-ui/lib/theme-chalk/fonts/element-icons.woff"],"./fonts\\element-icons.ttf":[["element-icons.39b714b4.ttf","../node_modules/element-ui/lib/theme-chalk/fonts/element-icons.ttf"],"../node_modules/element-ui/lib/theme-chalk/fonts/element-icons.ttf"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
-require("element-ui/lib/theme-chalk/index.css");
 var _vue = _interopRequireDefault(require("vue"));
 var _App = _interopRequireDefault(require("./App.vue"));
 var _router = _interopRequireDefault(require("./router"));
@@ -103557,6 +104074,7 @@ require("vue-snotify/styles/material.css");
 require("vue-good-table/dist/vue-good-table.css");
 require("@kouts/vue-modal/dist/vue-modal.css");
 require("animate.css/animate.css");
+require("element-ui/lib/theme-chalk/index.css");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 _vue.default.component('Modal', _vueModal.default);
 _vue.default.use(_vueGoodTable.default);
@@ -103578,7 +104096,7 @@ new _vue.default({
   el: '#app-cart',
   render: h => h(_Cart.default)
 });
-},{"element-ui/lib/theme-chalk/index.css":"../node_modules/element-ui/lib/theme-chalk/index.css","vue":"../node_modules/vue/dist/vue.runtime.esm.js","./App.vue":"App.vue","./router":"router.js","./store":"store/index.js","vue-good-table":"../node_modules/vue-good-table/dist/vue-good-table.esm.js","axios":"../node_modules/axios/index.js","vue-snotify":"../node_modules/vue-snotify/vue-snotify.esm.js","./components/Cart/Cart.vue":"components/Cart/Cart.vue","@kouts/vue-modal":"../node_modules/@kouts/vue-modal/dist/vue-modal.es.js","element-ui":"../node_modules/element-ui/lib/element-ui.common.js","vue-snotify/styles/material.css":"../node_modules/vue-snotify/styles/material.css","vue-good-table/dist/vue-good-table.css":"../node_modules/vue-good-table/dist/vue-good-table.css","@kouts/vue-modal/dist/vue-modal.css":"../node_modules/@kouts/vue-modal/dist/vue-modal.css","animate.css/animate.css":"../node_modules/animate.css/animate.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"../node_modules/vue/dist/vue.runtime.esm.js","./App.vue":"App.vue","./router":"router.js","./store":"store/index.js","vue-good-table":"../node_modules/vue-good-table/dist/vue-good-table.esm.js","axios":"../node_modules/axios/index.js","vue-snotify":"../node_modules/vue-snotify/vue-snotify.esm.js","./components/Cart/Cart.vue":"components/Cart/Cart.vue","@kouts/vue-modal":"../node_modules/@kouts/vue-modal/dist/vue-modal.es.js","element-ui":"../node_modules/element-ui/lib/element-ui.common.js","vue-snotify/styles/material.css":"../node_modules/vue-snotify/styles/material.css","vue-good-table/dist/vue-good-table.css":"../node_modules/vue-good-table/dist/vue-good-table.css","@kouts/vue-modal/dist/vue-modal.css":"../node_modules/@kouts/vue-modal/dist/vue-modal.css","animate.css/animate.css":"../node_modules/animate.css/animate.css","element-ui/lib/theme-chalk/index.css":"../node_modules/element-ui/lib/theme-chalk/index.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -103603,7 +104121,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53816" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64702" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

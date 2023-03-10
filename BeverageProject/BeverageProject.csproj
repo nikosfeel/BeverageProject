@@ -242,7 +242,9 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminControllers\CustomersController.cs" />
+    <Compile Include="Controllers\Api\MessageController.cs" />
     <Compile Include="Controllers\Api\OrdersController.cs" />
+    <Compile Include="Controllers\Api\UsersController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Helpers\PaginationAndSorting.cs" />
     <Compile Include="Controllers\ClientProductsController.cs" />
@@ -38549,6 +38551,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Message\" />
     <Folder Include="vue\.cache\0a\" />
     <Folder Include="vue\.cache\1d\" />
     <Folder Include="vue\.cache\20\" />

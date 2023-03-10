@@ -23,7 +23,7 @@ namespace PersistenceLayerGeneric.Dtos
         [Required]
         public string Description { get; set; }
 
-        public IList<Reply> Replies { get; set; }
+        public IList<Reply> Replies { get; set; } = new List<Reply>();
 
     }
 }

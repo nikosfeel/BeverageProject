@@ -4,6 +4,7 @@ import Products from "./components/Products/Products.vue";
 import Orders from './components/Orders/Orders.vue';
 import OrderDetails from './components/Orders/Details/OrderDetails.vue';
 import Dashboard from './components/Dashboard/Dashboard.vue';
+import ClientMessageCreate from './components/Messages/Client/Create.vue';
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,10 @@ const routes = [
   {
     path:'/Dashboard',
     component: Dashboard,
+  },
+  {
+    path:'/Home/Contact',
+    component: ClientMessageCreate
   }
 ];
 

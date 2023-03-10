@@ -1,4 +1,3 @@
-import 'element-ui/lib/theme-chalk/index.css';
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
@@ -13,6 +12,7 @@ import 'vue-snotify/styles/material.css';
 import 'vue-good-table/dist/vue-good-table.css';
 import '@kouts/vue-modal/dist/vue-modal.css'
 import 'animate.css/animate.css';
+import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.component('Modal', VueModal)
 Vue.use(VueGoodTablePlugin);

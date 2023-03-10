@@ -26,7 +26,7 @@ namespace Entities.Messages
         public string Theme { get; set; }
         [Required]
         public string Description { get; set; }
-        public DateTime DateCreated { get; set; }
-        public IList<Reply> Replies { get; set; }
+        public DateTime DateCreated { get; set; } = DateTime.Now;
+        public virtual IList<Reply> Replies { get; set; }
     }
 }

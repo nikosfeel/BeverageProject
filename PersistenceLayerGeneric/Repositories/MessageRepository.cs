@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using Entities.Messages;
 
 namespace PersistenceLayerGeneric.Repositories
 {
@@ -28,6 +29,22 @@ namespace PersistenceLayerGeneric.Repositories
                 Phone = x.Phone,
                 Theme = x.Theme
             }).ToListAsync();
+        }
+
+        public async Task<MessageDto> PostMessage(MessageDto messageDto) {
+            var message = new Message() {
+                Name = messageDto.Name,
+                Phone = messageDto.Phone,
+                Theme = messageDto.Theme,
+                Description = messageDto.Description,
+                Email = messageDto.Email,
+            };
+
+            _context.Messages.Add(message);
+            await _context.SaveChangesAsync();
+            messageDto.Id = message.Id;
+
+            return messageDto;
         }
     }
 }

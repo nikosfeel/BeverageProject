@@ -103,7 +103,7 @@ namespace BeverageProject.Controllers
             // Require that the user has already logged in via username/password or external login    
             if (!await SignInManager.HasBeenVerifiedAsync())
             {
-                return View("Error");
+                return View("/Views/Error/Index.cshtml");
             }
             return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
@@ -189,7 +189,7 @@ namespace BeverageProject.Controllers
         {
             if (userId == null || code == null)
             {
-                return View("Error");
+                return View("/Views/Error/Index.cshtml");
             }
             var result = await UserManager.ConfirmEmailAsync(userId, code);
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
@@ -244,7 +244,7 @@ namespace BeverageProject.Controllers
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
-            return code == null ? View("Error") : View();
+            return code == null ? View("/Views/Error/Index.cshtml") : View();
         }
 
         //
@@ -298,9 +298,8 @@ namespace BeverageProject.Controllers
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
-            if (userId == null)
-            {
-                return View("Error");
+            if (userId == null) {
+                return View("/Views/Error/Index.cshtml");
             }
             var userFactors = await UserManager.GetValidTwoFactorProvidersAsync(userId);
             var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
@@ -322,7 +321,7 @@ namespace BeverageProject.Controllers
             // Generate the token and send it
             if (!await SignInManager.SendTwoFactorCodeAsync(model.SelectedProvider))
             {
-                return View("Error");
+                return View("/Views/Error/Index.cshtml");
             }
             return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
         }

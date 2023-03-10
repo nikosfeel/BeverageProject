@@ -82,12 +82,12 @@ namespace BeverageProject.Controllers
         public ActionResult Details(int? id)
         {
             if (id == null)            
-                return View("Error/Index.cshtml");
+                return RedirectToRoute("Error/Index.cshtml");
 
             Product product = prodService.Get((int)id);
 
             if (product == null)
-                return View("Error/Index.cshtml");
+                return RedirectToRoute("Error/Index.cshtml");
 
             return View(product);
         }       
