@@ -13,43 +13,43 @@
   border-top: 1px solid #e5e5e5;
   margin-left: -14px;
   margin-right: -14px;
-}.panel-heading h4 .ship-status[data-v-16f2db] {
+}.panel-heading h4 .ship-status[data-v-54abdf] {
   position: absolute;
   top: 15px;
   right: 160px;
 }
-.back-to-list[data-v-16f2db] {
+.back-to-list[data-v-54abdf] {
   background: #8b8b8b;
   color: white;
   position: absolute;
   top: 15px;
   right: 28px;
 }
-.back-to-list[data-v-16f2db]:hover {
+.back-to-list[data-v-54abdf]:hover {
   background: #4e4e4e;
   color: white;
-}.delete-p[data-v-98f36b] {
+}.delete-p[data-v-00eff3] {
   color: white;
   cursor: pointer;
 }
-.row-1[data-v-98f36b] {
+.row-1[data-v-00eff3] {
   height: 69px;
 }
-.row-2[data-v-98f36b] {
+.row-2[data-v-00eff3] {
   height: 69px;
 }
-.row-3[data-v-98f36b] {
+.row-3[data-v-00eff3] {
   height: 69px;
 }
-.row-4[data-v-98f36b] {
+.row-4[data-v-00eff3] {
   height: 69px;
 }
-.row-5[data-v-98f36b] {
+.row-5[data-v-00eff3] {
   height: 69px;
   transition: 1s;
   text-align: center;
 }
-.row-5[data-v-98f36b]:hover {
+.row-5[data-v-00eff3]:hover {
   background-color: rgba(240, 248, 255, 0.154);
 }.snotifyToast {
   -webkit-animation-fill-mode: both;

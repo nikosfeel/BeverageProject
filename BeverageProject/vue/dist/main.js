@@ -8696,14 +8696,14 @@ function patchScopedSlots (instance) {
 
 },{}],"App.vue":[function(require,module,exports) {
 
-        var $e1d840 = exports.default || module.exports;
+        var $29066c = exports.default || module.exports;
       
-      if (typeof $e1d840 === 'function') {
-        $e1d840 = $e1d840.options;
+      if (typeof $29066c === 'function') {
+        $29066c = $29066c.options;
       }
     
         /* template */
-        Object.assign($e1d840, (function () {
+        Object.assign($29066c, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -8738,9 +8738,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$e1d840', $e1d840);
+            api.createRecord('$29066c', $29066c);
           } else {
-            api.reload('$e1d840', $e1d840);
+            api.reload('$29066c', $29066c);
           }
         }
 
@@ -26401,14 +26401,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $dec92d = exports.default || module.exports;
+        var $d34cb8 = exports.default || module.exports;
       
-      if (typeof $dec92d === 'function') {
-        $dec92d = $dec92d.options;
+      if (typeof $d34cb8 === 'function') {
+        $d34cb8 = $d34cb8.options;
       }
     
         /* template */
-        Object.assign($dec92d, (function () {
+        Object.assign($d34cb8, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -26596,9 +26596,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$dec92d', $dec92d);
+            api.createRecord('$d34cb8', $d34cb8);
           } else {
-            api.reload('$dec92d', $dec92d);
+            api.reload('$d34cb8', $d34cb8);
           }
         }
 
@@ -26744,14 +26744,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $b3b56d = exports.default || module.exports;
+        var $ea55c4 = exports.default || module.exports;
       
-      if (typeof $b3b56d === 'function') {
-        $b3b56d = $b3b56d.options;
+      if (typeof $ea55c4 === 'function') {
+        $ea55c4 = $ea55c4.options;
       }
     
         /* template */
-        Object.assign($b3b56d, (function () {
+        Object.assign($ea55c4, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -26877,7 +26877,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-b3b56d",
+            _scopeId: "data-v-ea55c4",
             functional: undefined
           };
         })());
@@ -26890,9 +26890,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$b3b56d', $b3b56d);
+            api.createRecord('$ea55c4', $ea55c4);
           } else {
-            api.reload('$b3b56d', $b3b56d);
+            api.reload('$ea55c4', $ea55c4);
           }
         }
 
@@ -26922,14 +26922,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $ed348c = exports.default || module.exports;
+        var $8b2631 = exports.default || module.exports;
       
-      if (typeof $ed348c === 'function') {
-        $ed348c = $ed348c.options;
+      if (typeof $8b2631 === 'function') {
+        $8b2631 = $8b2631.options;
       }
     
         /* template */
-        Object.assign($ed348c, (function () {
+        Object.assign($8b2631, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -26956,9 +26956,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$ed348c', $ed348c);
+            api.createRecord('$8b2631', $8b2631);
           } else {
-            api.reload('$ed348c', $ed348c);
+            api.reload('$8b2631', $8b2631);
           }
         }
 
@@ -27055,14 +27055,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $806d84 = exports.default || module.exports;
+        var $34b2a0 = exports.default || module.exports;
       
-      if (typeof $806d84 === 'function') {
-        $806d84 = $806d84.options;
+      if (typeof $34b2a0 === 'function') {
+        $34b2a0 = $34b2a0.options;
       }
     
         /* template */
-        Object.assign($806d84, (function () {
+        Object.assign($34b2a0, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -27142,9 +27142,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$806d84', $806d84);
+            api.createRecord('$34b2a0', $34b2a0);
           } else {
-            api.reload('$806d84', $806d84);
+            api.reload('$34b2a0', $34b2a0);
           }
         }
 
@@ -27172,14 +27172,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1f85a3 = exports.default || module.exports;
+        var $5fcb3c = exports.default || module.exports;
       
-      if (typeof $1f85a3 === 'function') {
-        $1f85a3 = $1f85a3.options;
+      if (typeof $5fcb3c === 'function') {
+        $5fcb3c = $5fcb3c.options;
       }
     
         /* template */
-        Object.assign($1f85a3, (function () {
+        Object.assign($5fcb3c, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -27206,9 +27206,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$1f85a3', $1f85a3);
+            api.createRecord('$5fcb3c', $5fcb3c);
           } else {
-            api.reload('$1f85a3', $1f85a3);
+            api.reload('$5fcb3c', $5fcb3c);
           }
         }
 
@@ -27304,14 +27304,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $6d235f = exports.default || module.exports;
+        var $bf4d5b = exports.default || module.exports;
       
-      if (typeof $6d235f === 'function') {
-        $6d235f = $6d235f.options;
+      if (typeof $bf4d5b === 'function') {
+        $bf4d5b = $bf4d5b.options;
       }
     
         /* template */
-        Object.assign($6d235f, (function () {
+        Object.assign($bf4d5b, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -27418,9 +27418,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$6d235f', $6d235f);
+            api.createRecord('$bf4d5b', $bf4d5b);
           } else {
-            api.reload('$6d235f', $6d235f);
+            api.reload('$bf4d5b', $bf4d5b);
           }
         }
 
@@ -27479,14 +27479,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $16f2db = exports.default || module.exports;
+        var $54abdf = exports.default || module.exports;
       
-      if (typeof $16f2db === 'function') {
-        $16f2db = $16f2db.options;
+      if (typeof $54abdf === 'function') {
+        $54abdf = $54abdf.options;
       }
     
         /* template */
-        Object.assign($16f2db, (function () {
+        Object.assign($54abdf, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -27571,7 +27571,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-16f2db",
+            _scopeId: "data-v-54abdf",
             functional: undefined
           };
         })());
@@ -27584,9 +27584,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$16f2db', $16f2db);
+            api.createRecord('$54abdf', $54abdf);
           } else {
-            api.reload('$16f2db', $16f2db);
+            api.reload('$54abdf', $54abdf);
           }
         }
 
@@ -27644,14 +27644,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $b36914 = exports.default || module.exports;
+        var $dcaccd = exports.default || module.exports;
       
-      if (typeof $b36914 === 'function') {
-        $b36914 = $b36914.options;
+      if (typeof $dcaccd === 'function') {
+        $dcaccd = $dcaccd.options;
       }
     
         /* template */
-        Object.assign($b36914, (function () {
+        Object.assign($dcaccd, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -27696,9 +27696,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$b36914', $b36914);
+            api.createRecord('$dcaccd', $dcaccd);
           } else {
-            api.reload('$b36914', $b36914);
+            api.reload('$dcaccd', $dcaccd);
           }
         }
 
@@ -27712,24 +27712,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _mainService = _interopRequireDefault(require("../../../services/mainService.js"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -27750,38 +27732,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 var _default = {
-  data() {
-    return {
-      tableData: [{
-        name: 'Tom',
-        email: 'admin@gmail.com',
-        title: 'Los Angeles'
-      }]
-    };
-  },
+  props: ["tableData", "init"],
   async mounted() {
     await this.init();
   },
   methods: {
-    deleteRow(index, rows) {
+    seeDescription(index, rows) {
       rows.splice(index, 1);
-    },
-    async init() {
-      var response = await _mainService.default.get('/api/Message');
-      console.log(response.data);
-      this.tableData = response.data;
     }
   }
 };
 exports.default = _default;
-        var $944445 = exports.default || module.exports;
+        var $33c995 = exports.default || module.exports;
       
-      if (typeof $944445 === 'function') {
-        $944445 = $944445.options;
+      if (typeof $33c995 === 'function') {
+        $33c995 = $33c995.options;
       }
     
         /* template */
-        Object.assign($944445, (function () {
+        Object.assign($33c995, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -27819,11 +27788,11 @@ exports.default = _default;
                     nativeOn: {
                       click: function ($event) {
                         $event.preventDefault()
-                        return _vm.deleteRow(scope.$index, _vm.tableData)
+                        return _vm.seeDescription(scope.$index, _vm.tableData)
                       },
                     },
                   },
-                  [_vm._v("\n        See Details\n      ")]
+                  [_vm._v("\n        See Description\n      ")]
                 ),
               ]
             },
@@ -27854,16 +27823,61 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$944445', $944445);
+            api.createRecord('$33c995', $33c995);
           } else {
-            api.reload('$944445', $944445);
+            api.reload('$33c995', $33c995);
           }
         }
 
         
       }
     })();
-},{"../../../services/mainService.js":"services/mainService.js","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Dashboard/Dashboard.vue":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Messages/Admin/MessageDetails.vue":[function(require,module,exports) {
+
+        var $50a19e = exports.default || module.exports;
+      
+      if (typeof $50a19e === 'function') {
+        $50a19e = $50a19e.options;
+      }
+    
+        /* template */
+        Object.assign($50a19e, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$50a19e', $50a19e);
+          } else {
+            api.reload('$50a19e', $50a19e);
+          }
+        }
+
+        
+      }
+    })();
+},{"vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Dashboard/Dashboard.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -27873,6 +27887,8 @@ exports.default = void 0;
 var _Products = _interopRequireDefault(require("../Products/Products.vue"));
 var _Orders = _interopRequireDefault(require("../Orders/Orders.vue"));
 var _MessagesTable = _interopRequireDefault(require("../Messages/Admin/MessagesTable.vue"));
+var _MessageDetails = _interopRequireDefault(require("../Messages/Admin/MessageDetails.vue"));
+var _mainService = _interopRequireDefault(require("../../services/mainService.js"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 //
 //
@@ -27897,19 +27913,31 @@ var _default = {
   components: {
     Products: _Products.default,
     Orders: _Orders.default,
-    MessagesTable: _MessagesTable.default
+    MessagesTable: _MessagesTable.default,
+    MessageDetailsVue: _MessageDetails.default
   },
-  name: 'Dashboard'
+  name: 'Dashboard',
+  data() {
+    return {
+      tableData: []
+    };
+  },
+  methods: {
+    async init() {
+      var response = await _mainService.default.get("/api/Message");
+      this.tableData = response.data;
+    }
+  }
 };
 exports.default = _default;
-        var $075291 = exports.default || module.exports;
+        var $17b071 = exports.default || module.exports;
       
-      if (typeof $075291 === 'function') {
-        $075291 = $075291.options;
+      if (typeof $17b071 === 'function') {
+        $17b071 = $17b071.options;
       }
     
         /* template */
-        Object.assign($075291, (function () {
+        Object.assign($17b071, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -27928,11 +27956,20 @@ exports.default = _default;
                 _c(
                   "div",
                   { staticClass: "col-md-6" },
-                  [_c("MessagesTable")],
+                  [
+                    _c("MessagesTable", {
+                      attrs: { tableData: _vm.tableData, init: _vm.init },
+                    }),
+                  ],
                   1
                 ),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }),
+                _c(
+                  "div",
+                  { staticClass: "col-md-6" },
+                  [_c("MessageDetailsVue")],
+                  1
+                ),
               ]),
             ]),
             _vm._v(" "),
@@ -27967,16 +28004,16 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$075291', $075291);
+            api.createRecord('$17b071', $17b071);
           } else {
-            api.reload('$075291', $075291);
+            api.reload('$17b071', $17b071);
           }
         }
 
         
       }
     })();
-},{"../Products/Products.vue":"components/Products/Products.vue","../Orders/Orders.vue":"components/Orders/Orders.vue","../Messages/Admin/MessagesTable.vue":"components/Messages/Admin/MessagesTable.vue","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Messages/Client/Create.vue":[function(require,module,exports) {
+},{"../Products/Products.vue":"components/Products/Products.vue","../Orders/Orders.vue":"components/Orders/Orders.vue","../Messages/Admin/MessagesTable.vue":"components/Messages/Admin/MessagesTable.vue","../Messages/Admin/MessageDetails.vue":"components/Messages/Admin/MessageDetails.vue","../../services/mainService.js":"services/mainService.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/Messages/Client/Create.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28062,14 +28099,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $c0907b = exports.default || module.exports;
+        var $069cc0 = exports.default || module.exports;
       
-      if (typeof $c0907b === 'function') {
-        $c0907b = $c0907b.options;
+      if (typeof $069cc0 === 'function') {
+        $069cc0 = $069cc0.options;
       }
     
         /* template */
-        Object.assign($c0907b, (function () {
+        Object.assign($069cc0, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -28304,9 +28341,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$c0907b', $c0907b);
+            api.createRecord('$069cc0', $069cc0);
           } else {
-            api.reload('$c0907b', $c0907b);
+            api.reload('$069cc0', $069cc0);
           }
         }
 
@@ -31086,14 +31123,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $98f36b = exports.default || module.exports;
+        var $00eff3 = exports.default || module.exports;
       
-      if (typeof $98f36b === 'function') {
-        $98f36b = $98f36b.options;
+      if (typeof $00eff3 === 'function') {
+        $00eff3 = $00eff3.options;
       }
     
         /* template */
-        Object.assign($98f36b, (function () {
+        Object.assign($00eff3, (function () {
           var render = function () {
   var _vm = this
   var _h = _vm.$createElement
@@ -31226,7 +31263,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-98f36b",
+            _scopeId: "data-v-00eff3",
             functional: undefined
           };
         })());
@@ -31239,9 +31276,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$98f36b', $98f36b);
+            api.createRecord('$00eff3', $00eff3);
           } else {
-            api.reload('$98f36b', $98f36b);
+            api.reload('$00eff3', $00eff3);
           }
         }
 
@@ -104121,7 +104158,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64702" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51156" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
