@@ -28,29 +28,6 @@
 .back-to-list[data-v-54abdf]:hover {
   background: #4e4e4e;
   color: white;
-}.delete-p[data-v-00eff3] {
-  color: white;
-  cursor: pointer;
-}
-.row-1[data-v-00eff3] {
-  height: 69px;
-}
-.row-2[data-v-00eff3] {
-  height: 69px;
-}
-.row-3[data-v-00eff3] {
-  height: 69px;
-}
-.row-4[data-v-00eff3] {
-  height: 69px;
-}
-.row-5[data-v-00eff3] {
-  height: 69px;
-  transition: 1s;
-  text-align: center;
-}
-.row-5[data-v-00eff3]:hover {
-  background-color: rgba(240, 248, 255, 0.154);
 }.snotifyToast {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }

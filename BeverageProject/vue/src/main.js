@@ -5,7 +5,6 @@ import store from "./store";
 import VueGoodTablePlugin from 'vue-good-table';
 import axios from 'axios';
 import Snotify from 'vue-snotify';
-import Cart from './components/Cart/Cart.vue';
 import VueModal from '@kouts/vue-modal'
 import ElementUI from 'element-ui';
 import 'vue-snotify/styles/material.css';
@@ -30,8 +29,4 @@ new Vue({
   router: router,
   store,
   render: h => h(App)
-});
-new Vue({
-  el: '#app-cart',
-  render: h => h(Cart)
 });
