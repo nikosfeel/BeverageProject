@@ -71,13 +71,13 @@
       <Project>{CC0D9262-754B-494F-8AF3-AB7924213957}</Project>
       <Name>Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MyDatabase\MyDatabase.csproj">
+    <ProjectReference Include="..\MyDatabase\ApplicationDatabase.csproj">
       <Project>{67B94614-3F11-4664-8D8C-F258A6FF3DAF}</Project>
-      <Name>MyDatabase</Name>
+      <Name>ApplicationDatabase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PersistenceLayerGeneric\PersistenceLayerGeneric.csproj">
+    <ProjectReference Include="..\PersistenceLayerGeneric\PersistenceLayer.csproj">
       <Project>{1af5d36a-be89-423e-8652-25f17b312e76}</Project>
-      <Name>PersistenceLayerGeneric</Name>
+      <Name>PersistenceLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

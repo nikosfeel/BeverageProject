@@ -1,11 +1,9 @@
-﻿using MyDatabase;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Data.Entity;
 using System.Text;
 using System.Threading.Tasks;
-using PersistenceLayerGeneric.Repositories;
 using Entities.Products;
 using Entities;
 
@@ -15,11 +13,6 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            ApplicationDbContext db = new ApplicationDbContext();
-            var products = db.Products.ToList();
         }
-
-        
-
     }
 }

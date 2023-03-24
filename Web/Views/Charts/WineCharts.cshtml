@@ -1,0 +1,162 @@
+﻿@{
+    ViewBag.Title = "WineCharts";
+    Layout = "~/Views/Shared/AdminComponents/_AdminLayout.cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+        <h3 style="text-align:center">Wines</h3>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Area Chart
+                        <span class="tools pull-right">
+                            <a href="javascript:;" id="areachartbtn" class="fa fa-chevron-up"></a>
+                        </span>
+                    </header>
+                    <div class="row panel-body">
+                        <div class="col-md-12">
+                            <div id="areaChartArea"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Column Chart
+                        <span class="tools pull-right">
+                            <a href="javascript:;" id="columnchartbtn" class="fa fa-chevron-up"></a>
+                        </span>
+                    </header>
+                    <div class="row panel-body">
+                        <div class="col-md-12">
+                            <div id="columnChartArea"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        Pie Chart
+                        <span class="tools pull-right">
+                            <a href="javascript:;" id="piechartbtn" class="fa fa-chevron-up"></a>
+                        </span>
+                    </header>
+                    <div class="row panel-body">
+                        <div class="col-md-12">
+                            <div id="pieChartArea"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    </section>
+</section>
+
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+            $('#columnchartbtn').click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("WineAreaAndColumnChart")',
+                    dataType: "json",
+                    success: function (data) {
+                        var series = [
+                            {
+                                type: 'column',
+                                name: 'Price',
+                                data: data
+                            }];
+                        createChart("#columnChartArea", "Wine Prices", series);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#areachartbtn').click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("WineAreaAndColumnChart")',
+                    dataType: "json",
+                    success: function (data) {
+                        var series = [
+                            {
+                                type: 'area',
+                                name: 'Price',
+                                data: data
+                            }];
+                        createChart("#areaChartArea", "Wine Prices", series);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#piechartbtn').click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: '@Url.Action("WinePieChart")',
+                    dataType: "json",
+                    success: function (data) {
+                        var series = [
+                            {
+                                type: 'pie',
+                                name: 'Quantity',
+                                data: data
+                            }];
+                        createChart("#pieChartArea", "Wine Kinds", series);
+                    }
+                });
+            });
+        });
+
+        function createChart(chartcontainer, title, series) {
+            $(chartcontainer).highcharts({
+                charts: {
+                    type: 'pie'
+                },
+                credits: {
+                    enabled: false
+                },
+                exporting: {
+                    enabled: false
+                },
+                plotOptions: {
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                            style: {
+                                color: (Highcharts.theme && Highcharts.theme.contrastTextColor || 'black'),
+                            }
+                        }
+                    }
+                },
+                series: series,
+                title: {
+                    text: title
+                }
+            });
+        }
+    </script>
+}

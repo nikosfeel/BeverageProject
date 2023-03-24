@@ -1,0 +1,74 @@
+﻿@using System.Security.Cryptography
+@using System.Web.UI.WebControls
+@{
+    ViewBag.Title = "Contact";
+}
+
+<!--=================== Main Content Container ===================-->
+<main class="contact-page">
+    <!--=================== Breadcrumb Section ===================-->
+    <section class="breadcrumb-container paira-padding-bottom-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="breadcrumb">
+                        <ul class="list-inline">
+                            <li><a href="#" class="raleway-light">Home <i class="fa fa-angle-right"></i></a></li>
+                            <li class="raleway-sbold">Contact us</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--=================== contact content Section ===================-->
+    <section class="contact-content paira-padding-bottom-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <img alt="" class="paira-margin-bottom-1" src="~/Content/images/hedding.png">
+                    <h3 class="text-uppercase raleway-light margin-clear paira-margin-bottom-1">Contact Us</h3>
+                </div>
+
+                <div class="col-md-12 col-xs-12 col-sm-12">
+                    <div class="text-justify contact-desc paira-padding-bottom-2">
+                        <p class="margin-top-20 margin-bottom-0">We'd love to hear from you - please use the form to send us your message.</p>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 col-xs-12 margin-top-10">
+                                <p class="letter-spacing-2">908 Andrianou Str.<br>Athens<br>Postal Code, 17778<br>Greece</p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 margin-top-10">
+                                <p class="letter-spacing-2">Email: info@e-beverage.gr<br>Toll-free: 210 000 8808</p>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12 margin-top-10">
+                                <p class="letter-spacing-2">Opening Hours:<br>Monday to Saturday: 9am - 10pm</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-contact">
+                        <h3 class="text-uppercase raleway-sbold">Drop us a line</h3>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                @if (Request.IsAuthenticated) {
+                                    <div id="app"></div>
+                                }
+                                else {
+                                    <div class="margin-top-40 text-center">
+                                        <h1>You must be logged in to send us a message!</h1>
+                                        <a href="/Account/Login"
+                                           class="btn btn-default btn-lg color-scheme-2 text-uppercase paira-margin-top-1 raleway-light">
+                                            Login
+                                        </a>
+                                    </div>
+                                    
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+</main>

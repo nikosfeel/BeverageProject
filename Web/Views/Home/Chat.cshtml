@@ -1,0 +1,70 @@
+﻿<style>
+    div.panel-body {
+        overflow: scroll;
+    }
+
+    div.panel-heading {
+        font-size: 18px;
+    }
+</style>
+
+<div class="container">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <img alt="" class="paira-margin-bottom-1" src="~/Content/images/hedding.png">
+                <h3>E-Beverage Support</h3>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="chat-panel panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-comments-o fa-2x"></i>
+            More informations via email: info@e-beverage.gr
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body" id="chat" style="height:400px;">
+            <input type="hidden" id="displayname" />
+
+            <p id="discussion"></p>
+        </div>
+        <!-- /.panel-body -->
+        <div class="panel-footer">
+            <div class="input-group">
+                <input style="border-radius: 30px; width: 90%;" id="message" type="text" name="message" class="form-control input-sm" height:50px;" placeholder="Type your message here..." />
+                <span class="input-group-btn">
+                    <input type="button" class="btn btn-primary" style="border-radius:30px; padding:8px 15px;" id="sendmessage" value="Send">
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script src="~/Scripts/jquery.signalR-2.2.2.min.js"></script>
+    <script src="~/SignalR/hubs/"></script>
+    <script>
+        $(document).ready(function () {
+            $('.chat').hide();
+            var chat = $.connection.chatHub;
+            // Create a function that the hub can call back to display messages.
+            chat.client.addNewMessageToPage = function (name, message) {
+                $('#discussion').append('<p style="color:black;text-align:left;"><strong>' + name + ":" + ' </strong> ' + htmlEncode(message) + '</p><hr/>');
+            };
+
+            $('#displayname').val('@(User.Identity.Name != "" ? User.Identity.Name : "Guest")');
+            $('#message').focus();
+            $.connection.hub.start().done(function () {
+                $('#sendmessage').on('click', function () {
+                    chat.server.send($('#displayname').val(), $('#message').val());
+                    $('#message').val('').focus();
+                });
+            });
+        });
+        // This optional function html-encodes messages for display in the page.
+        function htmlEncode(value) {
+            var encodedValue = $('<div />').text(value).html();
+            return encodedValue;
+        }
+    </script>
+}
